@@ -8,7 +8,7 @@ import { TestimoialComponent } from './testimoial/testimoial.component';
 
 const routes: Routes = [
   {
-    path: "Main",
+    path: "",
     component: MainComponent
   },
   {
