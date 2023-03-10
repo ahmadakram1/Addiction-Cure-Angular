@@ -56,5 +56,13 @@
   }
   
  
+  body{
+   
+    background-image: url("../../../assets/HomeAssets/img/back2.avif");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+    
 
-  /* material */
+}
