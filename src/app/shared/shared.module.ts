@@ -7,6 +7,8 @@ import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 import { AdminSideBarComponent } from './admin-side-bar/admin-side-bar.component';
 import { RouterModule } from '@angular/router';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { DoctorCardComponent } from './doctor-card/doctor-card.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,14 @@ import { NgxSpinnerModule } from "ngx-spinner";
     AdminHeaderComponent,
     AdminFooterComponent,
     AdminSideBarComponent,
+    DoctorCardComponent,
     
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatCardModule
+    
   ],
   exports:[
     HomeHeaderComponent,
@@ -28,6 +33,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     AdminFooterComponent,
     AdminSideBarComponent,
     NgxSpinnerModule,
+    DoctorCardComponent
   ]
 })
 export class SharedModule { }
