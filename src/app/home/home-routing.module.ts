@@ -4,6 +4,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { MainComponent } from './main/main.component';
+import { OutPutDoctorComponent } from './out-put-doctor/out-put-doctor.component';
 import { TestimoialComponent } from './testimoial/testimoial.component';
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: "Doctors",
     component: DoctorsComponent
+  },
+  {
+    path: "OutPutDoctor",
+    component: OutPutDoctorComponent
   }
 ];
 

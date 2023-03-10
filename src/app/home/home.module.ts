@@ -9,6 +9,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { SharedModule } from '../shared/shared.module';
 import { TestimoialComponent } from './testimoial/testimoial.component';
 import { DoctorsComponent } from './doctors/doctors.component';
+import { OutPutDoctorComponent } from './out-put-doctor/out-put-doctor.component';
 
 
 
@@ -18,7 +19,8 @@ import { DoctorsComponent } from './doctors/doctors.component';
     ContactUsComponent,
     AboutUsComponent,
     TestimoialComponent,
-    DoctorsComponent
+    DoctorsComponent,
+    OutPutDoctorComponent
   ],
   imports: [
     CommonModule,
