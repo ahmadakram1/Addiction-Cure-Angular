@@ -8,8 +8,7 @@
  
 </ngx-spinner>
 
-<!--helllo -->
-<!-- hhhhhhhhhhhhhhhhhh -->
+
 <!-- Navbar Start -->
 <app-home-header></app-home-header>
 
@@ -23,21 +22,40 @@
       <div class="col-md-8 col-lg-6">
         <div class="login d-flex align-items-center py-5">
           <div class="container">
+
+            <div class="fadeIn first">
+              <img src="https://shorelinerecoverycenter.com/wp-content/uploads/elementor/thumbs/drug-addiction-facts-p1gsy6ukzqt7ssamaakj4qngp22pex7dzfyc72nd78.png" id="icon" alt="User Icon" />
+            </div>
+
             <div class="row">
+              
               <div class="col-md-8 col-lg-8 mx-auto">
-                <h3 class="login-heading mb-4">Login</h3>
+
+                
+
+                <h3 class="login-heading mb-4"><b>Login</b></h3>
   
                 <!-- Sign In Form -->
-                <form>
-                  <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                  </div>
-  
+                <form [formGroup]="LoginForm">
+
+                   <mat-form-field class="example-full-width" >
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="Email" type="email" class="form-control"  placeholder="name@example.com"><br>
+                    <mat-error class="text-danger" *ngIf="LoginForm.controls['Email'].hasError('email')"> Invalid email</mat-error> 
+                    <mat-error class="text-danger" *ngIf="LoginForm.controls['Email'].hasError('required')">Email is <strong>required</strong></mat-error> 
+                  </mat-form-field>
+                    
+                  
+                  <mat-form-field class="example-full-width" >
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="Password" type="password" class="form-control"  placeholder="**********"><br>
+                    <mat-error class="text-danger" *ngIf="LoginForm.controls['Password'].hasError('minlength')"> Invalid Passowrd</mat-error> 
+                    <mat-error class="text-danger" *ngIf="LoginForm.controls['Password'].hasError('required')">Passowrd is <strong>required</strong></mat-error> 
+                  </mat-form-field>
+                   <br><br>
+
+
+
                   <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
                     <label class="form-check-label" for="rememberPasswordCheck">
@@ -46,7 +64,10 @@
                   </div>
   
                   <div class="d-grid">
-                    <a (click)="showSuccess()" class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</a>
+                    <!-- <a (click)="showSuccess()" class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</a> -->
+                    <input type="submit" [disabled]="LoginForm.invalid" (click)="GetData()" (click)="showSuccess()"
+                    class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" value="Sign In" style="color:white">
+
                     <div class="text-center">
                       <a class="small" href="#">Forgot password?</a>
                     </div>
@@ -69,3 +90,8 @@
 <app-home-footer></app-home-footer>
 
 <!-- Navbar End -->
+
+
+
+
+

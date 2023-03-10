@@ -9,6 +9,9 @@ import { RouterModule } from '@angular/router';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { DoctorCardComponent } from './doctor-card/doctor-card.component';
 import {MatCardModule} from '@angular/material/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import {MatCardModule} from '@angular/material/card';
     AdminFooterComponent,
     AdminSideBarComponent,
     NgxSpinnerModule,
-    DoctorCardComponent
+    DoctorCardComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule
   ]
 })
 export class SharedModule { }
