@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
@@ -12,6 +13,16 @@ export class RegisterComponent {
   {
 
   }
+
+
+  RegisterForm = new FormGroup({
+
+    FirstName : new FormControl("",[Validators.required])
+   
+
+  })
+
+
   ngOnInit() {
     /** spinner starts on init */
     this.spinner.show();
