@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
@@ -7,6 +7,9 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
+ public data :any;
+ @Output() sendvalue = new EventEmitter()
+
   constructor(private spinner: NgxSpinnerService)
   {
 
@@ -50,9 +53,24 @@ export class MainComponent {
 
   
   GetCardData(Card : any){
-
-    console.log(Card);
+    console.log('brefor');
+    console.log(this.data);
+    this.data = Card;
+    console.log('after');
+    console.log(this.data);
     
+    console.log(Card); 
+    const CardData = {
+      img: Card.img,
+      name: Card.name,
+      specialty: Card.specialty,
+      Description: Card.Description
+    }
+    this.sendvalue.emit(CardData)
+    localStorage.setItem('img' , this.data.img);
+    localStorage.setItem('name' , this.data.name);
+    localStorage.setItem('specialty' , this.data.specialty);
+    localStorage.setItem('Description' , this.data.Description);
 
   }
 }

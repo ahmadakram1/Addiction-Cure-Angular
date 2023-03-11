@@ -18,7 +18,6 @@ export class DoctorCardComponent {
 
   SendCardData(img?: string, name?: string, specialty?: string, Description?: string) {
 
-
     const CardData = {
       img: img,
       name: name,
@@ -27,9 +26,8 @@ export class DoctorCardComponent {
     }
 
     this.sendvalue.emit(CardData)
-
   }
-
+ 
 
 
 

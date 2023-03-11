@@ -18,16 +18,14 @@
                     <div>
                         <div class="container">
                             <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-                                <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5">ahmad</h2>
                                 
                             </div>
                           <!--doctor card -->
-                          <div class="row g-4">
+                          <div class="row g-1" >
                         
 
 
-
-                            <app-doctor-card  [img]=""  [Description]=""  [specialty]="" [name]=""  class="col-md-4" ></app-doctor-card>
+                            <app-doctor-card [img]="dataDoctor.img" [name]="dataDoctor.name" [specialty]="dataDoctor.specialty" [Description]="dataDoctor.Description"  ></app-doctor-card>
 
 
                             <!-- <h1 class="display-4">Imagee</h1>
