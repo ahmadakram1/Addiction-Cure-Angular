@@ -12,16 +12,28 @@ export class DoctorCardComponent {
 @Input() Description?:string
 
 @Output() sendvalue = new EventEmitter()
-SendData(img?:string,name?:string,specialty?:string,Description?:string){
- const items={
-img:img,
-name:name,
-specialty:specialty,
-Description:Description
-}
-  this.sendvalue.emit(items)
-}
-}
+
+
+
+
+  SendCardData(img?: string, name?: string, specialty?: string, Description?: string) {
+
+
+    const CardData = {
+      img: img,
+      name: name,
+      specialty: specialty,
+      Description: Description
+    }
+
+    this.sendvalue.emit(CardData)
+
+  }
+
+
+
+
+} 
 
 
 

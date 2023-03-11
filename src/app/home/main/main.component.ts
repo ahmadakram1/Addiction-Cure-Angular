@@ -20,7 +20,7 @@ export class MainComponent {
       this.spinner.hide();
     }, 2000);
   }
-
+ 
 
   items = [
     {
@@ -45,4 +45,14 @@ export class MainComponent {
         'Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor ',
     },
   ];
+
+
+
+  
+  GetCardData(Card : any){
+
+    console.log(Card);
+    
+
+  }
 }

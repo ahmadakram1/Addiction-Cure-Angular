@@ -6,7 +6,11 @@
             <img class="img-fluid h-100" [src]="img" style="object-fit: cover;">
             
             <div class="col-12 text-center" style="margin-top: 100px;">
-                <a routerLink="/OutPutDoctor" class="btn btn-primary py-3 px-3">Load More</a>
+                <a  (click)="SendCardData(img,name,specialty,Description)"  class="btn btn-primary py-3 px-3" 
+                routerLink="/OutPutDoctor"
+                
+                >Load More</a>
+
             </div>
         </div>
         <div class="col-12 col-sm-7 h-100 d-flex flex-column">
@@ -25,7 +29,7 @@
         </div>
         
     </div>
-
+ 
 
 <!-- 
 <mat-card class="example-card">
