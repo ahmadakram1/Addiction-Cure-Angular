@@ -11,6 +11,8 @@ import { DoctorCardComponent } from './doctor-card/doctor-card.component';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
+
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import {MatInputModule} from '@angular/material/input';
   imports: [
     CommonModule,
     RouterModule,
-    MatCardModule
+    MatCardModule,
+    
     
   ],
   exports:[
@@ -39,7 +42,8 @@ import {MatInputModule} from '@angular/material/input';
     DoctorCardComponent,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MdbCarouselModule
   ]
 })
 export class SharedModule { }
