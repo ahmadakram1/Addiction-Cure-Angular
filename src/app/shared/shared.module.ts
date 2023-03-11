@@ -28,7 +28,7 @@ import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
   imports: [
     CommonModule,
     RouterModule,
-    MatCardModule,
+    // MatCardModule,
     
     
   ],

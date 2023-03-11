@@ -7,7 +7,7 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
- public data :any;
+ 
  @Output() sendvalue = new EventEmitter()
 
   constructor(private spinner: NgxSpinnerService)
@@ -50,7 +50,7 @@ export class MainComponent {
   ];
 
 
-
+  public data :any;
   
   GetCardData(Card : any){
     console.log('brefor');

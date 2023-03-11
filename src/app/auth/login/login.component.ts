@@ -13,7 +13,6 @@ export class LoginComponent {
   constructor(private toastr: ToastrService, private spinner: NgxSpinnerService) { }
 
   LoginForm = new FormGroup(
-
     {
       Email: new FormControl('', [Validators.required, Validators.email]),
       Password: new FormControl('', [Validators.required, Validators.minLength(6)])
@@ -21,16 +20,11 @@ export class LoginComponent {
 
 
   );
-
   GetData() {
 
     const User = this.LoginForm.value;
-
     console.log(User);
-
-
   }
-
 
   showSuccess() {
     this.toastr.success('Login Done', 'Toastr fun!');

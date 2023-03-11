@@ -7,40 +7,32 @@
 <app-home-header></app-home-header>
 <!-- Header End -->
 
-
-
 <!-- Pricing Plan Start -->
 
 <div class="container-fluid py-5">
     <div class="container">
         <div style="padding: 0 60px 60px 60px;">
             <div class="bg-light rounded text-center">
-                    <div>
-                        <div class="container">
-                            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-                                
-                            </div>
-                          <!--doctor card -->
-                          <div class="row g-1" >
-                        
+                <div>
+                    <div class="container">
+                        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
 
+                        </div>
+                        <!--doctor card -->
+                        <div class="row g-1">
 
-                            <app-doctor-card [img]="dataDoctor.img" [name]="dataDoctor.name" [specialty]="dataDoctor.specialty" [Description]="dataDoctor.Description"  ></app-doctor-card>
+                            <app-doctor-card [img]="dataDoctor.img" [name]="dataDoctor.name"
+                                [specialty]="dataDoctor.specialty" [Description]="dataDoctor.Description">
 
+                            </app-doctor-card>
 
                             <!-- <h1 class="display-4">Imagee</h1>
                             <h1 class="display-4">bone</h1>
-                            <h1 class="display-4">Description</h1> -->
-                          
-
-
-
-
-                            
+                            <h1 class="display-4">Description</h1> --
                             <!-- end doctor card -->
-                                </div>
-                        </div> 
+                        </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>
