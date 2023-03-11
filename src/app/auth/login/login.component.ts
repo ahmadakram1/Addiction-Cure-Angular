@@ -33,7 +33,7 @@ export class LoginComponent {
 
 
   showSuccess() {
-    this.toastr.success('Hello world!', 'Toastr fun!');
+    this.toastr.success('Login Done', 'Toastr fun!');
     // this.toastr.error('Hello world!', 'Toastr fun!'); //red error
   }
   ngOnInit() {

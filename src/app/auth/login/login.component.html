@@ -9,73 +9,75 @@
 <app-home-header></app-home-header>
 
 <!-- Navbar End -->
+
 <body>
-<div class="container-fluid ps-md-0">
-  <div class="row g-0">
-    <div class="d-md-flex col-md-3 col-lg-25">
-      
-    </div>
-    <div class="col-md-8 col-lg-6">
-      <div class="login d-flex align-items-center py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 col-lg-8 mx-auto">
-              <!-- Sign In Form -->
-              <h3 style="font-size: xx-large; margin-left: 40%; font-family:cursive;">Login</h3>
-              <br>
-              <form [formGroup]="LoginForm">
-                
-                <mat-form-field class="example-full-width">
-                  <mat-label>Email</mat-label>
-                  <input matInput formControlName="Email" type="email" class="form-control"
-                    placeholder="name@example.com"><br>
-                  <mat-error class="text-danger" *ngIf="LoginForm.controls['Email'].hasError('email')"> Invalid
-                    email</mat-error>
-                  <mat-error class="text-danger" *ngIf="LoginForm.controls['Email'].hasError('required')">Email is
-                    <strong>required</strong></mat-error>
-                </mat-form-field>
+  <div class="container-fluid ps-md-0">
+    <div class="row g-0">
+      <div class="d-md-flex col-md-3 col-lg-25">
 
-                <mat-form-field class="example-full-width">
-                  <mat-label>Password</mat-label>
-                  <input matInput formControlName="Password" type="password" class="form-control"
-                    placeholder="**********"><br>
-                  <mat-error class="text-danger" *ngIf="LoginForm.controls['Password'].hasError('minlength')"> Invalid
-                    Passowrd</mat-error>
-                  <mat-error class="text-danger" *ngIf="LoginForm.controls['Password'].hasError('required')">Passowrd is
-                    <strong>required</strong></mat-error>
-                </mat-form-field>
+      </div>
+      <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-lg-8 mx-auto">
+                <!-- Sign In Form -->
+                <h3 style="font-size: xx-large; margin-left: 40%; font-family:cursive;">Login</h3>
                 <br>
+                <form [formGroup]="LoginForm">
 
-                <div class="form-check mb-3">
-                  <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                  <label class="form-check-label" for="rememberPasswordCheck">
-                    Remember password
-                  </label>
-                </div>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="Email" type="email" class="form-control"
+                      placeholder="name@example.com"><br>
+                    <mat-error class="text-danger" *ngIf="LoginForm.controls['Email'].hasError('email')"> Invalid
+                      email</mat-error>
+                    <mat-error class="text-danger" *ngIf="LoginForm.controls['Email'].hasError('required')">Email is
+                      <strong>required</strong></mat-error>
+                  </mat-form-field>
 
-                <div class="d-grid">
-                  <!-- <a (click)="showSuccess()" class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</a> -->
-                  <input type="submit" [disabled]="LoginForm.invalid" (click)="GetData()" (click)="showSuccess()"
-                    class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" value="Sign In"
-                    style="color:white">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="Password" type="password" class="form-control"
+                      placeholder="**********"><br>
+                    <mat-error class="text-danger" *ngIf="LoginForm.controls['Password'].hasError('minlength')"> Invalid
+                      Passowrd</mat-error>
+                    <mat-error class="text-danger" *ngIf="LoginForm.controls['Password'].hasError('required')">Passowrd
+                      is
+                      <strong>required</strong></mat-error>
+                  </mat-form-field>
+                  <br>
 
-                  <div class="text-center">
-                    <a class="small" href="#">Forgot password?</a>
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                    <label class="form-check-label" for="rememberPasswordCheck">
+                      Remember password
+                    </label>
                   </div>
-                  
-                  <div class="text-center">
-                    <a class="fw-bold" routerLink="/Auth/Register">Create Account</a>
-                  </div>
-                </div>
 
-              </form>
+                  <div class="d-grid">
+                    <!-- <a (click)="showSuccess()" class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</a> -->
+                    <input type="submit" [disabled]="LoginForm.invalid" (click)="GetData()" (click)="showSuccess()"
+                      class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" value="Sign In"
+                      style="color:white" >
+
+                    <div class="text-center">
+                      <a class="small" href="#">Forgot password?</a>
+                    </div>
+
+                    <div class="text-center">
+                      <a class="fw-bold" routerLink="/Auth/Register">Create Account</a>
+                    </div>
+                  </div>
+
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </body>
 <!-- Navbar Start -->
 <app-home-footer></app-home-footer>

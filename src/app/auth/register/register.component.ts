@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -9,19 +10,36 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class RegisterComponent {
 
-  constructor(private spinner: NgxSpinnerService)
+  constructor(private toastr: ToastrService,private spinner: NgxSpinnerService)
   {
 
   }
 
+RegisterForm = new FormGroup({
 
-  RegisterForm = new FormGroup({
-
-    FirstName : new FormControl("",[Validators.required])
+    FirstName : new FormControl("",[Validators.required]),
+    LastName : new FormControl("",[Validators.required]),
+    UserName : new FormControl("",[Validators.required]),
+    EmailAddress : new FormControl("",[Validators.required,Validators.email]),
+    Password : new FormControl("",[Validators.required,Validators.minLength(6)]),
+    file : new FormControl("",[Validators.required])
    
-
   })
 
+
+  GetData(){
+
+
+    console.log(this.RegisterForm.value);
+    
+  }
+
+  showSuccess() {
+    this.toastr.success('Register Done', 'Toastr fun!');
+    // this.toastr.error('Hello world!', 'Toastr fun!'); //red error
+  }
+
+  
 
   ngOnInit() {
     /** spinner starts on init */

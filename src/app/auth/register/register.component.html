@@ -1,11 +1,7 @@
-<ngx-spinner
-  bdColor="rgba(51,51,51,0.8)"
-  size="medium"
-  color="#fff"
-  type="square-jelly-box"
->
-  <p class="d-inline-block text-primary text-uppercase border-bottom border-5" style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
- 
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
+    <p class="d-inline-block text-primary text-uppercase border-bottom border-5"
+        style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+
 </ngx-spinner>
 <!-- Navbar Start -->
 <app-home-header></app-home-header>
@@ -22,35 +18,76 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
-                        
+
                             <h3 style="font-size: xx-large; font-family:cursive;">Create account</h3>
                             <!-- Sign up Form -->
                             <form [formGroup]="RegisterForm">
-                                <label for="avatar">Choose a profile picture:</label>
 
-                                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" placeholder="First Name">
-                                    <label for="floatingInput">First Name</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" placeholder="Last Name">
-                                    <label for="floatingInput">Last Name</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" placeholder="User Name">
-                                    <label for="floatingInput">UserName</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput"
-                                        placeholder="name@example.com">
-                                    <label for="floatingInput">Email address</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPassword"
-                                        placeholder="Password">
-                                    <label for="floatingPassword">Password</label>
-                                </div>
+
+                                  <label> Choose a profile picture:</label>
+                                <input type="file"formControlName="file" type="file" class="form-control" accept="image/*">
+                                <mat-error class="text-danger" *ngIf="RegisterForm.controls['file'].hasError('required')">
+                                    file is <strong>required</strong></mat-error><br> 
+
+
+
+                                    <mat-form-field class="example-full-width">
+
+                                        <mat-label>First Name</mat-label>
+                                        <input matInput formControlName="FirstName" type="text" class="form-control"
+                                            placeholder="First Name"><br>
+                                        <mat-error class="text-danger"
+                                            *ngIf="RegisterForm.controls['FirstName'].hasError('required')">
+                                            First name is <strong>required</strong></mat-error>
+    
+                                    </mat-form-field>
+                                   
+
+                                <mat-form-field class="example-full-width">
+
+                                    <mat-label>Last Name</mat-label>
+                                    <input matInput formControlName="LastName" type="text" class="form-control"
+                                        placeholder="Last Name"><br>
+                                    <mat-error class="text-danger"
+                                        *ngIf="RegisterForm.controls['LastName'].hasError('required')">
+                                        Last name is <strong>required</strong></mat-error>
+
+                                </mat-form-field>
+
+                                <mat-form-field class="example-full-width">
+
+                                    <mat-label>User Name</mat-label>
+                                    <input matInput formControlName="UserName" type="text" class="form-control"
+                                        placeholder="User Name"><br>
+                                    <mat-error class="text-danger"
+                                        *ngIf="RegisterForm.controls['UserName'].hasError('required')">
+                                        User name is <strong>required</strong></mat-error>
+
+                                </mat-form-field>
+
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput formControlName="EmailAddress" type="email" class="form-control"
+                                        placeholder="name@example.com"><br>
+                                    <mat-error class="text-danger"
+                                        *ngIf="RegisterForm.controls['EmailAddress'].hasError('email')"> Invalid
+                                        email</mat-error>
+                                    <mat-error class="text-danger"
+                                        *ngIf="RegisterForm.controls['EmailAddress'].hasError('required')">Email is
+                                        <strong>required</strong></mat-error>
+                                </mat-form-field>
+
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Password</mat-label>
+                                    <input matInput formControlName="Password" type="password" class="form-control"
+                                        placeholder="**********"><br>
+                                    <mat-error class="text-danger"
+                                        *ngIf="RegisterForm.controls['Password'].hasError('minlength')"> Invalid
+                                        Passowrd</mat-error>
+                                    <mat-error class="text-danger"
+                                        *ngIf="RegisterForm.controls['Password'].hasError('required')">Passowrd is
+                                        <strong>required</strong></mat-error>
+                                </mat-form-field>
 
                                 <div class="form-check mb-3">
                                     <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
@@ -60,8 +97,11 @@
                                 </div>
 
                                 <div class="d-grid">
-                                    <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
-                                        type="submit">Sign Up</button>
+                                    <input type="submit" [disabled]="RegisterForm.invalid" (click)="GetData()" (click)="showSuccess()"
+                                        
+                                        class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                                        value="Sign up" style="color:white">
+
                                     <div class="text-center">
                                         <a class="xx-large" routerLink="/Auth/Login">Already Have Account?</a>
                                     </div>
