@@ -28,21 +28,24 @@ export class MainComponent {
   items = [
     {
       img: 'assets/HomeAssets/img/team-2.jpg',
-      name: 'ahmad',
+      fname: 'ahmad',
+      lname: 'ahmad',
       specialty: 'bone',
       Description:
         'Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor',
     },
     {
       img: 'assets/HomeAssets/img/team-3.jpg',
-      name: 'sara',
+      fname: 'sara',
+      lname: 'ahmad',
       specialty: 'bone',
       Description:
         'Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor',
     },
     {
       img: 'assets/HomeAssets/img/team-1.jpg',
-      name: 'yaman',
+      fname: 'yaman',
+      lname: 'ahmad',
       specialty: 'bone',
       Description:
         'Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor ',
@@ -62,13 +65,15 @@ export class MainComponent {
     console.log(Card); 
     const CardData = {
       img: Card.img,
-      name: Card.name,
+      fname: Card.fname,
+      lname: Card.lname,
       specialty: Card.specialty,
       Description: Card.Description
     }
     this.sendvalue.emit(CardData)
     localStorage.setItem('img' , this.data.img);
-    localStorage.setItem('name' , this.data.name);
+    localStorage.setItem('fname' , this.data.fname);
+    localStorage.setItem('lname' , this.data.lname);
     localStorage.setItem('specialty' , this.data.specialty);
     localStorage.setItem('Description' , this.data.Description);
 

@@ -93,7 +93,7 @@
         <div class="row g-4">
 
             <app-doctor-card (sendvalue)="GetCardData($event)" *ngFor="let item of items" [img]="item.img"
-                [name]="item.name" [specialty]="item.specialty" [Description]="item.Description"
+                [fname]="item.fname" [lname]="item.lname" [specialty]="item.specialty" [Description]="item.Description"
                 class="col-md-4"></app-doctor-card>
 
         </div>

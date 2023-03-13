@@ -9,12 +9,14 @@ export class OutPutDoctorComponent {
  dataDoctor :any;
  ngOnInit() {
 localStorage.getItem('img' );
-localStorage.getItem('name' );
+localStorage.getItem('fname' );
+localStorage.getItem('lname' );
 localStorage.getItem('specialty' );
 localStorage.getItem('Description');
 const CardData = {
   img: localStorage.getItem('img' ),
-  name: localStorage.getItem('name' ),
+  fname: localStorage.getItem('fname' ),
+  lname: localStorage.getItem('lname' ),
   specialty: localStorage.getItem('specialty' ),
   Description: localStorage.getItem('Description')
 }

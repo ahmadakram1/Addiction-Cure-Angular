@@ -7,7 +7,8 @@ import { Component , EventEmitter , Input , Output } from '@angular/core';
 })
 export class DoctorCardComponent {
 @Input() img?:string
-@Input() name?:string
+@Input() fname?:string
+@Input() lname?:string
 @Input() specialty?:string
 @Input() Description?:string
 
@@ -16,11 +17,12 @@ export class DoctorCardComponent {
 
 
 
-  SendCardData(img?: string, name?: string, specialty?: string, Description?: string) {
+  SendCardData(img?: string, fname?: string,lname?: string, specialty?: string, Description?: string) {
 
     const CardData = {
       img: img,
-      name: name,
+      fname: fname,
+      lname: lname,
       specialty: specialty,
       Description: Description
     }
