@@ -38,8 +38,9 @@
     <div class="container">
         <div class="row g-5">
             <!--doctor card -->
-            <app-doctor-card [img]="item.img"  [name]="item.name" [specialty]="item.specialty" [Description]="item.Description"  *ngFor="let item of items"  class="col-lg-6 team-item"></app-doctor-card>
-             <!--end doctor card -->
+            <!-- <app-doctor-card [img]="item.img"  [name]="item.name" [specialty]="item.specialty" [Description]="item.Description"  *ngFor="let item of items"  class="col-lg-6 team-item"></app-doctor-card> -->
+            <app-doctor-card *ngFor="let item of adminService.Doctors" [img]="item.imagename"  [name]="item.firstname + item.lastname" [specialty]="item.level1" [Description]="item.patientacs" class="col-lg-6 team-item"></app-doctor-card> 
+            <!--end doctor card -->
             <div class="col-12 text-center">
                 <button class="btn btn-primary py-3 px-5">Load More</button>
             </div>

@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
+import { AdminService } from 'src/app/admin.service';
 @Component({
   selector: 'app-doctors',
   templateUrl: './doctors.component.html',
   styleUrls: ['./doctors.component.css'],
 })
 export class DoctorsComponent {
-  constructor(private spinner: NgxSpinnerService) {}
+  constructor(private spinner: NgxSpinnerService,public adminService:AdminService) {}
   ngOnInit() {
-    /** spinner starts on init */
-    this.spinner.show();
+    this.adminService.GetAllDoctors();
+    // /** spinner starts on init */
+    // this.spinner.show();
 
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 2000);
+    // setTimeout(() => {
+    //   /** spinner ends after 5 seconds */
+    //   this.spinner.hide();
+    // }, 2000);
   }
 
   items = [
