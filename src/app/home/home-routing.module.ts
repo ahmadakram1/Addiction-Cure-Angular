@@ -5,6 +5,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { MainComponent } from './main/main.component';
 import { OutPutDoctorComponent } from './out-put-doctor/out-put-doctor.component';
+import { Profile2Component } from './profile2/profile2.component';
 import { TestimoialComponent } from './testimoial/testimoial.component';
 
 const routes: Routes = [
@@ -31,7 +32,12 @@ const routes: Routes = [
   {
     path: "OutPutDoctor",
     component: OutPutDoctorComponent
+  },
+  {
+    path: "Profile2",
+    component: Profile2Component
   }
+
 ];
 
 @NgModule({

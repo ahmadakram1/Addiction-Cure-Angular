@@ -6,6 +6,7 @@ import { ReportComponent } from './report/report.component';
 import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
+import { AllDoctorsComponent } from './all-doctors/all-doctors.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
     ReportComponent,
     MainComponent,
     ProfileComponent,
+    AllDoctorsComponent,
   ],
   imports: [
     CommonModule,
