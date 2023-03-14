@@ -12,6 +12,8 @@ import {MatCardModule} from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 
@@ -43,7 +45,8 @@ import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MdbCarouselModule
+    MdbCarouselModule,
+    MatDialogModule
   ]
 })
 export class SharedModule { }
