@@ -1,0 +1,38 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
+    <p class="d-inline-block text-primary text-uppercase border-bottom border-5"
+        style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+
+</ngx-spinner>
+
+<!-- Navbar Start -->
+<app-home-header></app-home-header>
+<!-- Navbar End -->
+
+
+
+<div class="container-fluid pt-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5">Make Your Test Now</h2>
+        </div>
+        <div>
+            <form>
+                <h1 style="font-family: sans-serif;">Q1:</h1>
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">True</mat-radio-button>
+                    <mat-radio-button value="2">False</mat-radio-button>
+                </mat-radio-group>
+                <h1 style="font-family: sans-serif;">Q2:</h1>
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">True</mat-radio-button>
+                    <mat-radio-button value="2">False</mat-radio-button>
+                </mat-radio-group>
+            </form>
+            <input type="button" class="btn btn-success" value="Submit & Payment" (click)="OpenDialog()">
+        </div>
+    </div>
+</div>
+
+<!-- Footer Start -->
+<app-home-footer></app-home-footer>
+<!-- Footer End -->
