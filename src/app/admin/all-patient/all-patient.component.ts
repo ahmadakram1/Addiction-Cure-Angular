@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-all-patient',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./all-patient.component.css']
 })
 export class AllPatientComponent {
+  constructor(public adminService:AdminService){
 
+  }
+
+  ngOnInit()
+  {
+    this.adminService.GetAllPatient()
+  }
 }
