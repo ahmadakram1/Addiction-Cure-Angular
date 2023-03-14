@@ -9,25 +9,25 @@
                 <!-- Content -->
 
                 <div class="container-xxl flex-grow-1 container-p-y">
-
+                    <br>
+                    <td><input type="button" value="Create" class="btn btn-dark"></td>
+                    <br>
                     <div class="card mb-4">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th style="width: 10px">ID</th>
-                                    <th style="width: 10px">UserName</th>
+                                    <th>Image</th>
                                     <th>First Name Doctors</th>
                                     <th>Last Name Doctors</th>
-                                    <th>Image</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of adminService.Doctors" >
-                                    <td>{{item.doctodid}}</td>
-                                    <td>{{item.loginid}}</td>
+                                <tr *ngFor="let item of adminService.Doctors">
+                                    <td>{{item.imagename}}</td>
                                     <td>{{item.firstname}}</td>
                                     <td>{{item.lastname}}</td>
-                                    <td>{{item.imagename}}</td>
+                                    <td><input type="button" value="Detiles" class="btn btn-primary"></td>
                                 </tr>
                             </tbody>
                         </table>

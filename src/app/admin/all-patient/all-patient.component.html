@@ -14,17 +14,19 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                              
+                                    <th>Image</th>
                                     <th>First Name</th>
                                     <th>Last Name</th>
-                                    <th>Image</th>
+                                    <th>Action</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of adminService.Patient" >
+                                    <td>{{item.imagename}}</td>
                                     <td>{{item.firstname}}</td>
                                     <td>{{item.lastname}}</td>
-                                    <td>{{item.imagename}}</td>
+                                    <td><input type="button" value="Detiles" class="btn btn-primary"></td>
                                 </tr>
                             </tbody>
                         </table>
