@@ -91,4 +91,86 @@ getallContactUs()
   )
 }
 
+
+
+AboutUs: any = []
+GetAllAboutUs() {
+
+  this.spinner.show()
+  this.http.get("https://localhost:44373/api/AboutUs/getallAboutUs").subscribe(
+    {
+
+      next: (Result) => {
+        this.AboutUs = Result;
+        this.spinner.hide()
+      },
+      error: (Error) => {
+        console.log(Error);
+        this.spinner.hide();
+        this.toastr.error("Error")
+
+      }
+
+    }
+  )
+}
+
+
+
+
+Payments: any = []
+GetAllPayment() {
+
+  this.spinner.show()
+  this.http.get("https://localhost:44373/api/Payment").subscribe(
+    {
+
+      next: (Result) => {
+        this.Payments = Result;
+        this.spinner.hide()
+      },
+      error: (Error) => {
+        console.log(Error);
+        this.spinner.hide();
+        this.toastr.error("Error")
+
+      }
+
+    }
+  )
+}
+
+
+
+Bank:any=[]
+GetAllbank()
+{
+  this.spinner.show()
+  this.http.get("https://localhost:44373/API/ResultTest/GetAllResult").subscribe(
+    {
+        next:(res)=>{this.Bank=res
+        this.spinner.hide()
+        },
+        error:(err)=>{console.log(err)
+        this.spinner.hide()
+        this.toastr.error("Error")}
+    }
+  )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

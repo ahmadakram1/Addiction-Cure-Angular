@@ -58,4 +58,26 @@ GetAllResult()
   )
 }
 
+
+
+
+Test:any=[]
+GetAllTest()
+{
+  this.spinner.show()
+  this.http.get("https://localhost:44373/api/Test").subscribe(
+    {
+        next:(res)=>{this.Test=res
+        this.spinner.hide()
+        },
+        error:(err)=>{console.log(err)
+        this.spinner.hide()
+        this.toastr.error("Error")}
+    }
+  )
+}
+
+
+
+
 }
