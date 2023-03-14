@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {  HttpClient, HttpClientModule } from '@angular/common/http';
+import {  HttpClient } from '@angular/common/http';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
 
@@ -41,36 +41,6 @@ GetDoctorById(doctorid:any){
   )
 }
 
-Category:any=[]
-GetCategory(){
-  this.spinner.show()
-  this.http.get("https://localhost:44373/API/Category/GetCategory").subscribe(
-    {
-      next:(res)=>{this.Category=res
-      this.spinner.hide()
-      this.toastr.success("Success")},
-      error:(err)=>{console.log(err)
-      this.spinner.hide()
-      this.toastr.error("Error")}
-    }
-  )
-}
-
-CatById:any
-GetCategoryById(catid:any){
-  this.spinner.show()
-  this.http.get("https://localhost:44373/API/Category/GetById"+catid).subscribe(
-    {
-      next:(res)=>{this.CatById=res
-      this.spinner.hide()
-      this.toastr.success("Success")},
-      error:(err)=>{console.log(err)
-      this.spinner.hide()
-      this.toastr.error("Error")
-      }
-    }
-  )
-}
 
 Patient:any=[]
 GetAllPatient(){
@@ -100,6 +70,23 @@ GetPatientById(PatientId:any){
       this.spinner.hide()
       this.toastr.error("Error")
       }
+    }
+  )
+}
+
+
+ContactUs:any=[]
+getallContactUs()
+{
+  this.spinner.show()
+  this.http.get("https://localhost:44373/API/ContactUs/getallContactUs").subscribe(
+    {
+        next:(res)=>{this.ContactUs=res
+        this.spinner.hide()
+        this.toastr.success("Success")},
+        error:(err)=>{console.log(err)
+        this.spinner.hide()
+        this.toastr.error("Error")}
     }
   )
 }
