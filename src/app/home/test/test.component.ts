@@ -27,7 +27,7 @@ export class TestComponent {
   }
 
 
-  OpenDialog()
+OpenDialog()
 {
   this.dialog.open(PaymentTestComponent)
 }
