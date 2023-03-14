@@ -142,26 +142,6 @@ GetAllPayment() {
 
 
 
-Bank:any=[]
-GetAllbank()
-{
-  this.spinner.show()
-  this.http.get("https://localhost:44373/API/ResultTest/GetAllResult").subscribe(
-    {
-        next:(res)=>{this.Bank=res
-        this.spinner.hide()
-        },
-        error:(err)=>{console.log(err)
-        this.spinner.hide()
-        this.toastr.error("Error")}
-    }
-  )
-}
-
-
-
-
-
 
 
 
