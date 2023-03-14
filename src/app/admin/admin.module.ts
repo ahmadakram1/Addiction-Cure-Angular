@@ -7,8 +7,10 @@ import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { AllDoctorsComponent } from './all-doctors/all-doctors.component';
-import { PatientsComponent } from './patients/patients.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { TestimonilComponent } from './testimonil/testimonil.component';
+import { AllPatientComponent } from './all-patient/all-patient.component';
+import { CategoryComponent } from './category/category.component';
 
 
 @NgModule({
@@ -17,8 +19,10 @@ import { PatientDetailsComponent } from './patient-details/patient-details.compo
     MainComponent,
     ProfileComponent,
     AllDoctorsComponent,
-    PatientsComponent,
     PatientDetailsComponent,
+    TestimonilComponent,
+    AllPatientComponent,
+    CategoryComponent,
   ],
   imports: [
     CommonModule,
