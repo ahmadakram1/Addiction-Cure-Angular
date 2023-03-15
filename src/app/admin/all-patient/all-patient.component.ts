@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PatientService } from 'src/app/patient.service';
 
 @Component({
@@ -7,6 +7,13 @@ import { PatientService } from 'src/app/patient.service';
   styleUrls: ['./all-patient.component.css']
 })
 export class AllPatientComponent {
+
+  @ViewChild("CreateForm") Craete:any;
+  @ViewChild("UpdateForm") Update:any;
+  @ViewChild("DeleteForm") Delete:any;
+  @ViewChild("DetailsForm") Details:any;
+  
+  
   constructor(public patientService:PatientService){
 
   }
