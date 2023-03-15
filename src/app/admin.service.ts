@@ -111,29 +111,6 @@ export class AdminService {
 
 
 
-  AboutUs: any = []
-  GetAllAboutUs() {
-
-    this.spinner.show()
-    this.http.get("https://localhost:44373/api/AboutUs/getallAboutUs").subscribe(
-      {
-
-        next: (Result) => {
-          this.AboutUs = Result;
-          this.spinner.hide()
-        },
-        error: (Error) => {
-          console.log(Error);
-          this.spinner.hide();
-          this.toastr.error("Error")
-
-        }
-
-      }
-    )
-  }
-
-
 
 
   Payments: any = []

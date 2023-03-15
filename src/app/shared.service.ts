@@ -27,6 +27,50 @@ GetAllHome()
 }
 
 
+
+AboutUs: any = []
+GetAllAboutUs() {
+
+  this.spinner.show()
+  this.http.get("https://localhost:44373/api/AboutUs/getallAboutUs").subscribe(
+    {
+
+      next: (Result) => {
+        this.AboutUs = Result;
+        this.spinner.hide()
+      },
+      error: (Error) => {
+        console.log(Error);
+        this.spinner.hide();
+        this.toastr.error("Error")
+
+      }
+
+    }
+  )
+}
+
+
+
+createAboutUs(AboutUs: any) {
+
+  this.spinner.show()
+  this.http.post("https://localhost:44373/api/AboutUs/createAboutUs", AboutUs).subscribe(
+    {
+      next: () => {
+        this.spinner.hide();
+        this.toastr.success("Added Successfully")
+      },
+      error: (error) => {
+        this.spinner.hide();
+        this.toastr.error("Error")
+      }
+    }
+  )
+
+}
+
+
 Category:any=[]
 GetCategory(){
   this.spinner.show()
