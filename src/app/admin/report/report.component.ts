@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DoctorsService } from 'src/app/doctors.service';
 
 @Component({
   selector: 'app-report',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class ReportComponent {
 
+  constructor(public doctoreservice :DoctorsService){
+
+  }
+  ngOnInit()
+  {
+    this.doctoreservice.GetAllResult()
+  }
 }
