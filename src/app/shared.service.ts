@@ -27,6 +27,67 @@ GetAllHome()
 }
 
 
+createhome(Home: any) {
+
+  this.spinner.show()
+  this.http.post("https://localhost:44373/api/Home/createHome", Home).subscribe(
+    {
+      next: () => {
+        this.spinner.hide();
+        this.toastr.success("Added Successfully")
+      },
+      error: (error) => {
+        this.spinner.hide();
+        this.toastr.error("Error")
+      }
+    }
+  )
+
+}
+
+AboutUs: any = []
+GetAllAboutUs() {
+
+  this.spinner.show()
+  this.http.get("https://localhost:44373/api/AboutUs/getallAboutUs").subscribe(
+    {
+
+      next: (Result) => {
+        this.AboutUs = Result;
+        this.spinner.hide()
+      },
+      error: (Error) => {
+        console.log(Error);
+        this.spinner.hide();
+        this.toastr.error("Error")
+
+      }
+
+    }
+  )
+}
+
+
+
+createAboutUs(AboutUs: any) {
+
+  this.spinner.show()
+  this.http.post("https://localhost:44373/api/AboutUs/createAboutUs", AboutUs).subscribe(
+    {
+      next: () => {
+        this.spinner.hide();
+        this.toastr.success("Added Successfully")
+      },
+      error: (error) => {
+        this.spinner.hide();
+        this.toastr.error("Error")
+      }
+    }
+  )
+
+}
+
+
 Category:any=[]
 GetCategory(){
   this.spinner.show()
@@ -41,6 +102,27 @@ GetCategory(){
     }
   )
 }
+
+
+CreateCategoryAC(Category: any) {
+
+  this.spinner.show()
+  this.http.post("https://localhost:44373/api/Category/Create", Category).subscribe(
+    {
+      next: () => {
+        this.spinner.hide();
+        this.toastr.success("Added Successfully")
+      },
+      error: (error) => {
+        this.spinner.hide();
+        this.toastr.error("Error")
+      }
+    }
+  )
+
+}
+
+
 
 CatById:any
 GetCategoryById(catid:any){
@@ -73,6 +155,26 @@ GetAllTestemonial(){
     }
   )
 }
+
+
+CreateTestimonialAC(Testimonial: any) {
+
+  this.spinner.show()
+  this.http.post("https://localhost:44373/api/Testimonials/Create", Testimonial).subscribe(
+    {
+      next: () => {
+        this.spinner.hide();
+        this.toastr.success("Added Successfully")
+      },
+      error: (error) => {
+        this.spinner.hide();
+        this.toastr.error("Error")
+      }
+    }
+  )
+
+}
+
 
 Testimonialbyid:any
 GetTestimonialByPatienId(TestimonialId:any){

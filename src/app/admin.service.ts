@@ -30,6 +30,25 @@ export class AdminService {
       }
     )
   }
+  
+  
+  createdoctor(Doctor: any) {
+
+    this.spinner.show()
+    this.http.post("https://localhost:44373/api/Doctor/createdoctor", Doctor).subscribe(
+      {
+        next: () => {
+          this.spinner.hide();
+          this.toastr.success("Added Successfully")
+        },
+        error: (error) => {
+          this.spinner.hide();
+          this.toastr.error("Error")
+        }
+      }
+    )
+  
+  }
 
   DoctorById: any
   GetDoctorById(doctorid: any) {
@@ -51,43 +70,6 @@ export class AdminService {
   }
 
 
-  Patient: any = []
-  GetAllPatient() {
-    this.spinner.show()
-    this.http.get("https://localhost:44373/API/Patient/getallPatient").subscribe(
-      {
-        next: (res) => {
-          this.Patient = res
-          this.spinner.hide()
-          this.toastr.success("Success")
-        },
-        error: (err) => {
-          console.log(err)
-          this.spinner.hide()
-          this.toastr.error("Error")
-        }
-      }
-    )
-  }
-
-  PatientById: any
-  GetPatientById(PatientId: any) {
-    this.spinner.show()
-    this.http.get("https://localhost:44373/API/Patient/getallPatient" + PatientId).subscribe(
-      {
-        next: (res) => {
-          this.PatientById = res
-          this.spinner.hide()
-          this.toastr.success("Success")
-        },
-        error: (err) => {
-          console.log(err)
-          this.spinner.hide()
-          this.toastr.error("Error")
-        }
-      }
-    )
-  }
 
 
   ContactUs: any = []
@@ -111,28 +93,23 @@ export class AdminService {
 
 
 
-  AboutUs: any = []
-  GetAllAboutUs() {
+  createContactUs(ContactUs: any) {
 
     this.spinner.show()
-    this.http.get("https://localhost:44373/api/AboutUs/getallAboutUs").subscribe(
+    this.http.post("https://localhost:44373/api/ContactUs/createContactUs", ContactUs).subscribe(
       {
-
-        next: (Result) => {
-          this.AboutUs = Result;
-          this.spinner.hide()
+        next: () => {
+          this.spinner.hide();
+          this.toastr.success("Added Successfully")
         },
-        error: (Error) => {
-          console.log(Error);
+        error: (error) => {
           this.spinner.hide();
           this.toastr.error("Error")
-
         }
-
       }
     )
+  
   }
-
 
 
 
@@ -161,6 +138,24 @@ export class AdminService {
 
 
 
+
+  CreatePayment(Payment: any) {
+
+    this.spinner.show()
+    this.http.post("https://localhost:44373/api/ContactUs/createContactUs", Payment).subscribe(
+      {
+        next: () => {
+          this.spinner.hide();
+          this.toastr.success("Added Successfully")
+        },
+        error: (error) => {
+          this.spinner.hide();
+          this.toastr.error("Error")
+        }
+      }
+    )
+  
+  }
 
 
 
