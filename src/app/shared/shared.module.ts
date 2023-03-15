@@ -15,8 +15,8 @@ import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDialogModule,
     MatRadioModule,
     MatDatepickerModule,
-    MatNativeDateModule
+
   ]
 })
 export class SharedModule { }
