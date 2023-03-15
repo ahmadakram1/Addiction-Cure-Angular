@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-testimonil',
@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./testimonil.component.css']
 })
 export class TestimonilComponent {
+
+  
+@ViewChild("CreateForm") Craete:any;
+@ViewChild("UpdateForm") Update:any;
+@ViewChild("DeleteForm") Delete:any;
+@ViewChild("DetailsForm") Details:any;
+
 
 }
