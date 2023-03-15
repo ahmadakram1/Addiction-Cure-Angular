@@ -27,6 +27,23 @@ GetAllHome()
 }
 
 
+createhome(Home: any) {
+
+  this.spinner.show()
+  this.http.post("https://localhost:44373/api/Home/createHome", Home).subscribe(
+    {
+      next: () => {
+        this.spinner.hide();
+        this.toastr.success("Added Successfully")
+      },
+      error: (error) => {
+        this.spinner.hide();
+        this.toastr.error("Error")
+      }
+    }
+  )
+
+}
 
 AboutUs: any = []
 GetAllAboutUs() {
@@ -85,6 +102,9 @@ GetCategory(){
     }
   )
 }
+
+
+
 
 CatById:any
 GetCategoryById(catid:any){
