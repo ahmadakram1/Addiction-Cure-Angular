@@ -16,10 +16,13 @@ export class ReportComponent {
   {
     this.doctoreservice.GetAllResult()
   }
-  
-
   range = new FormGroup({
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
   });
+
+  Searchdate()
+  {
+    this.doctoreservice.Search(this.range.value.start,this.range.value.end)
+  }
 }

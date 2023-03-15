@@ -18,7 +18,7 @@
                           <input matStartDate formControlName="start" placeholder="Start date">
                           <input matEndDate formControlName="end" placeholder="End date">
                         </mat-date-range-input>
-                        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                        <mat-hint>DD-MM-YY – DD-MM-YY</mat-hint>
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-date-range-picker #picker></mat-date-range-picker>
                       
@@ -27,6 +27,7 @@
                       </mat-form-field>
                       
                       <p>Selected range: {{range.value | json}}</p>
+                      <input type="button" value="search" (click)="Searchdate()">
                     <br>
                     <div class="card mb-4">
                         <table class="table table-striped">

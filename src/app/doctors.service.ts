@@ -82,7 +82,7 @@ GetAllResult()
   )
 }
 
-Search(DateFome:Date,Dateto:Date)
+Search(DateFome:any,Dateto:any)
 {
   this.spinner.show()
   this.http.get("https://localhost:44373/api/ResultTest/"+DateFome+"/"+Dateto).subscribe(
