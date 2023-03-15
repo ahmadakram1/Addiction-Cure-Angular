@@ -14,7 +14,8 @@ import {MatInputModule} from '@angular/material/input';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -47,7 +48,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatInputModule,
     MdbCarouselModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class SharedModule { }

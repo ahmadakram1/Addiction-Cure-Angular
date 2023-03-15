@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { DoctorsService } from 'src/app/doctors.service';
 
 @Component({
@@ -15,4 +16,10 @@ export class ReportComponent {
   {
     this.doctoreservice.GetAllResult()
   }
+  
+
+  range = new FormGroup({
+    start: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null),
+  });
 }

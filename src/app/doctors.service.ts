@@ -82,7 +82,20 @@ GetAllResult()
   )
 }
 
-
+Search(DateFome:Date,Dateto:Date)
+{
+  this.spinner.show()
+  this.http.get("https://localhost:44373/api/ResultTest/"+DateFome+"/"+Dateto).subscribe(
+    {
+        next:(res)=>{this.AllResult=res
+        this.spinner.hide()
+        this.toastr.success("Success")},
+        error:(err)=>{console.log(err)
+        this.spinner.hide()
+        this.toastr.error("Error")}
+    }
+  )
+}
 
 
 Test:any=[]
