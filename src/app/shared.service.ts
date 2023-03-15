@@ -104,6 +104,24 @@ GetCategory(){
 }
 
 
+CreateCategoryAC(Category: any) {
+
+  this.spinner.show()
+  this.http.post("https://localhost:44373/api/Category/Create", Category).subscribe(
+    {
+      next: () => {
+        this.spinner.hide();
+        this.toastr.success("Added Successfully")
+      },
+      error: (error) => {
+        this.spinner.hide();
+        this.toastr.error("Error")
+      }
+    }
+  )
+
+}
+
 
 
 CatById:any
@@ -137,6 +155,26 @@ GetAllTestemonial(){
     }
   )
 }
+
+
+CreateTestimonialAC(Testimonial: any) {
+
+  this.spinner.show()
+  this.http.post("https://localhost:44373/api/Testimonials/Create", Testimonial).subscribe(
+    {
+      next: () => {
+        this.spinner.hide();
+        this.toastr.success("Added Successfully")
+      },
+      error: (error) => {
+        this.spinner.hide();
+        this.toastr.error("Error")
+      }
+    }
+  )
+
+}
+
 
 Testimonialbyid:any
 GetTestimonialByPatienId(TestimonialId:any){

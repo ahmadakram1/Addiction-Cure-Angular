@@ -26,6 +26,30 @@ GetAllQuastions()
   )
 }
 
+
+
+
+CreateQuastion(Quastion: any) {
+
+  this.spinner.show()
+  this.http.post("https://localhost:44373/api/Quastion", Quastion).subscribe(
+    {
+      next: () => {
+        this.spinner.hide();
+        this.toastr.success("Added Successfully")
+      },
+      error: (error) => {
+        this.spinner.hide();
+        this.toastr.error("Error")
+      }
+    }
+  )
+
+}
+
+
+
+
 QuastionsById:any
 GetQuastionById(QuastionId:any)
 {
@@ -77,6 +101,25 @@ GetAllTest()
   )
 }
 
+
+
+CreateTest(Test: any) {
+
+  this.spinner.show()
+  this.http.post("https://localhost:44373/api/Test", Test).subscribe(
+    {
+      next: () => {
+        this.spinner.hide();
+        this.toastr.success("Added Successfully")
+      },
+      error: (error) => {
+        this.spinner.hide();
+        this.toastr.error("Error")
+      }
+    }
+  )
+
+}
 
 
 
