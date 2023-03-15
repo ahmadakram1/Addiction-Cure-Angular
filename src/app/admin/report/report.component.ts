@@ -14,6 +14,7 @@ export class ReportComponent {
   }
   ngOnInit()
   {
+
     this.doctoreservice.GetAllResult()
   }
   range = new FormGroup({
@@ -23,6 +24,6 @@ export class ReportComponent {
 
   Searchdate()
   {
-    this.doctoreservice.Search(this.range.value.start,this.range.value.end)
+    this.doctoreservice.Search(this.range.value.start?.toJSON().slice(0,10),this.range.value.end?.toJSON().slice(0,10))
   }
 }
