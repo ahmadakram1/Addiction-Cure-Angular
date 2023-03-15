@@ -72,9 +72,6 @@ export class AdminService {
 
 
 
-
-
-
   ContactUs: any = []
   getallContactUs() {
     this.spinner.show()
