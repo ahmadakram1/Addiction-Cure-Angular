@@ -27,7 +27,12 @@
                                     <td>{{item.imagename}}</td>
                                     <td>{{item.firstname}}</td>
                                     <td>{{item.lastname}}</td>
-                                    <td><input type="button" value="Detiles" class="btn btn-primary"></td>
+                                    <td>
+                                    <input type="button" value="Update" class="btn btn-success">
+                                    <input type="button" value="Delete" class="btn btn-danger">
+                                    <input type="button" value="Details" class="btn btn-primary" (click)="openDetalisDialog(item.doctodid)">
+                                    </td>
+
                                 </tr>
                             </tbody>
                         </table>
@@ -67,5 +72,10 @@
 
 <ng-template #DetailsForm>
 
-
+    <div mat-dialog-content>{{this.adminService.DoctorById.imagename}}
+    
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close>Close</button>
+    </div>
+</div>
 </ng-template>

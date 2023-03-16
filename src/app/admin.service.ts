@@ -50,23 +50,29 @@ export class AdminService {
   
   }
 
+  
+
   DoctorById: any
-  GetDoctorById(doctorid: any) {
+   async GetDoctorById(doctorid: any) {
+    return new Promise<void>((resolve, reject) => {
     this.spinner.show()
     this.http.get("https://localhost:44373/API/Doctor/getbyid/" + doctorid).subscribe(
       {
-        next: (res) => {
+        next: (res) => {          
           this.DoctorById = res
-          this.spinner.hide()
+          this.spinner.hide()          
           this.toastr.success()
+         resolve()
         },
         error: (err) => {
           console.log(err)
           this.spinner.hide()
           this.toastr.error()
+           reject()
         }
       }
     )
+    })
   }
 
 

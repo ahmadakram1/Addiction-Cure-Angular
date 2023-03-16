@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AdminService } from 'src/app/admin.service';
+import {MatDialog, } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-all-doctors',
@@ -18,7 +20,7 @@ export class AllDoctorsComponent {
 
 
 
-  constructor(public adminService : AdminService)
+  constructor(public adminService : AdminService,public dialog:MatDialog)
   {
 
   }
@@ -27,5 +29,12 @@ export class AllDoctorsComponent {
   {
     this.adminService.GetAllDoctors()
   }
+
+  async openDetalisDialog(Doctor_id:number){
+  
+   await this.adminService.GetDoctorById(Doctor_id);
+    this.dialog.open(this.Details);
+  }
+
 
 }
