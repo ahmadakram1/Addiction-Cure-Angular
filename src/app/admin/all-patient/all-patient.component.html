@@ -18,15 +18,22 @@
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Action</th>
-                                    
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of patientService.Patient" >
+                                <tr *ngFor="let item of patientService.Patient">
                                     <td>{{item.imagename}}</td>
                                     <td>{{item.firstname}}</td>
                                     <td>{{item.lastname}}</td>
-                                    <td><input type="button" value="Detiles" class="btn btn-primary" (click)="GetById(item.patientid)"></td>
+                                    <td>
+                                        <input type="button" value="Detiles" class="btn btn-primary"
+                                            (click)="GetById(item.patientid)">
+                                        <input type="button" value="Delete" class="btn btn-danger"
+                                            (click)="OpenDeleteDialog(item.patientid)">
+                                        <input type="button" value="Update" class="btn btn-success"
+                                            (click)="OpenUpdateDialog(item.patientid)">
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -40,25 +47,72 @@
 <app-admin-footer></app-admin-footer>
 
 
-
-
 <ng-template #CreateForm>
+    <!-- <form [formGroup]="CreateCourseForm" class="example-form">
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input type="text" matInput formControlName="coursename">
+                <mat-error *ngIf="CreateCourseForm.controls['coursename'].hasError('required')">
+                    course name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input type="number" matInput formControlName="categoryid">
+                <mat-error *ngIf="CreateCourseForm.controls['categoryid'].hasError('required')">
+                    categoryid is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
 
+            <input type="file" #file (change)="UploadImage(file)">
+            <input type="button" [disabled]="CreateCourseForm.invalid" value="Create" (click)="CreateCourse()">
+        </div>
+    </form> -->
 
 </ng-template>
-
-
 
 <ng-template #UpdateForm>
+    <div mat-dialog-content>
 
+        <form [formGroup]="UpdatePatientForm" class="example-form">
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="text" matInput formControlName="email">
+                    <mat-error *ngIf="UpdatePatientForm.controls['email']">
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-label>User Name</mat-label>
+                <input type="text" matInput formControlName="username">
+                <mat-error *ngIf="UpdatePatientForm.controls['username']">
+                </mat-error>
+            </div>
+            <div>
+                <div mat-dialog-actions>
+                    <input type="button" [disabled]="UpdatePatientForm.invalid" value="Update" mat-dialog-close
+                        (click)="UpdatePatient()">
+
+                </div>
+
+            </div>
+        </form>
+    </div>
 
 </ng-template>
 
-
-
 <ng-template #DeleteForm>
-
-
+    <h2 mat-dialog-content>Would you like to delete this item?</h2>
+    <div mat-dialog-actions>
+        <input mat-dialog-close value="Yes" type="button" class="btn btn-success" (click)="DeletePatientbyID()">
+        <input mat-dialog-close value="No" type="button" class="btn btn-error">
+    </div>
 </ng-template>
 
 
@@ -69,8 +123,8 @@
     <div mat-dialog-content>Email :{{this.patientService.PatientById.email}}</div>
     <div mat-dialog-content>First Name :{{this.patientService.PatientById.firstname}}</div>
     <div mat-dialog-content>Last Name :{{this.patientService.PatientById.lastname}}</div>
-    
+
     <div mat-dialog-actions>
-      <button mat-button mat-dialog-close>Close</button>
+        <button mat-button mat-dialog-close>Close</button>
     </div>
 </ng-template>
