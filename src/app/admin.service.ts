@@ -50,6 +50,8 @@ export class AdminService {
   
   }
 
+  
+
   DoctorById: any
   GetDoctorById(doctorid: any) {
     this.spinner.show()
