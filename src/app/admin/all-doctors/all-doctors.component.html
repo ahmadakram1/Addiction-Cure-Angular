@@ -1,3 +1,10 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
+    <p class="d-inline-block text-primary text-uppercase border-bottom border-5"
+        style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+
+</ngx-spinner>
+
+
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
         <app-admin-side-bar></app-admin-side-bar>
@@ -50,7 +57,32 @@
 
 
 <ng-template #CreateForm>
-
+<!-- 
+    <form [formGroup]="CreateCourseForm" class="example-form">
+        <div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input type="text" matInput formControlName="coursename" >
+          <mat-error *ngIf="CreateCourseForm.controls['coursename'].hasError('required')">
+            course name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input type="number" matInput formControlName="categoryid" >
+            <mat-error *ngIf="CreateCourseForm.controls['categoryid'].hasError('required')">
+              categoryid is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+    
+       <input type="file" #file (change)="UploadImage(file)">
+    <input type="button" [disabled]="CreateCourseForm.invalid" value="Create" (click)="CreateCourse()">
+    </div>
+    </form> -->
 
 </ng-template>
 
@@ -58,6 +90,46 @@
 
 <ng-template #UpdateForm>
 
+<!--     
+    <div mat-dialog-content>
+
+        <form [formGroup]="UpdateCourseForm" class="example-form">
+            <div>
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input type="text" matInput formControlName="coursename" >
+              <mat-error *ngIf="UpdateCourseForm.controls['coursename'].hasError('required')">
+                course name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+                <mat-label>Email</mat-label>
+                <input type="number" matInput formControlName="categoryid" >
+                <mat-error *ngIf="UpdateCourseForm.controls['categoryid'].hasError('required')">
+                  categoryid is <strong>required</strong>
+                </mat-error>
+     -->
+    <!-- 
+                <mat-form-field appearance="fill">
+                    <mat-label>Category id</mat-label>
+                    <select formControlName="categoryid"  matNativeControl required>
+                      <option *ngFor="let i of adminService.AllCourses" [value]="i.courseid">{{i.coursename}}</option>
+      
+                    </select>
+                  </mat-form-field> -->
+    
+<!--     
+            </div>
+            <div>
+                <div mat-dialog-actions>
+                    <input type="button" [disabled]="UpdateCourseForm.invalid" value="Update" mat-dialog-close (click)="UpdateCourse()">
+    
+                </div>
+           
+        </div>
+        </form>
+    </div> -->
 
 </ng-template>
 
@@ -65,17 +137,26 @@
 
 <ng-template #DeleteForm>
 
+    <h2 mat-dialog-content>Would you like to delete this item?</h2>
+    <div mat-dialog-actions>
+    <input mat-dialog-close value="Yes" type="button" class="btn btn-success" >
+    <input mat-dialog-close value="No" type="button" class="btn btn-error">
+    </div>
 
 </ng-template>
 
 
 
 <ng-template #DetailsForm>
+    <h1 mat-dialog-title>Doctor Details</h1>
+    <div mat-dialog-content>Iamge :{{this.adminService.DoctorById.imagename}}</div>
+    <div mat-dialog-content>First Name :{{this.adminService.DoctorById.firstname}}</div>
+    <div mat-dialog-content>Last Name :{{this.adminService.DoctorById.lastname}}</div>
+    <div mat-dialog-content>User Name :{{this.adminService.DoctorById.username}}</div>
+    <div mat-dialog-content>Email :{{this.adminService.DoctorById.email}}</div>
 
-    <div mat-dialog-content>{{this.adminService.DoctorById.imagename}}
     
     <div mat-dialog-actions>
       <button mat-button mat-dialog-close>Close</button>
     </div>
-</div>
 </ng-template>

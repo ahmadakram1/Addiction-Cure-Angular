@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AdminService } from 'src/app/admin.service';
 import {MatDialog, } from '@angular/material/dialog';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -24,6 +25,21 @@ export class AllDoctorsComponent {
   {
 
   }
+
+ 
+  CreateForm= new FormGroup({
+
+    firstname : new FormControl("",[Validators.required]),
+    lastname : new FormControl("",[Validators.required]),
+    imagename : new FormControl("",[Validators.required]),
+    level1 : new FormControl("",[Validators.required]),
+    username : new FormControl("",[Validators.required]),
+    email :new FormControl("",[Validators.required])
+
+  })
+
+
+
 
   ngOnInit()
   {
