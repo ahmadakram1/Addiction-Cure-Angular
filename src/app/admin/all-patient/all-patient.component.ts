@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { PatientService } from 'src/app/patient.service';
 
 @Component({
@@ -14,12 +15,16 @@ export class AllPatientComponent {
   @ViewChild("DetailsForm") Details:any;
   
   
-  constructor(public patientService:PatientService){
+  constructor(public patientService:PatientService ,public dialog:MatDialog){
 
   }
 
   ngOnInit()
   {
     this.patientService.GetAllPatient()
+  }
+  async GetById(patientid:number){
+    await this.patientService.GetPatientById(patientid)
+    this.dialog.open(this.Details)
   }
 }

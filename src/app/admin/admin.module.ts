@@ -7,7 +7,6 @@ import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { AllDoctorsComponent } from './all-doctors/all-doctors.component';
-import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { TestimonilComponent } from './testimonil/testimonil.component';
 import { AllPatientComponent } from './all-patient/all-patient.component';
 import { CategoryComponent } from './category/category.component';
@@ -19,7 +18,6 @@ import { CategoryComponent } from './category/category.component';
     MainComponent,
     ProfileComponent,
     AllDoctorsComponent,
-    PatientDetailsComponent,
     TestimonilComponent,
     AllPatientComponent,
     CategoryComponent,

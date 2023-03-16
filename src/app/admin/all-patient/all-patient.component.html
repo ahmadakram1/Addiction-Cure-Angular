@@ -26,7 +26,7 @@
                                     <td>{{item.imagename}}</td>
                                     <td>{{item.firstname}}</td>
                                     <td>{{item.lastname}}</td>
-                                    <td><input type="button" value="Detiles" class="btn btn-primary"></td>
+                                    <td><input type="button" value="Detiles" class="btn btn-primary" (click)="GetById(item.patientid)"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -64,6 +64,10 @@
 
 
 <ng-template #DetailsForm>
-
-
+    <h1 mat-dialog-title>Dialog with elements</h1>
+    <div mat-dialog-content>{{this.patientService.PatientById.patientid}}</div>
+    <div mat-dialog-content>sssssssssssssss</div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close>Close</button>
+    </div>
 </ng-template>

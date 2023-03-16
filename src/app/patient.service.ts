@@ -52,18 +52,20 @@ export class PatientService {
   
   }
 
-
-  
   PatientById: any
-  GetPatientById(PatientId: any) {
+  GetPatientById(patientid: any) {
+  return new Promise<void>((resolve, reject) => {
     this.spinner.show()
-    this.http.get("https://localhost:44373/API/Patient/getallPatient" + PatientId).subscribe(
+    this.http.get("https://localhost:44373/api/Patient/getbyid/" + patientid).subscribe(
       {
         next: (res) => {
           this.PatientById = res
+          console.log(this.PatientById)
           this.spinner.hide()
           this.toastr.success("Success")
+          resolve()
         },
+
         error: (err) => {
           console.log(err)
           this.spinner.hide()
@@ -71,7 +73,9 @@ export class PatientService {
         }
       }
     )
-  }
+    debugger
+    })
+}
 
 
 
