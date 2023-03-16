@@ -13,7 +13,11 @@ const routes: Routes = [
   {
     path:"Auth",
     loadChildren:()=>import('./auth/auth.module').then(x=>x.AuthModule)
-  }
+  },
+  {
+    path:"Doctor",
+    loadChildren:()=>import('./doctor/doctor.module').then(x=>x.DoctorModule)
+  },
 ];
 
 @NgModule({
