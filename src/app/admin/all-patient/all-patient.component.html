@@ -65,8 +65,11 @@
 
 <ng-template #DetailsForm>
     <h1 mat-dialog-title>Dialog with elements</h1>
-    <div mat-dialog-content>{{this.patientService.PatientById.patientid}}</div>
-    <div mat-dialog-content>sssssssssssssss</div>
+    <div mat-dialog-content>User Name :{{this.patientService.PatientById.username}}</div>
+    <div mat-dialog-content>Email :{{this.patientService.PatientById.email}}</div>
+    <div mat-dialog-content>First Name :{{this.patientService.PatientById.firstname}}</div>
+    <div mat-dialog-content>Last Name :{{this.patientService.PatientById.lastname}}</div>
+    
     <div mat-dialog-actions>
       <button mat-button mat-dialog-close>Close</button>
     </div>

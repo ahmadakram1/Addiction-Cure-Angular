@@ -53,7 +53,7 @@ export class PatientService {
   }
 
   PatientById: any
-  GetPatientById(patientid: any) {
+  async GetPatientById(patientid: any) {
   return new Promise<void>((resolve, reject) => {
     this.spinner.show()
     this.http.get("https://localhost:44373/api/Patient/getbyid/" + patientid).subscribe(
