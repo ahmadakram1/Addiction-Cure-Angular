@@ -30,7 +30,7 @@ export class AllDoctorsComponent {
     this.adminService.GetAllDoctors()
   }
 
-  async GetById(Doctor_id:number){
+  async openDetalisDialog(Doctor_id:number){
   
    await this.adminService.GetDoctorById(Doctor_id);
     this.dialog.open(this.Details);
