@@ -30,9 +30,9 @@ export class AllDoctorsComponent {
     this.adminService.GetAllDoctors()
   }
 
-  GetById(Doctor_id:number){
+  async GetById(Doctor_id:number){
   
-   this.adminService.GetDoctorById(Doctor_id);
+   await this.adminService.GetDoctorById(Doctor_id);
     this.dialog.open(this.Details);
   }
 

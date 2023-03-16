@@ -54,7 +54,7 @@ export class AdminService {
 
   DoctorById: any
    async GetDoctorById(doctorid: any) {
-    // return new Promise<void>((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
     this.spinner.show()
     this.http.get("https://localhost:44373/API/Doctor/getbyid/" + doctorid).subscribe(
       {
@@ -62,17 +62,17 @@ export class AdminService {
           this.DoctorById = res
           this.spinner.hide()          
           this.toastr.success()
-          // resolve()
+         resolve()
         },
         error: (err) => {
           console.log(err)
           this.spinner.hide()
           this.toastr.error()
-          // reject()
+           reject()
         }
       }
     )
-  // })
+    })
   }
 
 
