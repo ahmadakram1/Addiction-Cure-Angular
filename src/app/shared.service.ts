@@ -191,5 +191,45 @@ GetTestimonialByPatienId(TestimonialId:any){
     }
   )
 }
+
+
+
+async RegisterPatient(Register:any){
+  Register.imagename=this.imageName
+  Register.roleid=2
+  Register.Doctodid=62
+  Register.categoryid=null
+  Register.level1=null
+  return new Promise<void>((resolve, reject) => {
+
+  this.spinner.show
+  this.http.post("https://localhost:44373/API/login/register",Register).subscribe(
+    {
+      next:()=>{
+        this.spinner.hide()
+        this.toastr.success("Success")
+        resolve();
+     },
+     error:(err)=>{
+      console.log(err);
+      
+      this.spinner.hide()
+      this.toastr.error("Error")
+     }
+    }
+  )
+  })
+}
+
+imageName = ""
+UploadImage(imageFile : any) 
+{
+  this.http.post("https://localhost:44373/API/login/uploadImage",imageFile).subscribe(
+    {
+      next:(res:any)=>{this.imageName = res.imageName},
+      error:()=>{}
+    }
+  )
+}
 }
   

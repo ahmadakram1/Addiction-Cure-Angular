@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegisterComponent {
 
-  constructor(private toastr: ToastrService,private spinner: NgxSpinnerService)
+  constructor(public shaerdService :SharedService,private toastr: ToastrService,private spinner: NgxSpinnerService)
   {
 
   }
@@ -22,32 +23,35 @@ RegisterForm = new FormGroup({
     UserName : new FormControl("",[Validators.required]),
     EmailAddress : new FormControl("",[Validators.required,Validators.email]),
     Password : new FormControl("",[Validators.required,Validators.minLength(6)]),
-    file : new FormControl("",[Validators.required])
+    //file : new FormControl("",[Validators.required])
    
   })
 
+  async Register(){
+    console.log(this.RegisterForm.value)
+    let data=this.RegisterForm.value
+    console.log(data);
+    
+    
+    await this.shaerdService.RegisterPatient(data)
+        console.log(this.shaerdService.imageName);
 
-  GetData(){
 
-
-    console.log(this.RegisterForm.value);
     
   }
 
-  showSuccess() {
-    this.toastr.success('Register Done', 'Toastr fun!');
-    // this.toastr.error('Hello world!', 'Toastr fun!'); //red error
-  }
+  UploadImage(input: any) // <input>
+{
+if(input.files.length !=0 )
+{
+let uploadedFile = input.files[0] // imagefile 
+let formData = new FormData()
+formData.append('file' , uploadedFile)
+this.shaerdService.UploadImage(formData)
+}
+}
+  GetData(){ console.log(this.RegisterForm.value); }
+ 
 
-  
-
-  ngOnInit() {
-    /** spinner starts on init */
-    this.spinner.show();
-
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 2000);
-  }
+ 
 }
