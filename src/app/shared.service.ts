@@ -197,7 +197,7 @@ GetTestimonialByPatienId(TestimonialId:any){
 async RegisterPatient(Register:any){
   Register.imagename=this.imageName
   Register.roleid=2
-  Register.doctorid=62
+  Register.doctorid=null
   Register.categoryid=null
   Register.level1=null
   console.log(Register);
