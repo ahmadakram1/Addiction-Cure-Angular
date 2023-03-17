@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -197,13 +197,22 @@ GetTestimonialByPatienId(TestimonialId:any){
 async RegisterPatient(Register:any){
   Register.imagename=this.imageName
   Register.roleid=2
-  Register.Doctodid=62
+  Register.doctorid=62
   Register.categoryid=null
   Register.level1=null
+  console.log(Register);
+  const header = {
+    'Content-Type' : 'application/json',
+    'Accept' : 'application/json'
+  }
+  
+  const Options ={
+    headers: new HttpHeaders(header)
+  }
   return new Promise<void>((resolve, reject) => {
 
-  this.spinner.show
-  this.http.post("https://localhost:44373/API/login/register",Register).subscribe(
+  this.spinner.show()
+  this.http.post("https://localhost:44373/API/login/register",Register,Options).subscribe(
     {
       next:()=>{
         this.spinner.hide()
@@ -226,7 +235,7 @@ UploadImage(imageFile : any)
 {
   this.http.post("https://localhost:44373/API/login/uploadImage",imageFile).subscribe(
     {
-      next:(res:any)=>{this.imageName = res.imageName},
+      next:(res:any)=>{this.imageName = res.imagename},
       error:()=>{}
     }
   )
