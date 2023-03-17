@@ -16,8 +16,8 @@
             <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5">Make Your Test Now</h2>
         </div>
         <div>
-            <form>
-                <h1 style="font-family: sans-serif;">Q1:</h1>
+            <form *ngfor="let item of patientService.QuastionsByCategoryId">
+                <h1 style="font-family: sans-serif;">Q1:{{item.quastion}}</h1>
                 <mat-radio-group aria-label="Select an option">
                     <mat-radio-button value="1">True</mat-radio-button>
                     <mat-radio-button value="2">False</mat-radio-button>

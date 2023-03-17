@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-testimonil',
@@ -7,11 +8,23 @@ import { Component, ViewChild } from '@angular/core';
 })
 export class TestimonilComponent {
 
-  
+ 
+ 
 @ViewChild("CreateForm") Craete:any;
 @ViewChild("UpdateForm") Update:any;
 @ViewChild("DeleteForm") Delete:any;
 @ViewChild("DetailsForm") Details:any;
 
+constructor(public sharedService:SharedService){}
+selected :any
 
+
+ngOnInit(){
+ 
+  this.sharedService.GetAllTestemonial()
+}
+getdata()
+{
+  console.log(this.selected)
+}
 }

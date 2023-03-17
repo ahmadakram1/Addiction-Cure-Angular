@@ -113,24 +113,24 @@
             <h1 class="display-4">Patients Say About Our Services</h1>
         </div>
 
-        <mdb-carousel [controls]="true">
-            <mdb-carousel-item>
-                <div class="testimonial-item text-center">
+       <mdb-carousel [controls]="true"  >
+            <mdb-carousel-item *ngFor="let item of shaerdService.Testemonial" ngIf="item.status=1">
+                <div class="testimonial-item text-center" >
                     <div class="position-relative mb-5">
-                        <img class="img-fluid rounded-circle mx-auto" src="/assets/HomeAssets/img/testimonial-1.jpg"
+                        <img class="img-fluid rounded-circle mx-auto" src="../../../assets/images/{{item.imagename}}" width="200" height="300"
                             alt="">
                         <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle"
                             style="width: 60px; height: 60px;">
                             <i class="fa fa-quote-left fa-2x text-primary"></i>
                         </div>
                     </div>
-                    <p class="fs-4 fw-normal"> labore Erat dolor rebum sit ipsum.</p>
+                    <p class="fs-4 fw-normal">{{item.messageuser}}</p>
                     <hr class="w-25 mx-auto">
-                    <h3>Patient Name</h3>
+                    <h3>{{item.firstname}} {{item.lastname}}</h3>
                     <h6 class="fw-normal text-primary mb-3">Profession</h6>
                 </div>
             </mdb-carousel-item>
-            <mdb-carousel-item>
+            <!-- <mdb-carousel-item>
                 <div class="testimonial-item text-center">
                     <div class="position-relative mb-5">
                         <img class="img-fluid rounded-circle mx-auto" src="/assets/HomeAssets/img/testimonial-1.jpg"
@@ -146,24 +146,8 @@
                     <h3>Patient Name</h3>
                     <h6 class="fw-normal text-primary mb-3">Profession</h6>
                 </div>
-            </mdb-carousel-item>
-            <mdb-carousel-item>
-                <div class="testimonial-item text-center">
-                    <div class="position-relative mb-5">
-                        <img class="img-fluid rounded-circle mx-auto" src="/assets/HomeAssets/img/testimonial-1.jpg"
-                            alt="">
-                        <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle"
-                            style="width: 60px; height: 60px;">
-                            <i class="fa fa-quote-left fa-2x text-primary"></i>
-                        </div>
-                    </div>
-                    <p class="fs-4 fw-normal">Dolores sed duo clita tempor justo dolor et stet lorem kasd labore.</p>
-                    <hr class="w-25 mx-auto">
-                    <h3>Patient Name</h3>
-                    <h6 class="fw-normal text-primary mb-3">Profession</h6>
-                </div>
-            </mdb-carousel-item>
-        </mdb-carousel>
+            </mdb-carousel-item>-->
+        </mdb-carousel> 
     </div>
 </div>
 

@@ -31,7 +31,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of adminService.Doctors">
-                                    <td>{{item.imagename}}</td>
+                                    <td><img src="../../../assets/images/{{item.imagename}}" height="80" width="80" style="border-radius: 50px;"></td>
                                     <td>{{item.firstname}}</td>
                                     <td>{{item.lastname}}</td>
                                     <td>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-main',
@@ -10,18 +11,14 @@ export class MainComponent {
  
  @Output() sendvalue = new EventEmitter()
 
-  constructor(private spinner: NgxSpinnerService)
+  constructor(public shaerdService:SharedService,private spinner: NgxSpinnerService)
   {
 
   }
   ngOnInit() {
-    /** spinner starts on init */
-    this.spinner.show();
-
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 2000);
+  this.shaerdService.GetAllTestemonial()
+  console.log(this.shaerdService.Testemonial);
+  
   }
  
 

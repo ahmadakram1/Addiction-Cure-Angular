@@ -16,19 +16,24 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                    <th>User Image</th>
                                     <th>Name</th>
                                     <th>Mesg Patiant</th>
                                     <th>Status</th>
-                                    <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <!-- <tr *ngFor="let item of adminService.Doctors">
-                                    <td>{{item.imagename}}</td>
-                                    <td>{{item.firstname}}</td>
-                                    <td>{{item.lastname}}</td>
-                                    <td><input type="button" value="Detiles" class="btn btn-primary"></td>
-                                </tr> -->
+                            <tbody>                                
+                                <tr *ngFor="let item of sharedService.Testemonial">
+                                    <td><img src="../../../assets/images/{{item.imagename}}" height="80" width="80" style="border-radius: 50px;"></td>
+                                    <td>{{item.firstname}} {{item.lastname}}</td>
+                                    <td>{{item.messageuser}}</td>
+                                    <td>
+                                        <mat-select [(value)]="selected">
+                                        <mat-option value=1>Published</mat-option>
+                                        <mat-option value=2>UnPublished</mat-option>                                        
+                                      </mat-select>                                    
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
