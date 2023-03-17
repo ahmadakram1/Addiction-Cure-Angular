@@ -15,9 +15,17 @@ export class MainComponent {
   {
 
   }
+<<<<<<< HEAD
   async ngOnInit() {
   await this.sharedService.GetAllTestemonial()
   console.log(this.sharedService.Testemonial);
+=======
+  
+  ngOnInit() {
+  this.shaerdService.GetAllTestemonial()
+  console.log(this.shaerdService.Testemonial);
+  
+>>>>>>> 3f4f5785aa58978946ea5fd8f3b1ccda547e6510
   }
  
 
