@@ -17,7 +17,7 @@
 
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <br>
-                    <td><input type="button" value="Create" class="btn btn-dark"></td>
+                    <td><input type="button" value="Create" class="btn btn-dark" (click)="OpenCreateDialog()"></td>
                     <br>
                     <div class="card mb-4">
                         <table class="table table-striped">
@@ -35,9 +35,11 @@
                                     <td>{{item.firstname}}</td>
                                     <td>{{item.lastname}}</td>
                                     <td>
-                                    <input type="button" value="Update" class="btn btn-success">
-                                    <input type="button" value="Delete" class="btn btn-danger">
-                                    <input type="button" value="Details" class="btn btn-primary" (click)="openDetalisDialog(item.doctodid)">
+                                        <input type="button" value="Update" class="btn btn-success"
+                                            (click)="OpenUpdateDialog(item.doctodid)">
+                                        <input type="button" value="Delete" class="btn btn-danger">
+                                        <input type="button" value="Details" class="btn btn-primary"
+                                            (click)="openDetalisDialog(item.doctodid)">
                                     </td>
 
                                 </tr>
@@ -54,82 +56,194 @@
 
 
 
-
-
 <ng-template #CreateForm>
-<!-- 
-    <form [formGroup]="CreateCourseForm" class="example-form">
-        <div>
-        <mat-form-field class="example-full-width">
-          <mat-label>Email</mat-label>
-          <input type="text" matInput formControlName="coursename" >
-          <mat-error *ngIf="CreateCourseForm.controls['coursename'].hasError('required')">
-            course name is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input type="number" matInput formControlName="categoryid" >
-            <mat-error *ngIf="CreateCourseForm.controls['categoryid'].hasError('required')">
-              categoryid is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div>
-    
-       <input type="file" #file (change)="UploadImage(file)">
-    <input type="button" [disabled]="CreateCourseForm.invalid" value="Create" (click)="CreateCourse()">
-    </div>
-    </form> -->
+    <div mat-dialog-content>
+        <form [formGroup]="CreateDoctorForm" class="example-form">
 
+            <!--     
+       <input type="file" #file (change)="UploadImage(file)"> -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>First Name</mat-label>
+                            <input type="text" matInput formControlName="Firstname">
+                            <mat-error *ngIf="CreateDoctorForm.controls['Firstname'].hasError('required')">
+                                First Name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Last Name</mat-label>
+                            <input type="text" matInput formControlName="Lastname">
+                            <mat-error *ngIf="CreateDoctorForm.controls['Lastname'].hasError('required')">
+                                Last Name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Level</mat-label>
+                            <input type="text" matInput formControlName="Level1">
+                            <mat-error *ngIf="CreateDoctorForm.controls['Level1'].hasError('required')">
+                                Level is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Username</mat-label>
+                            <input type="text" matInput formControlName="Username">
+                            <mat-error *ngIf="CreateDoctorForm.controls['Username'].hasError('required')">
+                                Username is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput formControlName="Email">
+                            <mat-error *ngIf="CreateDoctorForm.controls['Email'].hasError('required')">
+                                Email is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Password</mat-label>
+                            <input type="password" matInput formControlName="Password">
+                            <mat-error *ngIf="CreateDoctorForm.controls['Password'].hasError('required')">
+                                Password is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Role </mat-label>
+                            <input type="number" matInput formControlName="Roleid">
+                            <mat-error *ngIf="CreateDoctorForm.controls['Roleid'].hasError('required')">
+                                Role id is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Category</mat-label>
+                        <select formControlName="CATEGORYID"  matNativeControl required>
+                          <option *ngFor="let item of sharedservice.Category" [value]="item.categoryid">{{item.categoryname}}</option>
+                        </select>
+                      </mat-form-field>
+                    </div>
+                </div>
+                <div mat-dialog-actions>
+                    <input type="button" [disabled]="CreateDoctorForm.invalid" value="Create" class="btn btn-dark"
+                        (click)="CreateDoctor()" mat-dialog-close>
+                </div>
+            </div>
+        </form>
+    </div>
 </ng-template>
 
 
 
 <ng-template #UpdateForm>
 
-<!--     
+
     <div mat-dialog-content>
 
-        <form [formGroup]="UpdateCourseForm" class="example-form">
-            <div>
-            <mat-form-field class="example-full-width">
-              <mat-label>Email</mat-label>
-              <input type="text" matInput formControlName="coursename" >
-              <mat-error *ngIf="UpdateCourseForm.controls['coursename'].hasError('required')">
-                course name is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-        </div>
-        <div>
-                <mat-label>Email</mat-label>
-                <input type="number" matInput formControlName="categoryid" >
-                <mat-error *ngIf="UpdateCourseForm.controls['categoryid'].hasError('required')">
-                  categoryid is <strong>required</strong>
-                </mat-error>
-     -->
-    <!-- 
-                <mat-form-field appearance="fill">
-                    <mat-label>Category id</mat-label>
-                    <select formControlName="categoryid"  matNativeControl required>
-                      <option *ngFor="let i of adminService.AllCourses" [value]="i.courseid">{{i.coursename}}</option>
-      
-                    </select>
-                  </mat-form-field> -->
-    
-<!--     
-            </div>
-            <div>
-                <div mat-dialog-actions>
-                    <input type="button" [disabled]="UpdateCourseForm.invalid" value="Update" mat-dialog-close (click)="UpdateCourse()">
-    
+
+        <!--     
+       <input type="file" #file (change)="UploadImage(file)"> -->
+        <form [formGroup]="UpdateDoctorForm" class="example-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>First Name</mat-label>
+                            <input type="text" matInput formControlName="Firstname">
+                            <mat-error *ngIf="UpdateDoctorForm.controls['Firstname'].hasError('required')">
+                                First Name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Last Name</mat-label>
+                            <input type="text" matInput formControlName="Lastname">
+                            <mat-error *ngIf="UpdateDoctorForm.controls['Lastname'].hasError('required')">
+                                Last Name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Level</mat-label>
+                            <input type="text" matInput formControlName="Level1">
+                            <mat-error *ngIf="UpdateDoctorForm.controls['Level1'].hasError('required')">
+                                Level is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Username</mat-label>
+                            <input type="text" matInput formControlName="Username">
+                            <mat-error *ngIf="UpdateDoctorForm.controls['Username'].hasError('required')">
+                                Username is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
                 </div>
-           
-        </div>
+                <div class="col-md-6">
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput formControlName="Email">
+                            <mat-error *ngIf="UpdateDoctorForm.controls['Email'].hasError('required')">
+                                Email is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Password</mat-label>
+                            <input type="password" matInput formControlName="Password">
+                            <mat-error *ngIf="UpdateDoctorForm.controls['Password'].hasError('required')">
+                                Password is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Role </mat-label>
+                            <input type="number" matInput formControlName="Roleid">
+                            <mat-error *ngIf="UpdateDoctorForm.controls['Roleid'].hasError('required')">
+                                Role id is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Category</mat-label>
+                            <input type="number" matInput formControlName="CategoryID">
+                            <mat-error *ngIf="UpdateDoctorForm.controls['CategoryID'].hasError('required')">
+                                Category id is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div mat-dialog-actions>
+                    <input type="button" [disabled]="UpdateDoctorForm.invalid" value="Update" class="btn btn-dark"
+                        mat-dialog-close (click)="UpdateDoctor()">
+                </div>
+
+            </div>
         </form>
-    </div> -->
+    </div>
 
 </ng-template>
 
@@ -139,8 +253,8 @@
 
     <h2 mat-dialog-content>Would you like to delete this item?</h2>
     <div mat-dialog-actions>
-    <input mat-dialog-close value="Yes" type="button" class="btn btn-success" >
-    <input mat-dialog-close value="No" type="button" class="btn btn-error">
+        <input mat-dialog-close value="Yes" type="button" class="btn btn-success">
+        <input mat-dialog-close value="No" type="button" class="btn btn-error">
     </div>
 
 </ng-template>
@@ -155,8 +269,8 @@
     <div mat-dialog-content>User Name :{{this.adminService.DoctorById.username}}</div>
     <div mat-dialog-content>Email :{{this.adminService.DoctorById.email}}</div>
 
-    
+
     <div mat-dialog-actions>
-      <button mat-button mat-dialog-close>Close</button>
+        <button mat-button mat-dialog-close>Close</button>
     </div>
 </ng-template>
