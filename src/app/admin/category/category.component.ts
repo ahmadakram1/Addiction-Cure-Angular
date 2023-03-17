@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-category',
@@ -12,6 +13,18 @@ export class CategoryComponent {
 @ViewChild("UpdateForm") Update:any;
 @ViewChild("DeleteForm") Delete:any;
 @ViewChild("DetailsForm") Details:any;
+
+
+
+
+constructor(public sharedservice:SharedService){
+
+}
+
+
+ngOnInit(){
+  this.sharedservice.GetCategory();
+}
 
 
 }

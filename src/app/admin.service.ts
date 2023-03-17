@@ -32,24 +32,49 @@ export class AdminService {
   }
   
   
-  createdoctor(Doctor: any) {
+  async createdoctor(Doctor: any) {
+
+    return new Promise<void>((resolve, reject) => {
 
     this.spinner.show()
-    this.http.post("https://localhost:44373/api/Doctor/createdoctor", Doctor).subscribe(
+    this.http.post("https://localhost:44373/api/Login/DoctorRegister", Doctor).subscribe(
       {
         next: () => {
           this.spinner.hide();
-          this.toastr.success("Added Successfully")
+          this.toastr.success("Added Successfully");
+          resolve();
         },
         error: (error) => {
           this.spinner.hide();
           this.toastr.error("Error")
+         reject();
         }
       }
     )
-  
+   })
   }
 
+
+  async UpdateDoctor(Doctor: any) {
+
+    return new Promise<void>((resolve, reject) => {
+      this.spinner.show();
+      this.http.put("", Doctor).subscribe({
+        next: () => {
+          this.spinner.hide();
+          this.toastr.success("Updated Successfully");
+          resolve();
+
+        },
+        error: () => {
+          this.spinner.hide();
+          this.toastr.error("Error")
+          reject();
+        }
+
+      })
+    })
+  }
   
 
   DoctorById: any
