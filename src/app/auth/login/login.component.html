@@ -27,21 +27,21 @@
                 <form [formGroup]="LoginForm">
                   <mat-form-field class="example-full-width">
                     <mat-label>Email</mat-label>
-                    <input matInput formControlName="Email" type="email" class="form-control"
+                    <input matInput formControlName="email" type="email" class="form-control"
                       placeholder="name@example.com"><br>
-                    <mat-error class="text-danger" *ngIf="LoginForm.controls['Email'].hasError('email')"> Invalid
+                    <mat-error class="text-danger" *ngIf="LoginForm.controls['email'].hasError('email')"> Invalid
                       email</mat-error>
-                    <mat-error class="text-danger" *ngIf="LoginForm.controls['Email'].hasError('required')">Email is
+                    <mat-error class="text-danger" *ngIf="LoginForm.controls['email'].hasError('required')">Email is
                       <strong>required</strong></mat-error>
                   </mat-form-field>
 
                   <mat-form-field class="example-full-width">
                     <mat-label>Password</mat-label>
-                    <input matInput formControlName="Password" type="password" class="form-control"
+                    <input matInput formControlName="password" type="password" class="form-control"
                       placeholder="**********"><br>
-                    <mat-error class="text-danger" *ngIf="LoginForm.controls['Password'].hasError('minlength')"> Invalid
+                    <mat-error class="text-danger" *ngIf="LoginForm.controls['password'].hasError('minlength')"> Invalid
                       Passowrd</mat-error>
-                    <mat-error class="text-danger" *ngIf="LoginForm.controls['Password'].hasError('required')">Passowrd
+                    <mat-error class="text-danger" *ngIf="LoginForm.controls['password'].hasError('required')">Passowrd
                       is
                       <strong>required</strong></mat-error>
                   </mat-form-field>
@@ -56,7 +56,7 @@
 
                   <div class="d-grid">
                     <!-- <a (click)="showSuccess()" class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</a> -->
-                    <input type="submit" [disabled]="LoginForm.invalid" (click)="GetData()" (click)="showSuccess()"
+                    <input type="submit" [disabled]="LoginForm.invalid" (click)="Login()"
                       class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" value="Sign In"
                       style="color:white" >
 

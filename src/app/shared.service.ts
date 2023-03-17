@@ -1,14 +1,16 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
 
-  constructor(private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService) { }
+  constructor(private route:Router,private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService) { }
 
 Home:any=[]
 GetAllHome()
@@ -240,5 +242,46 @@ UploadImage(imageFile : any)
     }
   )
 }
+
+
+Login(user :any) // Diala / 123456
+{
+const header = {
+  'Content-Type' : 'application/json',
+  'Accept' : 'application/json'
 }
-  
+const Options ={
+  headers: new HttpHeaders(header)
+}
+this.spinner.show()
+this.http.post("https://localhost:44373/API/Login/login", user , Options).subscribe(
+{
+  next:(res:any)=>{
+  console.log(res); // token
+  let data : any = jwt_decode(res)
+  console.log(data);
+    localStorage.setItem('token' , res)
+    localStorage.setItem('user' ,JSON.stringify(data))
+    this.spinner.hide()
+    if (data.Role == 3)
+    {
+      this.route.navigate([""])
+    }
+    else if (data.Role == 2)
+    {
+    this.route.navigate(["Doctor/Main"])
+    }
+    else
+    {
+      this.route.navigate(["Admin/Main"])
+    }
+    },
+    error:(err)=>{
+      this.spinner.hide()
+      console.log(err);      
+      this.toastr.error("Invalid username or password")
+    }
+  }
+)}
+
+}
