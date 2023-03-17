@@ -17,6 +17,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { DoctorFooterComponent } from './doctor-footer/doctor-footer.component';
+import { DoctorHeaderComponent } from './doctor-header/doctor-header.component';
+import { DoctorSideBarComponent } from './doctor-side-bar/doctor-side-bar.component';
 
 
 @NgModule({
