@@ -18,11 +18,11 @@ export class RegisterComponent {
 
 RegisterForm = new FormGroup({
 
-    FirstName : new FormControl("",[Validators.required]),
-    LastName : new FormControl("",[Validators.required]),
-    UserName : new FormControl("",[Validators.required]),
-    EmailAddress : new FormControl("",[Validators.required,Validators.email]),
-    Password : new FormControl("",[Validators.required,Validators.minLength(6)]),
+  firstname : new FormControl("",[Validators.required]),
+  lastname : new FormControl("",[Validators.required]),
+  username : new FormControl("",[Validators.required]),
+  email : new FormControl("",[Validators.required,Validators.email]),
+    password : new FormControl("",[Validators.required,Validators.minLength(6)]),
     //file : new FormControl("",[Validators.required])
    
   })
