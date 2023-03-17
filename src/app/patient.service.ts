@@ -13,7 +13,9 @@ export class PatientService {
 
   }
   
-  Patient: any = []
+  Patient: any 
+
+
   GetAllPatient() {
     this.spinner.show()
     this.http.get("https://localhost:44373/api/Patient/getallPatient").subscribe(
@@ -77,6 +79,46 @@ export class PatientService {
     })
 }
 
+async DeletePatient(patientid: number)
+{
+  return new Promise<void>((resolve,reject)=>{
+  this.http.delete("https://localhost:44373/api/Patient/deletePatient/"+patientid).subscribe(
+    {
+      next:()=>{
+        this.spinner.hide()
+        this.toastr.success("Deleted Successfully")
+        resolve()
+      },
+      error:()=>{
+        this.spinner.hide()
+        this.toastr.error("Error")
+        reject()
+      }
+    }
+  )
+})
+}
 
+
+async UpdatePatient(Patient : any)
+{
+  return new Promise<void>((resolve,reject)=>{
+  this.spinner.show()
+  this.http.put("https://localhost:44373/api/Patient/updatePatient", Patient).subscribe(
+    {
+      next:()=>{
+        this.spinner.hide()
+        this.toastr.success("Updated Successfully")
+        resolve()
+      },
+      error:(err)=>{
+        console.log(err);
+        this.spinner.hide()
+        this.toastr.error("Error")
+      }
+    }
+  )
+})
+}
 
 }
