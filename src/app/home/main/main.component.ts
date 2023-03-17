@@ -11,14 +11,13 @@ export class MainComponent {
  
  @Output() sendvalue = new EventEmitter()
 
-  constructor(public shaerdService:SharedService,private spinner: NgxSpinnerService)
+  constructor(public sharedService:SharedService,private spinner: NgxSpinnerService)
   {
 
   }
-  ngOnInit() {
-  this.shaerdService.GetAllTestemonial()
-  console.log(this.shaerdService.Testemonial);
-  
+  async ngOnInit() {
+  await this.sharedService.GetAllTestemonial()
+  console.log(this.sharedService.Testemonial);
   }
  
 

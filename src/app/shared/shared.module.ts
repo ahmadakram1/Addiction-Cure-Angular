@@ -62,6 +62,7 @@ import { DoctorSideBarComponent } from './doctor-side-bar/doctor-side-bar.compon
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule
+    
   ]
 })
 export class SharedModule { }
