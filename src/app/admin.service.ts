@@ -56,10 +56,12 @@ export class AdminService {
 
 
   async UpdateDoctor(Doctor: any) {
-
+   
     return new Promise<void>((resolve, reject) => {
+Doctor.doctodid=21
+Doctor.loginid=61
       this.spinner.show();
-      this.http.put("", Doctor).subscribe({
+      this.http.put("https://localhost:44373/API/Doctor/updatedoctor", Doctor).subscribe({
         next: () => {
           this.spinner.hide();
           this.toastr.success("Updated Successfully");

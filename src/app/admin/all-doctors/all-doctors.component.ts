@@ -46,15 +46,15 @@ export class AllDoctorsComponent {
   UpdateDoctorForm = new FormGroup({
 
     doctodid:new FormControl(''),
-    Firstname: new FormControl("", [Validators.required]),
-    Lastname: new FormControl("", [Validators.required]),
+    firstname: new FormControl("", [Validators.required]),
+    lastname: new FormControl("", [Validators.required]),
     // Imagename: new FormControl("", [Validators.required]),
-    Level1: new FormControl("", [Validators.required]),
-    Username: new FormControl("", [Validators.required]),
-    Password: new FormControl("", [Validators.required]),
-    Email: new FormControl("", [Validators.required]),
-    Roleid: new FormControl("", [Validators.required]),
-    CategoryID: new FormControl("", [Validators.required]),
+    level1: new FormControl("", [Validators.required]),
+    username: new FormControl("", [Validators.required]),
+    password: new FormControl("", [Validators.required]),
+    email: new FormControl("", [Validators.required]),
+    roleid: new FormControl("", [Validators.required]),
+    categoryID: new FormControl("", [Validators.required]),
 
 
   })
