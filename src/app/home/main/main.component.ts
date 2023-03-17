@@ -15,6 +15,7 @@ export class MainComponent {
   {
 
   }
+  
   ngOnInit() {
   this.shaerdService.GetAllTestemonial()
   console.log(this.shaerdService.Testemonial);
