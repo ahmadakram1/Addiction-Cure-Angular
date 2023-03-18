@@ -126,22 +126,71 @@ async CreateCategoryAC(Category: any) {
 
 }
 
+async UpdateCategory(Category: any) {
+   
+  return new Promise<void>((resolve, reject) => {
+
+    this.spinner.show();
+    this.http.put("https://localhost:44373/api/Category/Update", Category).subscribe({
+      next: () => {
+        this.spinner.hide();
+        this.toastr.success("Updated Successfully");
+        resolve();
+
+      },
+      error: () => {
+        this.spinner.hide();
+        this.toastr.error("Error")
+        reject();
+      }
+
+    })
+  })
+}
+
+
+async DeleteCategory(Category_id: number) {
+
+  return new Promise<void>((resolve, reject) => {
+    this.spinner.show
+    this.http.delete("https://localhost:44373/api/Category/DeleteById/"+Category_id).subscribe({
+
+      next: () => {
+        this.spinner.hide()
+        this.toastr.success("Deleted Successfully")
+        resolve()
+      },
+      error: () => {
+        this.spinner.hide()
+        this.toastr.error("Error")
+        reject()
+
+      }
+
+    }
+    )
+  })
+}
 
 
 CatById:any
-GetCategoryById(catid:any){
+async GetCategoryById(catid:any){
+  return new Promise<void>((resolve, reject) => {
   this.spinner.show()
   this.http.get("https://localhost:44373/API/Category/GetById/"+catid).subscribe(
     {
       next:(res)=>{this.CatById=res
       this.spinner.hide()
-      this.toastr.success("Success")},
+      this.toastr.success("Success")
+      resolve()
+    },
       error:(err)=>{console.log(err)
       this.spinner.hide()
       this.toastr.error("Error")
+      reject()
       }
     }
-  )
+  )})
 }
 
 Testemonial:any=[]

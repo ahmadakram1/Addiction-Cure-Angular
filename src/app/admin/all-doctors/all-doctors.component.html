@@ -254,6 +254,7 @@
 
 
 <ng-template #DeleteForm>
+    
      <div matDialogContent>
     <h2 mat-dialog-content><b>Would you like to delete this Doctor ?</b></h2>
     <div mat-dialog-actions>
@@ -261,11 +262,14 @@
         <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
     </div>
 </div>
+
+
 </ng-template>
 
 
 
 <ng-template #DetailsForm>
+    
     <h1 mat-dialog-title>Doctor Details</h1>
     <div mat-dialog-content>Iamge :{{this.adminService.DoctorById.imagename}}</div>
     <div mat-dialog-content>First Name :{{this.adminService.DoctorById.firstname}}</div>
