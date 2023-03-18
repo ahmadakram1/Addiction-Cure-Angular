@@ -10,62 +10,105 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class CategoryComponent {
 
-  
-@ViewChild("CreateForm") Craete:any;
-@ViewChild("UpdateForm") Update:any;
-@ViewChild("DeleteForm") Delete:any;
-@ViewChild("DetailsForm") Details:any;
 
- 
-
-
-constructor(public sharedservice:SharedService,public dialog: MatDialog){
-
-}
-
-CreateCategoryForm = new FormGroup({
-   
-  // image : new FormControl("",[Validators.required]),
-  categoryname : new FormControl("",[Validators.required]),
-  abouttext : new FormControl("",[Validators.required]),
-
-
-})
-
-UpdateCategoryForm = new FormGroup({
-   
-  // image : new FormControl("",[Validators.required]),
-  categoryname : new FormControl("",[Validators.required]),
-  abouttext : new FormControl("",[Validators.required]),
-
-
-})
-
-ngOnInit(){
-  this.sharedservice.GetCategory();
-}
+  @ViewChild("CreateForm") Craete: any;
+  @ViewChild("UpdateForm") Update: any;
+  @ViewChild("DeleteForm") Delete: any;
+  @ViewChild("DetailsForm") Details: any;
 
 
 
-// Create Category
 
-OpenCreateDialog(){
-this.dialog.open(this.Craete)
-}
+  constructor(public sharedservice: SharedService, public dialog: MatDialog) {
 
-async CreateCategory(){
- await this.sharedservice.CreateCategoryAC(this.CreateCategoryForm.value);
-  this.sharedservice.GetCategory();
-}
-
-
-// Update Category
-
-
-OpenUpdateDialog(cat_id :number){
-  this.sharedservice.GetCategoryById(cat_id)
-  this.dialog.open(this.Update)
   }
+
+  CreateCategoryForm = new FormGroup({
+
+    // image : new FormControl("",[Validators.required]),
+    categoryname: new FormControl("", [Validators.required]),
+    abouttext: new FormControl("", [Validators.required]),
+
+
+  })
+
+  UpdateCategoryForm = new FormGroup({
+
+    // image : new FormControl("",[Validators.required]),
+    categoryid: new FormControl(""),
+    categoryname: new FormControl("", [Validators.required]),
+    abouttext: new FormControl("", [Validators.required]),
+
+
+  })
+
+  ngOnInit() {
+    this.sharedservice.GetCategory();
+  }
+
+
+
+  // Create Category
+  OpenCreateDialog() {
+    this.dialog.open(this.Craete)
+  }
+
+  async CreateCategory() {
+    await this.sharedservice.CreateCategoryAC(this.CreateCategoryForm.value);
+    this.sharedservice.GetCategory();
+  }
+
+
+
+
+
+  // Update Category
+  async OpenUpdateDialog(cat_id: number) {
+    await this.sharedservice.GetCategoryById(cat_id)
+    this.UpdateCategoryForm.patchValue(this.sharedservice.CatById)
+    this.dialog.open(this.Update)
+  }
+
+  async UpdateCategory() {
+
+    await this.sharedservice.UpdateCategory(this.UpdateCategoryForm.value);
+    this.sharedservice.GetCategory()
+
+  }
+
+
+
+
+
+  // Delete Category
+  selectedCategory = 0;
+  OpenDeleteDialog(Category_id: number) {
+    this.selectedCategory = Category_id
+    this.dialog.open(this.Delete)
+  }
+
+  async DeleteCategory() {
+    await this.sharedservice.DeleteCategory(this.selectedCategory);
+    this.sharedservice.GetCategory()
+
+  }
+
+
+
+  //Category Details
+  async OpenDetailsDialog(cat_id:number){
+    await this.sharedservice.GetCategoryById(cat_id) 
+    this.dialog.open(this.Details)
+  }
+
+
+
+
+
+
+
+
+
 
 
 

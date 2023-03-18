@@ -1,3 +1,13 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
+    <p class="d-inline-block text-primary text-uppercase border-bottom border-5"
+        style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+
+</ngx-spinner>
+
+
+
+
+
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
         <app-admin-side-bar></app-admin-side-bar>
@@ -29,8 +39,8 @@
                                     <td>{{item.abouttext}}</td>
                                     <td>
                                         <input type="button" value="Update" class="btn btn-success" (click)="OpenUpdateDialog(item.categoryid)">
-                                        <input type="button" value="Delete" class="btn btn-danger" >
-                                        <input type="button" value="Details" class="btn btn-primary" >
+                                        <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.categoryid)">
+                                        <input type="button" value="Details" class="btn btn-primary" (click)="OpenDetailsDialog(item.categoryid)" >
                                     </td>
 
                                 </tr>
@@ -87,7 +97,7 @@
 
     
     <div mat-dialog-content>
-        <form [formGroup]="CreateCategoryForm" class="example-form">
+        <form [formGroup]="UpdateCategoryForm" class="example-form">
 
             <!--     
        <input type="file" #file (change)="UploadImage(file)"> -->
@@ -95,7 +105,7 @@
                 <mat-form-field class="example-full-width">
                     <mat-label>Category Name</mat-label>
                     <input type="text" matInput formControlName="categoryname">
-                    <mat-error *ngIf="CreateCategoryForm.controls['categoryname'].hasError('required')">
+                    <mat-error *ngIf="UpdateCategoryForm.controls['categoryname'].hasError('required')">
                         Category Name is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
@@ -104,14 +114,14 @@
                 <mat-form-field class="example-full-width">
                     <mat-label>Description</mat-label>
                     <input type="text" matInput formControlName="abouttext">
-                    <mat-error *ngIf="CreateCategoryForm.controls['abouttext'].hasError('required')">
+                    <mat-error *ngIf="UpdateCategoryForm.controls['abouttext'].hasError('required')">
                         Decription  is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
             </div>
 
             <div mat-dialog-actions>
-                <input type="button" [disabled]="CreateCategoryForm.invalid" value="Create" class="btn btn-dark" (click)="CreateCategory()" mat-dialog-close>
+                <input type="button" [disabled]="UpdateCategoryForm.invalid" value="Update" class="btn btn-dark" (click)="UpdateCategory()" mat-dialog-close>
                 <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
             </div>
         </form>
@@ -120,8 +130,18 @@
 </ng-template>
 
 
-
 <ng-template #DeleteForm>
+
+
+
+    <div matDialogContent>
+        <h2 mat-dialog-content><b>Would you like to delete this category ?</b></h2>
+        <div mat-dialog-actions>
+            <input mat-dialog-close value="Yes" type="button" class="btn btn-danger" (click)="DeleteCategory()">
+            <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
+        </div>
+    </div>
+
 
 
 </ng-template>
@@ -130,5 +150,14 @@
 
 <ng-template #DetailsForm>
 
+    <h1 mat-dialog-title>Details</h1>
+    <div mat-dialog-content>Iamge :{{this.sharedservice.CatById.image}}</div>
+    <div mat-dialog-content>Name :{{this.sharedservice.CatById.categoryname}}</div>
+    <div mat-dialog-content>Description :{{this.sharedservice.CatById.abouttext}}</div>
+    
+
+    <div mat-dialog-actions>
+        <input type="button" mat-dialog-close="" value="Close" class="btn btn-dark">
+    </div>
 
 </ng-template>
