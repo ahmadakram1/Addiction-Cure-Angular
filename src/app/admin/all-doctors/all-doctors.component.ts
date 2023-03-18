@@ -64,6 +64,7 @@ export class AllDoctorsComponent {
 
   ngOnInit() {
     this.adminService.GetAllDoctors()
+    this.sharedservice.GetCategory()
   }
 
   async openDetalisDialog(Doctor_id: number) {
@@ -86,8 +87,13 @@ export class AllDoctorsComponent {
   async OpenUpdateDialog(doctorId:number){
     await this.adminService.GetDoctorById(doctorId)
     this.UpdateDoctorForm.patchValue(this.adminService.DoctorById)    
-    this.dialog.open(this.Update)
+    this.dialog.open(this.Update,{
+      height: '800px',
+      width: '800px',
+    })
   }
+
+  
  async UpdateDoctor() {
 
   await this.adminService.UpdateDoctor(this.UpdateDoctorForm.value);

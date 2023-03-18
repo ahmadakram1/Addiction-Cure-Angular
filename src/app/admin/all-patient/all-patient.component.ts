@@ -2,12 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { PatientService } from 'src/app/patient.service';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-all-patient',
   templateUrl: './all-patient.component.html',
   styleUrls: ['./all-patient.component.css']
-})
+}) 
+
 export class AllPatientComponent {
 
   @ViewChild("CreateForm") Craete: any;
@@ -31,12 +33,13 @@ export class AllPatientComponent {
    })
 
 
-  constructor(public patientService: PatientService, public dialog: MatDialog) {
+  constructor(public patientService: PatientService, public dialog: MatDialog , public sharedservice : SharedService) {
 
   }
 
   ngOnInit() {
     this.patientService.GetAllPatient()
+    this.sharedservice.GetCategory()
   }
   async GetById(patientid: number) {
     await this.patientService.GetPatientById(patientid)

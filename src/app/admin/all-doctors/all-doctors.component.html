@@ -131,10 +131,14 @@
                         </mat-form-field>
                     </div>
                     <div>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Category</mat-label>
-                        <input type="number" matInput formControlName="CATEGORYID">
-                      </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>category</mat-label>
+                            <mat-select formControlName="CATEGORYID">
+                         <mat-option *ngFor="let item of sharedservice.Category" [value]="item.categoryid"  >
+                                    {{item.categoryname}}
+                         </mat-option>
+                                  </mat-select>
+                             </mat-form-field>
                     </div>
                 </div>
                 <div mat-dialog-actions>
@@ -225,13 +229,14 @@
                         </mat-form-field>
                     </div>
                     <div>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Category</mat-label>
-                            <input type="number" matInput formControlName="categoryID">
-                            <mat-error *ngIf="UpdateDoctorForm.controls['categoryID'].hasError('required')">
-                                Category id is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>category</mat-label>
+                    <mat-select formControlName="categoryID">
+                 <mat-option *ngFor="let item of sharedservice.Category" [value]="item.categoryid"  >
+                            {{item.categoryname}}
+                 </mat-option>
+                          </mat-select>
+                     </mat-form-field>
                     </div>
                 </div>
                 <div mat-dialog-actions>
@@ -266,6 +271,7 @@
     <div mat-dialog-content>Last Name :{{this.adminService.DoctorById.lastname}}</div>
     <div mat-dialog-content>User Name :{{this.adminService.DoctorById.username}}</div>
     <div mat-dialog-content>Email :{{this.adminService.DoctorById.email}}</div>
+    <div mat-dialog-content>cat :{{this.adminService.DoctorById.categoryname}}</div>
 
 
     <div mat-dialog-actions>

@@ -153,13 +153,14 @@
                         </mat-form-field>
                     </div>
                     <div>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Category</mat-label>
-                            <input type="number" matInput formControlName="categoryid">
-                            <mat-error *ngIf="UpdatePatientForm.controls['categoryid'].hasError('required')">
-                                Category id is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>category</mat-label>
+                            <mat-select formControlName="categoryid">
+                         <mat-option *ngFor="let item of sharedservice.Category" [value]="item.categoryid"  >
+                                    {{item.categoryname}}
+                         </mat-option>
+                                  </mat-select>
+                             </mat-form-field>
                     </div>
                 </div>
                 <div mat-dialog-actions>
@@ -189,6 +190,7 @@
     <div mat-dialog-content>Email :{{this.patientService.PatientById.email}}</div>
     <div mat-dialog-content>First Name :{{this.patientService.PatientById.firstname}}</div>
     <div mat-dialog-content>Last Name :{{this.patientService.PatientById.lastname}}</div>
+    <div mat-dialog-content>category :{{this.patientService.PatientById.categoryname}}</div>
 
     <div mat-dialog-actions>
         <button mat-button mat-dialog-close>Close</button>
