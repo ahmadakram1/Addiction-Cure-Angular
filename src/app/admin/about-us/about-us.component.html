@@ -20,30 +20,29 @@
 
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <br>
-                    <!-- <td><input type="button" value="Create" class="btn btn-dark" (click)="OpenCreateDialog()"></td> -->
                     <br>
                     <div class="card mb-4">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
+                                    <th>Paragraph</th>
+                                    <th>Paragraph</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- <tr *ngFor="let item of sharedservice.Category">
+                                <tr *ngFor="let item of sharedservice.AboutUs">
                                     <td>{{item.image}}</td>
-                                    <td>{{item.categoryname}}</td>
-                                    <td>{{item.abouttext}}</td>
+                                    <td>{{item.paragraph1}}</td>
+                                    <td>{{item.paragraph2}}</td>
                                     <td>
                                         <input type="button" value="Update" class="btn btn-success" (click)="OpenUpdateDialog(item.categoryid)">
                                         <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.categoryid)">
                                         <input type="button" value="Details" class="btn btn-primary" (click)="OpenDetailsDialog(item.categoryid)" >
                                     </td>
 
-                                </tr> -->
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -55,3 +54,60 @@
 </div>
 <app-admin-footer></app-admin-footer>
 
+
+
+
+
+
+<ng-template #UpdateForm>
+
+
+    
+    <div mat-dialog-content>
+        <form [formGroup]="UpdateAboutUsForm" class="example-form">
+
+            <!--     
+       <input type="file" #file (change)="UploadImage(file)"> -->
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Paragraph one</mat-label>
+                    <input type="text" matInput formControlName="paragraph1">
+                    <mat-error *ngIf="UpdateAboutUsForm.controls['paragraph1'].hasError('required')">
+                        Paragraph is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Paragraph two</mat-label>
+                    <input type="text" matInput formControlName="paragraph2">
+                    <mat-error *ngIf="UpdateAboutUsForm.controls['paragraph2'].hasError('required')">
+                        Paragraph  is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div mat-dialog-actions>
+                <input type="button" [disabled]="UpdateAboutUsForm.invalid" value="Update" class="btn btn-dark" (click)="UpdateAboutUs()" mat-dialog-close>
+                <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
+            </div>
+        </form>
+    </div>
+
+
+</ng-template>
+
+
+
+<ng-template #DeleteForm>
+
+
+
+</ng-template>
+
+
+<ng-template #DetialsForm>
+
+
+
+</ng-template>
