@@ -10,6 +10,8 @@ import { AllDoctorsComponent } from './all-doctors/all-doctors.component';
 import { TestimonilComponent } from './testimonil/testimonil.component';
 import { AllPatientComponent } from './all-patient/all-patient.component';
 import { CategoryComponent } from './category/category.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { CategoryComponent } from './category/category.component';
     TestimonilComponent,
     AllPatientComponent,
     CategoryComponent,
+    ContactUsComponent,
+    AboutUsComponent,
   ],
   imports: [
     CommonModule,
