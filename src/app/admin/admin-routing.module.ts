@@ -14,7 +14,7 @@ const routes: Routes = [
     component: ReportComponent
   },
   {
-    path: "",
+    path: "Main",
     component: MainComponent
   },
   {
