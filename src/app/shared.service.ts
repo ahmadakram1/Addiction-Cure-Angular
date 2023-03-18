@@ -93,7 +93,7 @@ createAboutUs(AboutUs: any) {
 Category:any=[]
 GetCategory(){
   this.spinner.show()
-  this.http.get("https://localhost:44373/API/Category/GetCategory").subscribe(
+  this.http.get("https://localhost:44373/api/Category/GetCategory").subscribe(
     {
       next:(res)=>{this.Category=res
       this.spinner.hide()
@@ -106,21 +106,23 @@ GetCategory(){
 }
 
 
-CreateCategoryAC(Category: any) {
-
+async CreateCategoryAC(Category: any) {
+  return new Promise<void>((resolve, reject) => {
   this.spinner.show()
   this.http.post("https://localhost:44373/api/Category/Create", Category).subscribe(
     {
       next: () => {
         this.spinner.hide();
         this.toastr.success("Added Successfully")
+        resolve()
       },
       error: (error) => {
         this.spinner.hide();
         this.toastr.error("Error")
+        reject()
       }
     }
-  )
+  )})
 
 }
 

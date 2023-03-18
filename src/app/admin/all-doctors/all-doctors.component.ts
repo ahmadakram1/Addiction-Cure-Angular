@@ -22,7 +22,7 @@ export class AllDoctorsComponent {
 
 
 
-  constructor(public adminService: AdminService, public dialog: MatDialog,public sharedservice:SharedService) {
+  constructor(public adminService: AdminService, public dialog: MatDialog, public sharedservice: SharedService) {
 
   }
 
@@ -42,10 +42,10 @@ export class AllDoctorsComponent {
 
   })
 
-  
+
   UpdateDoctorForm = new FormGroup({
 
-    doctodid:new FormControl(''),
+    doctodid: new FormControl(''),
     firstname: new FormControl("", [Validators.required]),
     lastname: new FormControl("", [Validators.required]),
     // Imagename: new FormControl("", [Validators.required]),
@@ -78,28 +78,37 @@ export class AllDoctorsComponent {
     this.dialog.open(this.Create)
   }
 
- async CreateDoctor() {
+  async CreateDoctor() {
 
-   await this.adminService.createdoctor(this.CreateDoctorForm.value);
+    await this.adminService.createdoctor(this.CreateDoctorForm.value);
     this.adminService.GetAllDoctors();
   }
 
-  async OpenUpdateDialog(doctorId:number){
+  async OpenUpdateDialog(doctorId: number) {
     await this.adminService.GetDoctorById(doctorId)
-    this.UpdateDoctorForm.patchValue(this.adminService.DoctorById)    
-    this.dialog.open(this.Update,{
-      height: '800px',
-      width: '800px',
-    })
+    this.UpdateDoctorForm.patchValue(this.adminService.DoctorById)
+    this.dialog.open(this.Update)
   }
 
-  
- async UpdateDoctor() {
 
-  await this.adminService.UpdateDoctor(this.UpdateDoctorForm.value);
-   this.adminService.GetAllDoctors();
- }
+  async UpdateDoctor() {
 
+    await this.adminService.UpdateDoctor(this.UpdateDoctorForm.value);
+    this.adminService.GetAllDoctors();
+  }
+
+  SelectedDoctor = 0;
+  OpenDeleteDialog(doctorId: number) {
+    this.SelectedDoctor = doctorId
+    this.dialog.open(this.Delete)
+  }
+
+
+  async DeleteDoctor() {
+    await this.adminService.Deletedoctor(this.SelectedDoctor);
+    this.adminService.GetAllDoctors();
+
+  }
 
 
 

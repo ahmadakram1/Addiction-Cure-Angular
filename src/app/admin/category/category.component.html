@@ -10,21 +10,30 @@
 
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <br>
-                    <td><input type="button" value="Create" class="btn btn-dark"></td>
+                    <td><input type="button" value="Create" class="btn btn-dark" (click)="OpenCreateDialog()"></td>
                     <br>
                     <div class="card mb-4">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Category Name</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- <tr *ngFor="let item of adminService.Doctors">
-                                    <td>{{item.lastname}}</td>
-                                    <td><input type="button" value="Detiles" class="btn btn-primary"></td>
-                                </tr> -->
+                                <tr *ngFor="let item of sharedservice.Category">
+                                    <td>{{item.image}}</td>
+                                    <td>{{item.categoryname}}</td>
+                                    <td>{{item.abouttext}}</td>
+                                    <td>
+                                        <input type="button" value="Update" class="btn btn-success" (click)="OpenUpdateDialog(item.categoryid)">
+                                        <input type="button" value="Delete" class="btn btn-danger" >
+                                        <input type="button" value="Details" class="btn btn-primary" >
+                                    </td>
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -38,16 +47,75 @@
 
 
 
-
 <ng-template #CreateForm>
 
+    <div mat-dialog-content>
+        <form [formGroup]="CreateCategoryForm" class="example-form">
 
+            <!--     
+       <input type="file" #file (change)="UploadImage(file)"> -->
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Category Name</mat-label>
+                    <input type="text" matInput formControlName="categoryname">
+                    <mat-error *ngIf="CreateCategoryForm.controls['categoryname'].hasError('required')">
+                        Category Name is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Description</mat-label>
+                    <input type="text" matInput formControlName="abouttext">
+                    <mat-error *ngIf="CreateCategoryForm.controls['abouttext'].hasError('required')">
+                        Decription  is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div mat-dialog-actions>
+                <input type="button" [disabled]="CreateCategoryForm.invalid" value="Create" class="btn btn-dark" (click)="CreateCategory()" mat-dialog-close>
+                <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
+            </div>
+        </form>
+    </div>
 </ng-template>
 
 
 
 <ng-template #UpdateForm>
 
+    
+    <div mat-dialog-content>
+        <form [formGroup]="CreateCategoryForm" class="example-form">
+
+            <!--     
+       <input type="file" #file (change)="UploadImage(file)"> -->
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Category Name</mat-label>
+                    <input type="text" matInput formControlName="categoryname">
+                    <mat-error *ngIf="CreateCategoryForm.controls['categoryname'].hasError('required')">
+                        Category Name is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Description</mat-label>
+                    <input type="text" matInput formControlName="abouttext">
+                    <mat-error *ngIf="CreateCategoryForm.controls['abouttext'].hasError('required')">
+                        Decription  is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div mat-dialog-actions>
+                <input type="button" [disabled]="CreateCategoryForm.invalid" value="Create" class="btn btn-dark" (click)="CreateCategory()" mat-dialog-close>
+                <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
+            </div>
+        </form>
+    </div>
 
 </ng-template>
 

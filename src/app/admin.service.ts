@@ -78,6 +78,33 @@ export class AdminService {
   }
   
 
+  async Deletedoctor(Doctor_id: number) {
+
+    return new Promise<void>((resolve, reject) => {
+      this.spinner.show
+      this.http.delete("https://localhost:44373/api/Doctor/deletedoctor/"+Doctor_id).subscribe({
+
+        next: () => {
+          this.spinner.hide()
+          this.toastr.success("Deleted Successfully")
+          resolve()
+        },
+        error: () => {
+          this.spinner.hide()
+          this.toastr.error("Error")
+          reject()
+
+        }
+
+      }
+      )
+    })
+  }
+
+
+
+
+
   DoctorById: any
    async GetDoctorById(doctorid: any) {
     return new Promise<void>((resolve, reject) => {

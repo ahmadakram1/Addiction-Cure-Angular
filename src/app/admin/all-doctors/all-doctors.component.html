@@ -35,11 +35,9 @@
                                     <td>{{item.firstname}}</td>
                                     <td>{{item.lastname}}</td>
                                     <td>
-                                        <input type="button" value="Update" class="btn btn-success"
-                                            (click)="OpenUpdateDialog(item.doctodid)">
-                                        <input type="button" value="Delete" class="btn btn-danger">
-                                        <input type="button" value="Details" class="btn btn-primary"
-                                            (click)="openDetalisDialog(item.doctodid)">
+                                        <input type="button" value="Update" class="btn btn-success" (click)="OpenUpdateDialog(item.doctodid)">
+                                        <input type="button" value="Delete" class="btn btn-danger"  (click)="OpenDeleteDialog(item.doctodid)">
+                                        <input type="button" value="Details" class="btn btn-primary" (click)="openDetalisDialog(item.doctodid)">
                                     </td>
 
                                 </tr>
@@ -144,6 +142,7 @@
                 <div mat-dialog-actions>
                     <input type="button" [disabled]="CreateDoctorForm.invalid" value="Create" class="btn btn-dark"
                         (click)="CreateDoctor()" mat-dialog-close>
+                    <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
                 </div>
             </div>
         </form>
@@ -242,6 +241,8 @@
                 <div mat-dialog-actions>
                     <input type="button" [disabled]="UpdateDoctorForm.invalid" value="Update" class="btn btn-dark"
                         mat-dialog-close (click)="UpdateDoctor()">
+                        <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
+
                 </div>
 
             </div>
@@ -253,13 +254,13 @@
 
 
 <ng-template #DeleteForm>
-
-    <h2 mat-dialog-content>Would you like to delete this item?</h2>
+     <div matDialogContent>
+    <h2 mat-dialog-content><b>Would you like to delete this Doctor ?</b></h2>
     <div mat-dialog-actions>
-        <input mat-dialog-close value="Yes" type="button" class="btn btn-success">
-        <input mat-dialog-close value="No" type="button" class="btn btn-error">
+        <input mat-dialog-close value="Yes" type="button" class="btn btn-danger" (click)="DeleteDoctor()">
+        <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
     </div>
-
+</div>
 </ng-template>
 
 
@@ -275,6 +276,8 @@
 
 
     <div mat-dialog-actions>
-        <button mat-button mat-dialog-close>Close</button>
+        <input type="button" mat-dialog-close="" value="Close" class="btn btn-dark">
     </div>
+
+
 </ng-template>
