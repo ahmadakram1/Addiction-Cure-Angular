@@ -14,10 +14,20 @@ export class AllPatientComponent {
   @ViewChild("UpdateForm") Update: any;
   @ViewChild("DeleteForm") Delete: any;
   @ViewChild("DetailsForm") Details: any;
-  UpdatePatientForm = new FormGroup(
-    { patientid:new FormControl(''),
-     email : new FormControl ('', Validators.required),
-     username : new FormControl('',Validators.required)
+
+  UpdatePatientForm = new FormGroup
+  (
+    { 
+    patientid:new FormControl(''),
+    firstname: new FormControl("", [Validators.required]),
+    lastname: new FormControl("", [Validators.required]),
+    // Imagename: new FormControl("", [Validators.required]),
+    level1: new FormControl("", [Validators.required]),
+    username: new FormControl("", [Validators.required]),
+    password: new FormControl("", [Validators.required]),
+    email: new FormControl("", [Validators.required]),
+    roleid: new FormControl("", [Validators.required]),
+    categoryid: new FormControl("", [Validators.required]),
    })
 
 
@@ -47,7 +57,7 @@ export class AllPatientComponent {
   async OpenUpdateDialog(patientid:number)
   {
     await this.patientService.GetPatientById(patientid)
-    this.UpdatePatientForm.patchValue(this.patientService.Patient)
+    this.UpdatePatientForm.patchValue(this.patientService.PatientById)
     this.dialog.open(this.Update)
   }
   

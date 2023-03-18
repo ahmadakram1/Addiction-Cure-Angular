@@ -90,7 +90,7 @@ export class AllDoctorsComponent {
   }
  async UpdateDoctor() {
 
-  await this.adminService.UpdateDoctor(this.CreateDoctorForm.value);
+  await this.adminService.UpdateDoctor(this.UpdateDoctorForm.value);
    this.adminService.GetAllDoctors();
  }
 
