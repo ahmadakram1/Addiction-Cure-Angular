@@ -34,7 +34,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of sharedservice.Category">
-                                    <td>{{item.image}}</td>
+                                    <td> <img class="Img" src="../../../assets/images/{{item.image}}"></td>
                                     <td>{{item.categoryname}}</td>
                                     <td>{{item.abouttext}}</td>
                                     <td>
@@ -60,10 +60,8 @@
 <ng-template #CreateForm>
 
     <div mat-dialog-content>
-        <form [formGroup]="CreateCategoryForm" class="example-form">
+        <form [formGroup]="CreateCategoryForm" class="example-form">            
 
-            <!--     
-       <input type="file" #file (change)="UploadImage(file)"> -->
             <div>
                 <mat-form-field class="example-full-width">
                     <mat-label>Category Name</mat-label>
@@ -83,7 +81,8 @@
                 </mat-form-field>
             </div>
 
-            <div mat-dialog-actions>
+            <div mat-dialog-actions >
+                <input type="file" #File required (change)="UploadImage(File)">
                 <input type="button" [disabled]="CreateCategoryForm.invalid" value="Create" class="btn btn-dark" (click)="CreateCategory()" mat-dialog-close>
                 <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
             </div>
@@ -121,6 +120,7 @@
             </div>
 
             <div mat-dialog-actions>
+                <input type="file" #File required (change)="UploadImage(File)">
                 <input type="button" [disabled]="UpdateCategoryForm.invalid" value="Update" class="btn btn-dark" (click)="UpdateCategory()" mat-dialog-close>
                 <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
             </div>
@@ -151,7 +151,7 @@
 <ng-template #DetailsForm>
 
     <h1 mat-dialog-title>Details</h1>
-    <div mat-dialog-content>Iamge :{{this.sharedservice.CatById.image}}</div>
+    <div mat-dialog-content>Image : <img class="Img" src="../../../assets/images/{{this.sharedservice.CatById.image}}"></div>
     <div mat-dialog-content>Name :{{this.sharedservice.CatById.categoryname}}</div>
     <div mat-dialog-content>Description :{{this.sharedservice.CatById.abouttext}}</div>
     

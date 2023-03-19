@@ -156,6 +156,7 @@ GetCategory(){
 
 
 async CreateCategoryAC(Category: any) {
+  Category.image = this.CategoryImage;
   return new Promise<void>((resolve, reject) => {
   this.spinner.show()
   this.http.post("https://localhost:44373/api/Category/Create", Category).subscribe(
@@ -175,8 +176,19 @@ async CreateCategoryAC(Category: any) {
 
 }
 
+  CategoryImage = ""
+  UploadCatgoryImage(ImageFile: any) {
+    this.http.post("https://localhost:44373/api/Category/uploadImage", ImageFile).subscribe({
+
+      next: (res: any) => {
+        this.CategoryImage = res.image
+      },
+      error: () => {}
+    })
+  }
+
 async UpdateCategory(Category: any) {
-   
+   Category.image = this.CategoryImage
   return new Promise<void>((resolve, reject) => {
 
     this.spinner.show();

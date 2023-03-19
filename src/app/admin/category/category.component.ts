@@ -58,7 +58,16 @@ export class CategoryComponent {
     this.sharedservice.GetCategory();
   }
 
+  UploadImage(Input:any){
 
+    if (Input.files.length != 0) {
+      let UploadedImage = Input.files[0]; //ImageFile
+      let formData = new FormData()   
+      formData.append("fileForImage",UploadedImage)
+      this.sharedservice.UploadCatgoryImage(formData)
+    }
+   
+  }
 
 
 
