@@ -33,7 +33,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of sharedservice.AboutUs">
-                                    <td>{{item.image}}</td>
+                                    <td> <img class="Img" src="../../../assets/images/{{item.image}}"> </td>
                                     <td>{{item.paragraph1}}</td>
                                     <td>{{item.paragraph2}}</td>
                                     <td>
@@ -86,7 +86,7 @@
             </div>
 
             <div mat-dialog-actions>
-                <!-- <input type="file" #File required (change)="UploadImage(File)"> -->
+                <input type="file" #File required (change)="UploadImage(File)">
                 <input type="button" [disabled]="UpdateAboutUsForm.invalid" value="Update" class="btn btn-dark" (click)="UpdateAboutUs()" mat-dialog-close>
                 <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
             </div>
@@ -115,7 +115,7 @@
 <ng-template #DetailsForm>
 
     <h1 mat-dialog-title>About Details</h1>
-    <div mat-dialog-content>Image :{{this.sharedservice.AboutById.image}}</div>
+    <div mat-dialog-content>Image :<img class="Img" src="../../../assets/images/{{this.sharedservice.AboutById.image}}"></div>
     <div mat-dialog-content>First Paragraph:{{this.sharedservice.AboutById.paragraph1}}</div>
     <div mat-dialog-content>Second Paragraph :{{this.sharedservice.AboutById.paragraph2}}</div>
 

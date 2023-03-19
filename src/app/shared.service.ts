@@ -94,7 +94,19 @@ async GetAboutusByid(aboutid:any){
 }
 
 
+AboutUsImage = ""
+UploadAboutUsImage(ImageFile: any) {
+  this.http.post("https://localhost:44373/api/AboutUs/uploadImage", ImageFile).subscribe({
+
+    next: (res: any) => {
+      this.AboutUsImage = res.image
+    },
+    error: () => {}
+  })
+}
+
   async UpdateAboutUs(AboutUs: any) {
+    AboutUs.image = this.AboutUsImage
     return new Promise<void>((resolve, reject) => {
       this.spinner.show()
       this.http.put("https://localhost:44373/api/AboutUs/updateAboutUs", AboutUs).subscribe(
