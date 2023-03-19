@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
+import { SharedService } from './shared.service';
 // GGGGGGG
 //JDJDJDJJD
 @Injectable({
@@ -10,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 
 export class AdminService {
 
-  constructor(private http: HttpClient, private spinner: NgxSpinnerService, private toastr: ToastrService) { }
+  constructor(private http: HttpClient, private spinner: NgxSpinnerService, private toastr: ToastrService , public sharedservice : SharedService) { }
 
   Doctors: any = []
   GetAllDoctors() {
@@ -34,7 +35,7 @@ export class AdminService {
   
   async createdoctor(Doctor: any) {
 
-    Doctor.imagename=this.DoctorImage;
+    Doctor.imagename=this.sharedservice.imageName;
     return new Promise<void>((resolve, reject) => {
 
     this.spinner.show()
@@ -56,21 +57,10 @@ export class AdminService {
   }
 
   
-  DoctorImage = ""
-  UploadDoctorImage(ImageFile: any) {
-    this.http.post("https://localhost:44373/api/Login/uploadImageDoctor", ImageFile).subscribe({
-
-      next: (res: any) => {
-        this.DoctorImage = res.image
-        console.log(this.DoctorImage);
-        
-      },
-      error: () => {}
-    })
-  }
+ 
 
   async UpdateDoctor(Doctor: any) {
-    Doctor.imagename=this.DoctorImage;
+    Doctor.imagename=this.sharedservice.imageName;
     return new Promise<void>((resolve, reject) => {
 
       this.spinner.show();

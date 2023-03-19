@@ -36,10 +36,10 @@
                                     <td>{{item.firstname}} {{item.lastname}}</td>
                                     <td>{{item.messageuser}}</td>
                                     <td>
-                                        <mat-select [(value)]="selected">
-                                        <mat-option value=1>Published</mat-option>
-                                        <mat-option value=2>UnPublished</mat-option>                                        
-                                      </mat-select>                                    
+                                       <button (click)="publish(item.tesemonialid)">publish</button>                                
+                                    </td>
+                                    <td>
+                                        <button (click)="unpublish(item.tesemonialid)">unpublish</button>  
                                     </td>
                                 </tr>
                             </tbody>

@@ -27,4 +27,13 @@ getdata()
 {
   console.log(this.selected)
 }
+
+ publish(id : number){
+  this.sharedService.publish(id)
+}
+
+
+unpublish(id : number){
+  this.sharedService.unpublish(id)
+}
 }

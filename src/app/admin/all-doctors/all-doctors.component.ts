@@ -91,7 +91,7 @@ export class AllDoctorsComponent {
       let UploadedImage = Input.files[0]; //ImageFile
       let formData = new FormData()   
       formData.append("fileForImage",UploadedImage)
-      this.adminService.UploadDoctorImage(formData)
+      this.sharedservice.UploadImage(formData)
     }
    
   }

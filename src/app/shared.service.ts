@@ -304,7 +304,7 @@ CreateTestimonialAC(Testimonial: any) {
 
 Testimonialbyid:any
 GetTestimonialByPatienId(TestimonialId:any){
-  this.spinner.show()
+ 
   this.http.get("https://localhost:44373/API/Testimonials/GetTestimonialByPatienId/"+TestimonialId).subscribe(
     {
       next:(res)=>{this.Testimonialbyid=res
@@ -317,6 +317,44 @@ GetTestimonialByPatienId(TestimonialId:any){
     }
   )
 }
+
+
+publish(TestimonialId:any){
+ 
+  this.http.get("https://localhost:44373/API/Testimonials/publish/"+TestimonialId).subscribe(
+    {
+      next:()=>{
+      this.toastr.success("Published")},
+      error:(err)=>{console.log(err)
+      this.spinner.hide()
+      this.toastr.error("Error")
+      }
+    }
+  )
+}
+
+
+
+unpublish(TestimonialId:any){
+ 
+  this.http.get("https://localhost:44373/API/Testimonials/unpublish/"+TestimonialId).subscribe(
+    {
+      next:()=>{
+      this.toastr.success("unPublished")},
+      error:(err)=>{console.log(err)
+      this.spinner.hide()
+      this.toastr.error("Error")
+      }
+    }
+  )
+}
+
+
+
+
+
+
+
 
 
 
@@ -407,5 +445,8 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     }
   }
 )}
+
+
+
 
 }
