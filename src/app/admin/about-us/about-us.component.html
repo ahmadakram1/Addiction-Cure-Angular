@@ -66,8 +66,6 @@
     <div mat-dialog-content>
         <form [formGroup]="UpdateAboutUsForm" class="example-form">
 
-            <!--     
-       <input type="file" #file (change)="UploadImage(file)"> -->
             <div>
                 <mat-form-field class="example-full-width">
                     <mat-label>Paragraph one</mat-label>
@@ -88,6 +86,7 @@
             </div>
 
             <div mat-dialog-actions>
+                <!-- <input type="file" #File required (change)="UploadImage(File)"> -->
                 <input type="button" [disabled]="UpdateAboutUsForm.invalid" value="Update" class="btn btn-dark" (click)="UpdateAboutUs()" mat-dialog-close>
                 <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
             </div>

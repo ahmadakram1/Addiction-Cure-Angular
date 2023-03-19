@@ -84,6 +84,19 @@ export class AllDoctorsComponent {
     this.adminService.GetAllDoctors();
   }
 
+
+  UploadImage(Input:any){
+
+    if (Input.files[0] != 0) {
+      let UploadedImage = Input.files[0]; //ImageFile
+      let formData = new FormData()   
+      formData.append("fileForImage",UploadedImage)
+      this.adminService.UploadDoctorImage(formData)
+    }
+   
+  }
+
+  
   async OpenUpdateDialog(doctorId: number) {
     await this.adminService.GetDoctorById(doctorId)
     this.UpdateDoctorForm.patchValue(this.adminService.DoctorById)

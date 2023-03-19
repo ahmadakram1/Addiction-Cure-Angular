@@ -34,6 +34,7 @@ export class AdminService {
   
   async createdoctor(Doctor: any) {
 
+    Doctor.imagename=this.DoctorImage;
     return new Promise<void>((resolve, reject) => {
 
     this.spinner.show()
@@ -54,9 +55,22 @@ export class AdminService {
    })
   }
 
+  
+  DoctorImage = ""
+  UploadDoctorImage(ImageFile: any) {
+    this.http.post("https://localhost:44373/api/Login/uploadImageDoctor", ImageFile).subscribe({
+
+      next: (res: any) => {
+        this.DoctorImage = res.image
+        console.log(this.DoctorImage);
+        
+      },
+      error: () => {}
+    })
+  }
 
   async UpdateDoctor(Doctor: any) {
-   
+    Doctor.imagename=this.DoctorImage;
     return new Promise<void>((resolve, reject) => {
 
       this.spinner.show();

@@ -58,8 +58,6 @@
     <div mat-dialog-content style="background-color: darkgray;">
         <form [formGroup]="CreateDoctorForm" class="example-form">
 
-            <!--     
-       <input type="file" #file (change)="UploadImage(file)"> -->
             <div class="row" style="margin-top: -2%; margin-left: 9%;">
                 <div class="col-md-6">
                     <div>
@@ -140,6 +138,7 @@
                     </div>
                 </div>
                 <div mat-dialog-actions style="margin-top: -3%; margin-left: 30%;">
+                    <input type="file" #file (change)="UploadImage(file)">
                     <input type="button" [disabled]="CreateDoctorForm.invalid" value="Create" class="btn btn-dark"
                         (click)="CreateDoctor()" mat-dialog-close>
                     <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-danger" style="margin-left: 2%;">
@@ -239,6 +238,7 @@
                     </div>
                 </div>
                 <div mat-dialog-actions>
+                    <input type="file" #file (change)="UploadImage(file)">
                     <input type="button" [disabled]="UpdateDoctorForm.invalid" value="Update" class="btn btn-dark"
                         mat-dialog-close (click)="UpdateDoctor()">
                         <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">

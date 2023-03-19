@@ -47,6 +47,13 @@ export class AboutUsComponent {
     this.sharedservice.GetAllAboutUs();
   }
 
+  // UploadImage(input:any){
+  //  let UploadedImage =  input.files[0];
+  //  let formData = new FormData();
+  //  formData.append("FileforImage",UploadedImage)
+  //  this.sharedservice.uplo
+
+  // }
 
   //Delete AboutUS
   SelectedAbout = 0;
