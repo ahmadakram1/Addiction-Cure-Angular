@@ -101,6 +101,13 @@
 
 <ng-template #DeleteForm>
 
+    <div matDialogContent>
+        <h2 mat-dialog-content><b>Would you like to delete this Doctor ?</b></h2>
+        <div mat-dialog-actions>
+            <input mat-dialog-close value="Yes" type="button" class="btn btn-danger" (click)="DeleteAbout()">
+            <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
+        </div>
+    </div>
 
 
 </ng-template>
@@ -108,6 +115,15 @@
 
 <ng-template #DetialsForm>
 
+    <h1 mat-dialog-title>About Details</h1>
+    <div mat-dialog-content>Iamge :{{this.sharedservice.AboutById.image}}</div>
+    <div mat-dialog-content>First Name :{{this.sharedservice.AboutById.paragraph1}}</div>
+    <div mat-dialog-content>Last Name :{{this.sharedservice.AboutById.paragraph2}}</div>
+
+    
+    <div mat-dialog-actions>
+        <input type="button" mat-dialog-close="" value="Close" class="btn btn-dark">
+    </div>
 
 
 </ng-template>

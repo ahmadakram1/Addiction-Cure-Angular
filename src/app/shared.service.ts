@@ -71,22 +71,71 @@ GetAllAboutUs() {
 
 
 
-createAboutUs(AboutUs: any) {
 
+
+AboutById:any
+async GetAboutusByid(aboutid:any){
+  return new Promise<void>((resolve, reject) => {
   this.spinner.show()
-  this.http.post("https://localhost:44373/api/AboutUs/createAboutUs", AboutUs).subscribe(
+  this.http.get("https://localhost:44373/api/AboutUs/getAboutUsById/"+aboutid).subscribe(
+    {
+      next:(res)=>{this.AboutById=res
+      this.spinner.hide()
+      this.toastr.success("Success")
+      resolve()
+    },
+      error:(err)=>{console.log(err)
+      this.spinner.hide()
+      this.toastr.error("Error")
+      reject()
+      }
+    }
+  )})
+}
+
+
+ async UpdateAboutUs(AboutUs: any) {
+      return new Promise<void>((resolve,reject)=>{
+  this.spinner.show()
+  this.http.put("https://localhost:44373/api/AboutUs/updateAboutUs", AboutUs).subscribe(
     {
       next: () => {
         this.spinner.hide();
         this.toastr.success("Added Successfully")
+        resolve
       },
       error: (error) => {
         this.spinner.hide();
         this.toastr.error("Error")
+        reject
       }
     }
   )
+})
+}
 
+
+async DeleteAbout(About_id: number) {
+
+  return new Promise<void>((resolve, reject) => {
+    this.spinner.show
+    this.http.delete("https://localhost:44373/api/AboutUs/deleteAboutUs/"+About_id).subscribe({
+
+      next: () => {
+        this.spinner.hide()
+        this.toastr.success("Deleted Successfully")
+        resolve()
+      },
+      error: () => {
+        this.spinner.hide()
+        this.toastr.error("Error")
+        reject()
+
+      }
+
+    }
+    )
+  })
 }
 
 
