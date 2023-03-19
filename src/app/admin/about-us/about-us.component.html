@@ -37,9 +37,9 @@
                                     <td>{{item.paragraph1}}</td>
                                     <td>{{item.paragraph2}}</td>
                                     <td>
-                                        <input type="button" value="Update" class="btn btn-success" (click)="OpenUpdateDialog(item.categoryid)">
-                                        <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.categoryid)">
-                                        <input type="button" value="Details" class="btn btn-primary" (click)="OpenDetailsDialog(item.categoryid)" >
+                                        <input type="button" value="Update" class="btn btn-success" (click)="OpenUpdateDialog(item.id)">
+                                        <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.id)">
+                                        <input type="button" value="Details" class="btn btn-primary" (click)="OpenDialog(item.id)">
                                     </td>
 
                                 </tr>
@@ -113,12 +113,12 @@
 </ng-template>
 
 
-<ng-template #DetialsForm>
+<ng-template #DetailsForm>
 
     <h1 mat-dialog-title>About Details</h1>
-    <div mat-dialog-content>Iamge :{{this.sharedservice.AboutById.image}}</div>
-    <div mat-dialog-content>First Name :{{this.sharedservice.AboutById.paragraph1}}</div>
-    <div mat-dialog-content>Last Name :{{this.sharedservice.AboutById.paragraph2}}</div>
+    <div mat-dialog-content>Image :{{this.sharedservice.AboutById.image}}</div>
+    <div mat-dialog-content>First Paragraph:{{this.sharedservice.AboutById.paragraph1}}</div>
+    <div mat-dialog-content>Second Paragraph :{{this.sharedservice.AboutById.paragraph2}}</div>
 
     
     <div mat-dialog-actions>

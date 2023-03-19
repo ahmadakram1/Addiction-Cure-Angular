@@ -42,8 +42,8 @@ export class AboutUsComponent {
     this.dialog.open(this.Update)
   }
 
- async UpdateAboutUs() {
-    await this.sharedservice.UpdateAboutUs(this.UpdateAboutUsForm.value)
+  async UpdateAboutUs() {
+    await this.sharedservice.UpdateAboutUs(this.UpdateAboutUsForm.value);
     this.sharedservice.GetAllAboutUs();
   }
 
@@ -55,16 +55,16 @@ export class AboutUsComponent {
     this.dialog.open(this.Delete)
   }
 
-  DeleteAbout(){
-    this.sharedservice.DeleteAbout(this.SelectedAbout)
+ async DeleteAbout(){
+    await this.sharedservice.DeleteAbout(this.SelectedAbout)
     this.sharedservice.GetAllAboutUs()
   }
 
 
 
-  //Deatals AboutUS
- async OpenDetailsDialog(id: number) {
-  await this.sharedservice.GetAboutusByid(id)
+  //Details AboutUS
+  async OpenDialog(id: number) {
+     await this.sharedservice.GetAboutusByid(id)
     this.dialog.open(this.Details)
   }
 

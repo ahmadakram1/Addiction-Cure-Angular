@@ -94,24 +94,24 @@ async GetAboutusByid(aboutid:any){
 }
 
 
- async UpdateAboutUs(AboutUs: any) {
-      return new Promise<void>((resolve,reject)=>{
-  this.spinner.show()
-  this.http.put("https://localhost:44373/api/AboutUs/updateAboutUs", AboutUs).subscribe(
-    {
-      next: () => {
-        this.spinner.hide();
-        this.toastr.success("Added Successfully")
-        resolve
-      },
-      error: (error) => {
-        this.spinner.hide();
-        this.toastr.error("Error")
-        reject
-      }
-    }
-  )
-})
+  async UpdateAboutUs(AboutUs: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.spinner.show()
+      this.http.put("https://localhost:44373/api/AboutUs/updateAboutUs", AboutUs).subscribe(
+        {
+          next: () => {
+            this.spinner.hide();
+            this.toastr.success("Added Successfully")
+            resolve()
+          },
+          error: (error) => {
+            this.spinner.hide();
+            this.toastr.error("Error")
+            reject()
+          }
+        }
+      )
+    })
 }
 
 
