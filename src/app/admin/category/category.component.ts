@@ -60,7 +60,7 @@ export class CategoryComponent {
 
   UploadImage(Input:any){
 
-    if (Input.files.length != 0) {
+    if (Input.files[0] != 0) {
       let UploadedImage = Input.files[0]; //ImageFile
       let formData = new FormData()   
       formData.append("fileForImage",UploadedImage)
