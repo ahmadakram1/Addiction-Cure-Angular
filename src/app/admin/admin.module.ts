@@ -12,6 +12,7 @@ import { AllPatientComponent } from './all-patient/all-patient.component';
 import { CategoryComponent } from './category/category.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     CategoryComponent,
     ContactUsComponent,
     AboutUsComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,

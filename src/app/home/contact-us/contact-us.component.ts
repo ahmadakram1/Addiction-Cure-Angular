@@ -28,14 +28,7 @@ export class ContactUsComponent {
   })
 
   ngOnInit() {
-    /** spinner starts on init */
-    this.spinner.show();
-
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 2000);
-
+  
   }
 
   SendContact() {

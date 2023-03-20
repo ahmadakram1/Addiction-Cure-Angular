@@ -28,12 +28,14 @@ getdata()
   console.log(this.selected)
 }
 
- publish(id : number){
-  this.sharedService.publish(id)
+async publish(id : number){
+  this.sharedService.GetAllTestemonial()
+  await this.sharedService.publish(id)
 }
 
 
-unpublish(id : number){
-  this.sharedService.unpublish(id)
+async unpublish(id : number){
+  this.sharedService.GetAllTestemonial()
+  await this.sharedService.unpublish(id)
 }
 }
