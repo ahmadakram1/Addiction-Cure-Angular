@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -9,12 +11,25 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class HomeComponent {
 
-  @ViewChild("UpdateForm") Update: any;
-  @ViewChild("DetailsForm") Details: any;
+  // @ViewChild("UpdateForm") Update: any;
+  // @ViewChild("DetailsForm") Details: any;
+
+  // UpdateHomeForm = new FormGroup({
+  //   homeid: new FormControl(""),
+  //   // image1: new FormControl("", Validators.required),
+  //   // image2: new FormControl("", Validators.required),
+  //   // logo: new FormControl("", Validators.required),
+  //   paragraph: new FormControl("", Validators.required),
+  //   email: new FormControl("", Validators.required),
+  //   phone: new FormControl("", Validators.required),
+  //   address: new FormControl("", Validators.required),
+  //   text1: new FormControl("", Validators.required)
 
 
+  // })
 
-  constructor(public sharedservice: SharedService, public dialog: MatDialog) {
+
+  constructor(public sharedservice: SharedService, public dialog: MatDialog,public route:Router) {
 
   }
 
@@ -25,17 +40,13 @@ export class HomeComponent {
   }
 
 
-  OpenUpdateDialog(id: number) {
-    this.dialog.open(this.Update)
+  OpenUpdateDialog() {
+    this.route.navigate(["Admin/HomeManagment"])
   }
 
 
 
 
 
-  OpenDetailsDialog(id: number) {
-    this.dialog.open(this.Details)
-
-  }
 
 }
