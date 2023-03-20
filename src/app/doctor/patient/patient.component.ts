@@ -10,8 +10,9 @@ import { PatientService } from 'src/app/patient.service';
 export class PatientComponent {
 constructor(public patientService:PatientService , public doctorService:DoctorsService){}
 
-OnInit(){
-  this.doctorService.getpatientbydoctorid(21)
+id = 21
+async ngOnInit(){
+ await this.doctorService.getpatientbydoctorid(this.id)
   console.log(this.doctorService.patientbydoctorid);
   
 }

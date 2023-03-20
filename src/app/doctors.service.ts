@@ -122,14 +122,16 @@ CreateTest(Test: any) {
 
 
 patientbydoctorid:any=[]
-getpatientbydoctorid(DoctorId:number)
+async getpatientbydoctorid(DoctorId:number)
 {
+  return new Promise<void>((resolve, reject) =>  {
   this.spinner.show()
   this.http.get("https://localhost:44373/api/Patient/getbydoctorid/"+DoctorId).subscribe(
   {
     next:(res)=>{
       this.patientbydoctorid = res
-      this.spinner.hide()      
+      this.spinner.hide()   
+         resolve()
     },
     error: (error) => {
       this.spinner.hide();
@@ -137,6 +139,7 @@ getpatientbydoctorid(DoctorId:number)
     }
   }
   )
+})
 }
 
 
