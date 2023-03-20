@@ -277,7 +277,7 @@
 <ng-template #DetailsForm>
     
     <h1 mat-dialog-title>Doctor Details</h1>
-    <div mat-dialog-content>Image :{{this.adminService.DoctorById.imagename}}</div>
+    <div mat-dialog-content>Image : <img class="Img" src="../../../assets/images/{{this.adminService.DoctorById.imagename}}"></div>
     <div mat-dialog-content>First Name :{{this.adminService.DoctorById.firstname}}</div>
     <div mat-dialog-content>Last Name :{{this.adminService.DoctorById.lastname}}</div>
     <div mat-dialog-content>User Name :{{this.adminService.DoctorById.username}}</div>

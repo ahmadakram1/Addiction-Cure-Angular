@@ -76,8 +76,11 @@
                             <div class="col-12 col-sm-6">
                                 <input type="email" class="form-control bg-light border-0" placeholder="Your Email" formControlName="email" (click)="ShowBErrorMessage()"
                                     style="height: 55px;">
-                                    <small *ngIf="CreateContactUsForm.controls['email'].hasError('required') && B == true">
+                                    <small *ngIf="CreateContactUsForm.controls['email'].hasError('required')  && B == true">
                                         Email  is <strong>required</strong>
+                                    </small>
+                                    <small *ngIf="CreateContactUsForm.controls['email'].hasError('email')  && B == true">
+                                     Not valid <strong>Email</strong>
                                     </small>
                             </div>
                             <div class="col-12 col-sm-6">
