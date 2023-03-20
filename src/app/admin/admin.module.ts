@@ -13,6 +13,7 @@ import { CategoryComponent } from './category/category.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HomeComponent } from './home/home.component';
+import { HomeManamgentComponent } from './home-manamgent/home-manamgent.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { HomeComponent } from './home/home.component';
     ContactUsComponent,
     AboutUsComponent,
     HomeComponent,
+    HomeManamgentComponent,
   ],
   imports: [
     CommonModule,

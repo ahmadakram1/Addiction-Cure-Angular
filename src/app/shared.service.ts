@@ -12,20 +12,26 @@ export class SharedService {
 
   constructor(private route:Router,private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService) { }
 
-Home:any=[]
-GetAllHome()
+Home:any={}
+async GetAllHome()
 {
+  return new Promise<void>((resolve, reject) => {
+
   this.spinner.show()
   this.http.get("https://localhost:44373/API/home/getallHome").subscribe(
     {
         next:(res)=>{this.Home=res
         this.spinner.hide()
-        this.toastr.success("Success")},
+        this.toastr.success("Success")
+        resolve()
+      },
         error:(err)=>{console.log(err)
         this.spinner.hide()
-        this.toastr.error("Error")}
+        this.toastr.error("Error")
+      reject()}
     }
   )
+  })
 }
 
 
