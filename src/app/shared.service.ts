@@ -22,13 +22,7 @@ async GetAllHome()
     {
         next:(res)=>{this.Home=res
         this.spinner.hide()
-<<<<<<< HEAD
-        this.toastr.success("Success")
-        resolve()
-      },
-=======
         },
->>>>>>> b7d3407a5d18d9a7b8c0ec31de3de60ca686260e
         error:(err)=>{console.log(err)
         this.spinner.hide()
         this.toastr.error("Error")
