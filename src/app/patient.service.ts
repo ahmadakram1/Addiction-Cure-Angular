@@ -75,7 +75,6 @@ export class PatientService {
         }
       }
     )
-    debugger
     })
 }
 

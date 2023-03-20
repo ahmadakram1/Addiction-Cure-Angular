@@ -286,7 +286,6 @@ async GetAllTestemonial(){
           }
         }
       )
-      debugger
     })
   }
 
