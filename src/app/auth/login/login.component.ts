@@ -26,8 +26,7 @@ export class LoginComponent {
   Login()
   {
   this.shaerdService.Login(this.LoginForm.value)
-    console.log(this.shaerdService.Login(this.LoginForm.value));
-    
+  
 }
 
  

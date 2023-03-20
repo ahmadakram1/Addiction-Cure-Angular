@@ -18,7 +18,7 @@ GetAllQuastions()
     {
       next:(res)=>{this.Quastions=res
       this.spinner.hide()
-      this.toastr.success("Success")},
+     },
       error:(err)=>{console.log(err)
       this.spinner.hide()
       this.toastr.error("Error")}
@@ -60,7 +60,7 @@ GetAllResult()
     {
         next:(res)=>{this.AllResult=res
         this.spinner.hide()
-        this.toastr.success("Success")},
+        },
         error:(err)=>{console.log(err)
         this.spinner.hide()
         this.toastr.error("Error")}
@@ -128,9 +128,9 @@ async getpatientbydoctorid(DoctorId:number)
   this.spinner.show()
   this.http.get("https://localhost:44373/api/Patient/getbydoctorid/"+DoctorId).subscribe(
   {
-    next:(res)=>{
-      this.patientbydoctorid = res
-      this.spinner.hide()   
+    next:(res :any)=>{
+      this.patientbydoctorid = res;
+      this.spinner.hide(); 
          resolve()
     },
     error: (error) => {
