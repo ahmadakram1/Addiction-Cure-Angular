@@ -422,7 +422,7 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     this.spinner.hide()
     if (data.Role == 3)
     {
-      this.getPatientid(loginid)
+      this.getPatientid(loginid)      
       this.route.navigate([""])
     }
     else if (data.Role == 2)
@@ -447,8 +447,8 @@ patientid:any
 getPatientid(loginid?:string){
   this.http.get("https://localhost:44373/API/Login/patientid/"+loginid).subscribe(
     {
-      next:(res)=>{
-        this.patientid=res
+      next:(res:any)=>{
+        this.patientid=res.patientid
         console.log(this.patientid);
         
       },
