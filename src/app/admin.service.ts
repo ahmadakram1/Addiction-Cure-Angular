@@ -163,7 +163,7 @@ export class AdminService {
       {
         next: () => {
           this.spinner.hide();
-          this.toastr.success("Added Successfully")
+          this.toastr.success("Sent Successfully")
         },
         error: (error) => {
           this.spinner.hide();

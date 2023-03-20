@@ -67,38 +67,38 @@
                     <form [formGroup]="CreateContactUsForm">
                         <div class="row g-3">
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Your Name" formControlName="name"
+                                <input type="text" class="form-control bg-light border-0" placeholder="Your Name" formControlName="name" (click)="ShowAErrorMessage()"
                                     style="height: 55px;">
-                                    <small  *ngIf="CreateContactUsForm.controls['name'].hasError('required')">
-                                        Name Name is <strong>required</strong>
+                                    <small   *ngIf="CreateContactUsForm.controls['name'].hasError('required') && A == true">
+                                         Name is <strong>required</strong>
                                     </small>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control bg-light border-0" placeholder="Your Email" formControlName="email"
+                                <input type="email" class="form-control bg-light border-0" placeholder="Your Email" formControlName="email" (click)="ShowBErrorMessage()"
                                     style="height: 55px;">
-                                    <small *ngIf="CreateContactUsForm.controls['email'].hasError('required')">
-                                        Email Name is <strong>required</strong>
+                                    <small *ngIf="CreateContactUsForm.controls['email'].hasError('required') && B == true">
+                                        Email  is <strong>required</strong>
                                     </small>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Subject" formControlName="subject"
+                                <input type="text" class="form-control bg-light border-0" placeholder="Subject" formControlName="subject" (click)="ShowCErrorMessage()"
                                     style="height: 55px;">
-                                    <small *ngIf="CreateContactUsForm.controls['subject'].hasError('required')">
-                                        Subject Name is <strong>required</strong>
+                                    <small *ngIf="CreateContactUsForm.controls['subject'].hasError('required') && C == true">
+                                        Subject  is <strong>required</strong>
                                     </small>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="number" class="form-control bg-light border-0" placeholder="Phone" formControlName="phone"
+                                <input type="number" class="form-control bg-light border-0" placeholder="Phone" formControlName="phone" (click)="ShowDErrorMessage()"
                                     style="height: 55px;">
-                                    <small *ngIf="CreateContactUsForm.controls['phone'].hasError('required')">
-                                        Phone Name is <strong>required</strong>
+                                    <small *ngIf="CreateContactUsForm.controls['phone'].hasError('required') && D == true">
+                                        Phone  is <strong>required</strong>
                                     </small>
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control bg-light border-0" rows="5" formControlName="mesg"
+                                <textarea class="form-control bg-light border-0" rows="5" formControlName="mesg" (click)="ShowEErrorMessage()"
                                     placeholder="Message"></textarea>
-                                    <small *ngIf="CreateContactUsForm.controls['mesg'].hasError('required')">
-                                        Meassage Name is <strong>required</strong>
+                                    <small *ngIf="CreateContactUsForm.controls['mesg'].hasError('required') && E == true">
+                                        Meassage  is <strong>required</strong>
                                     </small>
                             </div>
                             <div class="col-12">
