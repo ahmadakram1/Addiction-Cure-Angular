@@ -83,7 +83,10 @@
             </div>
 
             <div mat-dialog-actions >
-                <input type="file" #File required (change)="UploadImage(File)">
+                <!-- <input type="file" #File required (change)="UploadImage(File)"> -->
+                <div>
+                    <input type="file" class="form-control" id="customFile" style="width: 73%;" #File required (change)="UploadImage(File)" />
+                </div>
                 <input type="button" [disabled]="CreateCategoryForm.invalid" value="Create" class="btn btn-dark" (click)="CreateCategory()" mat-dialog-close>
                 <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
             </div>
@@ -119,7 +122,10 @@
             </div>
 
             <div mat-dialog-actions>
-                <input type="file" #File required (change)="UploadImage(File)">
+                <!-- <input type="file" #File required (change)="UploadImage(File)"> -->
+                <div>
+                    <input type="file" class="form-control" id="customFile" style="width: 73%;" #File required (change)="UploadImage(File)" />
+                </div>
                 <input type="button" [disabled]="UpdateCategoryForm.invalid" value="Update" class="btn btn-dark" (click)="UpdateCategory()" mat-dialog-close>
                 <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
             </div>
