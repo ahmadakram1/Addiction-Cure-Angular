@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DoctorsService } from 'src/app/doctors.service';
 import { PatientService } from 'src/app/patient.service';
 
 @Component({
@@ -7,9 +8,9 @@ import { PatientService } from 'src/app/patient.service';
   styleUrls: ['./patient.component.css']
 })
 export class PatientComponent {
-constructor(public patientService:PatientService){}
+constructor(public patientService:PatientService , public doctorService:DoctorsService){}
 
 OnInit(){
-  this.patientService.
+  
 }
 }
