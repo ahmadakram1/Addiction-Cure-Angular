@@ -5,6 +5,7 @@ import { AllDoctorsComponent } from './all-doctors/all-doctors.component';
 import { AllPatientComponent } from './all-patient/all-patient.component';
 import { CategoryComponent } from './category/category.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReportComponent } from './report/report.component';
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: "AboutUs",
     component: AboutUsComponent
+  },
+  {
+    path: "Home",
+    component: HomeComponent
   },
 
 
