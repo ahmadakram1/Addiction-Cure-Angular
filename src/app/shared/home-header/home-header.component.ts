@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
 
 
 
@@ -9,5 +10,10 @@ import { Component } from '@angular/core';
 })
 export class HomeHeaderComponent {
 
-
+constructor(public shardService:SharedService){}
+logout()
+{
+  
+  localStorage.clear()
+}
 }
