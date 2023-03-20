@@ -435,6 +435,7 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
   console.log(data);
     localStorage.setItem('token' , res)
     localStorage.setItem('user' ,JSON.stringify(data))
+    localStorage.setItem("loginid",data.loginid)
     this.spinner.hide()
     if (data.Role == 3)
     {
