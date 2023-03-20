@@ -20,7 +20,7 @@ GetAllHome()
     {
         next:(res)=>{this.Home=res
         this.spinner.hide()
-        this.toastr.success("Success")},
+        },
         error:(err)=>{console.log(err)
         this.spinner.hide()
         this.toastr.error("Error")}
@@ -69,10 +69,6 @@ GetAllAboutUs() {
   )
 }
 
-
-
-
-
 AboutById:any
 async GetAboutusByid(aboutid:any){
   return new Promise<void>((resolve, reject) => {
@@ -81,7 +77,7 @@ async GetAboutusByid(aboutid:any){
     {
       next:(res)=>{this.AboutById=res
       this.spinner.hide()
-      this.toastr.success("Success")
+      
       resolve()
     },
       error:(err)=>{console.log(err)
@@ -158,7 +154,7 @@ GetCategory(){
     {
       next:(res)=>{this.Category=res
       this.spinner.hide()
-      this.toastr.success("Success")},
+      },
       error:(err)=>{console.log(err)
       this.spinner.hide()
       this.toastr.error("Error")}
@@ -221,7 +217,6 @@ async UpdateCategory(Category: any) {
   })
 }
 
-
 async DeleteCategory(Category_id: number) {
 
   return new Promise<void>((resolve, reject) => {
@@ -275,7 +270,7 @@ async GetAllTestemonial(){
           next: (res) => {
             this.Testemonial = res
             this.spinner.hide()
-            this.toastr.success("Success")
+            
             resolve()
           },
 
@@ -288,11 +283,6 @@ async GetAllTestemonial(){
       )
     })
   }
-
-
-
-
-
 
 CreateTestimonialAC(Testimonial: any) {
 
@@ -360,15 +350,6 @@ unpublish(TestimonialId:any){
   )
 }
 
-
-
-
-
-
-
-
-
-
 async RegisterPatient(Register:any){
   Register.imagename=this.imageName
   Register.roleid=2
@@ -417,7 +398,7 @@ UploadImage(imageFile : any)
 }
 
 
-Login(user :any) // Diala / 123456
+Login(user :any) 
 {
 const header = {
   'Content-Type' : 'application/json',
@@ -435,14 +416,19 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
   console.log(data);
     localStorage.setItem('token' , res)
     localStorage.setItem('user' ,JSON.stringify(data))
+    localStorage.setItem("loginid",data.loginid)
+    var loginid = localStorage.getItem("loginid")?.toString()
+
     this.spinner.hide()
     if (data.Role == 3)
     {
+      this.getPatientid(loginid)
       this.route.navigate([""])
     }
     else if (data.Role == 2)
     {
-    this.route.navigate(["Doctor/Main"])
+      this.getDoctodid(loginid)
+      this.route.navigate(["Doctor/Main"])
     }
     else
     {
@@ -457,7 +443,34 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
   }
 )}
 
+patientid:any
+getPatientid(loginid?:string){
+  this.http.get("https://localhost:44373/API/Login/patientid/"+loginid).subscribe(
+    {
+      next:(res)=>{
+        this.patientid=res
+        console.log(this.patientid);
+        
+      },
+      error:(err)=>{console.log(err)
+      this.toastr.error("Error")
+      }
+    }
+  )
+}
 
-
+doctodid:any
+getDoctodid(loginid?:string){
+  this.http.get("https://localhost:44373/API/Login/doctodid/"+loginid).subscribe(
+    {
+      next:(res)=>{
+        this.doctodid=res        
+      },
+      error:(err)=>{console.log(err)
+      this.toastr.error("Error")
+      }
+    }
+  )
+}
 
 }

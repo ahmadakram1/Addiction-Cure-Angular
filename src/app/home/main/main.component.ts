@@ -15,10 +15,11 @@ export class MainComponent {
   {
 
   }
-  
+  x:any = localStorage.getItem("loginid")
   OnInit() {
   this.sharedService.GetAllTestemonial()
   console.log(this.sharedService.Testemonial);
+  console.log(this.x);
   }
  
 
@@ -75,4 +76,8 @@ export class MainComponent {
     localStorage.setItem('Description' , this.data.Description);
 
   }
+
+
+ 
+  
 }

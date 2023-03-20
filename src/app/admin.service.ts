@@ -21,7 +21,6 @@ export class AdminService {
         next: (res) => {
           this.Doctors = res
           this.spinner.hide()
-          this.toastr.success("Success")
         },
         error: (err) => {
           console.log(err)
@@ -145,7 +144,6 @@ export class AdminService {
         next: (res) => {
           this.ContactUs = res
           this.spinner.hide()
-          this.toastr.success("Success")
         },
         error: (err) => {
           console.log(err)

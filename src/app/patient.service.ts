@@ -23,7 +23,7 @@ export class PatientService {
         next: (res) => {
           this.Patient = res
           this.spinner.hide()
-          this.toastr.success("Success")
+          
         },
         error: (err) => {
           console.log(err)
