@@ -174,7 +174,25 @@ export class AdminService {
   
   }
 
+  DeleteContactUs(Contact_id: number) {
 
+    return new Promise<void>((resolve, reject) => {
+      this.spinner.show()
+      this.http.delete("https://localhost:44373/api/ContactUs/deleteContactUs/" + Contact_id).subscribe({
+        next: () => {
+          this.spinner.hide()
+          this.toastr.success("Deleted Successfully")
+          resolve();
+        },
+        error: () => {
+          this.spinner.hide()
+          this.toastr.error("Error")
+          reject();
+        }
+      }
+      )
+    })
+  }
 
   Payments: any = []
   GetAllPayment() {

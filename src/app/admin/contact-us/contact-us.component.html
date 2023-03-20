@@ -26,24 +26,27 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Image</th>
+                                    <th>Subject</th>
                                     <th>Name</th>
-                                    <th>Description</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Message</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- <tr *ngFor="let item of sharedservice.Category">
-                                    <td>{{item.image}}</td>
-                                    <td>{{item.categoryname}}</td>
-                                    <td>{{item.abouttext}}</td>
+                                <tr *ngFor="let item of this.adminservice.ContactUs">
+                                    <td>{{item.subject}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.email}}</td>
+                                    <td>{{item.phone}}</td>
+                                    <td>{{item.mesg}}</td>
                                     <td>
-                                        <input type="button" value="Update" class="btn btn-success" (click)="OpenUpdateDialog(item.categoryid)">
-                                        <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.categoryid)">
-                                        <input type="button" value="Details" class="btn btn-primary" (click)="OpenDetailsDialog(item.categoryid)" >
+                                        <input type="button" value="Reply" class="btn btn-primary" >
+                                        <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.contactid)" >
                                     </td>
 
-                                </tr> -->
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -55,3 +58,18 @@
 </div>
 <app-admin-footer></app-admin-footer>
 
+
+
+
+<ng-template #Deleteform>
+
+    
+    <div matDialogContent>
+        <h2 mat-dialog-content><b>Would you like to delete this Message ?</b></h2>
+        <div mat-dialog-actions>
+            <input mat-dialog-close value="Yes" type="button" class="btn btn-danger" (click)="DeleteMesg()">
+            <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
+        </div>
+    </div>
+
+</ng-template>
