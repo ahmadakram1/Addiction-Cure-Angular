@@ -9,7 +9,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
 
-                <div class="navbar-nav ms-auto py-0">
+                <div *ngif="Localstorge.Getitem" class="navbar-nav ms-auto py-0">
 
                     <a routerLink="" class="nav-item nav-link">Home</a>
                     <a routerLink="/AboutUs" class="nav-item nav-link">AboutUs</a>
