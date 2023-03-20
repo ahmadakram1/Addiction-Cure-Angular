@@ -113,10 +113,12 @@ export class AdminService {
    async GetDoctorById(doctorid: any) {
     return new Promise<void>((resolve, reject) => {
     this.spinner.show()
-    this.http.get("https://localhost:44373/API/Doctor/getbyid/" + doctorid).subscribe(
+    this.http.get("https://localhost:44373/api/Doctor/getbyid/" + doctorid).subscribe(
       {
         next: (res) => {          
           this.DoctorById = res
+          console.log(this.DoctorById);
+          
           this.spinner.hide()          
           this.toastr.success()
          resolve()
