@@ -128,9 +128,9 @@ async getpatientbydoctorid(DoctorId:number)
   this.spinner.show()
   this.http.get("https://localhost:44373/api/Patient/getbydoctorid/"+DoctorId).subscribe(
   {
-    next:(res)=>{
-      this.patientbydoctorid = res
-      this.spinner.hide()   
+    next:(res :any)=>{
+      this.patientbydoctorid = res;
+      this.spinner.hide(); 
          resolve()
     },
     error: (error) => {
