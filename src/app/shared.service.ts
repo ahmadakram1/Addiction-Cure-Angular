@@ -457,7 +457,34 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
   }
 )}
 
+patientid:any
+getPatientid(loginid:number){
+  this.http.get("https://localhost:44373/API/Login/patientid/"+loginid).subscribe(
+    {
+      next:(res)=>{
+        this.patientid=res
+        console.log(this.patientid);
+        
+      },
+      error:(err)=>{console.log(err)
+      this.toastr.error("Error")
+      }
+    }
+  )
+}
 
-
+doctodid:any
+getDoctodid(loginid:number){
+  this.http.get("https://localhost:44373/API/Login/doctodid/"+loginid).subscribe(
+    {
+      next:(res)=>{
+        this.patientid=res        
+      },
+      error:(err)=>{console.log(err)
+      this.toastr.error("Error")
+      }
+    }
+  )
+}
 
 }
