@@ -18,7 +18,7 @@ GetAllQuastions()
     {
       next:(res)=>{this.Quastions=res
       this.spinner.hide()
-      this.toastr.success("Success")},
+     },
       error:(err)=>{console.log(err)
       this.spinner.hide()
       this.toastr.error("Error")}
@@ -60,7 +60,7 @@ GetAllResult()
     {
         next:(res)=>{this.AllResult=res
         this.spinner.hide()
-        this.toastr.success("Success")},
+        },
         error:(err)=>{console.log(err)
         this.spinner.hide()
         this.toastr.error("Error")}

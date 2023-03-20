@@ -20,7 +20,7 @@ GetAllHome()
     {
         next:(res)=>{this.Home=res
         this.spinner.hide()
-        this.toastr.success("Success")},
+        },
         error:(err)=>{console.log(err)
         this.spinner.hide()
         this.toastr.error("Error")}
@@ -81,7 +81,7 @@ async GetAboutusByid(aboutid:any){
     {
       next:(res)=>{this.AboutById=res
       this.spinner.hide()
-      this.toastr.success("Success")
+      
       resolve()
     },
       error:(err)=>{console.log(err)
@@ -158,7 +158,7 @@ GetCategory(){
     {
       next:(res)=>{this.Category=res
       this.spinner.hide()
-      this.toastr.success("Success")},
+      },
       error:(err)=>{console.log(err)
       this.spinner.hide()
       this.toastr.error("Error")}
@@ -275,7 +275,7 @@ async GetAllTestemonial(){
           next: (res) => {
             this.Testemonial = res
             this.spinner.hide()
-            this.toastr.success("Success")
+            
             resolve()
           },
 

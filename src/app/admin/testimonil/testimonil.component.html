@@ -36,10 +36,10 @@
                                     <td>{{item.firstname}} {{item.lastname}}</td>
                                     <td>{{item.messageuser}}</td>
                                     <td *ngIf="item.status=='unPublish'">
-                                       <button (click)="publish(item.tesemonialid)" >publish</button>                                
+                                       <button class="btn btn-primary" (click)="publish(item.tesemonialid)" >publish</button>                                
                                     </td>
                                     <td *ngIf="item.status=='Publish'">
-                                        <button (click)="unpublish(item.tesemonialid)">unpublish</button>  
+                                        <button class="btn btn-primary" (click)="unpublish(item.tesemonialid)">unpublish</button>  
                                     </td>
                                 </tr>
                             </tbody>
