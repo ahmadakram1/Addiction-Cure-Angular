@@ -35,10 +35,10 @@
                                     <td><img src="../../../assets/images/{{item.imagename}}" height="80" width="80" style="border-radius: 50px;"></td>
                                     <td>{{item.firstname}} {{item.lastname}}</td>
                                     <td>{{item.messageuser}}</td>
-                                    <td>
-                                       <button (click)="publish(item.tesemonialid)">publish</button>                                
+                                    <td *ngIf="item.status=='unPublish'">
+                                       <button (click)="publish(item.tesemonialid)" >publish</button>                                
                                     </td>
-                                    <td>
+                                    <td *ngIf="item.status=='Publish'">
                                         <button (click)="unpublish(item.tesemonialid)">unpublish</button>  
                                     </td>
                                 </tr>

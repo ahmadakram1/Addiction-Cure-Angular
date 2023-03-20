@@ -121,5 +121,23 @@ CreateTest(Test: any) {
 }
 
 
+patientbydoctorid:any=[]
+getpatientbydoctorid(DoctorId:number)
+{
+  this.spinner.show()
+  this.http.get("https://localhost:44373/api/Patient/getbydoctorid/"+DoctorId).subscribe(
+  {
+    next:(res)=>{
+      this.patientbydoctorid = res
+      this.spinner.hide()      
+    },
+    error: (error) => {
+      this.spinner.hide();
+      this.toastr.error("Error")
+    }
+  }
+  )
+}
+
 
 }
