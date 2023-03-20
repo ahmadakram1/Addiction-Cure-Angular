@@ -32,17 +32,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of patientService.Patient">
+                                <tr *ngFor="let item of doctorService.patientbydoctorid">
                                     <td><img src="../../../assets/images/{{item.imagename}}" height="80" width="80" style="border-radius: 50px;"></td>
                                     <td>{{item.firstname}}</td>
                                     <td>{{item.lastname}}</td>
                                     <td>
                                         <input type="button" value="Detiles" class="btn btn-primary"
-                                            (click)="GetById(item.patientid)">
-                                        <input type="button" value="Delete" class="btn btn-danger"
-                                            (click)="OpenDeleteDialog(item.patientid)">
-                                        <input type="button" value="Update" class="btn btn-success"
-                                            (click)="OpenUpdateDialog(item.patientid)">
+                                            (click)="GetById(item.patientid)">                                       
                                     </td>
                                 </tr>
                             </tbody>
@@ -55,142 +51,6 @@
     </div>
 </div>
 <app-admin-footer></app-admin-footer>
-
-
-<ng-template #CreateForm>
-    <!-- <form [formGroup]="CreateCourseForm" class="example-form">
-        <div>
-            <mat-form-field class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input type="text" matInput formControlName="coursename">
-                <mat-error *ngIf="CreateCourseForm.controls['coursename'].hasError('required')">
-                    course name is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input type="number" matInput formControlName="categoryid">
-                <mat-error *ngIf="CreateCourseForm.controls['categoryid'].hasError('required')">
-                    categoryid is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div>
-
-            <input type="file" #file (change)="UploadImage(file)">
-            <input type="button" [disabled]="CreateCourseForm.invalid" value="Create" (click)="CreateCourse()">
-        </div>
-    </form> -->
-
-</ng-template>
-
-<ng-template #UpdateForm>
-
-
-    <div mat-dialog-content>
-
-
-        <!--     
-       <input type="file" #file (change)="UploadImage(file)"> -->
-        <form [formGroup]="UpdatePatientForm" class="example-form">
-            <div class="row">
-                <div class="col-md-6">
-                    <div>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>First Name</mat-label>
-                            <input type="text" matInput formControlName="firstname">
-                            <mat-error *ngIf="UpdatePatientForm.controls['firstname'].hasError('required')">
-                                First Name is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Last Name</mat-label>
-                            <input type="text" matInput formControlName="lastname">
-                            <mat-error *ngIf="UpdatePatientForm.controls['lastname'].hasError('required')">
-                                Last Name is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Level</mat-label>
-                            <input type="text" matInput formControlName="level1">
-                            <mat-error *ngIf="UpdatePatientForm.controls['level1'].hasError('required')">
-                                Level is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Username</mat-label>
-                            <input type="text" matInput formControlName="username">
-                            <mat-error *ngIf="UpdatePatientForm.controls['username'].hasError('required')">
-                                Username is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Email</mat-label>
-                            <input type="email" matInput formControlName="email">
-                            <mat-error *ngIf="UpdatePatientForm.controls['email'].hasError('required')">
-                                Email is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Password</mat-label>
-                            <input type="Password" matInput formControlName="password">
-                            <mat-error *ngIf="UpdatePatientForm.controls['password'].hasError('required')">
-                                Password is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Role </mat-label>
-                            <input type="number" matInput formControlName="roleid">
-                            <mat-error *ngIf="UpdatePatientForm.controls['roleid'].hasError('required')">
-                                Role id is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div>
-                        <mat-form-field appearance="fill">
-                            <mat-label>category</mat-label>
-                            <mat-select formControlName="categoryid">
-                         <mat-option *ngFor="let item of sharedservice.Category" [value]="item.categoryid"  >
-                                    {{item.categoryname}}
-                         </mat-option>
-                                  </mat-select>
-                             </mat-form-field>
-                    </div>
-                </div>
-                <div mat-dialog-actions>
-                    <input type="button" [disabled]="UpdatePatientForm.invalid" value="Update" class="btn btn-dark"
-                        mat-dialog-close (click)="UpdatePatient()">
-                </div>
-
-            </div>
-        </form>
-    </div>
-
-</ng-template>
-
-<ng-template #DeleteForm>
-    <h2 mat-dialog-content>Would you like to delete this item?</h2>
-    <div mat-dialog-actions>
-        <input mat-dialog-close value="Yes" type="button" class="btn btn-success" (click)="DeletePatientbyID()">
-        <input mat-dialog-close value="No" type="button" class="btn btn-error">
-    </div>
-</ng-template>
 
 
 
