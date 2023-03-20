@@ -16,10 +16,9 @@ export class MainComponent {
 
   }
   
-  ngOnInit() {
+  OnInit() {
   this.sharedService.GetAllTestemonial()
   console.log(this.sharedService.Testemonial);
-  
   }
  
 
