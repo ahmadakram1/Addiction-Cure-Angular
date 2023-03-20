@@ -18,10 +18,11 @@ async GetAllHome()
   return new Promise<void>((resolve, reject) => {
 
   this.spinner.show()
-  this.http.get("https://localhost:44373/API/home/getallHome").subscribe(
+  this.http.get("https://localhost:44373/api/home/getallHome").subscribe(
     {
         next:(res)=>{this.Home=res
         this.spinner.hide()
+        resolve()
         },
         error:(err)=>{console.log(err)
         this.spinner.hide()

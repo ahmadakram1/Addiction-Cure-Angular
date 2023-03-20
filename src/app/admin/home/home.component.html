@@ -28,15 +28,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of sharedservice.Home">
-                                    <td><img class="Img" src="../../../assets/images/{{item.image1}}"></td>
-                                    <td><img class="Img" src="../../../assets/images/{{item.image2}}"></td>
-                                    <td>{{item.paragraph}}</td>
-                                    <td>{{item.text1}}</td>
-                                    <td>{{item.logo}}</td>
-                                    <td>{{item.email}}</td>
-                                    <td>{{item.phone}}</td>
-                                    <td>{{item.address}}</td>
+                                <tr>
+                                    <td><img class="Img" src="../../../assets/images/{{sharedservice.Home.image1}}"></td>
+                                    <td><img class="Img" src="../../../assets/images/{{sharedservice.Home.image2}}"></td>
+                                    <td>{{sharedservice.Home.paragraph}}</td>
+                                    <td>{{sharedservice.Home.text1}}</td>
+                                    <td>{{sharedservice.Home.logo}}</td>
+                                    <td>{{sharedservice.Home.email}}</td>
+                                    <td>{{sharedservice.Home.phone}}</td>
+                                    <td>{{sharedservice.Home.address}}</td>
                                     <td>
                                         <input type="button" value="Update" class="btn btn-success" (click)="OpenUpdateDialog()">
                                         <input type="button" value="Details" class="btn btn-primary">
