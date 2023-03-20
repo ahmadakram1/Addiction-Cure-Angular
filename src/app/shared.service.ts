@@ -69,10 +69,6 @@ GetAllAboutUs() {
   )
 }
 
-
-
-
-
 AboutById:any
 async GetAboutusByid(aboutid:any){
   return new Promise<void>((resolve, reject) => {
@@ -221,7 +217,6 @@ async UpdateCategory(Category: any) {
   })
 }
 
-
 async DeleteCategory(Category_id: number) {
 
   return new Promise<void>((resolve, reject) => {
@@ -289,11 +284,6 @@ async GetAllTestemonial(){
     })
   }
 
-
-
-
-
-
 CreateTestimonialAC(Testimonial: any) {
 
   this.spinner.show()
@@ -360,15 +350,6 @@ unpublish(TestimonialId:any){
   )
 }
 
-
-
-
-
-
-
-
-
-
 async RegisterPatient(Register:any){
   Register.imagename=this.imageName
   Register.roleid=2
@@ -417,7 +398,7 @@ UploadImage(imageFile : any)
 }
 
 
-Login(user :any) // Diala / 123456
+Login(user :any) 
 {
 const header = {
   'Content-Type' : 'application/json',
@@ -436,14 +417,18 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     localStorage.setItem('token' , res)
     localStorage.setItem('user' ,JSON.stringify(data))
     localStorage.setItem("loginid",data.loginid)
+    var loginid = localStorage.getItem("loginid")?.toString()
+
     this.spinner.hide()
     if (data.Role == 3)
     {
+      this.getPatientid(loginid)
       this.route.navigate([""])
     }
     else if (data.Role == 2)
     {
-    this.route.navigate(["Doctor/Main"])
+      this.getDoctodid(loginid)
+      this.route.navigate(["Doctor/Main"])
     }
     else
     {
@@ -459,7 +444,7 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
 )}
 
 patientid:any
-getPatientid(loginid:number){
+getPatientid(loginid?:string){
   this.http.get("https://localhost:44373/API/Login/patientid/"+loginid).subscribe(
     {
       next:(res)=>{
@@ -475,11 +460,11 @@ getPatientid(loginid:number){
 }
 
 doctodid:any
-getDoctodid(loginid:number){
+getDoctodid(loginid?:string){
   this.http.get("https://localhost:44373/API/Login/doctodid/"+loginid).subscribe(
     {
       next:(res)=>{
-        this.patientid=res        
+        this.doctodid=res        
       },
       error:(err)=>{console.log(err)
       this.toastr.error("Error")
