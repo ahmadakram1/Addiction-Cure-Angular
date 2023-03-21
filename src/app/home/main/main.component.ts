@@ -16,9 +16,9 @@ export class MainComponent {
 
   }
   x:any = localStorage.getItem("loginid")
-  ngOnInit() {
+ async ngOnInit() {
     this.sharedService.GetAboutusByid(66)
-  this.sharedService.GetAllTestemonial()
+ await this.sharedService.GetAllTestemonial()
   console.log(this.sharedService.Testemonial);
   console.log(this.x);
   }
