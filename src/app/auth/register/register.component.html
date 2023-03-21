@@ -22,17 +22,17 @@
 
 
 
-                                    <mat-form-field class="example-full-width">
+                                <mat-form-field class="example-full-width">
 
-                                        <mat-label>First Name</mat-label>
-                                        <input matInput formControlName="firstname" type="text" class="form-control"
-                                            placeholder="First Name"><br>
-                                        <mat-error class="text-danger"
-                                            *ngIf="RegisterForm.controls['firstname'].hasError('required')">
-                                            First name is <strong>required</strong></mat-error>
-    
-                                    </mat-form-field>
-                                   
+                                    <mat-label>First Name</mat-label>
+                                    <input matInput formControlName="firstname" type="text" class="form-control"
+                                        placeholder="First Name"><br>
+                                    <mat-error class="text-danger"
+                                        *ngIf="RegisterForm.controls['firstname'].hasError('required')">
+                                        First name is <strong>required</strong></mat-error>
+
+                                </mat-form-field>
+
 
                                 <mat-form-field class="example-full-width">
 
@@ -80,12 +80,12 @@
                                         <strong>required</strong></mat-error>
                                 </mat-form-field>
 
-                                
+
                                 <label> Choose a profile picture:</label>
-                                <input type="file"  #file (change)="UploadImage(file)">
+                                <input type="file" #file (change)="UploadImage(file)">
                                 <!-- <mat-error class="text-danger" *ngIf="RegisterForm.controls['file'].hasError('required')">
                                     file is <strong>required</strong></mat-error><br>  -->
-                                
+
                                 <div class="form-check mb-3">
                                     <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
                                     <label class="form-check-label" for="rememberPasswordCheck">
@@ -95,8 +95,8 @@
 
                                 <div class="d-grid">
                                     <button [disabled]="RegisterForm.invalid" (click)="Register()">sign up</button>
-                                        
-                                        <!-- class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+
+                                    <!-- class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
                                         value="Sign up" style="color:white"> -->
 
                                     <div class="text-center">
