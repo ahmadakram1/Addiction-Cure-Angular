@@ -42,15 +42,15 @@
             <div class="card-body">
               <form id="formAccountSettings" method="POST" onsubmit="return false">
                 <div class="row">
-<!--                   
+                
                   <div class="mb-3 col-md-6">
-                    <label for="firstName" class="form-label">First Name</label>
-                    <input class="form-control" type="text" id="firstName" name="firstName" autofocus placeholder="First Name" />
+                    <label for="firstName" class="form-label"></label>
+                    <input class="form-control" [value]="sharedservice.doctodid.firstname" type="text" id="firstName" name="firstName" autofocus placeholder="First Name" />
                   </div>
                   <div class="mb-3 col-md-6">
                     <label for="lastName" class="form-label">Last Name</label>
                     <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Last Name" />
-                  </div> -->
+                  </div> 
                   
                   <div class="mb-3 col-md-6">
                     <label for="UserName" class="form-label">User Name</label>

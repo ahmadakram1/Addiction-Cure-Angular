@@ -511,15 +511,20 @@ getPatientid(loginid?:string){
   )
 }
 
+
 doctodid:any
 getDoctodid(loginid?:string){
   this.http.get("https://localhost:44373/API/Login/doctodid/"+loginid).subscribe(
     {
-      next:(res)=>{
-        this.doctodid=res        
+      next:(res:any)=>{
+        this.doctodid=res   
+        console.log(this.doctodid);
+
+           
       },
       error:(err)=>{console.log(err)
       this.toastr.error("Error")
+
       }
     }
   )
