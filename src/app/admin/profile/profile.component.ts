@@ -9,9 +9,9 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class ProfileComponent {
   constructor(public sharedservice : SharedService, public adminService:AdminService){}
-  ngOnInit(){
+ async ngOnInit(){
 this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
-this.adminService.GetDoctorById(this.sharedservice.doctodid)
+await this.adminService.GetDoctorById(this.sharedservice.doctodid)
   }
   
 }
