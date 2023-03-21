@@ -483,6 +483,7 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     }
     else
     {
+      this.getDoctodid(loginid)
       this.route.navigate(["Admin/Main"])
     }
     },
