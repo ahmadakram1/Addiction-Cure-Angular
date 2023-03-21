@@ -75,6 +75,9 @@
                                     <small *ngIf="CreateContactUsForm.controls['email'].hasError('required') && B == true">
                                         Email  is <strong>required</strong>
                                     </small>
+                                    <small *ngIf="CreateContactUsForm.controls['email'].hasError('email') && B == true">
+                                    Invalid <strong>Email</strong>
+                                    </small>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <input type="text" class="form-control bg-light border-0" placeholder="Subject"
