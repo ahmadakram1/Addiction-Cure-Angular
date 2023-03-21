@@ -2,11 +2,8 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { AdminService } from 'src/app/admin.service';
 import { DoctorsService } from 'src/app/doctors.service';
-import { PatientService } from 'src/app/patient.service';
 import { PaymentTestComponent } from '../payment-test/payment-test.component';
-import {MatSliderModule} from '@angular/material/slider';
 
 @Component({
   selector: 'app-test',
@@ -14,7 +11,13 @@ import {MatSliderModule} from '@angular/material/slider';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent {
+  formatLabel(value: number): string {
+    if (value >= 10) {
+      return Math.round(value / 10) + '';
+    }
 
+    return `${value}`;
+  }
   constructor(private spinner: NgxSpinnerService,public doctorService:DoctorsService, private route: Router , public dialog:MatDialog)
   {
 

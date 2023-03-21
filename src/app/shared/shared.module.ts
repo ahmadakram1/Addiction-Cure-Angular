@@ -20,6 +20,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { DoctorFooterComponent } from './doctor-footer/doctor-footer.component';
 import { DoctorHeaderComponent } from './doctor-header/doctor-header.component';
 import { DoctorSideBarComponent } from './doctor-side-bar/doctor-side-bar.component';
+import { MatSliderModule } from '@angular/material/slider';
 
 
 @NgModule({
@@ -62,7 +63,7 @@ import { DoctorSideBarComponent } from './doctor-side-bar/doctor-side-bar.compon
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    
+    MatSliderModule
     
   ]
 })
