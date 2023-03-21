@@ -84,6 +84,20 @@ createhome(Home: any) {
 
 }
 
+HomeById:any
+getHomeById(id:number){
+  this.spinner.show()
+  this.http.get("https://localhost:44373/api/Home/GetHomeById/"+id).subscribe({
+    next:(res)=>{
+      this.HomeById=res
+      this.spinner.hide()
+    },
+    error:(err)=>{
+      console.log(err);
+      this.spinner.hide()      
+    }
+  })
+}
 AboutUs: any = []
 GetAllAboutUs() {
 

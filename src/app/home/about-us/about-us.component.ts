@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgxSpinnerService } from "ngx-spinner";
+import { SharedService } from 'src/app/shared.service';
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
@@ -7,17 +7,9 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class AboutUsComponent {
 
-  constructor(private spinner: NgxSpinnerService)
-  {
+  constructor(public shaerdService:SharedService){}
 
-  }
   ngOnInit() {
-    /** spinner starts on init */
-    this.spinner.show();
-
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 2000);
+    this.shaerdService.GetAboutusByid(66)
   }
 }
