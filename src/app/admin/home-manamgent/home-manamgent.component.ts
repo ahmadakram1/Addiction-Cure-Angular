@@ -19,7 +19,7 @@ export class HomeManamgentComponent {
 
 
   UpdateHomeForm = new FormGroup({
-    // homeid: new FormControl(""),
+    homeid: new FormControl(""),
     logo: new FormControl("", Validators.required),
     email: new FormControl("", [Validators.required,Validators.email]),
     phone: new FormControl("", Validators.required),
@@ -37,8 +37,20 @@ export class HomeManamgentComponent {
 
 
  
-  UpdateHome(){
-    
+  async UpdateHome(){
+   await this.sharedservice.UpdateHome(this.UpdateHomeForm.value)
+    this.route.navigate(["Admin/Home"])
+  }
+
+  UploadImage(Input:any){
+
+    if (Input.files[0] != 0) {
+      let UploadedImage = Input.files[0]; //ImageFile
+      let formData = new FormData()   
+      formData.append("fileForImage",UploadedImage)
+      this.sharedservice.UploadHomeImage(formData)
+    }
+   
   }
 
 }

@@ -34,6 +34,38 @@ async GetAllHome()
 }
 
 
+async UpdateHome(Home: any) {
+  Home.image1 = this.HomeImage
+  return new Promise<void>((resolve, reject) => {
+    this.spinner.show()
+    this.http.put("https://localhost:44373/API/home/updateHome", Home).subscribe(
+      {
+        next: () => {
+          this.spinner.hide();
+          this.toastr.success("Updated Successfully")
+          resolve()
+        },
+        error: (error) => {
+          this.spinner.hide();
+          this.toastr.error("Error")
+          reject()
+        }
+      }
+    )
+  })
+}
+
+
+HomeImage = ""
+UploadHomeImage(ImageFile: any) {
+  this.http.post("https://localhost:44373/API/home/uploadImage", ImageFile).subscribe({
+
+    next: (res: any) => {
+      this.HomeImage = res.image1
+    },
+    error: () => {}
+  })
+}
 createhome(Home: any) {
 
   this.spinner.show()

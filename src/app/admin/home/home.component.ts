@@ -40,7 +40,7 @@ export class HomeComponent {
   }
 
 
-  OpenUpdateDialog() {
+  OpenUpdatePage() {
     this.route.navigate(["Admin/HomeManagment"])
   }
 

@@ -1,3 +1,11 @@
+ <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
+    <p class="d-inline-block text-primary text-uppercase border-bottom border-5"
+        style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+
+</ngx-spinner> 
+
+
+
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
         <app-admin-side-bar></app-admin-side-bar>
@@ -13,17 +21,21 @@
 
                     <form [formGroup]="UpdateHomeForm">
                         <div class="row g-3">
-                            <div>
+                            <div class="row">
+                                <div class="col-12 col-sm-4">
 
-                            <label>Image One :</label>
-                            <div class="col-12 col-sm-6">
-                                <input type="file" class="form-control" id="customFile" style="width: 73%;" #File  accept="image/*"
-                                    required />
+                                        <img class="Img"src="../../../assets/images/{{sharedservice.Home.image1}}">
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <input type="file" class="form-control" id="customFile" style="width: 82%;margin-top: 95px;" #File 
+                                        accept="image/*" (change)="UploadImage(File)" required />
+                                </div>
+
                             </div>
 
-                        </div>
-
                             <div class="col-12 col-sm-6">
+                                <label>Email :</label>
                                 <input type="email" class="form-control  border-0" placeholder="Email"
                                     formControlName="email" style="height: 55px;">
                                 <small *ngIf="UpdateHomeForm.controls['email'].hasError('required') ">
@@ -33,8 +45,9 @@
                                     Not valid <strong>Email</strong>
                                 </small>
                             </div>
-                           
+
                             <div class="col-12 col-sm-6">
+                                <label>Phone :</label>
                                 <input type="number" class="form-control  border-0" placeholder="Phone"
                                     formControlName="phone" style="height: 55px;">
                                 <small *ngIf="UpdateHomeForm.controls['phone'].hasError('required') ">
@@ -42,6 +55,7 @@
                                 </small>
                             </div>
                             <div class="col-12 col-sm-6">
+                                <label>Address :</label>
                                 <input type="text" class="form-control  border-0" placeholder="Address"
                                     formControlName="address" style="height: 55px;">
                                 <small *ngIf="UpdateHomeForm.controls['address'].hasError('required') ">
@@ -49,6 +63,7 @@
                                 </small>
                             </div>
                             <div class="col-12 col-sm-6">
+                                <label>Logo :</label>
                                 <input type="text" class="form-control  border-0" placeholder="Logo"
                                     formControlName="logo" style="height: 55px;">
                                 <small *ngIf="UpdateHomeForm.controls['logo'].hasError('required') ">
@@ -57,6 +72,7 @@
                             </div>
 
                             <div class="col-12">
+                                <label>Paragraph One:</label>
                                 <textarea class="form-control  border-0" rows="5" formControlName="paragraph"
                                     placeholder="Paragraph One "></textarea>
                                 <small *ngIf="UpdateHomeForm.controls['paragraph'].hasError('required')">
@@ -64,6 +80,7 @@
                                 </small>
                             </div>
                             <div class="col-12">
+                                <label>Paragraph Two:</label>
                                 <textarea class="form-control  border-0" rows="5" formControlName="text1"
                                     placeholder=" Paragraph Two"></textarea>
                                 <small *ngIf="UpdateHomeForm.controls['text1'].hasError('required')">
@@ -71,8 +88,8 @@
                                 </small>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3"  [disabled]="UpdateHomeForm.invalid" (click)="UpdateHome()"
-                                    type="submit">Update</button>
+                                <button class="btn btn-primary w-100 py-3" [disabled]="UpdateHomeForm.invalid"
+                                    (click)="UpdateHome()" type="submit">Update</button>
                             </div>
                         </div>
                     </form>
