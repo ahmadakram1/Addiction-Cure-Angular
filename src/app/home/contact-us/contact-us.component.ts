@@ -13,9 +13,6 @@ export class ContactUsComponent {
 
   }
 
-
-
-
   CreateContactUsForm = new FormGroup({
 
     name: new FormControl("", Validators.required),
@@ -39,7 +36,6 @@ export class ContactUsComponent {
 
 
   //Error messages
-
    A? :boolean;
   ShowAErrorMessage() {
     this.A = true;

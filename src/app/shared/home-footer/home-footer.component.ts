@@ -9,4 +9,7 @@ import { SharedService } from 'src/app/shared.service';
 export class HomeFooterComponent {
   constructor(public shardService:SharedService){}
 
+  ngOnInit(){
+    this.shardService.getHomeById(2)
+  }
 }
