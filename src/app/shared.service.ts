@@ -511,24 +511,12 @@ getPatientid(loginid?:string){
   )
 }
 
-<<<<<<< HEAD
-
-doctodid:any
-=======
 doctodid:number =0
->>>>>>> f52611c9a144eb357fd0e7d8ece90042c47de1ff
 getDoctodid(loginid?:string){
   this.http.get("https://localhost:44373/API/login/doctorid/"+loginid).subscribe(
     {
       next:(res:any)=>{
-<<<<<<< HEAD
-        this.doctodid=res   
-        console.log(this.doctodid);
-
-           
-=======
         this.doctodid = res.doctodid        
->>>>>>> f52611c9a144eb357fd0e7d8ece90042c47de1ff
       },
       error:(err)=>{console.log(err)
       this.toastr.error("Error")
