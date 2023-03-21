@@ -16,17 +16,19 @@
             <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5">Make Your Test Now</h2>
         </div>
         <div>
-            <form *ngfor="let item of patientService.QuastionsByCategoryId">
+            <form *ngFor="let item of doctorService.Quastions">
                 <h1 style="font-family: sans-serif;">Q1:{{item.quastion}}</h1>
                 <mat-radio-group aria-label="Select an option">
-                    <mat-radio-button value="1">True</mat-radio-button>
-                    <mat-radio-button value="2">False</mat-radio-button>
+                   <!-- <mat-radio-button value="1">True</mat-radio-button>
+                   <mat-radio-button value="2">False</mat-radio-button>
+                   <mat-radio-button value="2">False</mat-radio-button>
+                   <mat-radio-button value="2">False</mat-radio-button>
+                   <mat-radio-button value="2">False</mat-radio-button> -->
+                   <mat-slider min="1" max="5" step="0.5" value="1.5">
+                    <input matSliderThumb>
+                  </mat-slider>
                 </mat-radio-group>
-                <h1 style="font-family: sans-serif;">Q2:</h1>
-                <mat-radio-group aria-label="Select an option">
-                    <mat-radio-button value="1">True</mat-radio-button>
-                    <mat-radio-button value="2">False</mat-radio-button>
-                </mat-radio-group>
+                
             </form>
             <br>
             <input type="button" class="btn btn-success" value="Submit & Payment" (click)="OpenDialog()">

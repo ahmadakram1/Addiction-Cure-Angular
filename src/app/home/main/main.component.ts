@@ -16,7 +16,7 @@ export class MainComponent {
 
   }
   x:any = localStorage.getItem("loginid")
-  OnInit() {
+  ngOnInit() {
   this.sharedService.GetAllTestemonial()
   console.log(this.sharedService.Testemonial);
   console.log(this.x);
