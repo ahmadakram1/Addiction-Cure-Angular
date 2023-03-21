@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
 import { AdminService } from 'src/app/admin.service';
+import { SharedService } from 'src/app/shared.service';
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
@@ -9,7 +10,7 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class ContactUsComponent {
 
-  constructor(private spinner: NgxSpinnerService, public adminservice: AdminService) {
+  constructor(private spinner: NgxSpinnerService, public adminservice: AdminService,public shardService:SharedService) {
 
   }
 

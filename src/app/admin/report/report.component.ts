@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
@@ -10,7 +11,20 @@ import { DoctorsService } from 'src/app/doctors.service';
 })
 export class ReportComponent {
 
-  constructor(public adminService :AdminService){
+  data:any;
+  constructor(public adminService :AdminService,private http: HttpClient){
+ //get request from web api
+ this.http.get('https://therichpost.com/testjsonapi/users/').subscribe(data => { this.data = data;
+
+ setTimeout(()=>{   
+   $('#datatableexample').DataTable( {
+     pagingType: 'full_numbers',
+     pageLength: 5,
+     processing: true,
+     lengthMenu : [5, 10, 25]
+ } );
+ }, 1);
+       }, error => console.error(error));
 
   }
 
