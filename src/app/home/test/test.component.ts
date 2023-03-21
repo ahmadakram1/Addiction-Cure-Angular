@@ -14,8 +14,7 @@ export class TestComponent {
   formatLabel(value: number): string {
     if (value >= 10) {
       return Math.round(value / 10) + '';
-    }
-
+    } 
     return `${value}`;
   }
   constructor(private spinner: NgxSpinnerService,public doctorService:DoctorsService, private route: Router , public dialog:MatDialog)
