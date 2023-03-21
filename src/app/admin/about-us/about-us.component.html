@@ -38,7 +38,6 @@
                                     <td>{{item.paragraph2}}</td>
                                     <td>
                                         <input type="button" value="Update" class="btn btn-success" (click)="OpenUpdateDialog(item.id)">
-                                        <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.id)">
                                         <input type="button" value="Details" class="btn btn-primary" (click)="OpenDialog(item.id)">
                                     </td>
 
@@ -100,19 +99,6 @@
 </ng-template>
 
 
-
-<ng-template #DeleteForm>
-
-    <div matDialogContent>
-        <h2 mat-dialog-content><b>Would you like to delete this Doctor ?</b></h2>
-        <div mat-dialog-actions>
-            <input mat-dialog-close value="Yes" type="button" class="btn btn-danger" (click)="DeleteAbout()">
-            <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
-        </div>
-    </div>
-
-
-</ng-template>
 
 
 <ng-template #DetailsForm>

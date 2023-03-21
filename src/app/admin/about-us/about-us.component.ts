@@ -12,7 +12,6 @@ export class AboutUsComponent {
 
 
   @ViewChild("UpdateForm") Update: any;
-  @ViewChild("DeleteForm") Delete: any;
   @ViewChild("DetailsForm") Details: any;
 
 
@@ -55,17 +54,6 @@ export class AboutUsComponent {
 
   }
 
-  //Delete AboutUS
-  SelectedAbout = 0;
-  OpenDeleteDialog(id: number) {
-    this.SelectedAbout = id
-    this.dialog.open(this.Delete)
-  }
-
- async DeleteAbout(){
-    await this.sharedservice.DeleteAbout(this.SelectedAbout)
-    this.sharedservice.GetAllAboutUs()
-  }
 
 
 
