@@ -11,5 +11,6 @@ export class AboutUsComponent {
 
   ngOnInit() {
     this.shaerdService.GetAboutusByid(66)
+    console.log(this.shaerdService.AboutById.image)
   }
 }

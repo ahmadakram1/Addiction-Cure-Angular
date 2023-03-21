@@ -130,7 +130,15 @@
     </div>
 </div>
 
-
+<mdb-carousel [controls]="true" [indicators]="true" [animation]="'fade'">
+    <mdb-carousel-item *ngFor="let item of sharedService.Testemonial" ngIf="item.status=Publish">
+      <img src="../../../assets/images/{{item.imagename}}" width="200" height="300" class="d-block w-100" alt="..."/>
+      <div class="carousel-caption d-none d-md-block">
+        <p>{{item.messageuser}}</p>
+        <h5>{{item.firstname}} {{item.lastname}}</h5>
+      </div>
+    </mdb-carousel-item>
+  </mdb-carousel>
 <!-- Testimonial End -->
 
 <!-- Footer Start -->
