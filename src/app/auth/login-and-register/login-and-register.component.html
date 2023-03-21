@@ -1,3 +1,9 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
+	<p class="d-inline-block text-primary text-uppercase border-bottom border-5"
+		style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+
+</ngx-spinner>
+
 <!DOCTYPE html>
 <html>
 
@@ -8,37 +14,47 @@
 </head>
 
 <body>
-	<div class="main">
-		<input type="checkbox" id="chk" aria-hidden="true">
-		<div class="signup">
-			<form [formGroup]="LoginForm">
-				<label for="chk" aria-hidden="true">Login</label>
-				<input type="email" name="email" required="" formControlName="email" class="form-control"
-					placeholder="name@example.com" style="margin-top:-5%;">
-				<input type="password" name="pswd" matInput formControlName="password" class="form-control"
-					placeholder="**********">
-				<button type="submit" [disabled]="LoginForm.invalid" (click)="Login()">Login</button>
-				<input type="button" value="Back To Home" routerLink="" style="width: 40%; height: 5%;">
-			</form>
-		</div>
+	<div class="container">
+		<h6 class="title">
+			<span class="title-word title-word-1">Welcome</span>
+			<span class="title-word title-word-2">to</span>
+			<span class="title-word title-word-3">Addiciton</span>
+			<span class="title-word title-word-4">Cure</span>
+		</h6>
+		<div class="main">
+			<input type="checkbox" id="chk" aria-hidden="true">
+			<div class="signup">
+				<form [formGroup]="LoginForm">
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" name="email" required="" formControlName="email" class="form-control"
+						placeholder="name@example.com" style="margin-top:-5%;">
+					<input type="password" name="pswd" matInput formControlName="password" class="form-control"
+						placeholder="**********">
+					<button type="submit" [disabled]="LoginForm.invalid" (click)="Login()">Login</button>
+					<input type="button" value="Back To Home" routerLink="" style="width: 30%;">
+				</form>
+			</div>
 
-		<div class="login"  >
-			<form [formGroup]="RegisterForm">
-				<label for="chk" aria-hidden="true">Sign up</label>
-				<input type="file" #file (change)="UploadImage(file)" style="margin-top:-10%;">
+			<div class="login">
+				<form [formGroup]="RegisterForm">
+					<label for="chk" aria-hidden="true" style="color: black;">Sign up</label>
+					<input type="file" #file (change)="UploadImage(file)" style="margin-top:-10%;">
 
-				<input type="text" matInput formControlName="firstname" class="form-control" placeholder="First Name">
+					<input type="text" matInput formControlName="firstname" class="form-control"
+						placeholder="First Name">
 
-				<input type="text" matInput formControlName="lastname" class="form-control" placeholder="Last Name">
+					<input type="text" matInput formControlName="lastname" class="form-control" placeholder="Last Name">
 
-				<input type="text" matInput formControlName="username" class="form-control" placeholder="User Name">
+					<input type="text" matInput formControlName="username" class="form-control" placeholder="User Name">
 
-				<input type="email" matInput formControlName="email" class="form-control" placeholder="name@example.com">
+					<input type="email" matInput formControlName="email" class="form-control"
+						placeholder="name@example.com">
 
-				<input type="password" matInput formControlName="password" class="form-control" placeholder="*****">
-				
-				<button type="submit" [disabled]="RegisterForm.invalid" (click)="Register()">Sign up</button>
-			</form>
+					<input type="password" matInput formControlName="password" class="form-control" placeholder="*****">
+
+					<button type="submit" [disabled]="RegisterForm.invalid" (click)="Register()">Sign up</button>
+				</form>
+			</div>
 		</div>
 	</div>
 </body>

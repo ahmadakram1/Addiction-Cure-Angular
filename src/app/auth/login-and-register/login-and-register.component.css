@@ -54,7 +54,7 @@ button{
 	justify-content: center;
 	display: block;
 	color: #fff;
-	background: #573b8a;
+	background: #008192;
 	font-size: 1em;
 	font-weight: bold;
 	margin-top: 20px;
@@ -65,7 +65,7 @@ button{
 	cursor: pointer;
 }
 button:hover{
-	background: #8b62d7;
+	background: rgb(8, 122, 167);
 }
 .login{
 	height: 460px;
@@ -88,3 +88,57 @@ button:hover{
 #chk:checked ~ .signup label{
 	transform: scale(.6);
 }
+
+.title-word {
+	animation: color-animation 4s linear infinite;
+  }
+  
+  .title-word-1 {
+	--color-1: #DF8453;
+	--color-2: #3D8DAE;
+	--color-3: #E4A9A8;
+  }
+  
+  .title-word-2 {
+	--color-1: #DBAD4A;
+	--color-2: #ACCFCB;
+	--color-3: #17494D;
+  }
+  
+  .title-word-3 {
+	--color-1: #ACCFCB;
+	--color-2: #E4A9A8;
+	--color-3: #ACCFCB;
+  }
+  
+  .title-word-4 {
+	--color-1: #3D8DAE;
+	--color-2: #DF8453;
+	--color-3: #E4A9A8;
+  }
+  
+  @keyframes color-animation {
+	0%    {color: var(--color-1)}
+	32%   {color: var(--color-1)}
+	33%   {color: var(--color-2)}
+	65%   {color: var(--color-2)}
+	66%   {color: var(--color-3)}
+	99%   {color: var(--color-3)}
+	100%  {color: var(--color-1)}
+  }
+  
+  /* Here are just some visual styles. 🖌 */
+  
+  .container {
+	display: grid;
+	place-items: center;  
+	text-align: center;
+	height: 100vh
+  }
+  
+  .title {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 800;
+	font-size: 1.9vw;
+	text-transform: uppercase;
+  }
