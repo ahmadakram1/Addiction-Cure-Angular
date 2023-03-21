@@ -473,9 +473,7 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     this.spinner.hide()
     if (data.Role == 3)
     {
-      this.getPatientid(loginid)  
-      console.log(this.patientid);
-          
+      this.getPatientid(loginid)        
       this.route.navigate([""])
     }
     else if (data.Role == 2)
@@ -511,24 +509,13 @@ getPatientid(loginid?:string){
   )
 }
 
-<<<<<<< HEAD
 
-doctodid:any
-=======
-doctodid:number =0
->>>>>>> f52611c9a144eb357fd0e7d8ece90042c47de1ff
+doctodid:number = 0 
 getDoctodid(loginid?:string){
   this.http.get("https://localhost:44373/API/login/doctorid/"+loginid).subscribe(
     {
       next:(res:any)=>{
-<<<<<<< HEAD
-        this.doctodid=res   
-        console.log(this.doctodid);
-
-           
-=======
-        this.doctodid = res.doctodid        
->>>>>>> f52611c9a144eb357fd0e7d8ece90042c47de1ff
+        this.doctodid = res.doctodid       
       },
       error:(err)=>{console.log(err)
       this.toastr.error("Error")
