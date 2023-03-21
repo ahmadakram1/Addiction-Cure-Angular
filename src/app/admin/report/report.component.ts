@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AdminService } from 'src/app/admin.service';
 import { DoctorsService } from 'src/app/doctors.service';
 
 @Component({
@@ -9,19 +10,24 @@ import { DoctorsService } from 'src/app/doctors.service';
 })
 export class ReportComponent {
 
-  constructor(public doctoreservice :DoctorsService){
+  constructor(public adminService :AdminService){
 
   }
+
   ngOnInit()
-  {
-    this.doctoreservice.GetAllResult()
+  {    
+    this.adminService.getReport()
+   
   }
+
   range = new FormGroup({
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
   });
   Searchdate()
   {
-    this.doctoreservice.Search(this.range.value.start?.toJSON().slice(0,10),this.range.value.end?.toJSON().slice(0,10))
+    this.adminService.Search(this.range.value.start?.toJSON().slice(0,10),this.range.value.end?.toJSON().slice(0,10))
   }
+
+ 
 }

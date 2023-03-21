@@ -39,20 +39,26 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Resulttest</th>
-                                    <th>perioddate</th>
-                                    <th>datetest</th>
-                                    <th>Action</th>
+                                    <th>Patient Name</th>
+                                    <th>Doctor Name</th>
+                                    <th>Amount of Period</th>
+                                    <th>Number of Test</th>
+                                    <th>Date of Test</th>
+                                    <th>Total</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of doctoreservice.AllResult">
-                                    <td>{{item.resulttest}}</td>
-                                    <td>{{item.perioddate}}</td>
+                                <tr *ngFor="let item of adminService.reports">
+                                    <td>{{item.patientfname+" "+item.patientlname}}</td>
+                                    <td>{{item.doctorfname+" "+item.doctorlname}}</td>
+                                    <td>{{item.amount}}</td>
+                                    <td>{{item.numberoftest}}</td>
                                     <td>{{item.datetest}}</td>
-                                    <td><input type="button" value="Detiles" class="btn btn-primary"></td>
                                 </tr>
                             </tbody>
+                            <tfoot>
+                                <p>Total Amount is . </p>
+                            </tfoot>
                         </table>
                     </div>
                     <!-- /.card-body -->

@@ -239,9 +239,34 @@ export class AdminService {
   }
 
 
+  Search(DateFome:any,Dateto:any)
+  {
+    this.spinner.show()
+    this.http.get("https://localhost:44373/api/ResultTest/"+DateFome+"/"+Dateto).subscribe(
+      {
+          next:(res)=>{this.reports=res
+          this.spinner.hide()
+          this.toastr.success("Success")},
+          error:(err)=>{console.log(err)
+          this.spinner.hide()
+          this.toastr.error("Error")}
+      }
+    )
+  }
 
-
-
+reports:any=[]
+getReport(){
+  this.http.get("https://localhost:44373/api/payment/Report").subscribe({
+    next:(res)=>{      
+      this.reports=res
+      this.spinner.hide()
+      this.toastr.success("Success")
+    },
+    error:(err)=>{console.log(err)
+      this.spinner.hide()
+      this.toastr.error("Error")}
+  })
+}
 
 
 
