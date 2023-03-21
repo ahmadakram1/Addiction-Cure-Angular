@@ -21,7 +21,7 @@
                     </td>
                     <br>
                     <div class="card mb-4">
-                        <table class="table table-striped">
+                        <table class="table table-striped" class="table table-striped table-bordered table-sm row-border hover" id="datatableexample">
                             <thead>
                                 <tr>
                                     <th>Image</th>
@@ -162,7 +162,7 @@
     <div mat-dialog-content>
         <!--     
        <input type="file" #file (change)="UploadImage(file)"> -->
-        <form [formGroup]="UpdateDoctorForm" class="example-form">
+        <form [formGroup]="UpdateDoctorForm" class="example-form"  >
             <div class="row">
                 <div class="col-md-6">
                     <div>
@@ -289,3 +289,6 @@
 
 
 </ng-template>
+
+
+
