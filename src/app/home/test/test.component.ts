@@ -11,12 +11,27 @@ import { PaymentTestComponent } from '../payment-test/payment-test.component';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent {
-  formatLabel(value: number): string {
-    if (value >= 10) {
-      return Math.round(value / 10) + '';
-    } 
-    return `${value}`;
+zero = "no"
+one = "yes"
+
+  currentQuestionIndex = 0;
+  selectedAnswer = null;
+  score=0;
+
+  next(id:number) {
+    if (this.selectedAnswer === "yes") {
+      this.score++;
+    }
+    this.currentQuestionIndex++;
+    console.log(this.selectedAnswer);
+    this.selectedAnswer = null;
+    console.log(this.score);
+    console.log(id);
   }
+
+
+
+ 
   constructor(private spinner: NgxSpinnerService,public doctorService:DoctorsService, private route: Router , public dialog:MatDialog)
   {
 
