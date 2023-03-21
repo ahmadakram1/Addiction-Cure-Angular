@@ -16,19 +16,40 @@
             <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5">Make Your Test Now</h2>
         </div>
         <div>
-            <form *ngFor="let item of doctorService.Quastions">
+            <div *ngIf="currentQuestionIndex < doctorService.Quastions.length">
+                <h2>{{ doctorService.Quastions[currentQuestionIndex].quastion }}</h2>
+                <div>
+                  <label>
+                    <input type="radio" name="answer" [value]="one" [(ngModel)]="selectedAnswer">
+                    Yes
+                  </label>
+                  <label>
+                    <input type="radio" name="answer" [value]="zero" [(ngModel)]="selectedAnswer">
+                    No
+                  </label>
+                </div>
+                <button (click)="next(doctorService.Quastions[currentQuestionIndex].quastionid )">Next</button>
+              </div>
+              
+              </div>
+            
+             
+            
+            <!-- <form *ngFor="let item of doctorService.Quastions">
                 <h1 style="font-family: sans-serif;">Q1:{{item.quastion}}</h1>
-                <mat-radio-group aria-label="Select an option">                   
-                   <mat-slider min="1" max="5" step="1" showTickMarks discrete [displayWith]="formatLabel" aria-required="">
-                    <input matSliderThumb>
-                  </mat-slider>
-                </mat-radio-group>                
-            </form>
+                <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
+                <label class="btn btn-secondary" for="option1">Checked</label>
+                
+                <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+                <label class="btn btn-secondary" for="option2">Radio</label>  
+                <input type="submit" value="Send Message" class="btn btn-primary">
+            </form> -->
+            
             <br>
             <input type="button" class="btn btn-success" value="Submit & Payment" (click)="OpenDialog()">
         </div>
     </div>
-</div>
+
 
 <!-- Footer Start -->
 <app-home-footer></app-home-footer>

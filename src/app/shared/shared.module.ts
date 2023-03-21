@@ -21,8 +21,8 @@ import { DoctorFooterComponent } from './doctor-footer/doctor-footer.component';
 import { DoctorHeaderComponent } from './doctor-header/doctor-header.component';
 import { DoctorSideBarComponent } from './doctor-side-bar/doctor-side-bar.component';
 import { MatSliderModule } from '@angular/material/slider';
-
-
+import {MatStepperModule} from '@angular/material/stepper';
+import {CdkStepperModule} from '@angular/cdk/stepper';
 @NgModule({
   declarations: [
     HomeHeaderComponent,
@@ -63,7 +63,11 @@ import { MatSliderModule } from '@angular/material/slider';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatSliderModule
+    MatSliderModule,
+    MatStepperModule,
+    CdkStepperModule
+
+
     
   ]
 })
