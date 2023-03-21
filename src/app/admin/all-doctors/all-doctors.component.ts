@@ -4,6 +4,7 @@ import { AdminService } from 'src/app/admin.service';
 import { MatDialog, } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from 'src/app/shared.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -21,8 +22,20 @@ export class AllDoctorsComponent {
 
 
 
+  data:any;
+  constructor(public adminService: AdminService, public dialog: MatDialog, public sharedservice: SharedService,private http: HttpClient) {
+     //get request from web api
+  this.http.get('https://therichpost.com/testjsonapi/users/').subscribe(data => { this.data = data;
 
-  constructor(public adminService: AdminService, public dialog: MatDialog, public sharedservice: SharedService) {
+  setTimeout(()=>{   
+    $('#datatableexample').DataTable( {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      processing: true,
+      lengthMenu : [5, 10, 25]
+  } );
+  }, 1);
+        }, error => console.error(error));
 
   }
 
