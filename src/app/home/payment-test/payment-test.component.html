@@ -3,7 +3,7 @@
     <div class="card px-4">
         <p class="h2 py-3">Payment Details</p>
         <div class="row gx-3">
-            <div class="col-12">
+            <!-- <div class="col-12">
                 <div class="d-flex flex-column">
                     <p class="text mb-1">Email User</p>
                     <input class="form-control mb-3" type="text" placeholder="Email"  readonly>
@@ -14,24 +14,23 @@
                     <p class="text mb-1">Name</p>
                     <input class="form-control mb-3" type="text" placeholder="Name" >
                 </div>
-            </div>
+            </div> -->
             <div class="col-12">
                 <div class="d-flex flex-column">
                     <p class="text mb-1">Card Number</p>
-                    <input class="form-control mb-3" type="text" placeholder="1234 5678 435678">
+                    <input class="form-control mb-3" type="number" placeholder="1234 5678 435678">
                 </div>
             </div>
             <div class="col-6">
                 <div class="d-flex flex-column">
                     <p class="text mb-1">Expiry</p>
-                    <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
-                    
+                    <input class="form-control mb-3" type="month" id="month-year" name="month-year" placeholder="MM/YYYY">                    
                 </div>
             </div>
             <div class="col-6">
                 <div class="d-flex flex-column">
                     <p class="text mb-1">CVC</p>
-                    <input  class="form-control mb-3 " type="password" placeholder="***">
+                    <input  class="form-control mb-3 " type="number" placeholder="123">
                 </div>
             </div>
             <div class="col-12">
