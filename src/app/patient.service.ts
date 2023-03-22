@@ -153,4 +153,25 @@ GetQuastionByCategoryId(quastionID:any)
 })
 }
 
+
+CreateTest(Test: any) {
+
+  this.spinner.show()
+  this.http.post("https://localhost:44373/api/Test", Test).subscribe(
+    {      
+      next: () => {
+        this.spinner.hide();
+        this.toastr.success("Added Successfully")
+      },
+      error: (error) => {
+        this.spinner.hide();
+        this.toastr.error("Error")
+      }
+    }
+  )
+
+}
+
+
+
 }
