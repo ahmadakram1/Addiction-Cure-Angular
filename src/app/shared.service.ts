@@ -500,7 +500,7 @@ getPatientid(loginid?:string){
     {
       next:(res:any)=>{
         this.patientid = res.patientid
-       console.log(res);              
+                 
       },
       error:(err)=>{console.log(err)
       this.toastr.error("Error")

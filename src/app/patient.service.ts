@@ -62,7 +62,6 @@ export class PatientService {
       {
         next: (res) => {
           this.PatientById = res
-          console.log(this.PatientById)
           this.spinner.hide()
           this.toastr.success("Success")
           resolve()
@@ -120,20 +119,22 @@ async UpdatePatient(Patient : any)
 })
 }
 
-QuastionsByCategoryId:any=[]
-GetQuastionByCategoryId(quastionID:any)
+QuastionsByCategoryId:any
+async GetQuastionByCategoryId(quastionID:any)
 {
+  return new Promise<void>((resolve, reject) => {
   this.spinner.show()
   this.http.get("https://localhost:44373/API/Quastion/GetQUASTIONBYID/"+quastionID).subscribe(
     {
         next:(res)=>{this.QuastionsByCategoryId=res
         this.spinner.hide()
-        this.toastr.success("Success")},
+        this.toastr.success("Success")
+      resolve()},
         error:(err)=>{console.log(err)
         this.spinner.hide()
         this.toastr.error("Error")}
     }
-  )
+  )})
 }
 
  PaymentTest:any
@@ -155,17 +156,21 @@ GetQuastionByCategoryId(quastionID:any)
 
 
 CreateTest(Test: any) {
-
   this.spinner.show()
   this.http.post("https://localhost:44373/api/Test", Test).subscribe(
     {      
+      
       next: () => {
         this.spinner.hide();
         this.toastr.success("Added Successfully")
+        console.log("aa");
+        
       },
       error: (error) => {
         this.spinner.hide();
         this.toastr.error("Error")
+        console.log(error);
+        
       }
     }
   )
