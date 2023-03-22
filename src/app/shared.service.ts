@@ -99,7 +99,7 @@ getHomeById(id:number){
   })
 }
 
-AboutUs: any = []
+AboutUs:any 
 async GetAllAboutUs()
 {
   return new Promise<void>((resolve, reject) => {
