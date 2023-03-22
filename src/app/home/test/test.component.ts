@@ -17,34 +17,39 @@ zero = "no"
 one = "yes"
 
   currentQuestionIndex = 0;
-  selectedAnswer = null;
+  selectedAnswer = 0;
   score=0;
-Test:any
+
   next(id:number) {
-    if (this.selectedAnswer === "yes") {
+    if (this.selectedAnswer === 1) {
       this.score++;
     }
     this.currentQuestionIndex++;
-    console.log(this.selectedAnswer);
-    this.Test.status=this.selectedAnswer
-    this.Test.quastionid = id
-    this.Test.testdate = Date.now()
-    this.Test.patientid = this.sharedService.patientid
-    this.patientService.CreateTest(this.Test)
-    this.selectedAnswer = null;
     console.log(this.score);
+    console.log(typeof(this.selectedAnswer));
     console.log(id);
+    
+    
+    let test ={
+      status:this.selectedAnswer,
+      patientid:parseInt(this.patientService.PatientById.patientid),
+      quastionid:id,
+      testdate: new Date()
+    }
+    
+   this.patientService.CreateTest(test)
+    
+    
+    this.selectedAnswer = 0;
+    
+    
   }
 
   constructor(public sharedService:SharedService,public patientService:PatientService,public doctorService:DoctorsService, private route: Router , public dialog:MatDialog){}
   async ngOnInit() {
-    var loginid = localStorage.getItem("loginid")?.toString()
-    this.sharedService.getPatientid(loginid)
-    await this.patientService.GetPatientById(this.sharedService.patientid)        
-   this.doctorService.GetAllQuastions(this.patientService.PatientById.Categoryid)
-    console.log(this.patientService.PatientById.Categoryid);
-    
-    console.log(this.doctorService.Quastions);
+   this.sharedService.getPatientid(localStorage.getItem("loginid")?.toString())
+   await this.patientService.GetPatientById(this.sharedService.patientid)
+   await this.patientService.GetQuastionByCategoryId(this.patientService.PatientById.categoryid)
   }
 
 OpenDialog()

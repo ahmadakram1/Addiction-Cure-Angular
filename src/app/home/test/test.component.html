@@ -26,16 +26,16 @@
   <div class="main">
 
     <div class="head">Test</div>
-    <div *ngIf="currentQuestionIndex < doctorService.Quastions.length">
-      <div class="question">{{ doctorService.Quastions[currentQuestionIndex].quastion }} ?</div>
+    <div *ngIf="currentQuestionIndex < patientService.QuastionsByCategoryId.length">
+      <div class="question">{{  patientService.QuastionsByCategoryId[currentQuestionIndex].quastion }} ?</div>
       <br>
       <div class="as" style="margin-left: 2%;">
         <label>
-          <input type="radio" name="answer" [value]="one" [(ngModel)]="selectedAnswer">
+          <input type="radio" name="answer" [value]=1 [(ngModel)]="selectedAnswer">
           Yes
         </label>
         <label>
-          <input type="radio" name="answer" [value]="zero" [(ngModel)]="selectedAnswer" style="margin-top: 2%;">
+          <input type="radio" name="answer" [value]=0 [(ngModel)]="selectedAnswer" style="margin-top: 2%;">
           No
         </label>
       </div>
@@ -43,10 +43,10 @@
       <button class="btn btn-primary"
         routerLink="" style="margin-left: 1%;">Chancl</button>
       <button class="btn btn-success"
-        (click)="next(doctorService.Quastions[currentQuestionIndex].quastionid )" style="margin-left: 61%;">
+        (click)="next(patientService.QuastionsByCategoryId[currentQuestionIndex].quastionid )" style="margin-left: 61%;">
         Next Quastions</button>
     </div>
-    <div *ngIf="currentQuestionIndex == doctorService.Quastions.length">
+    <div *ngIf="currentQuestionIndex == patientService.QuastionsByCategoryId.length">
       <input type="button" class="btn btn-success" value="Submit & Payment" (click)="OpenDialog()">
     </div>
   </div>
