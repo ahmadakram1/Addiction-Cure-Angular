@@ -67,11 +67,8 @@ export class LoginAndRegisterComponent {
 
 
   async Register() {
-    console.log(this.RegisterForm.value)
     let data = this.RegisterForm.value
-    console.log(data);
     await this.shaerdService.RegisterPatient(data)
-    console.log(this.shaerdService.imageName);
   }
 
   UploadImage(input: any) // <input>
