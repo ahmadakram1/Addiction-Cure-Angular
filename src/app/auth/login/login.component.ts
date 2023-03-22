@@ -29,6 +29,14 @@ export class LoginComponent {
   
 }
 
- 
+ A?:boolean 
+ShowAError(){
+this.A =true;
+}
+
+B?:boolean 
+ShowBError(){
+this.B =true;
+}
 }
 
