@@ -21,16 +21,16 @@
 </div>
 <div class="row justify-content-center">
     <div class="col-lg-8">
-            <form [formGroup]="Testemonial">
+            <form [formGroup]="Testemonials">
                 <div class="row g-2">
                     <div class="col-12">
                         <input formControlName="username" type="text" class="form-control bg-light border-0" placeholder="UserName" readonly style="height: 55px;">
                     </div>
                     <div class="col-12">
-                        <textarea class="form-control bg-light border-0" rows="5" placeholder="Message"></textarea>
+                        <textarea {{this.shardService.Testemonial.messageuser}} class="form-control bg-light border-0" rows="5" placeholder="Message"></textarea>
                     </div>
                     <div class="col-12">
-                        <button class="btn btn-primary w-100 py-3" type="submit">Send Testimonial</button>
+                        <button (click)="SendTestemonial()"  class="btn btn-primary w-100 py-3" type="submit">Send Testimonial</button>
                     </div>
                 </div>
             </form>
