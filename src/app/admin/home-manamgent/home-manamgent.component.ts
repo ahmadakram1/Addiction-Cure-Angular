@@ -35,8 +35,6 @@ export class HomeManamgentComponent {
   this.UpdateHomeForm.patchValue(this.sharedservice.Home)
   }
 
-
- 
   async UpdateHome(){
    await this.sharedservice.UpdateHome(this.UpdateHomeForm.value)
     this.route.navigate(["Admin/Home"])
