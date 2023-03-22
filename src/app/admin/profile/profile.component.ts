@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class ProfileComponent {
   constructor(public sharedservice: SharedService, public adminService: AdminService) { 
 
-   
+      
   }
 
   UpdateProfile = new FormGroup({
