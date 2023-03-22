@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {  Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
 
 
@@ -10,10 +11,11 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class HomeHeaderComponent {
 
-constructor(public shardService:SharedService){}
+constructor(public shardService:SharedService,private route:Router){}
+
 logout()
 {
-  
   localStorage.clear()
+  this.route.navigate(['Auth/LandR']);
 }
 }

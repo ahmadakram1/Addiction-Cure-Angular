@@ -26,11 +26,23 @@
 			<div class="signup">
 				<form [formGroup]="LoginForm">
 					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" required="" formControlName="email" class="form-control"
+					<input type="email" required=""formControlName="email" class="form-control" (click)="ShowAError()"
 						placeholder="name@example.com" style="margin-top:-5%;">
-					<input type="password" name="pswd" matInput formControlName="password" class="form-control"
+						<small class="text-danger" *ngIf="LoginForm.controls['email'].hasError('required') && A ==true ">
+							Email is <strong>Required</strong>
+						  </small>
+						  <small class="text-danger" *ngIf="LoginForm.controls['email'].hasError('email')  && A ==true " > 
+							Invalid <strong>Email</strong>
+						  </small>
+					<input type="password" class="text-danger" formControlName="password" class="form-control" (click)="ShowBError()"
 						placeholder="**********">
-					<button type="submit" [disabled]="LoginForm.invalid" (click)="Login()">Login</button>
+						<small class="text-danger"  *ngIf="LoginForm.controls['password'].hasError('required') && B ==true ">
+							Password is <strong>Required</strong>
+						  </small>
+						  <small class="text-danger" *ngIf="LoginForm.controls['password'].hasError('minlength') && B == true">
+							must contains at least <strong>6 characters</strong>
+						  </small>
+					<input type="submit" class="submit" value="Login" [disabled]="LoginForm.invalid" (click)="Login()">
 					<input type="button" value="Back To Home" routerLink="" style="width: 30%;">
 				</form>
 			</div>
@@ -38,21 +50,40 @@
 			<div class="login">
 				<form [formGroup]="RegisterForm">
 					<label for="chk" aria-hidden="true" style="color: black;">Sign up</label>
-					<input type="file" #file (change)="UploadImage(file)" style="margin-top:-10%;">
 
-					<input type="text" matInput formControlName="firstname" class="form-control"
+					<input type="text"  formControlName="firstname" class="form-control inputRegister" (click)="ShowCError()"
 						placeholder="First Name">
+						<small class="text-danger"  *ngIf="RegisterForm.controls['firstname'].hasError('required') && C ==true ">
+							First name is <strong>Required</strong>
+						  </small>
 
-					<input type="text" matInput formControlName="lastname" class="form-control" placeholder="Last Name">
+					<input type="text"  formControlName="lastname" class="form-control inputRegister" placeholder="Last Name" (click)="ShowDError()"> 
+					<small class="text-danger"  *ngIf="RegisterForm.controls['lastname'].hasError('required') && D ==true ">
+						Last name is <strong>Required</strong>
+					  </small>
 
-					<input type="text" matInput formControlName="username" class="form-control" placeholder="User Name">
 
-					<input type="email" matInput formControlName="email" class="form-control"
+					<input type="text"  formControlName="username" class="form-control inputRegister" placeholder="User Name" (click)="ShowEError()"> 
+					<small class="text-danger"  *ngIf="RegisterForm.controls['username'].hasError('required') && E ==true ">
+						User name is <strong>Required</strong>
+					  </small>
+					<input type="email"  formControlName="email" class="form-control inputRegister" (click)="ShowFError()"
 						placeholder="name@example.com">
+						<small class="text-danger" *ngIf="RegisterForm.controls['email'].hasError('required') && F ==true ">
+							Email is <strong>Required</strong>
+						  </small>
+						  <small class="text-danger" *ngIf="RegisterForm.controls['email'].hasError('email')  && F ==true " > 
+							Invalid <strong>Email</strong>
+						  </small>
 
-					<input type="password" matInput formControlName="password" class="form-control" placeholder="*****">
-
-					<button type="submit" [disabled]="RegisterForm.invalid" (click)="Register()">Sign up</button>
+					<input type="password"  formControlName="password" class="form-control inputRegister" placeholder="*****" (click)="ShowHError()"> 
+					<small class="text-danger"  *ngIf="RegisterForm.controls['password'].hasError('required') && H ==true ">
+						Password is <strong>Required</strong>
+					  </small>
+					  <small class="text-danger" *ngIf="RegisterForm.controls['password'].hasError('minlength') && H == true">
+						must contains at least <strong>6 characters</strong>
+					  </small>
+					<button type="submit" style="height: 30px;" [disabled]="RegisterForm.invalid" (click)="Register()">Sign up</button>
 				</form>
 			</div>
 		</div>

@@ -17,8 +17,7 @@ export class LoginAndRegisterComponent {
     {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
-    }
-  );
+    });
 
   RegisterForm = new FormGroup({
 
@@ -27,13 +26,45 @@ export class LoginAndRegisterComponent {
     username: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required, Validators.minLength(6)]),
-    //file : new FormControl("",[Validators.required])
 
   })
 
   Login() {
     this.shaerdService.Login(this.LoginForm.value)
+
   }
+
+  A?: boolean
+  ShowAError() {
+    this.A = true;
+  }
+  B?: boolean
+  ShowBError() {
+    this.B = true;
+  }
+  C?: boolean
+  ShowCError() {
+    this.C = true;
+  }
+
+  D?: boolean
+  ShowDError() {
+    this.D = true;
+  }
+
+  E?: boolean
+  ShowEError() {
+    this.E = true;
+  }
+  H?: boolean
+  ShowHError() {
+    this.H = true;
+  }
+  F?: boolean
+  ShowFError() {
+    this.F = true;
+  }
+
 
   async Register() {
     console.log(this.RegisterForm.value)

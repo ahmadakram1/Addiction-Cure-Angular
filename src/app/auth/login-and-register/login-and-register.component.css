@@ -41,13 +41,44 @@ input{
 	background: #e0dede;
 	justify-content: center;
 	display: flex;
-	margin: 20px auto;
-	padding: 10px;
+	margin: 10px auto;
+	/* padding: 10px; */
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+
+
+.inputRegister{
+	width: 70%;
+	height: 20px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: 10px auto;
+	/* padding: 10px; */
 	border: none;
 	outline: none;
 	border-radius: 5px;
 }
 button{
+	width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #008192;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+.submit{
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;

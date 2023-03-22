@@ -17,14 +17,23 @@ export class TestimoialComponent {
     this.sharedservice.getPatientid(localStorage.getItem("loginid")?.toString())
     await this.patientService.GetPatientById(this.sharedservice.patientid)
 
-    this.Testemonial.patchValue({
+    this.Testemonials.patchValue({
+      patientid: this.patientService.PatientById.patientid,
+      status: this.patientService.PatientById.status,
       username: this.patientService.PatientById.username,
+
     })
   }
-
-  Testemonial = new FormGroup
+  Testemonials = new FormGroup
     (
       {
+        patientid: new FormControl(''),
+        status: new FormControl("UnPublish", [Validators.required]),
         username: new FormControl("", [Validators.required]),
+        messageuser: new FormControl("", [Validators.required]),
       })
+
+  SendTestemonial() {
+    this.sharedservice.CreateTestimonialAC(this.Testemonials.value)
+  }
 }
