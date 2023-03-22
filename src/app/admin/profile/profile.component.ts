@@ -53,6 +53,19 @@ export class ProfileComponent {
   }
 
 
+  
+  UploadImage(Input:any){
+
+    if (Input.files[0] != 0) {
+      let UploadedImage = Input.files[0]; //ImageFile
+      let formData = new FormData()   
+      formData.append("fileForImage",UploadedImage)
+      this.sharedservice.UploadImage(formData)
+    }
+   
+  }
+
+
   ReturnOldValue(){
     
    this.UpdateProfile.patchValue({

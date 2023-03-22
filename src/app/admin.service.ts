@@ -82,7 +82,7 @@ export class AdminService {
 
   
   async UpdateAdminDoctor(Doctor: any) {
-    // Doctor.imagename=this.sharedservice.imageName;
+     Doctor.imagename=this.sharedservice.imageName;
     Doctor.categoryid = 4;
     Doctor.loginid = 101;
     Doctor.roleid = 1;
