@@ -1,15 +1,66 @@
 <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
-    <p class="d-inline-block text-primary text-uppercase border-bottom border-5"
-        style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+  <p class="d-inline-block text-primary text-uppercase border-bottom border-5"
+    style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
 
 </ngx-spinner>
 
-<!-- Navbar Start -->
-<app-home-header></app-home-header>
-<!-- Navbar End -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!-- Navbar Start -->
+  <app-home-header></app-home-header>
+  <!-- Navbar End -->
+  <br>
+  <div class="text-center mx-auto mb-5">
+    <h1 class="d-inline-block text-primary text-uppercase border-bottom border-5">Make Your Test Now</h1>
+  </div>
+
+  <div class="main">
+
+    <div class="head">Test</div>
+    <div *ngIf="currentQuestionIndex < doctorService.Quastions.length">
+      <div class="question">{{ doctorService.Quastions[currentQuestionIndex].quastion }} ?</div>
+      <br>
+      <div class="as" style="margin-left: 2%;">
+        <label>
+          <input type="radio" name="answer" [value]="one" [(ngModel)]="selectedAnswer">
+          Yes
+        </label>
+        <label>
+          <input type="radio" name="answer" [value]="zero" [(ngModel)]="selectedAnswer" style="margin-top: 2%;">
+          No
+        </label>
+      </div>
+      <br><br>
+      <button class="btn btn-primary"
+        routerLink="" style="margin-left: 1%;">Chancl</button>
+      <button class="btn btn-success"
+        (click)="next(doctorService.Quastions[currentQuestionIndex].quastionid )" style="margin-left: 61%;">
+        Next Quastions</button>
+    </div>
+    <div *ngIf="currentQuestionIndex == doctorService.Quastions.length">
+      <input type="button" class="btn btn-success" value="Submit & Payment" (click)="OpenDialog()">
+    </div>
+  </div>
 
 
 
+
+  <!-- Footer Start -->
+  <app-home-footer></app-home-footer>
+  <!-- Footer End -->
+</body>
+
+</html>
+<!-- 
 <div class="container-fluid pt-5">
     <div class="container">
         <div class="text-center mx-auto mb-5" style="max-width: 500px;">
@@ -39,9 +90,4 @@
             <br>
             
         </div>
-    </div>
-
-
-<!-- Footer Start -->
-<app-home-footer></app-home-footer>
-<!-- Footer End -->
+    </div> -->

@@ -19,9 +19,9 @@
                 <!-- Content -->
 
                 <div class="container-xxl flex-grow-1 container-p-y">
-                    <h1><b>Categories</b></h1>
                     <br>
-                    <td><input type="button" value="Create" class="btn btn-dark" (click)="OpenCreateDialog()"></td>
+                    <h1 style="text-align: center;"><b style="font-size: larger;">Categories Page</b></h1>
+                    <td><input type="button" value="Create Category" class="btn btn-dark" (click)="OpenCreateDialog()"></td>
                     <br>
                     <div class="card mb-4">
                         <table class="table table-striped">
@@ -40,8 +40,8 @@
                                     <td>{{item.abouttext}}</td>
                                     <td>
                                         <input type="button" value="Update" class="btn btn-success" (click)="OpenUpdateDialog(item.categoryid)">
-                                        <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.categoryid)">
-                                        <input type="button" value="Details" class="btn btn-primary" (click)="OpenDetailsDialog(item.categoryid)" >
+                                        <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.categoryid)" style="margin-left: 2%;">
+                                        <input type="button" value="Details" class="btn btn-primary" (click)="OpenDetailsDialog(item.categoryid)" style="margin-left: 2%;" >
                                     </td>
 
                                 </tr>

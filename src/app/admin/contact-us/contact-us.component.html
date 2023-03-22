@@ -20,6 +20,7 @@
 
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <br>
+                    <h1 style="text-align: center;"><b style="font-size: larger;">Contact Us Page</b></h1>
                     <!-- <td><input type="button" value="Create" class="btn btn-dark" (click)="OpenCreateDialog()"></td> -->
                     <br>
                     <div class="card mb-4">
@@ -42,8 +43,8 @@
                                     <td>{{item.phone}}</td>
                                     <td>{{item.mesg}}</td>
                                     <td>
-                                        <input type="button" value="Reply" class="btn btn-primary" >
-                                        <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.contactid)" >
+                                        <a type="button" class="btn btn-primary" href="mailto:{{item.email}}">Reply</a>
+                                        <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.contactid)" style="margin-left: 2%;" >
                                     </td>
 
                                 </tr>

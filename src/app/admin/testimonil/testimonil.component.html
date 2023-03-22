@@ -18,8 +18,7 @@
 
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <br>
-                    
-                    <br>
+                    <h1 style="text-align: center;"><b style="font-size: larger;">Testemonial Page</b></h1>
                     <div class="card mb-4">
                         <table class="table table-striped">
                             <thead>
@@ -27,7 +26,7 @@
                                     <th>User Image</th>
                                     <th>Name</th>
                                     <th>Mesg Patiant</th>
-                                    <th>Status</th>
+                                    <th>Status & Action</th>
                                 </tr>
                             </thead>
                             <tbody>                                
@@ -39,7 +38,8 @@
                                        <button class="btn btn-primary" (click)="publish(item.tesemonialid)" >publish</button>                                
                                     </td>
                                     <td *ngIf="item.status=='Publish'">
-                                        <button class="btn btn-primary" (click)="unpublish(item.tesemonialid)">unpublish</button>  
+                                        <button class="btn btn-primary" (click)="unpublish(item.tesemonialid)">unpublish</button> 
+                                        <input type="button" value="Delete" class="btn btn-danger" style="margin-left: 2%;" > 
                                     </td>
                                 </tr>
                             </tbody>
