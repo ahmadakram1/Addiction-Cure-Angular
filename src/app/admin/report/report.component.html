@@ -37,7 +37,7 @@
                       <input type="button" class="btn btn-primary" value="search" (click)="Searchdate()">
                     <br>
                     <div class="card mb-4">
-                        <table class="table" class="table table-striped table-bordered table-sm row-border hover" id="datatableexample">
+                        <table class="table" class="table table-striped table-bordered table-sm row-border hover" id="my-table">
                             <thead>
                                 <tr>
                                     <th>Patient Name</th>
@@ -68,3 +68,12 @@
     </div>
 </div>
 <app-admin-footer></app-admin-footer>
+
+
+<script src="jspdf.min.js"></script>
+<script src="jspdf.plugin.autotable.min.js"></script>
+<script>
+  var doc = new jsPDF()
+  doc.autoTable({ html: '#my-table' })
+  doc.save('table.pdf')
+</script>
