@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
+import { PatientService } from 'src/app/patient.service';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-testimoial',
@@ -7,17 +10,21 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./testimoial.component.css']
 })
 export class TestimoialComponent {
-  constructor(private spinner: NgxSpinnerService)
-  {
+  constructor(private spinner: NgxSpinnerService, public patientService: PatientService, public sharedservice: SharedService) {
 
   }
-  ngOnInit() {
-    /** spinner starts on init */
-    this.spinner.show();
+  async ngOnInit() {
+    this.sharedservice.getPatientid(localStorage.getItem("loginid")?.toString())
+    await this.patientService.GetPatientById(this.sharedservice.patientid)
 
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 2000);
+    this.Testemonial.patchValue({
+      username: this.patientService.PatientById.username,
+    })
   }
+
+  Testemonial = new FormGroup
+    (
+      {
+        username: new FormControl("", [Validators.required]),
+      })
 }
