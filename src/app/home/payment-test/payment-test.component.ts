@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { async } from '@angular/core/testing';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PatientService } from 'src/app/patient.service';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-payment-test',
@@ -7,12 +10,55 @@ import { PatientService } from 'src/app/patient.service';
   styleUrls: ['./payment-test.component.css']
 })
 export class PaymentTestComponent {
-  constructor(public patientService:PatientService){}
-  ReqPay={
+  constructor(public patientService:PatientService , public sharedService:SharedService){}
+  paymentform=new FormGroup(
+    {
+      cardnumber:new FormControl('',[Validators.required]),
+      dateCard:new FormControl('',[Validators.required]),
+      cvcCard:new FormControl('',[Validators.required])
+  }
+  )
+  async ngOnInit() {
+    this.sharedService.getPatientid(localStorage.getItem("loginid")?.toString())
+    await this.patientService.GetPatientById(this.sharedService.patientid)
+    let x:number = parseInt(this.patientService.PatientById.level1)*5
+    console.log(this.patientService.PatientById);
+ 
+   }
     
+   payment(){
+    let Amount:number = parseInt(this.patientService.PatientById.level1)*30
+    let PaymentReq={
+      Amount:Amount,
+      name:this.patientService.PatientById.firstname +" "+ this.patientService.PatientById.lastname,
+      email: this.patientService.PatientById.email,
+      Currency : 'usd',
+      cvc:this.paymentform.value.cvcCard?.toString(),
+      cardNumber:this.paymentform.value.cardnumber?.toString(),
+      ExpMonth:this.paymentform.value.dateCard?.slice(5),
+      ExpYear:this.paymentform.value.dateCard?.slice(0,4)
+    }
+    console.log(PaymentReq);
+    
+    this.patientService.CreatePayment(PaymentReq)
+    let createpay={
+      AMount:Amount,
+      patientid:this.patientService.PatientById.patientid,
+      paydate: new Date(),
+    }
   }
 
-  payment(){
-    this.patientService.CreatePayment(this.ReqPay)
+
+  A?: boolean
+  ShowAError() {
+    this.A = true;
+  }
+  B?: boolean
+  ShowBError() {
+    this.B = true;
+  }
+  C?: boolean
+  ShowCError() {
+    this.C = true;
   }
 }
