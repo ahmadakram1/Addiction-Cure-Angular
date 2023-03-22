@@ -141,8 +141,6 @@ export class PatientService {
 
   PaymentTest: any
   async CreatePayment(Pay: any) {
-    this.PaymentTest.name = this.PatientById.firstname + " " + this.PatientById.lastname
-    this.PaymentTest.email = this.PatientById.login.email
     return new Promise<void>((resolve, reject) => {
       this.http.post("https://localhost:44373/API/invoicepayment/pay/", Pay).subscribe({
         next: (res: any) => {

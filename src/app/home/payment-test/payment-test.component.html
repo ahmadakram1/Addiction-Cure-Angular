@@ -1,44 +1,44 @@
-<a ></a>
+<a></a>
 <div class="container">
     <div class="card px-4">
         <p class="h2 py-3">Payment Details</p>
         <div class="row gx-3">
-            <!-- <div class="col-12">
-                <div class="d-flex flex-column">
-                    <p class="text mb-1">Email User</p>
-                    <input class="form-control mb-3" type="text" placeholder="Email"  readonly>
+            <form [formGroup]="paymentform">
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">Card Number</p>
+                        <input formControlName="cardnumber" class="form-control mb-3"  (click)="ShowAError()" type="number" placeholder="1234 5678 435678">
+                        <small class="text-danger" *ngIf="paymentform.controls['cardnumber'].hasError('required') ">
+							Email is <strong>Required</strong>
+						  </small>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12">
-                <div class="d-flex flex-column">
-                    <p class="text mb-1">Name</p>
-                    <input class="form-control mb-3" type="text" placeholder="Name" >
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">Expiry</p>
+                        <input formControlName="dateCard" class="form-control mb-3" type="month" id="month-year" (click)="ShowBError()" name="month-year"
+                            placeholder="MM/YYYY">
+                            <small class="text-danger" *ngIf="paymentform.controls['dateCard'].hasError('required') ">
+                                Email is <strong>Required</strong>
+                              </small>
+                    </div>
                 </div>
-            </div> -->
-            <div class="col-12">
-                <div class="d-flex flex-column">
-                    <p class="text mb-1">Card Number</p>
-                    <input class="form-control mb-3" type="number" placeholder="1234 5678 435678">
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">CVC</p>
+                        <input formControlName="cvcCard" class="form-control mb-3 " type="number" (click)="ShowCError()" placeholder="123">
+                        <small class="text-danger" *ngIf="paymentform.controls['cvcCard'].hasError('required') ">
+							Email is <strong>Required</strong>
+						  </small>
+                    </div>
                 </div>
-            </div>
-            <div class="col-6">
-                <div class="d-flex flex-column">
-                    <p class="text mb-1">Expiry</p>
-                    <input class="form-control mb-3" type="month" id="month-year" name="month-year" placeholder="MM/YYYY">                    
+                <div class="col-12">
+                    <div class="btn btn-primary mb-3">
+                        <span (click)="payment()" class="ps-3">Amount</span>
+                        <span class="fas fa-arrow-right"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-6">
-                <div class="d-flex flex-column">
-                    <p class="text mb-1">CVC</p>
-                    <input  class="form-control mb-3 " type="number" placeholder="123">
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="btn btn-primary mb-3">
-                    <span (click)="payment()" class="ps-3">Amount</span>
-                    <span class="fas fa-arrow-right"></span>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
