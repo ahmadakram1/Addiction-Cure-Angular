@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
+import { AdminService } from 'src/app/admin.service';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -11,7 +13,7 @@ export class MainComponent {
  
  @Output() sendvalue = new EventEmitter()
 
-  constructor(public sharedService:SharedService,private spinner: NgxSpinnerService)
+  constructor(public sharedService:SharedService,public adminservice: AdminService,private spinner: NgxSpinnerService)
   {
 
   }
@@ -78,7 +80,45 @@ export class MainComponent {
 
   }
 
+  CreateContactUsForm = new FormGroup({
 
+    name: new FormControl("", Validators.required),
+    phone: new FormControl("", Validators.required),
+    email: new FormControl("", [Validators.required,Validators.email]),
+    subject: new FormControl("", Validators.required),
+    mesg: new FormControl("", Validators.required),
+
+
+  })
+
+  SendContact() {
+    this.adminservice.createContactUs(this.CreateContactUsForm.value)
+  }
+
+
+
+
+  //Error messages
+   A? :boolean;
+  ShowAErrorMessage() {
+    this.A = true;
+  }
+  B? :boolean;
+  ShowBErrorMessage() {
+    this.B = true;
+  }
+  C? :boolean;
+  ShowCErrorMessage() {
+    this.C = true;
+  }
+  D? :boolean;
+  ShowDErrorMessage() {
+    this.D = true;
+  }
+  E? :boolean;
+  ShowEErrorMessage() {
+    this.E = true;
+  }
  
   
 }
