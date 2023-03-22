@@ -15,23 +15,23 @@ export class AboutUsMangeComponent {
 
   }
 
-
   UpdateAboutUsForm = new FormGroup({
+    id: new FormControl(""),
     paragraph1: new FormControl("", Validators.required),
     paragraph2: new FormControl("", Validators.required)
 
   })
 
  async ngOnInit(){
-  await  this.sharedservice.GetAllAboutUs()
+  await this.sharedservice.GetAllAboutUs()
   this.UpdateAboutUsForm.patchValue(this.sharedservice.AboutUs)
   }
   async UpdateAboutUs() {
     await this.sharedservice.UpdateAboutUs(this.UpdateAboutUsForm.value);
-    this.sharedservice.GetAllAboutUs();
+    this.route.navigate(["Admin/ContactUs"])
   }
-  UploadImage(input:any){
-    let UploadedImage =  input.files[0];
+  UploadImage(Input:any){
+    let UploadedImage =  Input.files[0];
     let formData = new FormData();
     formData.append("FileforImage",UploadedImage)
     this.sharedservice.UploadAboutUsImage(formData)

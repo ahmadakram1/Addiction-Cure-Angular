@@ -98,26 +98,26 @@ getHomeById(id:number){
     }
   })
 }
+
 AboutUs: any = []
-GetAllAboutUs() {
+async GetAllAboutUs()
+{
+  return new Promise<void>((resolve, reject) => {
 
   this.spinner.show()
   this.http.get("https://localhost:44373/api/AboutUs/getallAboutUs").subscribe(
     {
-
-      next: (Result) => {
-        this.AboutUs = Result;
+        next:(res)=>{this.AboutUs=res
         this.spinner.hide()
-      },
-      error: (Error) => {
-        console.log(Error);
-        this.spinner.hide();
+        resolve()
+        },
+        error:(err)=>{console.log(err)
+        this.spinner.hide()
         this.toastr.error("Error")
-
-      }
-
+      reject()}
     }
   )
+  })
 }
 
 AboutById:any
