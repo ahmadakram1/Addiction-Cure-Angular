@@ -17,8 +17,7 @@ export class LoginAndRegisterComponent {
     {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
-    }
-  );
+    });
 
   RegisterForm = new FormGroup({
 
@@ -33,6 +32,17 @@ export class LoginAndRegisterComponent {
 
   Login() {
     this.shaerdService.Login(this.LoginForm.value)
+
+  }
+
+  A?: boolean
+  ShowAError() {
+    this.A = true;
+  }
+
+  B?: boolean
+  ShowBError() {
+    this.B = true;
   }
 
   async Register() {
