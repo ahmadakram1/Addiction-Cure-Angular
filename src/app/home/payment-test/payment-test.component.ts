@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PatientService } from 'src/app/patient.service';
 
 @Component({
   selector: 'app-payment-test',
@@ -6,8 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./payment-test.component.css']
 })
 export class PaymentTestComponent {
-  constructor(){}
+  constructor(public patientService:PatientService){}
+  ReqPay={
+    
+  }
+
   payment(){
-    this.
+    this.patientService.CreatePayment(this.ReqPay)
   }
 }
