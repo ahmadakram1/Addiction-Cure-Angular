@@ -48,7 +48,11 @@ input{
 	border-radius: 5px;
 }
 
+small{
+	margin-right: 174px;
+	font-size: small;
 
+}
 .inputRegister{
 	width: 70%;
 	height: 20px;
