@@ -31,7 +31,7 @@ p {
     align-items: center;
     justify-content: space-between;
     padding: 0 15px;
-    background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
+    background-image: linear-gradient(to right, #5094e7 0%, #3aefec 51%, #4993ee 100%);
     border: none;
     transition: 0.5s;
     background-size: 200% auto;

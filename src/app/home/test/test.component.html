@@ -15,6 +15,7 @@
         <div class="text-center mx-auto mb-5" style="max-width: 500px;">
             <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5">Make Your Test Now</h2>
         </div>
+        <br>
         <div>
             <div *ngIf="currentQuestionIndex < doctorService.Quastions.length">
                 <h2>{{ doctorService.Quastions[currentQuestionIndex].quastion }}</h2>
@@ -24,12 +25,12 @@
                     Yes
                   </label>
                   <label>
-                    <input type="radio" name="answer" [value]="zero" [(ngModel)]="selectedAnswer">
+                    <input type="radio" name="answer"  [value]="zero" [(ngModel)]="selectedAnswer">
                     No
                   </label>
                 </div>
-                <button (click)="next(doctorService.Quastions[currentQuestionIndex].quastionid )">Next</button>
-              </div>
+                <button class="btn btn-primary" (click)="next(doctorService.Quastions[currentQuestionIndex].quastionid )">Next</button>
+              </div>              
               <div *ngIf="currentQuestionIndex == doctorService.Quastions.length">
                 <input type="button" class="btn btn-success" value="Submit & Payment" (click)="OpenDialog()">
               </div>
