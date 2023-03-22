@@ -79,6 +79,33 @@ export class AdminService {
       })
     })
   }
+
+  
+  async UpdateAdminDoctor(Doctor: any) {
+    // Doctor.imagename=this.sharedservice.imageName;
+    Doctor.categoryid = 4;
+    Doctor.loginid = 101;
+    Doctor.roleid = 1;
+
+    return new Promise<void>((resolve, reject) => {
+
+      this.spinner.show();
+      this.http.put("https://localhost:44373/API/Doctor/updatedoctor", Doctor).subscribe({
+        next: () => {
+          this.spinner.hide();
+          this.toastr.success("Updated Successfully");
+          resolve();
+
+        },
+        error: () => {
+          this.spinner.hide();
+          this.toastr.error("Error")
+          reject();
+        }
+
+      })
+    })
+  }
   
 
   async Deletedoctor(Doctor_id: number) {

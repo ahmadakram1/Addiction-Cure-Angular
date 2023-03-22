@@ -40,38 +40,39 @@
             </div>
             <hr class="my-0" />
             <div class="card-body">
-              <form id="formAccountSettings" method="POST" onsubmit="return false">
+              <form id="formAccountSettings" method="POST" onsubmit="return false" [formGroup]="UpdateProfile">
                 <div class="row">
                 
                   <div class="mb-3 col-md-6">
                     <label for="firstName" class="form-label">First Name</label>
-                    <input class="form-control" [value]="adminService.DoctorById.firstname" type="text" id="firstName" name="firstName" autofocus placeholder="First Name" />
+                    <input class="form-control" formControlName="firstname"  type="text" id="firstName" autofocus placeholder="First Name" readonly /> 
                   </div>
                   <div class="mb-3 col-md-6">
                     <label for="lastName" class="form-label">Last Name</label>
-                    <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Last Name" />
+                    <input class="form-control"  formControlName="lastname"  type="text"  id="lastName" placeholder="Last Name"  readonly/>
                   </div> 
                   
                   <div class="mb-3 col-md-6">
                     <label for="UserName" class="form-label">User Name</label>
-                    <input class="form-control" type="text" id="UserName" name="UserName"
+                    <input class="form-control"  formControlName="username" type="text" id="UserName" 
                       placeholder="User Name" />
                   </div>
                   <div class="mb-3 col-md-6">
                     <label for="email" class="form-label">E-mail</label>
-                    <input class="form-control" type="text" id="email" name="email"
+                    <input class="form-control"  formControlName="email" type="email" id="email" 
                       placeholder="Email@example.com" readonly />
                   </div>
                   <div class="mb-3 col-md-6">
-                    <label for="email" class="form-label">Password</label>
-                    <input class="form-control" type="text" id="email" name="email" placeholder="Password" />
+                    <label for="password" class="form-label">Password</label>
+                    <input class="form-control"  formControlName="password" type="password" id="password" name="password" placeholder="Password"
+                     />
                   </div>
 
 
                 </div>
                 <div class="mt-2">
-                  <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                  <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                  <button type="submit" [disabled]="UpdateProfile.invalid" (click)="UpdateAdmin()" class="btn btn-primary me-2">Save changes</button>
+                  <!-- <button type="button" class="btn btn-outline-secondary" [routerLink]="Admin/">Cancel</button> -->
                 </div>
               </form>
             </div>
