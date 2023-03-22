@@ -19,15 +19,16 @@
   <app-home-header></app-home-header>
   <!-- Navbar End -->
   <br>
+
   <div class="text-center mx-auto mb-5">
     <h1 class="d-inline-block text-primary text-uppercase border-bottom border-5">Make Your Test Now</h1>
   </div>
 
-  <div class="main">
+  <div class="container">
 
     <div class="head">Test</div>
     <div *ngIf="currentQuestionIndex < patientService.QuastionsByCategoryId.length">
-      <div class="question">{{  patientService.QuastionsByCategoryId[currentQuestionIndex].quastion }} ?</div>
+      <div class="question">{{ patientService.QuastionsByCategoryId[currentQuestionIndex].quastion }} ?</div>
       <br>
       <div class="as" style="margin-left: 2%;">
         <label>
@@ -39,20 +40,23 @@
           No
         </label>
       </div>
-      <br><br>
-      <button class="btn btn-primary"
-        routerLink="" style="margin-left: 1%;">Chancl</button>
-      <button class="btn btn-success"
-        (click)="next(patientService.QuastionsByCategoryId[currentQuestionIndex].quastionid )" style="margin-left: 61%;">
-        Next Quastions</button>
+      <br>
+      <div style="text-align: center;">
+        <div>
+          <button class="btn btn-success"
+            (click)="next(patientService.QuastionsByCategoryId[currentQuestionIndex].quastionid )">
+            Next Quastions</button>
+        </div>
+        <br>
+        <div>
+          <button class="btn btn-primary" routerLink="">Chancl Test</button>
+        </div>
+      </div>
     </div>
     <div *ngIf="currentQuestionIndex == patientService.QuastionsByCategoryId.length">
       <input type="button" class="btn btn-success" value="Submit" (click)="PatinetLevel()" (click)="OpenDialog()">
-    </div>   
+    </div>
   </div>
-
-
-
 
   <!-- Footer Start -->
   <app-home-footer></app-home-footer>
@@ -60,34 +64,3 @@
 </body>
 
 </html>
-<!-- 
-<div class="container-fluid pt-5">
-    <div class="container">
-        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-            <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5">Make Your Test Now</h2>
-        </div>
-        <br>
-        <div>
-            <div *ngIf="currentQuestionIndex < doctorService.Quastions.length">
-                <h2>{{ doctorService.Quastions[currentQuestionIndex].quastion }}</h2>
-                <div>
-                  <label>
-                    <input type="radio" name="answer" [value]="one" [(ngModel)]="selectedAnswer">
-                    Yes
-                  </label>
-                  <label>
-                    <input type="radio" name="answer"  [value]="zero" [(ngModel)]="selectedAnswer">
-                    No
-                  </label>
-                </div>
-                <button class="btn btn-primary" (click)="next(doctorService.Quastions[currentQuestionIndex].quastionid )">Next</button>
-              </div>              
-              <div *ngIf="currentQuestionIndex == doctorService.Quastions.length">
-                <input type="button" class="btn btn-success" value="Submit & Payment" (click)="OpenDialog()">
-              </div>
-              </div>
-            
-            <br>
-            
-        </div>
-    </div> -->
