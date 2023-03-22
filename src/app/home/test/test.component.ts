@@ -18,33 +18,26 @@ one = "yes"
 
   currentQuestionIndex = 0;
   selectedAnswer = 0;
-  score=0;
+  score=10;
 
   next(id:number) {
     if (this.selectedAnswer === 1) {
-      this.score++;
+      this.score--;
     }
     this.currentQuestionIndex++;
-    console.log(this.score);
-    console.log(typeof(this.selectedAnswer));
-    console.log(id);
-    
-    
     let test ={
       status:this.selectedAnswer,
       patientid:parseInt(this.patientService.PatientById.patientid),
       quastionid:id,
       testdate: new Date()
     }
-    
    this.patientService.CreateTest(test)
-    
-    
     this.selectedAnswer = 0;
-    
-    
   }
+PatinetLevel(){
+  this.patientService.UpdateLevel(this.patientService.PatientById.patientid,this.score.toString())
 
+}
   constructor(public sharedService:SharedService,public patientService:PatientService,public doctorService:DoctorsService, private route: Router , public dialog:MatDialog){}
   async ngOnInit() {
    this.sharedService.getPatientid(localStorage.getItem("loginid")?.toString())
