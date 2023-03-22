@@ -11,10 +11,10 @@ export class DoctorsService {
   constructor(private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService) { }
 
 Quastions:any=[]
-GetAllQuastions()
+GetAllQuastions(id:number)
 {
   this.spinner.show()
-  this.http.get("https://localhost:44373/API/Quastion/GetQuastions").subscribe(
+  this.http.get("https://localhost:44373/API/Quastion/GetQuastions/"+id).subscribe(
     {
       next:(res)=>{this.Quastions=res
       this.spinner.hide()
@@ -100,25 +100,6 @@ GetAllTest()
   )
 }
 
-
-
-CreateTest(Test: any) {
-
-  this.spinner.show()
-  this.http.post("https://localhost:44373/api/Test", Test).subscribe(
-    {
-      next: () => {
-        this.spinner.hide();
-        this.toastr.success("Added Successfully")
-      },
-      error: (error) => {
-        this.spinner.hide();
-        this.toastr.error("Error")
-      }
-    }
-  )
-
-}
 
 
 patientbydoctorid:any=[]

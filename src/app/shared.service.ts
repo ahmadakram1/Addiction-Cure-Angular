@@ -4,13 +4,14 @@ import { Route, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import jwt_decode from 'jwt-decode';
+import { PatientService } from './patient.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
 
-  constructor(private route:Router,private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService) { }
+  constructor(private patientService:PatientService,private route:Router,private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService) { }
 
 Home:any={}
 async GetAllHome()
@@ -473,12 +474,12 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     this.spinner.hide()
     if (data.Role == 3)
     {
-      this.getPatientid(loginid)        
+      this.getPatientid(loginid)
       this.route.navigate([""])
     }
     else if (data.Role == 2)
     {
-      this.route.navigate(["Doctor/Main"])
+      this.route.navigate(["Doctor/MainDoctor"])
     }
     else
     {
@@ -499,8 +500,7 @@ getPatientid(loginid?:string){
     {
       next:(res:any)=>{
         this.patientid = res.patientid
-       
-        
+       console.log(res);              
       },
       error:(err)=>{console.log(err)
       this.toastr.error("Error")
