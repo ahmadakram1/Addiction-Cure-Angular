@@ -26,11 +26,23 @@
 			<div class="signup">
 				<form [formGroup]="LoginForm">
 					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" required="" formControlName="email" class="form-control"
+					<input type="email" required=""formControlName="email" class="form-control" (click)="ShowAError()"
 						placeholder="name@example.com" style="margin-top:-5%;">
-					<input type="password" name="pswd" matInput formControlName="password" class="form-control"
+						<small class="text-danger" *ngIf="LoginForm.controls['email'].hasError('required') && A ==true ">
+							Email is <strong>Required</strong>
+						  </small>
+						  <small class="text-danger" *ngIf="LoginForm.controls['email'].hasError('email')  && A ==true " > 
+							Invalid <strong>Email</strong>
+						  </small>
+					<input type="password" class="text-danger" formControlName="password" class="form-control" (click)="ShowBError()"
 						placeholder="**********">
-					<button type="submit" [disabled]="LoginForm.invalid" (click)="Login()">Login</button>
+						<small class="text-danger"  *ngIf="LoginForm.controls['password'].hasError('required') && B ==true ">
+							Password is <strong>Required</strong>
+						  </small>
+						  <small class="text-danger" *ngIf="LoginForm.controls['password'].hasError('minlength') && B == true">
+							must contains at least <strong>6 characters</strong>
+						  </small>
+					<input type="submit" class="submit" value="Login" [disabled]="LoginForm.invalid" (click)="Login()">
 					<input type="button" value="Back To Home" routerLink="" style="width: 30%;">
 				</form>
 			</div>
