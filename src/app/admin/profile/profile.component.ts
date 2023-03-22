@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  constructor(public sharedservice: SharedService, public adminService: AdminService,private route :Router) { 
+  constructor(public sharedservice: SharedService, public adminService: AdminService) { 
 
    
   }
@@ -21,7 +21,7 @@ export class ProfileComponent {
     firstname: new FormControl("", [Validators.required]),
     lastname: new FormControl("", [Validators.required]),
     username: new FormControl("", [Validators.required]),
-    password: new FormControl("", [Validators.required]),
+    password: new FormControl("", [Validators.required,Validators.minLength(6)]),
     email: new FormControl("", [Validators.required,Validators.email]),
 
 
@@ -48,11 +48,35 @@ export class ProfileComponent {
 
   
   
- async UpdateAdmin(){
-   await this.adminService.UpdateAdminDoctor(this.UpdateProfile.value)
-  //  this.route.navigate(["Admin/Profile"])
+ UpdateAdmin(){
+    this.adminService.UpdateAdminDoctor(this.UpdateProfile.value)
   }
 
 
+  ReturnOldValue(){
+    
+   this.UpdateProfile.patchValue({
+    doctodid : this.adminService.DoctorById.doctodid,
+    firstname : this.adminService.DoctorById.firstname,
+    lastname:this.adminService.DoctorById.lastname,
+    username: this.adminService.DoctorById.username,
+    email:this.adminService.DoctorById.email,
+    password : ""
+    
+  })
+  }
+
+
+
+  
+  B? :boolean;
+  ShowBErrorMessage() {
+    this.B = true;
+  }
+  
+  C? :boolean;
+  ShowCErrorMessage() {
+    this.C = true;
+  }
 
 }
