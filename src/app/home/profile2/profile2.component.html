@@ -1,3 +1,8 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
+  <p class="d-inline-block text-primary text-uppercase border-bottom border-5"
+    style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+
+</ngx-spinner>
 
 <!-- Layout wrapper -->
 <div class="layout-wrapper layout-content-navbar">
@@ -11,7 +16,7 @@
           <!-- Content -->
   
           <div class="container-xxl flex-grow-1 container-p-y">
-  
+    
             <div class="card mb-4">
               <h2 class="card-header">Edit Profile</h2>
               <!-- Account -->
@@ -23,48 +28,54 @@
                     <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                       <span class="d-none d-sm-block">Upload new photo</span>
                       <i class="bx bx-upload d-block d-sm-none"></i>
-                      <input type="file" id="upload" class="account-file-input" hidden accept="image/png, image/jpeg" />
+                      <input type="file" id="upload" class="account-file-input" hidden accept="image/*" />
                     </label>
-                    <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-                      <i class="bx bx-reset d-block d-sm-none"></i>
-                      <span class="d-none d-sm-block">Reset</span>
-                    </button>
+                  
                   </div>
                 </div>
               </div>
 
               <hr class="my-0" />
               <div class="card-body">
-                <form [formGroup]="UpdateForm">
+                <form [formGroup]="UpdateProfile">
                   <div class="row">
                     <div class="mb-3 col-md-6">
                       <label for="firstName" class="form-label">First Name</label>
-                      <input class="form-control" type="text" id="firstName" name="firstName" autofocus placeholder="First Name" />
+                      <input formControlName="firstname" class="form-control" type="text" autofocus placeholder="First Name" readonly /> 
                     </div>
                     <div class="mb-3 col-md-6">
                       <label for="lastName" class="form-label">Last Name</label>
-                      <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Last Name" />
+                      <input formControlName="lastname" class="form-control" type="text"  placeholder="Last Name" readonly />
                     </div>
                     <div class="mb-3 col-md-6">
                       <label for="UserName" class="form-label">User Name</label>
-                      <input class="form-control" type="text" id="UserName" name="UserName"
+                      <input formControlName="username" class="form-control" type="text" (click)="ShowBErrorMessage()"
                         placeholder="User Name" />
+                        <small *ngIf="UpdateProfile.controls['username'].hasError('required') && B == true">
+                          User Name is <strong>required</strong>
+                        </small>
                     </div>
                     <div class="mb-3 col-md-6">
                       <label for="email" class="form-label">E-mail</label>
-                      <input class="form-control" type="text" id="email" name="email"
+                      <input formControlName="email" class="form-control" type="email" 
                         placeholder="Email@example.com" readonly />
                     </div>
                     <div class="mb-3 col-md-6">
                       <label for="email" class="form-label">Password</label>
-                      <input class="form-control" type="text" id="email" name="email" placeholder="Password" />
+                      <input formControlName="password" class="form-control" type="text" placeholder="Password" (click)="ShowCErrorMessage()" />
+                      <small *ngIf="UpdateProfile.controls['password'].hasError('required') && C == true">
+                        Password is <strong>required</strong>
+                      </small>
+                      <small *ngIf="UpdateProfile.controls['password'].hasError('minlength') && C == true">
+                        must contains at least <strong>6 characters</strong>
+                      </small>
                     </div>
   
   
                   </div>
                   <div class="mt-2">
-                    <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                    <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary me-2" [disabled]="UpdateProfile.invalid" (click)="UpdatePatient()">Save changes</button>
+                    <button type="reset" class="btn btn-outline-secondary" (click)="ReturnOldValue()">Cancel</button>
                   </div>
                 </form>
               </div>

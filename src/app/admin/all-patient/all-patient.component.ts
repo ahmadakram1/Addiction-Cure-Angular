@@ -23,7 +23,6 @@ export class AllPatientComponent {
     patientid:new FormControl(''),
     firstname: new FormControl("", [Validators.required]),
     lastname: new FormControl("", [Validators.required]),
-    // Imagename: new FormControl("", [Validators.required]),
     level1: new FormControl("", [Validators.required]),
     username: new FormControl("", [Validators.required]),
     password: new FormControl("", [Validators.required]),

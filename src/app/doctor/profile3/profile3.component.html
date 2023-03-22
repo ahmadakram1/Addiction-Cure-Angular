@@ -16,53 +16,65 @@
               <!-- Account -->
               <div class="card-body">
                 <div class="d-flex align-items-start align-items-sm-center gap-4">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlroM5Ch7qeZjGr06DRiqTLnQtcFy2X5OSlBFY7IIl5A&s" alt="user-avatar" class="d-block rounded"
-                    height="100" width="100" id="uploadedAvatar" />
+                  <img style="border-radius: 58px; "
+                  src="../../../assets/images/{{this.adminService.DoctorById.imagename}}"
+                  alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
                   <div class="button-wrapper">
-                    <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-                      <span class="d-none d-sm-block">Upload new photo</span>
-                      <i class="bx bx-upload d-block d-sm-none"></i>
-                      <input type="file" id="upload" class="account-file-input" hidden accept="image/png, image/jpeg" />
-                    </label>
-                    <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-                      <i class="bx bx-reset d-block d-sm-none"></i>
-                      <span class="d-none d-sm-block">Reset</span>
-                    </button>
-                  </div>
+                 
+                    <span class="d-none d-sm-block ">Change photo :</span>
+                    <i class="bx bx-upload d-block d-sm-none"></i>
+                    <input type="file" class="form-control account-file-input" id="customFile" style="width: 73%;display: inline; margin-top: 14px;" #File required (change)="UploadImage(File)" /> 
+               
+                </div>
                 </div>
               </div>
               <hr class="my-0" />
               <div class="card-body">
-                <form id="formAccountSettings" method="POST" onsubmit="return false">
+                <form id="formAccountSettings" [formGroup]="UpdateProfile">
                   <div class="row">
+  
                     <div class="mb-3 col-md-6">
                       <label for="firstName" class="form-label">First Name</label>
-                      <input class="form-control" type="text" id="firstName" name="firstName" autofocus placeholder="First Name" />
+                      <input class="form-control" formControlName="firstname" type="text" id="firstName" autofocus
+                        placeholder="First Name" readonly />
                     </div>
                     <div class="mb-3 col-md-6">
                       <label for="lastName" class="form-label">Last Name</label>
-                      <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Last Name" />
+                      <input class="form-control" formControlName="lastname" type="text" id="lastName"
+                        placeholder="Last Name" readonly />
                     </div>
+  
                     <div class="mb-3 col-md-6">
                       <label for="UserName" class="form-label">User Name</label>
-                      <input class="form-control" type="text" id="UserName" name="UserName"
-                        placeholder="User Name" />
+                      <input class="form-control" formControlName="username" type="text" id="UserName"
+                        (click)="ShowBErrorMessage()" placeholder="User Name" />
+                      <small *ngIf="UpdateProfile.controls['username'].hasError('required') && B == true">
+                        User Name is <strong>required</strong>
+                      </small>
                     </div>
                     <div class="mb-3 col-md-6">
                       <label for="email" class="form-label">E-mail</label>
-                      <input class="form-control" type="text" id="email" name="email"
+                      <input class="form-control" formControlName="email" type="email" id="email"
                         placeholder="Email@example.com" readonly />
                     </div>
                     <div class="mb-3 col-md-6">
-                      <label for="email" class="form-label">Password</label>
-                      <input class="form-control" type="text" id="email" name="email" placeholder="Password" />
+                      <label for="password" class="form-label">Password</label>
+                      <input class="form-control" formControlName="password" type="password" id="password" name="password"
+                        placeholder="Password" (click)="ShowCErrorMessage()" />
+                      <small *ngIf="UpdateProfile.controls['password'].hasError('required') && C == true">
+                        Password is <strong>required</strong>
+                      </small>
+                      <small *ngIf="UpdateProfile.controls['password'].hasError('minlength') && C == true">
+                        must contains at least <strong>6 characters</strong>
+                      </small>
                     </div>
   
   
                   </div>
                   <div class="mt-2">
-                    <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                    <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                    <button type="submit" [disabled]="UpdateProfile.invalid" (click)="UpdateAdmin()"
+                      class="btn btn-primary me-2">Save changes</button>
+                    <button type="button" class="btn btn-outline-secondary" (click)="ReturnOldValue()">Cancel</button>
                   </div>
                 </form>
               </div>
