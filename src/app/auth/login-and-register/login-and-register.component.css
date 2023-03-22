@@ -42,7 +42,21 @@ input{
 	justify-content: center;
 	display: flex;
 	margin: 10px auto;
-	padding: 10px;
+	/* padding: 10px; */
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+
+
+.inputRegister{
+	width: 70%;
+	height: 20px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: 10px auto;
+	/* padding: 10px; */
 	border: none;
 	outline: none;
 	border-radius: 5px;
