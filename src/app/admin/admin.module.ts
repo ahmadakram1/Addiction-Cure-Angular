@@ -14,6 +14,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HomeComponent } from './home/home.component';
 import { HomeManamgentComponent } from './home-manamgent/home-manamgent.component';
+import { AboutUsMangeComponent } from './about-us-mange/about-us-mange.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { HomeManamgentComponent } from './home-manamgent/home-manamgent.componen
     AboutUsComponent,
     HomeComponent,
     HomeManamgentComponent,
+    AboutUsMangeComponent,
   ],
   imports: [
     CommonModule,

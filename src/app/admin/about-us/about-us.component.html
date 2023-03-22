@@ -4,10 +4,6 @@
 
 </ngx-spinner>
 
-
-
-
-
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
         <app-admin-side-bar></app-admin-side-bar>
@@ -21,7 +17,7 @@
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <br>
                     <h1 style="text-align: center;"><b style="font-size: larger;">AboutUs Page</b></h1>
-                    <td><input type="button" value="Edit Page" class="btn btn-dark"></td>
+                    <td><input type="button" value="Edit Page" class="btn btn-dark" (click)="OpenUpdatePage()"></td>
                     <br>
                     <div class="card mb-4">
                         <table class="table table-striped">
@@ -30,18 +26,13 @@
                                     <th>Image</th>
                                     <th>Paragraph one</th>
                                     <th>Paragraph two</th>
-                             
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of sharedservice.AboutUs">
-                                    <td> <img class="Img" src="../../../assets/images/{{item.image}}"> </td>
-                                    <td>{{item.paragraph1}}</td>
-                                    <td>{{item.paragraph2}}</td>
-                                    <td>
-                                        <input type="button" value="Update" class="btn btn-success" (click)="OpenUpdateDialog(item.id)">
-                                    </td>
-
+                                <tr>
+                                    <td><img class="Img" src="../../../assets/images/{{sharedservice.AboutUs.image1}}"></td>
+                                    <td>{{sharedservice.AboutUs.paragraph1}}</td>
+                                    <td>{{sharedservice.AboutUs.paragraph2}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -58,61 +49,16 @@
 
 
 
-
 <ng-template #UpdateForm>
 
 
-    
-    <div mat-dialog-content>
-        <form [formGroup]="UpdateAboutUsForm" class="example-form">
-
-            <div>
-                <mat-form-field class="example-full-width">
-                    <mat-label>Paragraph one</mat-label>
-                    <input type="text" matInput formControlName="paragraph1">
-                    <mat-error *ngIf="UpdateAboutUsForm.controls['paragraph1'].hasError('required')">
-                        Paragraph is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field class="example-full-width">
-                    <mat-label>Paragraph two</mat-label>
-                    <input type="text" matInput formControlName="paragraph2">
-                    <mat-error *ngIf="UpdateAboutUsForm.controls['paragraph2'].hasError('required')">
-                        Paragraph  is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </div>
-
-            <div mat-dialog-actions>
-                <!-- <input type="file" #File required (change)="UploadImage(File)"> -->
-                <div>
-                    <input type="file" class="form-control" id="customFile" style="width: 73%;" #File required (change)="UploadImage(File)" />
-                </div>
-                <input type="button" [disabled]="UpdateAboutUsForm.invalid" value="Update" class="btn btn-dark" (click)="UpdateAboutUs()" mat-dialog-close>
-                <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
-            </div>
-        </form>
-    </div>
-
 
 </ng-template>
-
-
 
 
 <ng-template #DetailsForm>
 
-    <h1 mat-dialog-title>About Details</h1>
-    <div mat-dialog-content>Image :<img class="Img" src="../../../assets/images/{{this.sharedservice.AboutById.image}}"></div>
-    <div mat-dialog-content>First Paragraph:{{this.sharedservice.AboutById.paragraph1}}</div>
-    <div mat-dialog-content>Second Paragraph :{{this.sharedservice.AboutById.paragraph2}}</div>
-
-    
-    <div mat-dialog-actions>
-        <input type="button" mat-dialog-close="" value="Close" class="btn btn-dark">
-    </div>
-
-
 </ng-template>
+
+
+
