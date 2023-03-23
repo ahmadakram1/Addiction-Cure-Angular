@@ -18,8 +18,15 @@
                 <h1 class="display-1 text-white mb-md-4">Best Addiciton Cure Solution In Your City</h1>
                 <div class="pt-2">
                     <a routerLink="/Doctors" class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Find Doctor</a>
-                    <a routerLink="/Test" class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">Take Test
-                        Now</a>
+
+
+                    <a routerLink="/Auth/LandR" *ngIf="this.sharedService.patientid==null" (click)="Wtostar()"
+                        class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
+                        Take Test Now</a>
+                    <a routerLink="/Test" *ngIf="this.sharedService.patientid!=null"
+                        class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
+                        Take Test Now</a>
+
                 </div>
             </div>
         </div>
@@ -178,7 +185,7 @@
             <h1 class="display-4">Patients Say About Our Services</h1>
         </div>
 
-        <mdb-carousel [controls]="true" [dark]="true" >
+        <mdb-carousel [controls]="true" [dark]="true">
             <mdb-carousel-item *ngFor="let item of sharedService.Testemonial">
                 <div *ngIf="item.status=='Publish'">
                     <div class="testimonial-item text-center">
