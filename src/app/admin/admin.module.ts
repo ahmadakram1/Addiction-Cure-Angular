@@ -15,6 +15,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HomeComponent } from './home/home.component';
 import { HomeManamgentComponent } from './home-manamgent/home-manamgent.component';
 import { AboutUsMangeComponent } from './about-us-mange/about-us-mange.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AboutUsMangeComponent } from './about-us-mange/about-us-mange.component
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    NgChartsModule
   ]
 })
 export class AdminModule { }
