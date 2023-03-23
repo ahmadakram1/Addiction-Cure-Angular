@@ -29,9 +29,6 @@ export class Profile2Component {
     await this.patientService.GetPatientById(this.sharedservice.patientid)
 
 
-
-
-
     this.UpdateProfile.patchValue({
       patientid: this.patientService.PatientById.patientid,
       firstname: this.patientService.PatientById.firstname,

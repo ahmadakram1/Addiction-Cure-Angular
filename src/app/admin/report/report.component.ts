@@ -26,6 +26,7 @@ export class ReportComponent {
       pagingType: 'full_numbers',
       pageLength: 3,
       processing: true,
+      
       dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'print'

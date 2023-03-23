@@ -16,20 +16,9 @@ export class TestimoialComponent {
   async ngOnInit() {
     this.sharedservice.getPatientid(localStorage.getItem("loginid")?.toString())
     await this.patientService.GetPatientById(this.sharedservice.patientid)
-
-    this.Testemonials.patchValue({
-      patientid: this.patientService.PatientById.patientid,
-      status: this.patientService.PatientById.status,
-      username: this.patientService.PatientById.username,
-
-    })
   }
   Testemonials = new FormGroup
-    (
-      {
-        patientid: new FormControl(''),
-        status: new FormControl("UnPublish", [Validators.required]),
-        username: new FormControl("", [Validators.required]),
+    ({
         messageuser: new FormControl("", [Validators.required]),
       })
 

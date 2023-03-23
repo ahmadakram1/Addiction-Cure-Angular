@@ -121,7 +121,9 @@ export class MainComponent {
     this.E = true;
   }
  
+
   Wtostar(){
+    this.toster.toastrConfig.positionClass = 'toast-bottom-left';
     this.toster.warning("Please Login or Sign up For Take Test")
   }
   
