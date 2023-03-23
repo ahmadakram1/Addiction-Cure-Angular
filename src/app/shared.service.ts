@@ -337,7 +337,8 @@ async GetAllTestemonial(){
   }
 
 CreateTestimonialAC(Testimonial: any) {
-
+  Testimonial.patientid=this.patientid
+  Testimonial.status="unPublish"
   this.spinner.show()
   this.http.post("https://localhost:44373/api/Testimonials/Create", Testimonial).subscribe(
     {

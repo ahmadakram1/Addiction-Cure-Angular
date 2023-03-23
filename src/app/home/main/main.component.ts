@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
 import { SharedService } from 'src/app/shared.service';
 
@@ -13,7 +14,7 @@ export class MainComponent {
  
  @Output() sendvalue = new EventEmitter()
 
-  constructor(public sharedService:SharedService,public adminservice: AdminService,private spinner: NgxSpinnerService)
+  constructor(public sharedService:SharedService,public adminservice: AdminService,private spinner: NgxSpinnerService ,private toster:ToastrService)
   {
 
   }
@@ -120,5 +121,10 @@ export class MainComponent {
     this.E = true;
   }
  
+
+  Wtostar(){
+    this.toster.toastrConfig.positionClass = 'toast-bottom-left';
+    this.toster.warning("Please Login or Sign up For Take Test")
+  }
   
 }

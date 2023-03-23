@@ -65,10 +65,11 @@ export class LoginAndRegisterComponent {
     this.F = true;
   }
 
-
   async Register() {
     let data = this.RegisterForm.value
     await this.shaerdService.RegisterPatient(data)
+    this.toastr.success("Welcome")
+
   }
 
   UploadImage(input: any) // <input>
@@ -81,4 +82,8 @@ export class LoginAndRegisterComponent {
     }
   }
   GetData() { console.log(this.RegisterForm.value); }
+
+
+
+
 }
