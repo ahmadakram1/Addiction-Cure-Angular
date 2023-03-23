@@ -24,7 +24,7 @@
         </div>
         <div class="mx-auto" style="width: 100%; max-width: 600px;">
             <div class="input-group">
-                <input type="text" class="form-control border-primary w-50" placeholder="Keyword" >
+                <input [formControl]="name" type="text" class="form-control border-primary w-50" placeholder="Doctor name" >
                 <button class="btn btn-dark border-0 w-25" (click)="SearchDoctor()">Search</button>
             </div>
         </div>
@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>  
 <!-- Search Result End -->
 
 <!-- Doctors End -->

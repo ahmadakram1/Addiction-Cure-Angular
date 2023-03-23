@@ -14,7 +14,7 @@ export class DoctorCardComponent {
 
 @Output() sendvalue = new EventEmitter()
 
-
+ 
 
 
   SendCardData(img?: string, fname?: string,lname?: string, specialty?: string, Description?: string) {

@@ -32,6 +32,28 @@ export class AdminService {
   }
   
   
+GetDocByName(name :string){
+
+  this.spinner.show()
+  this.http.get("https://localhost:44373/API/Doctor/SearchByName/"+name).subscribe({
+
+  next:(result)=>{
+
+    this.Doctors=result
+    this.spinner.hide(); 
+    this.toastr.success(" search done")
+
+
+  },
+  error : (error)=>{
+    console.log(error);
+    this.spinner.hide(); 
+    this.toastr.error("error")
+
+  }
+  })
+}
+  
   async createdoctor(Doctor: any) {
 
     Doctor.imagename=this.sharedservice.imageName;

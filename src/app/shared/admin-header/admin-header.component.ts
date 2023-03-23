@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-header',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AdminHeaderComponent {
 
+constructor(private route : Router){
+
+}
+
+
+  
+Logout()
+{
+
+  localStorage.removeItem("loginid")
+  localStorage.clear();
+  this.route.navigate(['/']);
+}
 }
