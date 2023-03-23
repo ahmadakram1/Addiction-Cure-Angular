@@ -53,8 +53,10 @@
         </div>
       </div>
     </div>
-    <div *ngIf="currentQuestionIndex == patientService.QuastionsByCategoryId.length">
-      <input type="button" class="btn btn-success" value="Submit" (click)="PatinetLevel()" (click)="OpenDialog()">
+    <div *ngIf="currentQuestionIndex == patientService.QuastionsByCategoryId.length" style="text-align: center;">
+      <div class="question"><h2>Please Submit for Confirm Yor Test and Processe Payment</h2></div>
+      <br>
+      <input type="button" class="btn btn-success" value="Submit" (click)="PatinetLevel()" (click)="OpenDialog()" style="text-align: center; font-size: x-large;">
     </div>
   </div>
 
