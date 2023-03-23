@@ -122,7 +122,7 @@ export class MainComponent {
   }
  
   Wtostar(){
-    this.toster.warning("Please Login or Register For Take Test")
+    this.toster.warning("Please Login or Sign up For Take Test")
   }
   
 }
