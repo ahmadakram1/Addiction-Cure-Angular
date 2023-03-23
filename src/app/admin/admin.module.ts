@@ -15,12 +15,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HomeComponent } from './home/home.component';
 import { HomeManamgentComponent } from './home-manamgent/home-manamgent.component';
 import { AboutUsMangeComponent } from './about-us-mange/about-us-mange.component';
-<<<<<<< HEAD
-import { NgChartsModule } from 'ng2-charts';
-=======
 import {DataTablesModule} from 'angular-datatables';
 import { BrowserModule } from '@angular/platform-browser';
->>>>>>> 1099b4ffa9f3b886695ffc9adbeab76524f9b18e
 
 
 @NgModule({
@@ -43,11 +39,7 @@ import { BrowserModule } from '@angular/platform-browser';
     CommonModule,
     AdminRoutingModule,
     SharedModule,
-<<<<<<< HEAD
-    NgChartsModule
-=======
     DataTablesModule,
->>>>>>> 1099b4ffa9f3b886695ffc9adbeab76524f9b18e
   ]
 })
 export class AdminModule { }
