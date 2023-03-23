@@ -23,7 +23,8 @@ import { DataTablesModule } from 'angular-datatables';
     HttpClientModule,
     DataTablesModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

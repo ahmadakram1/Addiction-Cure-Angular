@@ -15,7 +15,10 @@ constructor(public shardService:SharedService,private route:Router){}
 
 logout()
 {
+
+  localStorage.removeItem("loginid")
   localStorage.clear()
   this.route.navigate(['Auth/LandR']);
 }
+
 }
