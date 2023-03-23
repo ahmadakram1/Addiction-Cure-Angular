@@ -39,7 +39,7 @@
 						<small class="text-danger"  *ngIf="LoginForm.controls['password'].hasError('required') && B ==true ">
 							Password is <strong>Required</strong>
 						  </small>
-						  <small class="text-danger" *ngIf="LoginForm.controls['password'].hasError('minlength') && B == true">
+						  <small style="margin-right: 81px;" class="text-danger" *ngIf="LoginForm.controls['password'].hasError('minlength') && B == true">
 							must contains at least <strong>6 characters</strong>
 						  </small>
 					<input type="submit" class="submit" value="Login" [disabled]="LoginForm.invalid" (click)="Login()">
@@ -77,7 +77,7 @@
 					<small class="text-danger"  *ngIf="RegisterForm.controls['password'].hasError('required') && H ==true ">
 						Password is <strong>Required</strong>
 					  </small>
-					  <small class="text-danger" *ngIf="RegisterForm.controls['password'].hasError('minlength') && H == true">
+					  <small style="margin-right: 81px;" class="text-danger" *ngIf="RegisterForm.controls['password'].hasError('minlength') && H == true">
 						must contains at least <strong>6 characters</strong>
 					  </small>
 					<button type="submit" style="height: 30px;" [disabled]="RegisterForm.invalid" (click)="Register()">Sign up</button>

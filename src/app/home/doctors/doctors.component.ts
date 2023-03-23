@@ -63,4 +63,13 @@ export class DoctorsComponent {
         'Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor ',
     }
   ];
+
+
+   
+
+  SearchDoctor(){
+ 
+    
+    
+  }
 }
