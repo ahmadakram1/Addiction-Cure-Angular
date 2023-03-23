@@ -13,7 +13,13 @@ import { ChartConfiguration, ChartOptions, ChartType } from "chart.js";
 export class MainComponent {
 constructor(public adminService : AdminService , public patientService :PatientService ,public sharedservice:SharedService) {}
 
-ngOnInit(){
+async ngOnInit(){
+
+
+  
+  this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
+  await this.adminService.GetDoctorById(this.sharedservice.doctodid)
+
   this.adminService.GetAllDoctors()
   this.patientService.GetAllPatient()
   this.adminService.GetAllPayment()
