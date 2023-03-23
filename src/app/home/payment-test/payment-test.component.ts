@@ -23,12 +23,11 @@ export class PaymentTestComponent {
     this.sharedService.getPatientid(localStorage.getItem("loginid")?.toString())
     await this.patientService.GetPatientById(this.sharedService.patientid)
     let x:number = parseInt(this.patientService.PatientById.level1)*5
-    console.log(this.patientService.PatientById);
- 
+    this.Amount = parseInt(this.patientService.PatientById.level1)*30
    }
     
    payment(){
-    this.Amount = parseInt(this.patientService.PatientById.level1)*30
+    
     const yearString = this.paymentform.value.dateCard?.slice(0, 4) ?? '';
     const year = parseInt(yearString);
     const MonthString = this.paymentform.value.dateCard?.slice(5) ?? '';
