@@ -9,7 +9,7 @@
                         <p class="text mb-1">Card Number</p>
                         <input formControlName="cardnumber" class="form-control mb-3"  (click)="ShowAError()" type="number" placeholder="1234 5678 435678">
                         <small class="text-danger" *ngIf="paymentform.controls['cardnumber'].hasError('required') ">
-							Email is <strong>Required</strong>
+							Card Number is <strong>Required</strong>
 						  </small>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
                         <input formControlName="dateCard" class="form-control mb-3" type="month" id="month-year" (click)="ShowBError()" name="month-year"
                             placeholder="MM/YYYY">
                             <small class="text-danger" *ngIf="paymentform.controls['dateCard'].hasError('required') ">
-                                Email is <strong>Required</strong>
+                                Expiry is <strong>Required</strong>
                               </small>
                     </div>
                 </div>
@@ -28,13 +28,13 @@
                         <p class="text mb-1">CVC</p>
                         <input formControlName="cvcCard" class="form-control mb-3 " type="number" (click)="ShowCError()" placeholder="123">
                         <small class="text-danger" *ngIf="paymentform.controls['cvcCard'].hasError('required') ">
-							Email is <strong>Required</strong>
+							CVC is <strong>Required</strong>
 						  </small>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="btn btn-primary mb-3">
-                        <span (click)="payment()" class="ps-3">Amount</span>
+                        <span (click)="payment()" class="ps-3">Amount {{this.Amount}}</span>
                         <span class="fas fa-arrow-right"></span>
                     </div>
                 </div>

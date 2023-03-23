@@ -11,6 +11,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class PaymentTestComponent {
   constructor(public patientService:PatientService , public sharedService:SharedService){}
+  Amount:number=0;
   paymentform=new FormGroup(
     {
       cardnumber:new FormControl('',[Validators.required]),
@@ -27,22 +28,25 @@ export class PaymentTestComponent {
    }
     
    payment(){
-    let Amount:number = parseInt(this.patientService.PatientById.level1)*30
+    this.Amount = parseInt(this.patientService.PatientById.level1)*30
+    const yearString = this.paymentform.value.dateCard?.slice(0, 4) ?? '';
+    const year = parseInt(yearString);
+    const MonthString = this.paymentform.value.dateCard?.slice(5) ?? '';
+    const month = parseInt(MonthString);
     let PaymentReq={
-      Amount:Amount,
+      Amount:this.Amount,
       name:this.patientService.PatientById.firstname +" "+ this.patientService.PatientById.lastname,
       email: this.patientService.PatientById.email,
       Currency : 'usd',
       cvc:this.paymentform.value.cvcCard?.toString(),
       cardNumber:this.paymentform.value.cardnumber?.toString(),
-      ExpMonth:this.paymentform.value.dateCard?.slice(5),
-      ExpYear:this.paymentform.value.dateCard?.slice(0,4)
+      ExpMonth: month,
+      ExpYear:year
     }
-    console.log(PaymentReq);
     
     this.patientService.CreatePayment(PaymentReq)
     let createpay={
-      AMount:Amount,
+      Amount:this.Amount,
       patientid:this.patientService.PatientById.patientid,
       paydate: new Date(),
     }
