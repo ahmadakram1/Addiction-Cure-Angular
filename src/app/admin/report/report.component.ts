@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
 import { DoctorsService } from 'src/app/doctors.service';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 @Component({
   selector: 'app-report',
@@ -13,25 +15,24 @@ export class ReportComponent {
 
   data:any;
   constructor(public adminService :AdminService,private http: HttpClient){
- //get request from web api
- this.http.get('https://therichpost.com/testjsonapi/users/').subscribe(data => { this.data = data;
-
- setTimeout(()=>{   
-   $('#datatableexample').DataTable( {
-     pagingType: 'full_numbers',
-     pageLength: 5,
-     processing: true,
-     lengthMenu : [5, 10, 25]
- } );
- }, 1);
-       }, error => console.error(error));
 
   }
+  dtOptions: any = {};
 
   ngOnInit()
   {    
-    this.adminService.getReport()
-   
+   this.adminService.getReport()
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 3,
+      processing: true,
+      dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'print'
+        ]
+    };
+    
+    
   }
 
   range = new FormGroup({
@@ -42,6 +43,9 @@ export class ReportComponent {
   {
     this.adminService.Search(this.range.value.start?.toJSON().slice(0,10),this.range.value.end?.toJSON().slice(0,10))
   }
+
+
+
 
  
 }

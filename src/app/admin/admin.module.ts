@@ -15,6 +15,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HomeComponent } from './home/home.component';
 import { HomeManamgentComponent } from './home-manamgent/home-manamgent.component';
 import { AboutUsMangeComponent } from './about-us-mange/about-us-mange.component';
+import {DataTablesModule} from 'angular-datatables';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -31,11 +33,13 @@ import { AboutUsMangeComponent } from './about-us-mange/about-us-mange.component
     HomeComponent,
     HomeManamgentComponent,
     AboutUsMangeComponent,
+    
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    DataTablesModule,
   ]
 })
 export class AdminModule { }
