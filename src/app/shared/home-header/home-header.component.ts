@@ -17,7 +17,7 @@ logout()
 {
 
   localStorage.removeItem("loginid")
-  localStorage.clear()
+  localStorage.clear();
   this.route.navigate(['Auth/LandR']);
 }
 

@@ -5,6 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import jwt_decode from 'jwt-decode';
 import { PatientService } from './patient.service';
+import { AdminService } from './admin.service';
 
 @Injectable({
   providedIn: 'root'
@@ -485,6 +486,9 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     else
     {
       this.route.navigate(["Admin/Main"])
+      this.getDoctodid(localStorage.getItem("loginid")?.toString())
+      this.GetDoctorById(this.DoctorById)
+
     }
     },
     error:(err)=>{
@@ -525,5 +529,37 @@ getDoctodid(loginid?:string){
     }
   )
 }
+
+
+
+
+
+DoctorById: any
+async GetDoctorById(doctorid: any) {
+ return new Promise<void>((resolve, reject) => {
+ this.spinner.show()
+ this.http.get("https://localhost:44373/api/Doctor/getbyid/" + doctorid).subscribe(
+   {
+     next: (res) => {          
+       this.DoctorById = res
+       console.log(this.DoctorById);
+       
+       this.spinner.hide()          
+       this.toastr.success()
+      resolve()
+     },
+     error: (err) => {
+       console.log(err)
+       this.spinner.hide()
+       this.toastr.error()
+        reject()
+     }
+   }
+ )
+ })
+}
+
+
+
 
 }
