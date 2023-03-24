@@ -45,9 +45,7 @@ export class QuestionsComponent {
     this.doctorservice.GetAllQuastionss();
   }
 
-  OpenUpdateDialog(id:any){
-
-  }
+  
 
 
 
