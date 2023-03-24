@@ -22,9 +22,7 @@ export class ReportComponent {
   ngOnInit()
   {    
    this.adminService.getReport()
-   let total = this.adminService.reports.reduce((sum:any,obj:any)=>sum+obj.amount,0)
-   console.log(total);
-   
+   var total = this.adminService.reports.reduce((sum:any,obj:any)=>sum+obj.amount,0)   
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 3,
