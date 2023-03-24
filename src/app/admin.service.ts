@@ -314,12 +314,15 @@ GetDocByName(name :string){
 
   Search(DateFome:any,Dateto:any)
   {
+    
     this.spinner.show()
     this.http.get("https://localhost:44373/api/ResultTest/"+DateFome+"/"+Dateto).subscribe(
       {
           next:(res)=>{this.reports=res
           this.spinner.hide()
-          this.toastr.success("Success")},
+          this.toastr.success("Success")
+          this.total = this.reports.reduce((sum:any,obj:any)=>sum+obj.amount,0)
+        },
           error:(err)=>{console.log(err)
           this.spinner.hide()
           this.toastr.error("Error")}
@@ -327,10 +330,14 @@ GetDocByName(name :string){
     )
   }
 
-reports:any=[]
+
 total:any
+
+
+
+reports:any=[]
 getReport(){
-  this.total = this.reports.reduce((sum:any,obj:any)=>sum+obj.amount,0)
+  
   console.log(this.total);
   
   this.http.get("https://localhost:44373/api/payment/Report").subscribe({
@@ -338,6 +345,7 @@ getReport(){
       this.reports=res
       this.spinner.hide()
       this.toastr.success("Success")
+      this.total = this.reports.reduce((sum:any,obj:any)=>sum+obj.amount,0)
     },
     error:(err)=>{console.log(err)
       this.spinner.hide()
