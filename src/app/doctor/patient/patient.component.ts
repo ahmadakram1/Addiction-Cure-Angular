@@ -11,9 +11,10 @@ export class PatientComponent {
 constructor(public patientService:PatientService , public doctorService:DoctorsService){}
 
 id = 21
-async ngOnInit(){
- await this.doctorService.getpatientbydoctorid(this.id)
+ ngOnInit(){
+  this.doctorService.getpatientbydoctorid(this.id)
   console.log(this.doctorService.patientbydoctorid);
+  this.patientService.GetAllPatient()
   
 }
 GetById(id:number)
