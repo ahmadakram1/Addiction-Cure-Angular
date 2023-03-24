@@ -15,6 +15,7 @@ export class Profile2Component {
   UpdateProfile = new FormGroup
     (
       {
+        imagename: new FormControl(""),
         patientid: new FormControl(''),
         firstname: new FormControl("", [Validators.required]),
         lastname: new FormControl("", [Validators.required]),
@@ -35,6 +36,8 @@ export class Profile2Component {
       lastname: this.patientService.PatientById.lastname,
       username: this.patientService.PatientById.username,
       email: this.patientService.PatientById.email,
+      imagename: this.patientService.PatientById.imagename,
+
     })
   }
 
@@ -50,7 +53,7 @@ export class Profile2Component {
       let UploadedImage = Input.files[0]; //ImageFile
       let formData = new FormData()
       formData.append("fileForImage", UploadedImage)
-      this.sharedservice.UploadImage(formData)
+      this.patientService.UploadImage(formData)
     }
 
   }
@@ -58,6 +61,7 @@ export class Profile2Component {
 
   UpdatePatient() {
     this.patientService.UpdatePatient(this.UpdateProfile.value)
+    this.patientService.GetPatientById(this.sharedservice.patientid)
   }
 
 
@@ -70,7 +74,8 @@ export class Profile2Component {
       lastname: this.patientService.PatientById.lastname,
       username: this.patientService.PatientById.username,
       email: this.patientService.PatientById.email,
-      password: ""
+      imagename: this.patientService.PatientById.imagename,
+      password:""
 
     })
   }

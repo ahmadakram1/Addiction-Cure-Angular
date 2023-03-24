@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from './admin.service';
+import { SharedService } from './shared.service';
 
 @Injectable({
   providedIn: 'root'
@@ -95,9 +96,21 @@ export class PatientService {
       )
     })
   }
-
+ 
+  
+imageName = ""
+UploadImage(imageFile : any) 
+{
+  this.http.post("https://localhost:44373/API/login/uploadImage",imageFile).subscribe(
+    {
+      next:(res:any)=>{this.imageName = res.imagename},
+      error:()=>{}
+    }
+  )
+}
 
   async UpdatePatient(Patient: any) {
+    Patient.imagename=this.imageName
     return new Promise<void>((resolve, reject) => {
       this.spinner.show()
       this.http.put("https://localhost:44373/api/Patient/updatePatient", Patient).subscribe(

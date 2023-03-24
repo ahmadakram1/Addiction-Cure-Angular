@@ -21,14 +21,13 @@
             <div class="card-body">
               <div class="d-flex align-items-start align-items-sm-center gap-4">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlroM5Ch7qeZjGr06DRiqTLnQtcFy2X5OSlBFY7IIl5A&s"
+                  src="../../../assets/images/{{this.patientService.PatientById.imagename}}"
                   alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
                 <div class="button-wrapper">
                   <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                     <span class="d-none d-sm-block">Edit Picture</span>
                     <i class="bx bx-upload d-block d-sm-none"></i>
-                    <input type="file" id="upload" class="account-file-input" hidden accept="image/*" />
-                  
+                    <input formControlName="imagename" type="file" id="upload" class="account-file-input" hidden accept="image/*" #File required (change)="UploadImage(File)" />
                   </label>
                 </div>
               </div>
@@ -82,7 +81,7 @@
                 <div class="mt-2">
                   <button type="submit" class="btn btn-primary me-2" [disabled]="UpdateProfile.invalid"
                     (click)="UpdatePatient()">Save changes</button>
-                  <button type="reset" class="btn btn-outline-secondary" (click)="ReturnOldValue()">Cancel</button>
+                  <button  class="btn btn-outline-secondary" (click)="ReturnOldValue()">Cancel</button>
                 </div>
               </form>
             </div>
