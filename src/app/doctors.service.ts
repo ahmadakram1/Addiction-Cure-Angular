@@ -29,27 +29,69 @@ GetAllQuastions(id:number)
 
 
 
-CreateQuastion(Quastion: any) {
-
+async CreateQuastion(Quastion: any) {
+   return new Promise<void>((resolve,reject)=>{
   this.spinner.show()
   this.http.post("https://localhost:44373/api/Quastion", Quastion).subscribe(
     {
       next: () => {
         this.spinner.hide();
         this.toastr.success("Added Successfully")
+        resolve()
       },
       error: (error) => {
         this.spinner.hide();
         this.toastr.error("Error")
+        reject()
       }
     }
   )
-
+})
 }
 
 
+ questionss : any =[]
+ async GetAllQuastionss(){
+
+  return new Promise<void>((resolve,reject)=>{
+  this.spinner.show()
+  this.http.get("https://localhost:44373/api/Quastion/GetAllQuestionss").subscribe({
+    next:(result)=>{
+     this.questionss=result;
+     this.spinner.hide()
+     this.toastr.success("Successfull")
+     resolve()
+
+    },
+    error:(error)=>{
+     console.log(error);
+     this.spinner.hide();
+     this.toastr.error("Error")
+     reject()
+    }
+  })
+})
+ }
 
 
+ async DeleteQuestion(id:number){
+  return new Promise<void>((resolve,reject)=>{
+    this.http.delete("https://localhost:44373/api/Quastion/delete/"+id).subscribe({
+    next:()=>{
+      this.spinner.hide(),
+      this.toastr.success("Deleted Successfully")
+      resolve()
+
+    },
+    error:(error)=>{
+      console.log(error);
+      this.spinner.hide();
+      this.toastr.error("Error")
+      reject()
+    }
+  })
+})
+ }
 
 
 AllResult:any=[]

@@ -10,6 +10,7 @@ import { HomeManamgentComponent } from './home-manamgent/home-manamgent.componen
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './profile/profile.component';
+import { QuestionsComponent } from './questions/questions.component';
 import { ReportComponent } from './report/report.component';
 import { TestimonilComponent } from './testimonil/testimonil.component';
 
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: "AboutUsMange",
     component: AboutUsMangeComponent
+  },
+  {
+    path: "Questions",
+    component: QuestionsComponent
   },
 
 

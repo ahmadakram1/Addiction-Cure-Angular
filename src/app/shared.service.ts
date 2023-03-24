@@ -487,7 +487,7 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     {
       this.route.navigate(["Admin/Main"])
       this.getDoctodid(localStorage.getItem("loginid")?.toString())
-      this.GetDoctorById(this.DoctorById)
+      this.GetDoctorById(this.doctodid)
 
     }
     },
