@@ -13,6 +13,7 @@ export class QuestionsComponent {
 
   @ViewChild("CreateForm") Create:any;
   @ViewChild("DeleteForm") delete:any;
+  @ViewChild("UpdateForm") Update:any;
 
 
   constructor(public doctorservice : DoctorsService,private dialog :MatDialog,public sharedservice:SharedService){

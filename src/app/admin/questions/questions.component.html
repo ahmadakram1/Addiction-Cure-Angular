@@ -35,9 +35,8 @@
                             <tbody>
                                 <tr *ngFor="let item of doctorservice.questionss">
                                     <td>{{item.quastion}}</td>
-                                    <td>{{item.categoryid}}</td>
+                                    <td>{{item.categoryname}}</td>
                                     <td>
-                                        <input type="button" value="Update" class="btn btn-success" (click)="OpenUpdateDialog(item.quastionid)">
                                         <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.quastionid)">
 
                                     </td>
@@ -76,6 +75,9 @@
                             {{item.categoryname}}
                         </mat-option>
                     </mat-select>
+                    <mat-error *ngIf="CreateQuestionsForm.controls['categoryid'].hasError('required')">
+                        Category is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
             </div>
 
@@ -88,46 +90,16 @@
 </ng-template>
 
 
-<!-- 
+ 
 
 <ng-template #UpdateForm>
 
     
-    <div mat-dialog-content>
-        <form [formGroup]="UpdateCategoryForm" class="example-form">
-
-            <div>
-                <mat-form-field class="example-full-width">
-                    <mat-label>Category Name</mat-label>
-                    <input type="text" matInput formControlName="categoryname">
-                    <mat-error *ngIf="UpdateCategoryForm.controls['categoryname'].hasError('required')">
-                        Category Name is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field class="example-full-width">
-                    <mat-label>Description</mat-label>
-                    <input type="text" matInput formControlName="abouttext">
-                    <mat-error *ngIf="UpdateCategoryForm.controls['abouttext'].hasError('required')">
-                        Decription  is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </div>
-
-            <div mat-dialog-actions>
-                <div>
-                    <input type="file" class="form-control" id="customFile" style="width: 73%;" #File required (change)="UploadImage(File)" />
-                </div>
-                <input type="button" [disabled]="UpdateCategoryForm.invalid" value="Update" class="btn btn-dark" (click)="UpdateCategory()" mat-dialog-close>
-                <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
-            </div>
-        </form>
-    </div>
+   
 
 </ng-template>
 
--->
+
 <ng-template #DeleteForm>
 
 
