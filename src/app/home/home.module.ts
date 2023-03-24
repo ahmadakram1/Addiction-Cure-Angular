@@ -14,6 +14,7 @@ import { Profile2Component } from './profile2/profile2.component';
 import { TestComponent } from './test/test.component';
 import { PaymentTestComponent } from './payment-test/payment-test.component';
 import { RequestComponent } from './request/request.component';
+import { CategoryHomeComponent } from './category-home/category-home.component';
 
 
 
@@ -28,7 +29,8 @@ import { RequestComponent } from './request/request.component';
     Profile2Component,
     TestComponent,
     PaymentTestComponent,
-    RequestComponent
+    RequestComponent,
+    CategoryHomeComponent
   ],
   imports: [
     CommonModule,
