@@ -34,7 +34,7 @@
                       </mat-form-field>
                       
                       
-                      <input type="button" class="btn btn-primary" value="search" (click)="Searchdate()">
+                      <input type="button" class="btn btn-primary" value="search" (click)="Searchdate()" >
                     <br>
                     <div class="card mb-4">
                         <table style="border-radius: 20%;" class="table" class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions" >
@@ -48,7 +48,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of adminService.reports">
+                                <tr *ngFor="let item of adminService.reports  " >
                                     <td>{{item.patientfname+" "+item.patientlname}}</td>
                                     <td>{{item.doctorfname+" "+item.doctorlname}}</td>
                                     <td>{{item.amount}}</td>
