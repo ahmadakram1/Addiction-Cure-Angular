@@ -501,17 +501,19 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
 
 patientid:any
 getPatientid(loginid?:string){
+  return new Promise<void>((resolve, reject) => {
   this.http.get("https://localhost:44373/API/Login/patientid/"+loginid).subscribe(
     {
       next:(res:any)=>{
         this.patientid = res.patientid
-                 
+           this.patientService.GetPatientById(this.patientid)  
+           resolve()    
       },
       error:(err)=>{console.log(err)
       this.toastr.error("Error")
       }
     }
-  )
+  )})
 }
 
 
