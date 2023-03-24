@@ -10,15 +10,15 @@
 
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
-        <app-doctor-side-bar></app-doctor-side-bar>
-        <!-- Layout container -->
+        <app-doctor-side-bar></app-doctor-side-bar> <!-- Layout container -->
         <div class="layout-page">
-            <app-doctor-header></app-doctor-header>
-            <!-- Content wrapper -->
+            <app-doctor-header></app-doctor-header> <!-- Content wrapper -->
             <div class="content-wrapper">
                 <!-- Content -->
 
                 <div class="container-xxl flex-grow-1 container-p-y">
+                    <br>
+                    <h1 style="text-align: center;"><b style="font-size: larger;">Patients Page</b></h1>
 
                     <div class="card mb-4">
                         <table class="table table-striped">
@@ -32,15 +32,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of doctorService.patientbydoctorid">
-                                    <td><img src="../../../assets/images/{{item.imagename}}" height="80" width="80" style="border-radius: 50px;"></td>
+                                <tr *ngFor="let item of patientService.Patient">
+                                    <td><img src="../../../assets/images/{{item.imagename}}" height="80" width="80"
+                                            style="border-radius: 50px;"></td>
                                     <td>{{item.firstname}}</td>
                                     <td>{{item.lastname}}</td>
                                     <td>
-                                        <input type="button" value="Detiles" class="btn btn-primary"
-                                            (click)="GetById(item.patientid)">                                       
+                                        <input type="button" value="Button" class="btn btn-primary">
                                     </td>
                                 </tr>
+                               
                             </tbody>
                         </table>
                     </div>
@@ -51,18 +52,3 @@
     </div>
 </div>
 <app-doctor-footer></app-doctor-footer>
-
-
-
-<ng-template #DetailsForm>
-    <h1 mat-dialog-title>Dialog with elements</h1>
-    <div mat-dialog-content>User Name :{{this.patientService.PatientById.username}}</div>
-    <div mat-dialog-content>Email :{{this.patientService.PatientById.email}}</div>
-    <div mat-dialog-content>First Name :{{this.patientService.PatientById.firstname}}</div>
-    <div mat-dialog-content>Last Name :{{this.patientService.PatientById.lastname}}</div>
-    <div mat-dialog-content>category :{{this.patientService.PatientById.categoryname}}</div>
-
-    <div mat-dialog-actions>
-        <button mat-button mat-dialog-close>Close</button>
-    </div>
-</ng-template>

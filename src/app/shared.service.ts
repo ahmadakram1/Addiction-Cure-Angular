@@ -510,7 +510,9 @@ getPatientid(loginid?:string){
       next:(res:any)=>{
         this.patientid = res.patientid
            this.patientService.GetPatientById(this.patientid)  
+           console.log(this.patientid)
            resolve()    
+          
       },
       error:(err)=>{console.log(err)
       this.toastr.error("Error")
