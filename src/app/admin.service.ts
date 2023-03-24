@@ -332,9 +332,6 @@ GetDocByName(name :string){
 
 
 total:any
-
-
-
 reports:any=[]
 getReport(){
   
