@@ -62,6 +62,7 @@ export class Profile2Component {
   UpdatePatient() {
     this.patientService.UpdatePatient(this.UpdateProfile.value)
     this.patientService.GetPatientById(this.sharedservice.patientid)
+
   }
 
 
