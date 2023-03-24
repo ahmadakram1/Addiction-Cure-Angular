@@ -13,9 +13,29 @@
 <!-- Navbar End -->
 
 <!-- Doctors starts -->
+<div class="container">
 
-<!-- Search Start -->
+    <div class="cards">
+        <div class="card" *ngFor="let item of adminService.DoctorsLevel">
+            <div class="card__image-holder">
+                <img class="card__image" src="../../../assets/images/{{item.imagename}}" alt="img" />
+            </div>
+            <div class="card-title">
+                <h2>
+                    <h3>{{item.firstname}} {{item.lastname}}</h3>
+                    <small>{{item.level1}}</small>
+                </h2>
+            </div>
+            <div class="button-wrapper" style="text-align: center;">
+                <button type="button" class="btn btn-primary me-2" (click)="SelectDoctor(item.doctodid)">Request Docter</button>
+            </div>
+            <br>
+        </div>
+    </div>
 
+    <!--end catgery  -->
+
+</div>
         
 <div class="container-fluid pt-5">
     <div class="container">
@@ -64,3 +84,6 @@
 
 
  <app-home-footer></app-home-footer>
+
+
+ 
