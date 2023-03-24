@@ -12,7 +12,10 @@ import { PaymentTestComponent } from '../payment-test/payment-test.component';
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
+
 export class TestComponent {
+constructor(public sharedService:SharedService,public patientService:PatientService,public doctorService:DoctorsService, private route: Router , public dialog:MatDialog){}
+
 zero = "no"
 one = "yes"
 
@@ -34,16 +37,21 @@ one = "yes"
    this.patientService.CreateTest(test)
     this.selectedAnswer = 0;
   }
+
+
 PatinetLevel(){
   this.patientService.UpdateLevel(this.patientService.PatientById.patientid,this.score.toString())
 
 }
-  constructor(public sharedService:SharedService,public patientService:PatientService,public doctorService:DoctorsService, private route: Router , public dialog:MatDialog){}
+
+x = localStorage.getItem("loginid")?.toString()
+  
   async ngOnInit() {
-   this.sharedService.getPatientid(localStorage.getItem("loginid")?.toString())
-   await this.patientService.GetPatientById(this.sharedService.patientid)
+   await this.sharedService.getPatientid(this.x)
    await this.patientService.GetQuastionByCategoryId(this.patientService.PatientById.categoryid)
   }
+
+
 
 OpenDialog()
 {

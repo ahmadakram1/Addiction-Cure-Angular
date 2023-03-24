@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
+import { PatientService } from 'src/app/patient.service';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -14,14 +15,15 @@ export class MainComponent {
  
  @Output() sendvalue = new EventEmitter()
 
-  constructor(public sharedService:SharedService,public adminservice: AdminService,private spinner: NgxSpinnerService ,private toster:ToastrService)
+  constructor(public sharedService:SharedService,public adminservice: AdminService,private spinner: NgxSpinnerService ,private toster:ToastrService,public patientService : PatientService)
   {
 
   }
   x:any = localStorage.getItem("loginid")
+
  async ngOnInit() {
-    this.sharedService.GetAboutusByid(66)
- await this.sharedService.GetAllTestemonial()
+  this.sharedService.GetAboutusByid(66)
+  await this.sharedService.GetAllTestemonial()
   console.log(this.sharedService.Testemonial);
   console.log(this.x);
   }
