@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CategoryHomeComponent } from './category-home/category-home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { MainComponent } from './main/main.component';
@@ -51,6 +52,11 @@ const routes: Routes = [
   {
     path: "request",
     component: RequestComponent
+  }
+  ,
+  {
+    path: "CategoryHome",
+    component: CategoryHomeComponent
   }
 
 ];
