@@ -15,12 +15,14 @@ export class AdminService {
 
   Doctors: any = []
   GetAllDoctors() {
+    return new Promise<void>((resolve, reject) => {
     this.spinner.show()
     this.http.get("https://localhost:44373/API/Doctor/getalldoctor").subscribe(
       {
-        next: (res) => {
+        next: (res:any) => {
           this.Doctors = res
           this.spinner.hide()
+          resolve()
         },
         error: (err) => {
           console.log(err)
@@ -28,7 +30,29 @@ export class AdminService {
           this.toastr.error("Error")
         }
       }
-    )
+    )})
+  }
+
+
+
+  DoctorsLevel: any = []
+  GetAllDoctorsBylevel(level:string) {
+    return new Promise<void>((resolve, reject) => {
+    this.spinner.show()
+    this.http.get("https://localhost:44373/API/Doctor/getalldoctor").subscribe(
+      {
+        next: (res:any) => {
+          this.DoctorsLevel = res.filter((d:any) => d.level1 == level)
+          this.spinner.hide()
+          resolve()
+        },
+        error: (err) => {
+          console.log(err)
+          this.spinner.hide()
+          this.toastr.error("Error")
+        }
+      }
+    )})
   }
   
   

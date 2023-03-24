@@ -7,6 +7,7 @@ import { MainComponent } from './main/main.component';
 import { OutPutDoctorComponent } from './out-put-doctor/out-put-doctor.component';
 import { PaymentTestComponent } from './payment-test/payment-test.component';
 import { Profile2Component } from './profile2/profile2.component';
+import { RequestComponent } from './request/request.component';
 import { TestComponent } from './test/test.component';
 import { TestimoialComponent } from './testimoial/testimoial.component';
 
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: "PaymentTest",
     component: PaymentTestComponent
+  },
+  {
+    path: "request",
+    component: RequestComponent
   }
 
 ];

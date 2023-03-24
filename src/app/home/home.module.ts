@@ -13,6 +13,7 @@ import { OutPutDoctorComponent } from './out-put-doctor/out-put-doctor.component
 import { Profile2Component } from './profile2/profile2.component';
 import { TestComponent } from './test/test.component';
 import { PaymentTestComponent } from './payment-test/payment-test.component';
+import { RequestComponent } from './request/request.component';
 
 
 
@@ -26,7 +27,8 @@ import { PaymentTestComponent } from './payment-test/payment-test.component';
     OutPutDoctorComponent,
     Profile2Component,
     TestComponent,
-    PaymentTestComponent
+    PaymentTestComponent,
+    RequestComponent
   ],
   imports: [
     CommonModule,

@@ -542,7 +542,7 @@ async GetDoctorById(doctorid: any) {
  this.spinner.show()
  this.http.get("https://localhost:44373/api/Doctor/getbyid/" + doctorid).subscribe(
    {
-     next: (res) => {          
+     next: (res) => {     
        this.DoctorById = res
        console.log(this.DoctorById);
        
@@ -559,6 +559,30 @@ async GetDoctorById(doctorid: any) {
    }
  )
  })
+ 
+}
+
+
+createRequest(request:any){
+  return new Promise<void>((resolve, reject) => {
+
+    this.spinner.show()
+    this.http.post("https://localhost:44373/API/Req",request).subscribe(
+      {
+        next:()=>{
+          this.spinner.hide()
+          this.toastr.success("Success")
+          resolve();
+       },
+       error:(err)=>{
+        console.log(err);
+        
+        this.spinner.hide()
+        this.toastr.error("Error")
+       }
+      }
+    )
+    })
 }
 
 
