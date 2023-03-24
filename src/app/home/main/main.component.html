@@ -23,7 +23,7 @@
                     <a routerLink="/Auth/LandR" *ngIf="this.sharedService.patientid==null" (click)="Wtostar()"
                         class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
                         Take Test Now</a>
-                    <a routerLink="/Test" *ngIf="this.sharedService.patientid!=null && this.patientService.PatientById.level1==null"
+                    <a routerLink="/CategoryHome" *ngIf="this.sharedService.patientid!=null && this.patientService.PatientById.level1==null"
                         class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
                         Take Test Now</a>
                     <a routerLink="/Profile2" *ngIf="this.sharedService.patientid!=null && this.patientService.PatientById.level1!=null"
@@ -159,26 +159,6 @@
 
 <!-- Team Start -->
 
-<div>
-    <div class="container">
-        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-            <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5">Our Doctors</h2>
-            <h1 class="display-4">Qualified Healthcare Professionals</h1>
-        </div>
-
-        <!--doctor card -->
-        <div class="row g-4">
-
-            <app-doctor-card (sendvalue)="GetCardData($event)" *ngFor="let item of items" [img]="item.img"
-                [fname]="item.fname" [lname]="item.lname" [specialty]="item.specialty" [Description]="item.Description"
-                class="col-md-4"></app-doctor-card>
-
-        </div>
-        <!-- end doctor card -->
-
-    </div>
-
-</div>
 <!-- Team End -->
 
 
