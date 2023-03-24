@@ -18,10 +18,13 @@ export class ReportComponent {
 
   }
   dtOptions: any = {};
-
+  
   ngOnInit()
   {    
    this.adminService.getReport()
+   let total = this.adminService.reports.reduce((sum:any,obj:any)=>sum+obj.amount,0)
+   console.log(total);
+   
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 3,
@@ -43,6 +46,8 @@ export class ReportComponent {
   Searchdate()
   {
     this.adminService.Search(this.range.value.start?.toJSON().slice(0,10),this.range.value.end?.toJSON().slice(0,10))
+    let total = this.adminService.reports.amount.reduce((sum:any,obj:any)=>sum+obj.amount,0)
+   console.log(total);
   }
 
 
