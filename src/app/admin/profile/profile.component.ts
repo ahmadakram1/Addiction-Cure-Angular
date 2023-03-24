@@ -16,7 +16,7 @@ export class ProfileComponent {
   }
 
   UpdateProfile = new FormGroup({
-
+    image : new FormControl(''),
     doctodid: new FormControl(''),
     firstname: new FormControl("", [Validators.required]),
     lastname: new FormControl("", [Validators.required]),
@@ -41,15 +41,16 @@ export class ProfileComponent {
     lastname:this.adminService.DoctorById.lastname,
     username: this.adminService.DoctorById.username,
     email:this.adminService.DoctorById.email,
-    
+    image:this.adminService.DoctorById.imagename
   })
     
   }
 
   
   
- UpdateAdmin(){
+  async UpdateAdmin(){
     this.adminService.UpdateAdminDoctor(this.UpdateProfile.value)
+   await this.adminService.GetDoctorById(this.sharedservice.doctodid)
   }
 
 
@@ -61,6 +62,7 @@ export class ProfileComponent {
       let formData = new FormData()   
       formData.append("fileForImage",UploadedImage)
       this.sharedservice.UploadImage(formData)
+
     }
    
   }
@@ -74,6 +76,8 @@ export class ProfileComponent {
     lastname:this.adminService.DoctorById.lastname,
     username: this.adminService.DoctorById.username,
     email:this.adminService.DoctorById.email,
+    image:this.adminService.DoctorById.imagename,
+
     password : ""
     
   })

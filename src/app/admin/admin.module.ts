@@ -17,6 +17,7 @@ import { HomeManamgentComponent } from './home-manamgent/home-manamgent.componen
 import { AboutUsMangeComponent } from './about-us-mange/about-us-mange.component';
 import {DataTablesModule} from 'angular-datatables';
 import { BrowserModule } from '@angular/platform-browser';
+import { QuestionsComponent } from './questions/questions.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { BrowserModule } from '@angular/platform-browser';
     HomeComponent,
     HomeManamgentComponent,
     AboutUsMangeComponent,
+    QuestionsComponent,
     
   ],
   imports: [
