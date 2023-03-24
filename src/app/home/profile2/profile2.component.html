@@ -20,9 +20,23 @@
             <!-- Account -->
             <div class="card-body">
               <div class="d-flex align-items-start align-items-sm-center gap-4">
-                <img
+                <div *ngIf="this.patientService.PatientById.imagename!=null">
+
+                  <img
                   src="../../../assets/images/{{this.patientService.PatientById.imagename}}"
                   alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
+
+
+                </div>
+                <div *ngIf="this.patientService.PatientById.imagename==null">
+
+                  <img
+                  src="../../../assets/images/th (2).png"
+                  alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
+
+
+                </div>
+               
                 <div class="button-wrapper">
                   <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                     <span class="d-none d-sm-block">Edit Picture</span>
@@ -66,7 +80,7 @@
                   </div>
                   <div class="mb-3 col-md-6">
                     <label for="email" class="form-label">Password</label>
-                    <input formControlName="password" class="form-control" type="text" placeholder="Password"
+                    <input formControlName="password" class="form-control" type="password"  placeholder="Password"
                       (click)="ShowCErrorMessage()" />
                     <small *ngIf="UpdateProfile.controls['password'].hasError('required') && C == true">
                       Password is <strong>required</strong>
@@ -78,8 +92,8 @@
 
 
                 </div>
-                <div class="mt-2">
-                  <button type="submit" class="btn btn-primary me-2" [disabled]="UpdateProfile.invalid"
+                <div  class="mt-2">
+                  <button type="submit" class="btn btn-primary me-2"  [disabled]="UpdateProfile.invalid" 
                     (click)="UpdatePatient()">Save changes</button>
                   <button  class="btn btn-outline-secondary" (click)="ReturnOldValue()">Cancel</button>
                 </div>
