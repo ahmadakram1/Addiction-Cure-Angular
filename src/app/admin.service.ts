@@ -328,7 +328,11 @@ GetDocByName(name :string){
   }
 
 reports:any=[]
+total:any
 getReport(){
+  this.total = this.reports.reduce((sum:any,obj:any)=>sum+obj.amount,0)
+  console.log(this.total);
+  
   this.http.get("https://localhost:44373/api/payment/Report").subscribe({
     next:(res)=>{      
       this.reports=res
