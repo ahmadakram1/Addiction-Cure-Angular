@@ -481,13 +481,16 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     }
     else if (data.Role == 2)
     {
+      this.getDoctodid(localStorage.getItem("loginid")?.toString())
+      this.GetDoctorById(this.doctodid)
       this.route.navigate(["Doctor/MainDoctor"])
     }
     else
     {
-      this.route.navigate(["Admin/Main"])
       this.getDoctodid(localStorage.getItem("loginid")?.toString())
       this.GetDoctorById(this.doctodid)
+      this.route.navigate(["Admin/Main"])
+     
 
     }
     },

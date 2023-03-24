@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./doctor-header.component.css']
 })
 export class DoctorHeaderComponent {
+constructor(){}
+
+
+
+
+
+Logout()
+{
+
+  localStorage.removeItem("loginid")
+  localStorage.clear();
+}
 
 }
+
+

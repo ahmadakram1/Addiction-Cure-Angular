@@ -15,7 +15,7 @@ export class Profile3Component {
   }
 
   UpdateProfile = new FormGroup({
-
+    image : new FormControl(''),
     doctodid: new FormControl(''),
     firstname: new FormControl("", [Validators.required]),
     lastname: new FormControl("", [Validators.required]),
@@ -25,6 +25,7 @@ export class Profile3Component {
     categoryid : new FormControl(''),
     loginid : new FormControl(''),
     roleid : new FormControl(''),
+    level1 : new FormControl("")
 
   })
 
@@ -45,7 +46,8 @@ export class Profile3Component {
     categoryid : this.adminService.DoctorById.categoryid,
     loginid : this.adminService.DoctorById.loginid,
     roleid :this.adminService.DoctorById.roleid,
-
+    image:this.adminService.DoctorById.imagename,
+    level1:this.adminService.DoctorById.level1,
   })
     
   }
@@ -54,6 +56,7 @@ export class Profile3Component {
   
  UpdateAdmin(){
     this.adminService.UpdateDoctor(this.UpdateProfile.value)
+    this.adminService.GetDoctorById(this.sharedservice.doctodid)
   }
 
 
@@ -81,6 +84,8 @@ export class Profile3Component {
     categoryid : this.adminService.DoctorById.categoryid,
     loginid : this.adminService.DoctorById.loginid,
     roleid :this.adminService.DoctorById.roleid,
+    image:this.adminService.DoctorById.imagename,
+    level1:this.adminService.DoctorById.level1,
     password : ""
     
   })
