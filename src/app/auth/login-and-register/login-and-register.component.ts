@@ -32,7 +32,6 @@ export class LoginAndRegisterComponent {
 
   Login() {
     this.shaerdService.Login(this.LoginForm.value)
-    this.route.navigate([""]);
   }
 
   A?: boolean
