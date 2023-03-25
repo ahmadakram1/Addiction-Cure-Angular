@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DoctorsService } from 'src/app/doctors.service';
 import { PatientService } from 'src/app/patient.service';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-patient',
@@ -8,7 +9,7 @@ import { PatientService } from 'src/app/patient.service';
   styleUrls: ['./patient.component.css']
 })
 export class PatientComponent {
-constructor(public patientService:PatientService , public doctorService:DoctorsService){}
+constructor(public patientService:PatientService , public doctorService:DoctorsService , public sharedService : SharedService){}
 
 id = 21
  ngOnInit(){
@@ -20,5 +21,9 @@ id = 21
 GetById(id:number)
 {
   this.patientService.PatientById(id)
+}
+
+retrive(id:number , cat:number){
+this.sharedService.retrive(id,cat)
 }
 }

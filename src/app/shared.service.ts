@@ -14,6 +14,17 @@ export class SharedService {
 
   constructor(private patientService:PatientService,private route:Router,private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService) { }
 
+
+
+id?:number
+cat?:number
+
+retrive(id:number,cat:number){
+this.id=id
+this.cat=cat
+}
+
+
 Home:any={}
 async GetAllHome()
 {
