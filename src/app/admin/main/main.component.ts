@@ -15,16 +15,12 @@ constructor(public adminService : AdminService , public patientService :PatientS
 
 async ngOnInit(){
 
-
-  
-  this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
-  await this.adminService.GetDoctorById(this.sharedservice.doctodid)
-
   this.adminService.GetAllDoctors()
   this.patientService.GetAllPatient()
   this.adminService.GetAllPayment()
-  this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
-  
+//   this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
+await this.adminService.GetDoctorById(this.sharedservice.doctodid)
+
 
 
   var myChart = new Chart("myChart", {

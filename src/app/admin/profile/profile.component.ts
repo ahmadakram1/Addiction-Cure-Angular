@@ -30,9 +30,10 @@ export class ProfileComponent {
    async ngOnInit() {
 
 
-    this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
-   await this.adminService.GetDoctorById(this.sharedservice.doctodid)
+  //   this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
+  //  await this.adminService.GetDoctorById(this.sharedservice.doctodid)
 
+   await this.adminService.GetDoctorById(this.sharedservice.doctodid)
 
 
    this.UpdateProfile.patchValue({

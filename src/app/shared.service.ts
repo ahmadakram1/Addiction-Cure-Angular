@@ -6,18 +6,17 @@ import { ToastrService } from 'ngx-toastr';
 import jwt_decode from 'jwt-decode';
 import { PatientService } from './patient.service';
 import { AdminService } from './admin.service';
+import { async } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
+  id?:number
+  cat?:number
+  doctodid?:number ; 
+  constructor(private patientService:PatientService,private route:Router,private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService ) { }
 
-  constructor(private patientService:PatientService,private route:Router,private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService) { }
-
-
-
-id?:number
-cat?:number
 
 retrive(id:number,cat:number){
 this.id=id
@@ -423,6 +422,7 @@ async RegisterPatient(Register:any){
   Register.doctorid=null
   Register.categoryid=null
   Register.level1=null
+  
   console.log(Register);
   const header = {
     'Content-Type' : 'application/json',
@@ -465,7 +465,7 @@ UploadImage(imageFile : any)
 }
 
 
-Login(user :any) 
+ Login(user :any) 
 {
 const header = {
   'Content-Type' : 'application/json',
@@ -477,7 +477,7 @@ const Options ={
 this.spinner.show()
 this.http.post("https://localhost:44373/API/Login/login", user , Options).subscribe(
 {
-  next:(res:any)=>{
+  next:async (res:any)=>{
   console.log(res); // token
   let data : any = jwt_decode(res)
   console.log(data);
@@ -485,7 +485,6 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     localStorage.setItem('user' ,JSON.stringify(data))
     localStorage.setItem("loginid",data.loginid)
     var loginid = localStorage.getItem("loginid")?.toString()
-
     this.spinner.hide()
     if (data.Role == 3)
     {
@@ -500,8 +499,12 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     }
     else
     {
-      this.getDoctodid(localStorage.getItem("loginid")?.toString())
-      this.GetDoctorById(this.doctodid)
+      
+     await this.getDoctodid(localStorage.getItem("loginid")?.toString())
+    await  this.GetDoctorById(this.doctodid)
+      // this.GetDoctorById(localStorage.getItem("loginid")?.toString())
+
+      
       this.route.navigate(["Admin/Main"])
      
 
@@ -535,20 +538,24 @@ getPatientid(loginid?:string){
 }
 
 
-doctodid:number = 0 
-getDoctodid(loginid?:string){
-  this.http.get("https://localhost:44373/API/login/doctorid/"+loginid).subscribe(
-    {
-      next:(res:any)=>{
-        this.doctodid = res.doctodid       
-      },
-      error:(err)=>{console.log(err)
-      this.toastr.error("Error")
-
-      }
-    }
-  )
-}
+  async getDoctodid(loginid?: string) {
+    return new Promise<void>((resolve, reject) => {
+      this.http.get("https://localhost:44373/API/login/doctorid/" + loginid).subscribe(
+        {
+          next: (res: any) => {
+            this.doctodid = res.doctodid
+            
+            resolve()
+          },
+          error: (err) => {
+            console.log(err)
+            this.toastr.error("Error")
+            reject()
+          }
+        }
+      )
+    })
+  }
 
 
 
@@ -560,7 +567,8 @@ async GetDoctorById(doctorid: any) {
  this.spinner.show()
  this.http.get("https://localhost:44373/api/Doctor/getbyid/" + doctorid).subscribe(
    {
-     next: (res) => {     
+     next: (res) => {   
+        
        this.DoctorById = res
        console.log(this.DoctorById);
        
