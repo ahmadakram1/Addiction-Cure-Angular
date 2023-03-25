@@ -52,8 +52,7 @@ const routes: Routes = [
   {
     path: "request",
     component: RequestComponent
-  }
-  ,
+  },
   {
     path: "CategoryHome",
     component: CategoryHomeComponent

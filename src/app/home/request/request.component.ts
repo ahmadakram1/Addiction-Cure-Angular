@@ -27,7 +27,7 @@ async SelectDoctor(doctorid:number){
 this.sharedService.getPatientid(localStorage.getItem("loginid")?.toString())
 let req:any ={
   Doctorid:doctorid,
-  Patientid:this.patientService.PatientById.Patientid,
+  Patientid:this.sharedService.patientid,
   status:0
 }
 await this.sharedService.createRequest(req)
