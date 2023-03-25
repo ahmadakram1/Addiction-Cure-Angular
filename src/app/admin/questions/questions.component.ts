@@ -8,7 +8,7 @@ import { SharedService } from 'src/app/shared.service';
   selector: 'app-questions',
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css']
-})
+}) 
 export class QuestionsComponent {
 
   @ViewChild("CreateForm") Create:any;

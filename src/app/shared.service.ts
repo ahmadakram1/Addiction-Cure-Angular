@@ -22,6 +22,8 @@ cat?:number
 retrive(id:number,cat:number){
 this.id=id
 this.cat=cat
+console.log("hi there",this.id,this.cat);
+
 }
 
 
