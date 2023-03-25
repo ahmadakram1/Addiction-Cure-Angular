@@ -33,11 +33,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of doctorservice.questionss">
+                                <tr *ngFor="let item of doctorservice.questionss" >
                                     <td>{{item.quastion}}</td>
                                     <td>{{item.categoryname}}</td>
                                     <td>
-                                        <input type="button" value="Add" class="btn btn-info" >
+                                         <input  type="button" value="Add" class="btn btn-info" (click)="AddQuestiontoTest(item.quastionid)"  >
 
                                     </td>
 

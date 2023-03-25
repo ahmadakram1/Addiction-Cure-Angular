@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DoctorsService } from 'src/app/doctors.service';
+import { PatientService } from 'src/app/patient.service';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class QuestionsDoctorComponent {
 
 
   })
-  constructor(private dialog :MatDialog,public doctorservice: DoctorsService,public sharedservice :SharedService) {
+  constructor(private dialog :MatDialog,public doctorservice: DoctorsService,public sharedservice :SharedService,public patienservice:PatientService) {
   }
 
 
@@ -41,4 +42,17 @@ export class QuestionsDoctorComponent {
     this.doctorservice.GetAllQuastionss();
   }
 
+
+
+  AddQuestiontoTest(QuestionID: number){
+    let test ={
+      status:0,
+      patientid:this.sharedservice.id,
+      quastionid:QuestionID,
+      testdate: new Date()
+    }
+    this.patienservice.CreateTest(test);
+  }
+
+  
 }
