@@ -27,6 +27,7 @@ let accept:any = {
 }
 this.sharedService.Updatereq(req)
 this.sharedService.accepted(accept)
+this.sharedService.Getrequst(this.sharedService.doctodid)
 
 }
 
@@ -36,5 +37,7 @@ reject(reqid:number){
     "Status":2
   }
   this.sharedService.Updatereq(req)
+  this.sharedService.Getrequst(this.sharedService.doctodid)
   }
+
 }
