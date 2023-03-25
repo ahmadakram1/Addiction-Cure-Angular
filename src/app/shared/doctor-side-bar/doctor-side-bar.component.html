@@ -8,34 +8,26 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-           <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="../../../assets/images/{{this.adminService.DoctorById.imagename}}" class="img-circle elevation-2" alt="User Image">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="../../../assets/images/{{this.adminService.DoctorById.imagename}}"
+                    class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a class="d-block">Name Doctor</a>
+            </div>
         </div>
-        <div class="info">
-          <a class="d-block">Name Doctor</a>
-        </div>
-      </div>
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-
                 <li class="nav-item">
-                    <a routerLink="/Doctor/MainDoctor" class="nav-link">
-                        <i  class="bi bi-speedometer2"></i>
-                        <p style="font-size: medium;"> 
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a routerLink="/Doctor/Profile3" class="nav-link">
-                        <i class="bi bi-person-circle"></i>
+                    <a routerLink="/Doctor/Patient" class="nav-link">
+                        <i class="bi bi-people-fill"></i>
                         <p style="font-size: medium;">
-                            Update Profile
+                            Patients
                         </p>
                     </a>
                 </li>
@@ -47,6 +39,7 @@
                         </p>
                     </a>
                 </li>
+<<<<<<< HEAD
                 <li class="nav-item">
                     <a  routerLink="/Doctor/Patient" class="nav-link">
                         <i class="bi bi-people-fill"></i>
@@ -63,6 +56,9 @@
                         </p>
                     </a>
                 </li>
+=======
+
+>>>>>>> 33ea1127c128d8333cd8a1ba889fa93b89e2a9ef
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
