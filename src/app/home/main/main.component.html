@@ -22,10 +22,10 @@
 
                     <a routerLink="/Auth/LandR" *ngIf="this.sharedService.patientid==null" (click)="Wtostar()"
                         class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
-                        Take Test Now</a>
+                        Select Category and Take Test</a>
                     <a routerLink="/CategoryHome" *ngIf="this.sharedService.patientid!=null && this.patientService.PatientById.level1==null"
                         class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
-                        Take Test Now</a>
+                        Select Category and Take Test</a>
                     <a routerLink="/Profile2" *ngIf="this.sharedService.patientid!=null && this.patientService.PatientById.level1!=null"
                         class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
                         See your result

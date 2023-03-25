@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { SharedService } from 'src/app/shared.service';
@@ -11,7 +12,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class LoginAndRegisterComponent {
 
-  constructor(public shaerdService: SharedService, private toastr: ToastrService, private spinner: NgxSpinnerService) { }
+  constructor(public shaerdService: SharedService, private toastr: ToastrService, private spinner: NgxSpinnerService,public route:Router) { }
 
   LoginForm = new FormGroup(
     {
@@ -31,7 +32,7 @@ export class LoginAndRegisterComponent {
 
   Login() {
     this.shaerdService.Login(this.LoginForm.value)
-
+    this.route.navigate([""]);
   }
 
   A?: boolean
