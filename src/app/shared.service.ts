@@ -590,7 +590,45 @@ createRequest(request:any){
     })
 }
 
+request: any=[]
+async Getrequst(doctorid: any) {
+  return new Promise<void>((resolve, reject) => {
+  this.spinner.show()
+  this.http.get("https://localhost:44373/api/Req/doctor/" + doctorid).subscribe(
+    {
+      next: (res:any) => {     
+        this.request = res.filter((d:any) => d.status == 0)
+       resolve()
+      },
+      error: (err) => {
+        console.log(err)
+        this.spinner.hide()
+        this.toastr.error()
+         reject()
+      }
+    }
+  )
+  })
+ }
 
+ async Updatereq(req:any) {
+  return new Promise<void>((resolve, reject) => {
+    this.spinner.show()
+    this.http.put("https://localhost:44373/API/req", req).subscribe(
+      {
+        next: () => {
+          this.spinner.hide();
+          resolve()
+        },
+        error: (error) => {
+          this.spinner.hide();
+          this.toastr.error("Error")
+          reject()
+        }
+      }
+    )
+  })
+}
 
 
 }
