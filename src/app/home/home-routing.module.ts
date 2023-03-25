@@ -6,6 +6,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { MainComponent } from './main/main.component';
 import { OutPutDoctorComponent } from './out-put-doctor/out-put-doctor.component';
+import { PaymComponent } from './paym/paym.component';
 import { PaymentTestComponent } from './payment-test/payment-test.component';
 import { Profile2Component } from './profile2/profile2.component';
 import { RequestComponent } from './request/request.component';
@@ -52,11 +53,14 @@ const routes: Routes = [
   {
     path: "request",
     component: RequestComponent
-  }
-  ,
+  },
   {
     path: "CategoryHome",
     component: CategoryHomeComponent
+  },
+  {
+    path: "Paym",
+    component: PaymComponent
   }
 
 ];
