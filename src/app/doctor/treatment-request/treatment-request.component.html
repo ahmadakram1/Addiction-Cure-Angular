@@ -28,7 +28,7 @@
                                     <td>{{item.doctorid}}</td>
                                     <td>{{item.status}}</td>
                                     <td>
-                                        <a type="button" class="btn btn-primary" (click)="accept(item.reqid)">Accept Request</a>
+                                        <a type="button" class="btn btn-primary" (click)="accept(item.reqid,item.patientid,item.doctorid)">Accept Request</a>
                                         <a type="button" class="btn btn-danger" style="margin-left: 2%;" (click)="reject(item.reqid)">Rejected Request</a>
                                     </td>
 

@@ -16,12 +16,18 @@ await  this.sharedService.Getrequst(this.sharedService.doctodid)
 console.log(this.sharedService.request);
 }
 
-accept(reqid:number){
+accept(reqid:number,patid:number,doctodid:number){
 let req:any={
   "Reqid":reqid,
   "Status":1
 }
+let accept:any = {
+  Patientid:patid,
+  Doctodid:doctodid
+}
 this.sharedService.Updatereq(req)
+this.sharedService.accepted(accept)
+
 }
 
 reject(reqid:number){

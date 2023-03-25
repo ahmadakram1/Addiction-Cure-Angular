@@ -631,4 +631,26 @@ async Getrequst(doctorid: any) {
 }
 
 
+async accepted(req:any) {
+  return new Promise<void>((resolve, reject) => {
+    this.spinner.show()
+    this.http.put("https://localhost:44373/API/req/accept", req).subscribe(
+      {
+        next: () => {
+          this.spinner.hide();
+          resolve()
+        },
+        error: (error) => {
+          this.spinner.hide();
+          this.toastr.error("Error")
+          reject()
+        }
+      }
+    )
+  })
+}
+
+
+
+
 }
