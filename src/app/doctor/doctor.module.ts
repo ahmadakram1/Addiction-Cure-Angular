@@ -8,6 +8,7 @@ import { Profile3Component } from './profile3/profile3.component';
 import { PatientComponent } from './patient/patient.component';
 import { TreatmentRequestComponent } from './treatment-request/treatment-request.component';
 import { QuestionsDoctorComponent } from './questions-doctor/questions-doctor.component';
+import { ResultTestComponent } from './result-test/result-test.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { QuestionsDoctorComponent } from './questions-doctor/questions-doctor.co
     PatientComponent,
     TreatmentRequestComponent,
     QuestionsDoctorComponent,
+    ResultTestComponent,
   ],
   imports: [
     CommonModule,

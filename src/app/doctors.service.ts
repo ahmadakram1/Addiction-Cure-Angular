@@ -110,6 +110,56 @@ GetAllResult()
   )
 }
 
+
+
+
+ResultTestById:any
+async getResultTestById(id:number){
+  return new Promise<void>((resolve, reject) =>  {
+
+  this.spinner.show()
+  this.http.get("https://localhost:44373/API/ResultTest/byid/"+id).subscribe({
+    next:(res)=>{
+      this.ResultTestById=res
+      this.spinner.hide()
+      resolve()
+    },
+    error:(err)=>{
+      console.log(err);
+      this.spinner.hide()
+      reject()      
+    }
+  })
+})
+}
+
+
+
+async UpdateResultTest(ResultTest:any){
+  return new Promise<void>((resolve, reject) =>  {
+    this.spinner.show()
+    this.http.put("https://localhost:44373/API/ResultTest",ResultTest).subscribe({
+      next:()=>{
+        this.spinner.hide()
+        this.toastr.success("Updated")
+        resolve()
+      },
+      error:(err)=>{
+        this.spinner.hide()
+        this.toastr.error("Error")
+        console.log("jjjjjjjjjjjjjj",err);
+        
+         reject()
+      }
+
+    })
+
+  })
+   
+
+}
+
+
 Search(DateFome:any,Dateto:any)
 {
   this.spinner.show()
