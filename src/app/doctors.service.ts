@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {  HttpClient } from '@angular/common/http';
+import {  HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
 
@@ -136,6 +136,14 @@ async getResultTestById(id:number){
 
 
 async UpdateResultTest(ResultTest:any){
+  const header = {
+    'Content-Type' : 'application/json',
+    'Accept' : 'application/json'
+  }
+  
+  const Options ={
+    headers: new HttpHeaders(header)
+  }
   return new Promise<void>((resolve, reject) =>  {
     this.spinner.show()
     this.http.put("https://localhost:44373/API/ResultTest",ResultTest).subscribe({
