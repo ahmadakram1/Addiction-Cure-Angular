@@ -9,8 +9,8 @@ export class AboutUsComponent {
 
   constructor(public shaerdService:SharedService){}
 
-  ngOnInit() {
-    this.shaerdService.GetAboutusByid(66)
+  async ngOnInit() {
+   await this.shaerdService.GetAboutusByid(66)
     console.log(this.shaerdService.AboutById.image)
   }
 }
