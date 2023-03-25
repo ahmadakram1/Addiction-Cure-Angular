@@ -1,7 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { AdminService } from 'src/app/admin.service';
 import { DoctorsService } from 'src/app/doctors.service';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-result-test',
@@ -24,13 +26,17 @@ export class ResultTestComponent {
     resulttest:new FormControl(""),
 
   })
-  constructor(public doctorservice:DoctorsService,private dialog:MatDialog){
+  constructor(public doctorservice:DoctorsService,private dialog:MatDialog,public adminservice:AdminService,public sharedservice:SharedService){
 
   }
 
 
-  ngOnInit(){
+  async ngOnInit(){
     this.doctorservice.GetAllResult()
+
+    
+  this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
+  await this.adminservice.GetDoctorById(this.sharedservice.doctodid)
   }
 
 
