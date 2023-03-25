@@ -23,13 +23,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                <tr *ngFor="let item of this.sharedService.request">
+                                    <td>{{item.patientid}}</td>
+                                    <td>{{item.doctorid}}</td>
+                                    <td>{{item.status}}</td>
                                     <td>
-                                        <a type="button" class="btn btn-primary">Accept Request</a>
-                                        <a type="button" class="btn btn-danger" style="margin-left: 2%;">Rejected Request</a>
+                                        <a type="button" class="btn btn-primary" (click)="accept(item.reqid)">Accept Request</a>
+                                        <a type="button" class="btn btn-danger" style="margin-left: 2%;" (click)="reject(item.reqid)">Rejected Request</a>
                                     </td>
 
                                 </tr>
