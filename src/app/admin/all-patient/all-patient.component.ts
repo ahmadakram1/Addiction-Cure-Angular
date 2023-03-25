@@ -68,4 +68,15 @@ export class AllPatientComponent {
    await this.patientService.UpdatePatient(this.UpdatePatientForm.value)
     this.patientService.GetAllPatient()
   }
+
+  UploadImage(Input:any){
+
+    if (Input.files[0] != 0) {
+      let UploadedImage = Input.files[0]; //ImageFile
+      let formData = new FormData()   
+      formData.append("fileForImage",UploadedImage)
+      this.sharedservice.UploadImage(formData)
+    }
+   
+  }
 }

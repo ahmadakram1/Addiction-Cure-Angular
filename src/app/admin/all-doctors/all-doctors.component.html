@@ -61,9 +61,9 @@
 
 
 <ng-template #CreateForm>
-    <div mat-dialog-content style="background-color: darkgray;">
+    <div mat-dialog-content style="background-color: darkgray; text-align: center;" >
         <form [formGroup]="CreateDoctorForm" class="example-form">
-            <div class="row" style="margin-top: -2%; margin-left: 9%;">
+            <div class="row">
                 <div class="col-md-6">
                     <div>
                         <mat-form-field class="example-full-width">
@@ -141,10 +141,10 @@
                         </mat-form-field>
                     </div>
                 </div>
-                <div mat-dialog-actions style="margin-top: -3%; margin-left: 30%;">
+                <div mat-dialog-actions style="margin-top: -1%; margin-left: 20%;">
                     <!-- <input type="file" #file (change)="UploadImage(file)"> -->
                     <div>
-                        <input type="file" class="form-control" id="customFile" style="width: 73%; margin-right: 20%;" #File required
+                        <input type="file" class="form-control" id="customFile" style="width: 73%;" #File required
                             (change)="UploadImage(File)" />
                     </div>
                     <input type="button" [disabled]="CreateDoctorForm.invalid" value="Create" class="btn btn-dark"
@@ -160,10 +160,10 @@
 
 
 <ng-template #UpdateForm>
-    <div mat-dialog-content>
+    <div mat-dialog-content style="background-color: darkgray; text-align: center;">
         <!--     
        <input type="file" #file (change)="UploadImage(file)"> -->
-        <form [formGroup]="UpdateDoctorForm" class="example-form"  >
+        <form [formGroup]="UpdateDoctorForm" class="example-form">
             <div class="row">
                 <div class="col-md-6">
                     <div>
@@ -242,8 +242,7 @@
                         </mat-form-field>
                     </div>
                 </div>
-                <div mat-dialog-actions>
-                    <!-- <input type="file" #file (change)="UploadImage(file)"> -->
+                <div mat-dialog-actions style="margin-top: -1%; margin-left: 20%;" >
                     <div>
                         <input type="file" class="form-control" id="customFile" style="width: 73%;" #File required
                             (change)="UploadImage(File)" />
@@ -266,7 +265,7 @@
         <h2 mat-dialog-content><b>Would you like to delete this Doctor ?</b></h2>
         <div mat-dialog-actions>
             <input mat-dialog-close value="Yes" type="button" class="btn btn-danger" (click)="DeleteDoctor()">
-            <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
+            <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark" style="margin-left: 2%;">
         </div>
     </div>
 </ng-template>

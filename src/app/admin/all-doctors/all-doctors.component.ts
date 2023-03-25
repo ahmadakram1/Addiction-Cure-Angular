@@ -87,8 +87,8 @@ export class AllDoctorsComponent {
   }
 
   OpenCreateDialog() {
-
     this.dialog.open(this.Create)
+  
   }
 
   async CreateDoctor() {
