@@ -15,7 +15,6 @@ import { TestComponent } from './test/test.component';
 import { PaymentTestComponent } from './payment-test/payment-test.component';
 import { RequestComponent } from './request/request.component';
 import { CategoryHomeComponent } from './category-home/category-home.component';
-import { PaymComponent } from './paym/paym.component';
 
 
 
@@ -32,7 +31,7 @@ import { PaymComponent } from './paym/paym.component';
     PaymentTestComponent,
     RequestComponent,
     CategoryHomeComponent,
-    PaymComponent
+
   ],
   imports: [
     CommonModule,
