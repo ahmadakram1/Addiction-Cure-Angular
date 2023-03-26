@@ -25,5 +25,6 @@ export class HomeHeaderComponent {
   }
   logout() {
     localStorage.clear();
+    this.route.navigate(['/Auth/SignIn']);
   }
 }
