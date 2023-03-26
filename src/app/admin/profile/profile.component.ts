@@ -10,86 +10,87 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  constructor(public sharedservice: SharedService, public adminService: AdminService) { 
+  constructor(public sharedservice: SharedService, public adminService: AdminService) {
 
-      
+
   }
 
   UpdateProfile = new FormGroup({
-    image : new FormControl(''),
+    imagename: new FormControl(''),
     doctodid: new FormControl(''),
     firstname: new FormControl("", [Validators.required]),
     lastname: new FormControl("", [Validators.required]),
     username: new FormControl("", [Validators.required]),
-    password: new FormControl("", [Validators.required,Validators.minLength(6)]),
-    email: new FormControl("", [Validators.required,Validators.email]),
+    password: new FormControl("", [Validators.required, Validators.minLength(6)]),
+    email: new FormControl("", [Validators.required, Validators.email]),
 
 
   })
-  x:any = localStorage.getItem("loginid")
-   async ngOnInit() {
-    if(this.x!=null){
+  x: any = localStorage.getItem("loginid")
+  async ngOnInit() {
+    if (this.x != null) {
       await this.sharedservice.GetDoctorByLogInId(this.x)
-      }else{
-        this.sharedservice.DoctorByLoginId.doctodid=null
-      }
+    } else {
+      this.sharedservice.DoctorByLoginId.doctodid = null
+    }
 
-   this.UpdateProfile.patchValue({
-    doctodid : this.sharedservice.DoctorByLoginId.doctodid,
-    firstname : this.sharedservice.DoctorByLoginId.firstname,
-    lastname:this.sharedservice.DoctorByLoginId.lastname,
-    username: this.sharedservice.DoctorByLoginId.username,
-    email:this.sharedservice.DoctorByLoginId.email,
-    image:this.sharedservice.DoctorByLoginId.imagename
-  })
-    
+    this.UpdateProfile.patchValue({
+      doctodid: this.sharedservice.DoctorByLoginId.doctodid,
+      firstname: this.sharedservice.DoctorByLoginId.firstname,
+      lastname: this.sharedservice.DoctorByLoginId.lastname,
+      username: this.sharedservice.DoctorByLoginId.username,
+      email: this.sharedservice.DoctorByLoginId.email,
+      imagename: this.sharedservice.DoctorByLoginId.imagename
+    })
+
   }
 
-  
-  
-  async UpdateAdmin(){
+
+
+  async UpdateAdmin() {
     this.adminService.UpdateAdminDoctor(this.UpdateProfile.value)
+    this.sharedservice.GetDoctorByLogInId(this.x)
   }
 
 
-  
-  UploadImage(Input:any){
+
+  UploadImage(Input: any) {
 
     if (Input.files[0] != 0) {
       let UploadedImage = Input.files[0]; //ImageFile
-      let formData = new FormData()   
-      formData.append("fileForImage",UploadedImage)
+      let formData = new FormData()
+      formData.append("fileForImage", UploadedImage)
       this.sharedservice.UploadImage(formData)
 
     }
-   
+
   }
 
 
-  ReturnOldValue(){
-    
-   this.UpdateProfile.patchValue({
-    doctodid : this.sharedservice.DoctorByLoginId.doctodid,
-    firstname : this.sharedservice.DoctorByLoginId.firstname,
-    lastname:this.sharedservice.DoctorByLoginId.lastname,
-    username: this.sharedservice.DoctorByLoginId.username,
-    email:this.sharedservice.DoctorByLoginId.email,
-    image:this.sharedservice.DoctorByLoginId.imagename,
+  ReturnOldValue() {
 
-    password : ""
-    
-  })
+    this.UpdateProfile.patchValue({
+      doctodid: this.sharedservice.DoctorByLoginId.doctodid,
+      firstname: this.sharedservice.DoctorByLoginId.firstname,
+      lastname: this.sharedservice.DoctorByLoginId.lastname,
+      username: this.sharedservice.DoctorByLoginId.username,
+      email: this.sharedservice.DoctorByLoginId.email,
+      imagename: this.sharedservice.DoctorByLoginId.imagename,
+
+      password: ""
+
+    })
   }
 
 
 
-  
-  B? :boolean;
+
+  B?: boolean;
   ShowBErrorMessage() {
     this.B = true;
   }
-  
-  C? :boolean;
+
+  C?: boolean;
   ShowCErrorMessage() {
     this.C = true;
   }

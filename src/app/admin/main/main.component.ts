@@ -30,7 +30,7 @@ async ngOnInit(){
     data: {
         labels: ['Patients', 'Doctors', 'Payments', 'Questions', 'Categories', 'Testimonials'],
         datasets: [{
-            label: '# of Votes',
+            label: 'Statistics',
             data: [this.patientService.Patient.length,this.adminService.Doctors.length, this.adminService.Payments.length, this.doctorservice.questionss.length, this.sharedservice.Category.length, this.sharedservice.Testemonial.length],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
