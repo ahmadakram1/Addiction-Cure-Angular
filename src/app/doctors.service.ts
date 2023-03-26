@@ -157,25 +157,6 @@ async getResultByDocid(id:number){
 }
 
 
-ResultByPatid:any
-async getResultByPatid(id:number){
-  return new Promise<void>((resolve, reject) =>  {
-
-  this.spinner.show()
-  this.http.get("https://localhost:44373/API/ResultTest/ByPatid/"+id).subscribe({
-    next:(res)=>{
-      this.ResultByPatid=res
-      this.spinner.hide()
-      resolve()
-    },
-    error:(err)=>{
-      console.log(err);
-      this.spinner.hide()
-      reject()      
-    }
-  })
-})
-}
 
 
 
