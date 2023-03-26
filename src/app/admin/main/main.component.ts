@@ -4,6 +4,7 @@ import { PatientService } from 'src/app/patient.service';
 import { SharedService } from 'src/app/shared.service';
 import { Chart, registerables } from 'chart.js';
 import { DoctorsService } from 'src/app/doctors.service';
+import { async } from '@angular/core/testing';
 Chart.register(...registerables);
 
 @Component({
@@ -16,16 +17,19 @@ constructor(public doctorservice :DoctorsService,public adminService : AdminServ
 
 async ngOnInit(){
 
+  
+
   this.adminService.GetAllDoctors()
   this.patientService.GetAllPatient()
   this.adminService.GetAllPayment()
   this.doctorservice.GetAllQuastionss()
   this.sharedservice.GetCategory()
-  
+  this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
   this.sharedservice.GetAllTestemonial()
 
 
-  var myChart = new Chart("myChart", {
+    
+var myChart = new Chart("myChart", {
     type: 'bar',
     data: {
         labels: ['Patients', 'Doctors', 'Payments', 'Questions', 'Categories', 'Testimonials'],
@@ -61,6 +65,8 @@ async ngOnInit(){
 });
 
 }
+
+
 
 
 }

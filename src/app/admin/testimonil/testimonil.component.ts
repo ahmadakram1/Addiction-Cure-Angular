@@ -22,6 +22,8 @@ selected :any
 ngOnInit(){
  
   this.sharedService.GetAllTestemonial()
+  this.sharedService.GetDoctorByLogInId(localStorage.getItem("loginid"))
+
 }
 getdata()
 {

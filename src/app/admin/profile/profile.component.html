@@ -64,11 +64,9 @@
                   </div>
                   <div class="mb-3 col-md-6">
                     <label for="password" class="form-label" > Current Password</label>
-                    <input class="form-control"  type="password" id="password" name="password" formControlName="CurrentPassword" (change)="CheckPassword()" (click)="ShowZErrorMessage()"
+                    <input class="form-control"  type="password" id="password" name="password" formControlName="CurrentPassword" (change)="CheckPassword()"
                       placeholder="Password"  />
-                      <small *ngIf="UpdateProfile.controls['CurrentPassword'].hasError('required') && Z == true">
-                        Password is <strong>required</strong>
-                      </small>
+                     
                   </div>
                   <div class="mb-3 col-md-6">
                     <label for="password" class="form-label">New Password</label>

@@ -146,6 +146,7 @@ body {
   outline: none;
 }
 
+
 /**/
 .a-container {
   z-index: 100;
@@ -250,4 +251,16 @@ body {
   30%, 50% {
     width: 500px;
   }
+}
+
+
+
+select {
+  appearance: none;
+  background: #ecf0f3;
+  font-size: medium;
+  color: black;
+  cursor: pointer;
+  border: 2px dashed rgb(0, 0, 0);
+  border-radius: 4px;
 }

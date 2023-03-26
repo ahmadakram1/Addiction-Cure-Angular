@@ -25,7 +25,7 @@ export class ProfileComponent {
     username: new FormControl("", [Validators.required]),
     password: new FormControl("", [Validators.required, Validators.minLength(6)]),
     
-  CurrentPassword : new FormControl("", [Validators.required, Validators.minLength(6)]),
+  CurrentPassword : new FormControl(""),
     email: new FormControl("", [Validators.required, Validators.email]),
 
 
@@ -47,7 +47,8 @@ export class ProfileComponent {
       lastname: this.sharedservice.DoctorByLoginId.lastname,
       username: this.sharedservice.DoctorByLoginId.username,
       email: this.sharedservice.DoctorByLoginId.email,
-      imagename: this.sharedservice.DoctorByLoginId.imagename
+      imagename: this.sharedservice.DoctorByLoginId.imagename,
+      password: this.sharedservice.DoctorByLoginId.password
     })
 
   }
@@ -100,8 +101,7 @@ Current=true;
       username: this.sharedservice.DoctorByLoginId.username,
       email: this.sharedservice.DoctorByLoginId.email,
       imagename: this.sharedservice.DoctorByLoginId.imagename,
-
-      password: ""
+      CurrentPassword:"",
 
     })
   }

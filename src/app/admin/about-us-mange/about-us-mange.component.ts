@@ -17,14 +17,16 @@ export class AboutUsMangeComponent {
 
   UpdateAboutUsForm = new FormGroup({
     id: new FormControl(""),
+    image : new FormControl(''),
     paragraph1: new FormControl("", Validators.required),
     paragraph2: new FormControl("", Validators.required)
 
   })
 
  async ngOnInit(){
-  await this.sharedservice.GetAllAboutUs()
-  this.UpdateAboutUsForm.patchValue(this.sharedservice.AboutUs)
+  await this.sharedservice.GetAboutusByid(66)  
+  this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
+  this.UpdateAboutUsForm.patchValue(this.sharedservice.AboutById)
   }
   async UpdateAboutUs() {
     await this.sharedservice.UpdateAboutUs(this.UpdateAboutUsForm.value);

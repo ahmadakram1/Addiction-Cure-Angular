@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { PatientService } from 'src/app/patient.service';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -12,7 +13,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class SignUpComponent {
 
-  constructor(public shaerdService: SharedService, private toastr: ToastrService, private spinner: NgxSpinnerService,public route:Router) { }
+  constructor(public shaerdService: SharedService, private toastr: ToastrService, private spinner: NgxSpinnerService, public route: Router,public patientService : PatientService) { }
 
   RegisterForm = new FormGroup({
 
@@ -21,8 +22,13 @@ export class SignUpComponent {
     username: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required, Validators.minLength(6)]),
+    categoryid: new FormControl("", [Validators.required]),
+
   })
 
+  ngOnInit() {
+    this.shaerdService.GetCategory()
+  }
   A?: boolean
   ShowAError() {
     this.A = true;
@@ -55,10 +61,13 @@ export class SignUpComponent {
   }
 
   async Register() {
-    let data = this.RegisterForm.value
-    await this.shaerdService.RegisterPatient(data)
-    this.toastr.success("Success Sign Up")
-    this.route.navigate(["/Auth/SignIn"])
+  
+      let data = this.RegisterForm.value
+      await this.shaerdService.RegisterPatient(data)
+      this.toastr.success("Success Sign Up")
+      this.route.navigate(["/Auth/SignIn"])
+   
+    
   }
 
   UploadImage(input: any) // <input>

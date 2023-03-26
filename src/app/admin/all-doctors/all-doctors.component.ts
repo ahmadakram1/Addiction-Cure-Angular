@@ -78,6 +78,8 @@ export class AllDoctorsComponent {
   ngOnInit() {
     this.adminService.GetAllDoctors()
     this.sharedservice.GetCategory()
+    this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
+
   }
 
   async openDetalisDialog(Doctor_id: number) {

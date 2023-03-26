@@ -33,6 +33,8 @@ export class HomeManamgentComponent {
  async ngOnInit(){
   await  this.sharedservice.GetAllHome()
   this.UpdateHomeForm.patchValue(this.sharedservice.Home)
+  this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
+
   }
 
   async UpdateHome(){

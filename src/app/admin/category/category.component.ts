@@ -44,6 +44,8 @@ export class CategoryComponent {
 
   ngOnInit() {
     this.sharedservice.GetCategory();
+    this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
+
   }
 
 

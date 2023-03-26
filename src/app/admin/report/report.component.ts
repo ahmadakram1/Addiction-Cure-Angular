@@ -6,6 +6,7 @@ import { DoctorsService } from 'src/app/doctors.service';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { Chart, registerables } from 'chart.js';
+import { SharedService } from 'src/app/shared.service';
 Chart.register(...registerables);
 @Component({
   selector: 'app-report',
@@ -15,7 +16,7 @@ Chart.register(...registerables);
 export class ReportComponent {
 
   data: any;
-  constructor(public adminService: AdminService, private http: HttpClient) {
+  constructor(public adminService: AdminService, private sharedservice: SharedService,) {
 
   }
 
@@ -29,6 +30,9 @@ export class ReportComponent {
 
   dtOptions: any = {};
   ngOnInit() {
+
+    this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
+
     this.adminService.getReport()
     var total = this.adminService.reports.reduce((sum: any, obj: any) => sum + obj.amount, 0)
     this.dtOptions = {
