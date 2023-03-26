@@ -63,4 +63,17 @@ export class QuestionsDoctorComponent {
   }
 
 
+  Done(){
+   let result = {
+    resulttest:"null",
+    perioddate:"null",
+    description:"null",
+    numberoftest:this.TestNumber.value,
+    datetest: new Date(),
+    patientid:this.sharedservice.id
+    }
+
+    this.doctorservice.CreateResult(result)
+  }
+
 }
