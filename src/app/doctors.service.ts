@@ -251,6 +251,17 @@ async getpatientbydoctorid(DoctorId:number)
 })
 }
 
-
+async SendEmail(EmailBody: any) {
+ this.http.post("https://localhost:44373/API/DoctorEmail/DoctorEmail", EmailBody).subscribe(
+   {
+     next: () => {
+       this.toastr.success("Email Sent")
+     },
+     error: (error) => {
+       this.toastr.error("Error")
+     }
+   }
+ )
+}
 
 }
