@@ -6,7 +6,6 @@ import { ToastrService } from 'ngx-toastr';
 import jwt_decode from 'jwt-decode';
 import { PatientService } from './patient.service';
 import { AdminService } from './admin.service';
-import { async } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,6 @@ import { async } from '@angular/core/testing';
 export class SharedService {
   id?: number
   cat?: number
-  doctodid?: number;
   constructor(private patientService: PatientService, private route: Router, private http: HttpClient, private spinner: NgxSpinnerService, private toastr: ToastrService) { }
 
 
@@ -547,6 +545,7 @@ getPatientid(loginid?:string){
       next:(res:any)=>{
         this.patientid = res.patientid
            this.patientService.GetPatientById(this.patientid)  
+           localStorage.setItem('patientid',res.patientid)
            console.log(this.patientid)
            resolve()    
           
