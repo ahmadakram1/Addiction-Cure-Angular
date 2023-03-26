@@ -162,7 +162,6 @@ UploadImage(imageFile : any)
         {
           next: (res:any) => {
             this.QuastionsByCategoryId = res
-          
             this.spinner.hide()
             this.toastr.success("Success")
             resolve()

@@ -35,7 +35,8 @@ one = "yes"
       status:this.selectedAnswer,
       patientid:this.sharedService.PatientById.patientid,
       quastionid:id,
-      testdate: new Date()
+      testdate: new Date(),
+      testnumber:1
     }
    this.patientService.CreateTest(test)
    console.log(this.score);
