@@ -604,6 +604,30 @@ getDoctodid(loginid?:string){
 
   }
 
+  DoctorByLoginId: any
+  async GetDoctorByLogInId(Loginid: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.spinner.show()
+      this.http.get("https://localhost:44373/API/Doctor/getbyLoginID/" + Loginid).subscribe(
+        {
+          next: (res) => {
+
+            this.DoctorByLoginId = res
+            this.spinner.hide()
+            this.toastr.success()
+            resolve()
+          },
+          error: (err) => {
+            console.log(err)
+            this.spinner.hide()
+            this.toastr.error()
+            reject()
+          }
+        }
+      )
+    })
+
+  }
 
   createRequest(request: any) {
     return new Promise<void>((resolve, reject) => {
