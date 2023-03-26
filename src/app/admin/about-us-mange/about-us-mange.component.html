@@ -33,10 +33,10 @@
                                         (change)="UploadImage(File)" required />
                                 </div>
 
-                            </div>
+                            </div> 
                             <div class="col-12">
                                 <label>Paragraph One:</label>
-                                <textarea class="form-control  border-0" rows="5" formControlName="paragraph"
+                                <textarea class="form-control  border-0" rows="5" formControlName="paragraph1"
                                     placeholder="Paragraph One "></textarea>
                                 <small *ngIf="UpdateAboutUsForm.controls['paragraph1'].hasError('required')">
                                     Paragraph One is <strong>required</strong>
@@ -44,7 +44,7 @@
                             </div>
                             <div class="col-12">
                                 <label>Paragraph Two:</label>
-                                <textarea class="form-control  border-0" rows="5" formControlName="text1"
+                                <textarea class="form-control  border-0" rows="5" formControlName="paragraph2"
                                     placeholder=" Paragraph Two"></textarea>
                                 <small *ngIf="UpdateAboutUsForm.controls['paragraph2'].hasError('required')">
                                     Paragraph Two is <strong>required</strong>
