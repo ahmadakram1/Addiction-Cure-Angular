@@ -26,11 +26,11 @@ export class MainComponent {
   await this.sharedService.GetAllTestemonial()
 
 if(this.x!=null){
-this.sharedService.GetPatientById(this.x)
+await this.sharedService.GetPatientById(this.x)
 }else{
   this.sharedService.PatientById.patientid=null
 }
-  console.log(this.sharedService.PatientById.patientid);
+  console.log(this.sharedService.PatientById);
   
   }
  
