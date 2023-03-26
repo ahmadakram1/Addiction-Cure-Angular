@@ -115,6 +115,27 @@ GetAllResult()
 
 
 
+async CreateResult(result: any) {
+  return new Promise<void>((resolve,reject)=>{
+ this.spinner.show()
+ this.http.post("https://localhost:44373/api/ResultTest", result).subscribe(
+   {
+     next: () => {
+       this.spinner.hide();
+       this.toastr.success("Added Successfully")
+       resolve()
+     },
+     error: (error) => {
+       this.spinner.hide();
+       this.toastr.error("Error")
+       reject()
+     }
+   }
+ )
+})
+}
+
+
 
 ResultTestById:any
 async getResultTestById(id:number){
