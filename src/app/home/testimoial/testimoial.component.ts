@@ -15,7 +15,7 @@ export class TestimoialComponent {
   }
   async ngOnInit() {
     this.sharedservice.getPatientid(localStorage.getItem("loginid")?.toString())
-    await this.patientService.GetPatientById(this.sharedservice.patientid)
+    await this.patientService.GetPatientById(localStorage.getItem('patientid'))
   }
   Testemonials = new FormGroup
     ({

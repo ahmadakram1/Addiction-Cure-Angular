@@ -43,6 +43,7 @@
               "node_modules/datatables.net-buttons/js/buttons.flash.js",
               "node_modules/datatables.net-buttons/js/buttons.html5.js",
               "node_modules/datatables.net-buttons/js/buttons.print.js"
+              
              
            
             ]
@@ -115,10 +116,11 @@
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
-              
+             
             "node_modules/jquery/dist/jquery.js",
             "node_modules/datatables.net/js/jquery.dataTables.js",
             "node_modules/bootstrap/dist/js/bootstrap.js"
+            
             ]
           }
         }

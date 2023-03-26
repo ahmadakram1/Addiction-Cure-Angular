@@ -9,7 +9,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
 
-                <div class="navbar-nav ms-auto py-0" *ngIf="this.shardService.patientid==null">
+                <div class="navbar-nav ms-auto py-0" *ngIf="pa==null">
 
                     <a routerLink="" class="nav-item nav-link">Home</a>
                     <a routerLink="/AboutUs" class="nav-item nav-link">AboutUs</a>
@@ -18,7 +18,7 @@
                     <a routerLink="/Auth/LandR" class="nav-item nav-link">Login</a>
                 </div>
 
-                <div class="navbar-nav ms-auto py-0" *ngIf="this.shardService.patientid!=null">
+                <div class="navbar-nav ms-auto py-0" *ngIf="pa!=null">
 
                     <a routerLink="" class="nav-item nav-link">Home</a>
                     <a routerLink="/AboutUs" class="nav-item nav-link">AboutUs</a>
@@ -29,7 +29,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
                         <div class="dropdown-menu m-0">
                             <a routerLink="/Profile2" class="nav-item nav-link">Your Profile</a>
-                            <a class="nav-item nav-link" [routerLink]="" (click)="logout()">Logout</a>
+                            <a class="nav-item nav-link" [routerLink]=""  (click)="logout()">Logout</a>
                         </div>
                     </div>
                 </div>

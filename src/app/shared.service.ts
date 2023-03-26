@@ -523,6 +523,7 @@ getPatientid(loginid?:string){
       next:(res:any)=>{
         this.patientid = res.patientid
            this.patientService.GetPatientById(this.patientid)  
+           localStorage.setItem('patientid',res.patientid)
            console.log(this.patientid)
            resolve()    
           
@@ -533,8 +534,6 @@ getPatientid(loginid?:string){
     }
   )})
 }
-
-
 doctodid:number = 0 
 getDoctodid(loginid?:string){
   this.http.get("https://localhost:44373/API/login/doctorid/"+loginid).subscribe(

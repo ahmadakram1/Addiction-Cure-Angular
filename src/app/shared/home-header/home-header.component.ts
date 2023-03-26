@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
 
 
@@ -11,14 +11,16 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class HomeHeaderComponent {
 
-constructor(public shardService:SharedService,private route:Router){}
+  constructor(public shardService: SharedService, public route: Router) {
 
-logout()
-{
 
-  localStorage.removeItem("loginid")
-  localStorage.clear();
-  this.route.navigate(['Auth/LandR']);
-}
-
+  }
+  pa: any
+  ngOnInit() {
+    this.pa = localStorage.getItem('patientid')
+  }
+  logout() {
+    localStorage.clear();
+    window.location.reload()
+  }
 }
