@@ -154,12 +154,13 @@ UploadImage(imageFile : any)
   }
 
   QuastionsByCategoryId: any
+ 
   async GetQuastionByCategoryId(quastionID: any) {
     return new Promise<void>((resolve, reject) => {
       this.spinner.show()
       this.http.get("https://localhost:44373/API/Quastion/GetQUASTIONBYID/" + quastionID).subscribe(
         {
-          next: (res) => {
+          next: (res:any) => {
             this.QuastionsByCategoryId = res
             this.spinner.hide()
             this.toastr.success("Success")

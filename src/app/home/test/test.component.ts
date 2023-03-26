@@ -15,27 +15,32 @@ import { PaymentTestComponent } from '../payment-test/payment-test.component';
 
 export class TestComponent {
 constructor(public sharedService:SharedService,public patientService:PatientService,public doctorService:DoctorsService, private route: Router , public dialog:MatDialog){}
-
+async ngOnInit() {
+  await this.patientService.GetQuastionByCategoryId(this.sharedService.PatientById.categoryid)
+ 
+ }
 zero = "no"
 one = "yes"
 
   currentQuestionIndex = 0;
   selectedAnswer = 0;
-  score=10;
+  score:any=0;
 
   next(id:number) {
-    if (this.selectedAnswer === 1) {
-      this.score--;
+    if (this.selectedAnswer === 0) {
+      this.score++;
     }
     this.currentQuestionIndex++;
     let test ={
       status:this.selectedAnswer,
       patientid:this.sharedService.PatientById.patientid,
       quastionid:id,
-      testdate: new Date()
+      testdate: new Date(),
+      testnumber:1
     }
    this.patientService.CreateTest(test)
-    this.selectedAnswer = 0;
+   console.log(this.score);
+    this.selectedAnswer = 0;  
   }
 
 
@@ -46,9 +51,7 @@ PatinetLevel(){
 
 x = localStorage.getItem("loginid")?.toString()
   
-  async ngOnInit() {
-   await this.patientService.GetQuastionByCategoryId(this.sharedService.PatientById.categoryid)
-  }
+ 
 
 
 
