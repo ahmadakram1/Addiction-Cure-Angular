@@ -1,0 +1,38 @@
+
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <br>
+                    <h1 style="text-align: center;"><b style="font-size: larger;">result Page</b></h1>
+                    <br>
+                    <div class="card mb-4">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Patient name</th>
+                                    <th>Description</th>
+                                    <th>Level</th>
+                                    <th>Test Date</th>
+                                    <th>Period</th>
+                                    <th>Test result</th>
+                                    <th>Number of tests</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of patientService.ResultByPatid" >
+                                    <td>{{item.firstname}} {{item.lastname}}</td>
+                                    <td>{{item.description}}</td>
+                                    <td>{{item.level1}}</td>
+                                    <td>{{item.datetest}}</td>
+                                    <td>{{item.perioddate}}</td>
+                                    <td>{{item.resulttest}}</td>
+                                    <td>{{item.numberoftest}}</td>
+                                    <td>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+ 

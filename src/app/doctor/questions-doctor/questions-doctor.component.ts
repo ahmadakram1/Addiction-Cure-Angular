@@ -27,7 +27,7 @@ export class QuestionsDoctorComponent {
 
 
   async ngOnInit() {
-    this.doctorservice.GetAllQuastionss()
+   await this.doctorservice.GetAllQuastionss()
     this.sharedservice.GetCategory()
 
   }

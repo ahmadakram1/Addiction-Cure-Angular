@@ -7,6 +7,9 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class DoctorsService {
+  patchValue(ResultTestById: any) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService) { }
 
@@ -52,7 +55,6 @@ async CreateQuastion(Quastion: any) {
 
  questionss : any =[]
  async GetAllQuastionss(){
-
   return new Promise<void>((resolve,reject)=>{
   this.spinner.show()
   this.http.get("https://localhost:44373/api/Quastion/GetAllQuestionss").subscribe({
@@ -61,7 +63,6 @@ async CreateQuastion(Quastion: any) {
      this.spinner.hide()
      this.toastr.success("Successfull")
      resolve()
-
     },
     error:(error)=>{
      console.log(error);
@@ -157,25 +158,6 @@ async getResultByDocid(id:number){
 }
 
 
-ResultByPatid:any
-async getResultByPatid(id:number){
-  return new Promise<void>((resolve, reject) =>  {
-
-  this.spinner.show()
-  this.http.get("https://localhost:44373/API/ResultTest/ByPatid/"+id).subscribe({
-    next:(res)=>{
-      this.ResultByPatid=res
-      this.spinner.hide()
-      resolve()
-    },
-    error:(err)=>{
-      console.log(err);
-      this.spinner.hide()
-      reject()      
-    }
-  })
-})
-}
 
 
 
