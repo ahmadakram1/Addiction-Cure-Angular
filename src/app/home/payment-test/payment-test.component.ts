@@ -12,6 +12,7 @@ import { SharedService } from 'src/app/shared.service';
 export class PaymentTestComponent {
   constructor(public patientService:PatientService , public sharedService:SharedService){}
   Amount:number=0;
+  Email:string=""
   paymentform=new FormGroup(
     {
       cardnumber:new FormControl('',[Validators.required]),
@@ -22,8 +23,9 @@ export class PaymentTestComponent {
   x = localStorage.getItem("loginid")?.toString()
   async ngOnInit() {
   await  this.sharedService.GetPatientById(this.x)
-    let x:number = parseInt(this.sharedService.PatientById.level1)*5
-    this.Amount = parseInt(this.sharedService.PatientById.level1)*30
+    let x:number = parseInt(this.sharedService.PatientById.level1)*5;
+    this.Amount = parseInt(this.sharedService.PatientById.level1)*30;
+    this.Email=this.sharedService.PatientById.email;
     console.log(this.sharedService.PatientById.level1);
     
    }
@@ -37,7 +39,7 @@ export class PaymentTestComponent {
     let PaymentReq={
       Amount:this.Amount,
       name:this.sharedService.PatientById.firstname +" "+ this.sharedService.PatientById.lastname,
-      email: this.sharedService.PatientById.email,
+      email: this.Email,
       Currency : 'usd',
       cvc:this.paymentform.value.cvcCard?.toString(),
       cardNumber:this.paymentform.value.cardnumber?.toString(),
