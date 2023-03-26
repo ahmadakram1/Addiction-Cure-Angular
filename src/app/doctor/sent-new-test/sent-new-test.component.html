@@ -39,9 +39,10 @@
                                     <td>{{item.firstname}}</td>
                                     <td>{{item.lastname}}</td>
                                     <td>{{item.level1}}</td>
+                                    <td>{{item.patientid}}</td>
                                     <td>
                                         <input type="button" value="Sent New Test" class="btn btn-primary"
-                                            (click)="sentnewtestDialog()">
+                                            (click)="sentnewtestDialog(item.patientid)">
                                     </td>
                                 </tr>
 
@@ -72,10 +73,11 @@
                     <div>Connecting...</div>
 
                     <ul></ul>
-                    <form class="example-form">
-                        <textarea id="message" placeholder="Write your message here..." required></textarea>
-                        <button type="submit">Send Test</button>
-                        <button type="button">Close</button>
+                    <form [formGroup]="SendEmailForm" class="example-form">
+                        <textarea formControlName="BodyEmail" id="message" placeholder="Write your message here..." required></textarea>
+                        <input formControlName="DateTest" type="date" placeholder="dd/mm/yy" required>
+                        <button (click)="SendEmail()" type="submit">Send Test</button>
+                        <button (click)="close()" type="button">Close</button>
                     </form>
                 </div>
             </div>
