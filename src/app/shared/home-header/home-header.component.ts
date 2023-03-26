@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { SharedService } from 'src/app/shared.service';
 
 
@@ -11,7 +12,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class HomeHeaderComponent {
 
-  constructor(public shardService: SharedService, public route: Router) {
+  constructor(public shardService: SharedService, public route: Router,private toster:ToastrService) {
 
 
   }
@@ -26,5 +27,9 @@ export class HomeHeaderComponent {
   logout() {
     localStorage.clear();
     this.route.navigate(['/Auth/SignIn']);
+  }
+  Wtostar(){
+    this.toster.toastrConfig.positionClass = 'toast-bottom-center';
+    this.toster.info("See You Soon")
   }
 }

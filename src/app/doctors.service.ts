@@ -7,6 +7,9 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class DoctorsService {
+  patchValue(ResultTestById: any) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService) { }
 
