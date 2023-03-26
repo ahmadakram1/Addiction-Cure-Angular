@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AllCategoryComponent } from './all-category/all-category.component';
 import { CategoryHomeComponent } from './category-home/category-home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DoctorsComponent } from './doctors/doctors.component';
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: "result",
     component: ResultComponent
+  },
+  {
+    path: "AllCategory",
+    component: AllCategoryComponent
   }
 
 ];

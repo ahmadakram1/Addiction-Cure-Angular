@@ -16,6 +16,7 @@ import { PaymentTestComponent } from './payment-test/payment-test.component';
 import { RequestComponent } from './request/request.component';
 import { CategoryHomeComponent } from './category-home/category-home.component';
 import { ResultComponent } from './result/result.component';
+import { AllCategoryComponent } from './all-category/all-category.component';
 
 
 
@@ -34,6 +35,7 @@ import { ResultComponent } from './result/result.component';
     RequestComponent,
     CategoryHomeComponent,
     ResultComponent,
+    AllCategoryComponent,
 
   ],
   imports: [
