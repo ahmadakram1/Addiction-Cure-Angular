@@ -55,15 +55,16 @@
           *ngIf="RegisterForm.controls['password'].hasError('minlength') && H == true">
           must contains at least <strong>6 characters</strong>
         </small>
-        
-          <label style="font-size: medium;">Please Select Your Addiction:</label>
-          <div class="select">
-          <select formControlName="categoryid">
-            <option *ngFor="let item of shaerdService.Category" [value]="item.categoryid">
+
+        <label style="font-size: medium;">Please Select Your Addiction:</label>
+        <mat-form-field appearance="fill" style="width: 220px;">
+          <mat-select formControlName="categoryid">
+            <mat-option *ngFor="let item of shaerdService.Category" [value]="item.categoryid">
               {{item.categoryname}}
-            </option>
-          </select></div>
-       
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
 
         <button class="form__button button submit" [disabled]="RegisterForm.invalid" (click)="Register()">SIGN
           UP</button>

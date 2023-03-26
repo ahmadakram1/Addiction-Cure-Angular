@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/admin.service';
@@ -17,18 +17,42 @@ export class SentNewTestComponent {
   constructor(public patientService:PatientService,private dialog:MatDialog ,public adminservice:AdminService, public doctorService:DoctorsService , public sharedService : SharedService,private route:Router){}
   @ViewChild("NewTest") sentnewtest:any;
 
-async ngOnInit(){
+  SendEmailForm = new FormGroup({
+    BodyEmail: new FormControl("", [Validators.required]),
+    DateTest:new FormControl("",[Validators.required])})
+
+  async ngOnInit(){
   this.doctorService.getpatientbydoctorid(this.sharedService.DoctorByLoginId.doctodid)
   this.patientService.GetAllPatient()
 }
-GetById(id:number)
-{
-  this.patientService.GetPatientBypateinId(id)
-  console.log(this.patientService.GetPatientBypateinId(id));
-}
+// async GetById(id:number)
+// {
+//   await this.patientService.GetPatientBypateinId(id)
+//   console.log(this.patientService.PatientBypateinId);
+// }
 
-async sentnewtestDialog(){
+async sentnewtestDialog(id:any){
    this.dialog.open(this.sentnewtest)
-
+   await this.patientService.GetPatientBypateinId(id)
+  await console.log(this.patientService.PatientBypateinId);
  }
+
+ close(){
+  this.dialog.closeAll()
+ }
+
+ SendEmail(){
+     this.sharedService.GetDoctorByLogInId(localStorage.getItem("loginid"))
+ let EmailBody = {
+    PatientName:this.patientService.PatientBypateinId.firstname+" "+this.patientService.PatientBypateinId.lastname,
+    DoctorName:this.sharedService.DoctorByLoginId.firstname+" "+this.sharedService.DoctorByLoginId.lastname,
+    PatientEmail:this.patientService.PatientBypateinId.email,
+    BodyEmail:this.SendEmailForm.controls["BodyEmail"].value,
+    DateTest:this.SendEmailForm.controls["DateTest"].value
+  }
+
+  console.log(EmailBody);
+  
+  this.doctorService.SendEmail(EmailBody)
+}
 }
