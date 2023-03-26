@@ -23,7 +23,7 @@
                     <h1 style="text-align: center;"><b style="font-size: larger;">Patients Page</b></h1>
 
                     <div class="card mb-4">
-                        <table class="table table-striped">
+                        <table class="table table-striped" class="table table-striped table-bordered table-sm row-border hover" id="datatableexample">
                             <thead>
                                 <tr>
                                     <th>Image</th>
@@ -40,12 +40,12 @@
                                     <td>{{item.firstname}}</td>
                                     <td>{{item.lastname}}</td>
                                     <td>
-                                        <input type="button" value="Detiles" class="btn btn-primary"
-                                            (click)="GetById(item.patientid)">
+                                        <input type="button" value="Update" class="btn btn-success"
+                                        (click)="OpenUpdateDialog(item.patientid)"  >
                                         <input type="button" value="Delete" class="btn btn-danger"
                                             (click)="OpenDeleteDialog(item.patientid)" style="margin-left: 2%;">
-                                        <input type="button" value="Update" class="btn btn-success"
-                                            (click)="OpenUpdateDialog(item.patientid)" style="margin-left: 2%;">
+                                        <input type="button" value="Details" class="btn btn-primary"
+                                             (click)="GetById(item.patientid)" style="margin-left: 2%;">
                                     </td>
                                 </tr>
                             </tbody>
@@ -132,7 +132,7 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <div>
+                    <!-- <div>
                         <mat-form-field class="example-full-width">
                             <mat-label>Role </mat-label>
                             <input type="number" matInput formControlName="roleid">
@@ -140,7 +140,7 @@
                                 Role id is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
-                    </div>
+                    </div> -->
                     <div>
                         <mat-form-field appearance="fill">
                             <mat-label>category</mat-label>
@@ -186,6 +186,6 @@
     <div mat-dialog-content>category :{{this.patientService.PatientBypateinId.categoryname}}</div>
 
     <div mat-dialog-actions>
-        <button mat-button mat-dialog-close>Close</button>
+        <button mat-button mat-dialog-close class="btn btn-dark">Close</button>
     </div>
 </ng-template>
