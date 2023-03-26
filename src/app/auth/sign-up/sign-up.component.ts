@@ -21,9 +21,13 @@ export class SignUpComponent {
     username: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required, Validators.minLength(6)]),
+    categoryid : new FormControl("", [Validators.required]),
 
   })
 
+  ngOnInit() {
+    this.shaerdService.GetCategory()
+  }
   A?: boolean
   ShowAError() {
     this.A = true;
