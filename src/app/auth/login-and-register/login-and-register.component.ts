@@ -32,6 +32,7 @@ export class LoginAndRegisterComponent {
 
   Login() {
     this.shaerdService.Login(this.LoginForm.value)
+    
   }
 
   A?: boolean

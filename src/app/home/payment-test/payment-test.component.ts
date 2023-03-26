@@ -21,7 +21,7 @@ export class PaymentTestComponent {
   )
   async ngOnInit() {
     this.sharedService.getPatientid(localStorage.getItem("loginid")?.toString())
-    await this.patientService.GetPatientById(this.sharedService.patientid)
+    await this.patientService.GetPatientById(localStorage.getItem('patientid'))
     let x:number = parseInt(this.patientService.PatientById.level1)*5
     this.Amount = parseInt(this.patientService.PatientById.level1)*30
    }

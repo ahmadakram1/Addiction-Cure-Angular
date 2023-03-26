@@ -30,7 +30,8 @@ import { CategoryHomeComponent } from './category-home/category-home.component';
     TestComponent,
     PaymentTestComponent,
     RequestComponent,
-    CategoryHomeComponent
+    CategoryHomeComponent,
+
   ],
   imports: [
     CommonModule,

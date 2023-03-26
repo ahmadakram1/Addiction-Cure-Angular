@@ -21,7 +21,6 @@ const CardData = {
   Description: localStorage.getItem('Description')
 }
 this.dataDoctor = CardData;
-debugger
 }
 }
   

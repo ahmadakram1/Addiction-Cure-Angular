@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { AdminService } from 'src/app/admin.service';
 import { DoctorsService } from 'src/app/doctors.service';
 import { PatientService } from 'src/app/patient.service';
 import { SharedService } from 'src/app/shared.service';
@@ -21,14 +22,18 @@ export class QuestionsDoctorComponent {
 
 
   })
-  constructor(private dialog :MatDialog,public doctorservice: DoctorsService,public sharedservice :SharedService,public patienservice:PatientService) {
+  constructor(private dialog :MatDialog,public adminservice:AdminService ,public doctorservice: DoctorsService,public sharedservice :SharedService,public patienservice:PatientService) {
   }
 
 
-  ngOnInit() {
+  async ngOnInit() {
     this.doctorservice.GetAllQuastionss()
     this.sharedservice.GetCategory()
 
+
+    
+  this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
+  await this.adminservice.GetDoctorById(this.sharedservice.doctodid)
   }
 
   

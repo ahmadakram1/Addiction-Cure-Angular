@@ -27,7 +27,7 @@ export class Profile2Component {
 
   async ngOnInit() {
     this.sharedservice.getPatientid(localStorage.getItem("loginid")?.toString())
-    await this.patientService.GetPatientById(this.sharedservice.patientid)
+    await this.patientService.GetPatientById(localStorage.getItem('patientid'))
 
 
     this.UpdateProfile.patchValue({
