@@ -48,10 +48,11 @@ export class PaymentTestComponent {
     }
     
     this.patientService.CreatePayment(PaymentReq)
+    let date = new Date()
     let createpay={
       Amount:this.Amount,
       patientid:this.sharedService.PatientById.patientid,
-      paydate: new Date(),
+      paydate: date,
     }
   }
 
