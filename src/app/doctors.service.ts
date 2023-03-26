@@ -136,6 +136,48 @@ async getResultTestById(id:number){
 }
 
 
+ResultByDocid:any
+async getResultByDocid(id:number){
+  return new Promise<void>((resolve, reject) =>  {
+
+  this.spinner.show()
+  this.http.get("https://localhost:44373/API/ResultTest/Bydocid/"+id).subscribe({
+    next:(res)=>{
+      this.ResultByDocid=res
+      this.spinner.hide()
+      resolve()
+    },
+    error:(err)=>{
+      console.log(err);
+      this.spinner.hide()
+      reject()      
+    }
+  })
+})
+}
+
+
+ResultByPatid:any
+async getResultByPatid(id:number){
+  return new Promise<void>((resolve, reject) =>  {
+
+  this.spinner.show()
+  this.http.get("https://localhost:44373/API/ResultTest/ByPatid/"+id).subscribe({
+    next:(res)=>{
+      this.ResultByPatid=res
+      this.spinner.hide()
+      resolve()
+    },
+    error:(err)=>{
+      console.log(err);
+      this.spinner.hide()
+      reject()      
+    }
+  })
+})
+}
+
+
 
 async UpdateResultTest(ResultTest:any){
   const header = {

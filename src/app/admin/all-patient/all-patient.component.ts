@@ -11,7 +11,7 @@ import { SharedService } from 'src/app/shared.service';
 }) 
 
 export class AllPatientComponent {
-
+  constructor(public patientService: PatientService, public dialog: MatDialog , public sharedservice : SharedService) {}
   @ViewChild("CreateForm") Craete: any;
   @ViewChild("UpdateForm") Update: any;
   @ViewChild("DeleteForm") Delete: any;
@@ -32,9 +32,7 @@ export class AllPatientComponent {
    })
 
 
-  constructor(public patientService: PatientService, public dialog: MatDialog , public sharedservice : SharedService) {
-
-  }
+  
 
   ngOnInit() {
     this.patientService.GetAllPatient()
