@@ -42,7 +42,7 @@
                 </h2>
             </div>
             <div class="button-wrapper" style="text-align: center;">
-                <button type="button" class="btn btn-primary me-2" routerLink="/Test">Select and Take Test</button>
+                <button type="button" class="btn btn-primary me-2" (click)="openDetalisDialog(item.catgeryid)">More</button>
             </div>
             <br>
         </div>
@@ -60,3 +60,12 @@
 <!-- Footer Start -->
 <app-home-footer></app-home-footer>
 <!-- Footer End -->
+
+<ng-component #details>
+    <div mat-dialog-content>abouttext :{{this.sharedService.Category.abouttext}}</div>
+
+
+    <div mat-dialog-actions>
+        <input type="button" mat-dialog-close="" value="Close" class="btn btn-dark">
+    </div>
+</ng-component>
