@@ -19,9 +19,13 @@ export class PaymentTestComponent {
       cvcCard:new FormControl('',[Validators.required])
   }
   )
+  x = localStorage.getItem("loginid")?.toString()
   async ngOnInit() {
+  await  this.sharedService.GetPatientById(this.x)
     let x:number = parseInt(this.sharedService.PatientById.level1)*5
     this.Amount = parseInt(this.sharedService.PatientById.level1)*30
+    console.log(this.sharedService.PatientById.level1);
+    
    }
     
    payment(){
