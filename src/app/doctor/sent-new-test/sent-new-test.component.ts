@@ -24,6 +24,7 @@ async ngOnInit(){
 GetById(id:number)
 {
   this.patientService.GetPatientBypateinId(id)
+  console.log(this.patientService.GetPatientBypateinId(id));
 }
 
 async sentnewtestDialog(){

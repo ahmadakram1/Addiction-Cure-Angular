@@ -63,9 +63,15 @@
                       placeholder="Email@example.com" readonly />
                   </div>
                   <div class="mb-3 col-md-6">
-                    <label for="password" class="form-label">Password</label>
-                    <input class="form-control" formControlName="password" type="password" id="password" name="password"
-                      placeholder="Password" (click)="ShowCErrorMessage()" />
+                    <label for="password" class="form-label" > Current Password</label>
+                    <input class="form-control"  type="password" id="password" name="password" formControlName="CurrentPassword" (change)="CheckPassword()"
+                      placeholder="Password"  />
+                     
+                  </div>
+                  <div class="mb-3 col-md-6">
+                    <label for="password" class="form-label">New Password</label>
+                    <input class="form-control" formControlName="password" [readOnly]="Current" type="password" id="password" name="password"
+                      placeholder="Password" (change)="ShowCErrorMessage()" />
                     <small *ngIf="UpdateProfile.controls['password'].hasError('required') && C == true">
                       Password is <strong>required</strong>
                     </small>
@@ -73,11 +79,12 @@
                       must contains at least <strong>6 characters</strong>
                     </small>
                   </div>
+                 
 
 
                 </div>
                 <div class="mt-2">
-                  <button type="submit" [disabled]="UpdateProfile.invalid" (click)="UpdateAdmin()"
+                  <button type="submit" [disabled]="UpdateProfile.invalid"  (click)="UpdateAdmin()"
                     class="btn btn-primary me-2">Save changes</button>
                   <button type="button" class="btn btn-outline-secondary" (click)="ReturnOldValue()">Cancel</button>
                 </div>

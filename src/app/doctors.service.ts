@@ -55,7 +55,6 @@ async CreateQuastion(Quastion: any) {
 
  questionss : any =[]
  async GetAllQuastionss(){
-
   return new Promise<void>((resolve,reject)=>{
   this.spinner.show()
   this.http.get("https://localhost:44373/api/Quastion/GetAllQuestionss").subscribe({
@@ -64,7 +63,6 @@ async CreateQuastion(Quastion: any) {
      this.spinner.hide()
      this.toastr.success("Successfull")
      resolve()
-
     },
     error:(error)=>{
      console.log(error);
@@ -251,6 +249,17 @@ async getpatientbydoctorid(DoctorId:number)
 })
 }
 
-
+async SendEmail(EmailBody: any) {
+ this.http.post("https://localhost:44373/API/DoctorEmail/DoctorEmail", EmailBody).subscribe(
+   {
+     next: () => {
+       this.toastr.success("Email Sent")
+     },
+     error: (error) => {
+       this.toastr.error("Error")
+     }
+   }
+ )
+}
 
 }
