@@ -3,6 +3,7 @@ import { AdminService } from 'src/app/admin.service';
 import { PatientService } from 'src/app/patient.service';
 import { SharedService } from 'src/app/shared.service';
 import { Chart, registerables } from 'chart.js';
+import { DoctorsService } from 'src/app/doctors.service';
 Chart.register(...registerables);
 
 @Component({
@@ -11,23 +12,26 @@ Chart.register(...registerables);
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-constructor(public adminService : AdminService , public patientService :PatientService ,public sharedservice:SharedService) {}
+constructor(public doctorservice :DoctorsService,public adminService : AdminService , public patientService :PatientService ,public sharedservice:SharedService) {}
 
 async ngOnInit(){
 
   this.adminService.GetAllDoctors()
   this.patientService.GetAllPatient()
   this.adminService.GetAllPayment()
-
+  this.doctorservice.GetAllQuastionss()
+  this.sharedservice.GetCategory()
+  
+  this.sharedservice.GetAllTestemonial()
 
 
   var myChart = new Chart("myChart", {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Patients', 'Doctors', 'Payments', 'Questions', 'Categories', 'Testimonials'],
         datasets: [{
             label: '# of Votes',
-            data: [this.patientService.Patient.length,this.adminService.Doctors.length, this.adminService.Payments.length, 5, 2, 3],
+            data: [this.patientService.Patient.length,this.adminService.Doctors.length, this.adminService.Payments.length, this.doctorservice.questionss.length, this.sharedservice.Category.length, this.sharedservice.Testemonial.length],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
