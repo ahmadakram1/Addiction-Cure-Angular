@@ -11,6 +11,9 @@ import { SharedService } from 'src/app/shared.service';
 }) 
 export class QuestionsComponent {
 
+
+
+
   @ViewChild("CreateForm") Create:any;
   @ViewChild("DeleteForm") delete:any;
 
@@ -18,6 +21,14 @@ export class QuestionsComponent {
   constructor(public doctorservice : DoctorsService,private dialog :MatDialog,public sharedservice:SharedService){
 
   }
+
+  async ngOnInit(){
+
+    if(this.doctorservice.questionss.quastionid==null){
+    await this.doctorservice.GetAllQuastionss()
+    }
+    console.log(this.doctorservice.questionss);
+   }
 
   CreateQuestionsForm = new FormGroup({
 
@@ -28,11 +39,7 @@ export class QuestionsComponent {
   })
 
 
-  ngOnInit(){
-    this.doctorservice.GetAllQuastionss();
-    this.sharedservice.GetCategory()
-
-  }
+  
 
 
 

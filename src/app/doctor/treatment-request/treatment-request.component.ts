@@ -10,15 +10,10 @@ import { SharedService } from 'src/app/shared.service';
 export class TreatmentRequestComponent {
 constructor(public sharedService : SharedService,public adminservice:AdminService){}
 
-x = localStorage.getItem("loginid")?.toString()
-async ngOnInit(){
-  this.sharedService.GetDoctorById(this.x)
-await  this.sharedService.Getrequst(this.sharedService.doctodid)
-console.log(this.sharedService.request);
 
- 
-this.sharedService.getDoctodid(localStorage.getItem("loginid")?.toString())
-await this.adminservice.GetDoctorById(this.sharedService.doctodid)
+async ngOnInit(){
+await  this.sharedService.Getrequst(this.sharedService.DoctorByLoginId.doctodid)
+console.log(this.sharedService.request);
 }
 
 accept(reqid:number,patid:number,doctodid:number){
@@ -32,7 +27,7 @@ let accept:any = {
 }
 this.sharedService.Updatereq(req)
 this.sharedService.accepted(accept)
-this.sharedService.Getrequst(this.sharedService.doctodid)
+this.sharedService.Getrequst(this.sharedService.DoctorByLoginId.doctodid)
 
 }
 
@@ -42,7 +37,7 @@ reject(reqid:number){
     "Status":2
   }
   this.sharedService.Updatereq(req)
-  this.sharedService.Getrequst(this.sharedService.doctodid)
+  this.sharedService.Getrequst(this.sharedService.DoctorByLoginId.doctodid)
   }
 
 }

@@ -20,15 +20,15 @@
             <!-- Account -->
             <div class="card-body">
               <div class="d-flex align-items-start align-items-sm-center gap-4">
-                <div *ngIf="this.patientService.PatientById.imagename!=null">
+                <div *ngIf="this.sharedservice.PatientById.imagename!=null">
 
                   <img
-                  src="../../../assets/images/{{this.patientService.PatientById.imagename}}"
+                  src="../../../assets/images/{{this.sharedservice.PatientById.imagename}}"
                   alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
 
 
                 </div>
-                <div *ngIf="this.patientService.PatientById.imagename==null">
+                <div *ngIf="this.sharedservice.PatientById.imagename==null">
 
                   <img
                   src="../../../assets/images/th (2).png"

@@ -82,7 +82,7 @@ export class AllDoctorsComponent {
 
   async openDetalisDialog(Doctor_id: number) {
 
-    await this.adminService.GetDoctorById(Doctor_id);
+    await this.adminService.GetDoctorBydocId(Doctor_id);
     this.dialog.open(this.Details);
   }
 
@@ -111,8 +111,8 @@ export class AllDoctorsComponent {
 
   
   async OpenUpdateDialog(doctorId: number) {
-    await this.adminService.GetDoctorById(doctorId)
-    this.UpdateDoctorForm.patchValue(this.adminService.DoctorById)
+    await this.adminService.GetDoctorBydocId(doctorId)
+    this.UpdateDoctorForm.patchValue(this.adminService.DoctorBydocId)
     this.dialog.open(this.Update)
   }
 

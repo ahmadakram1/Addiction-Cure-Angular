@@ -24,21 +24,25 @@ export class Profile2Component {
         email: new FormControl("", [Validators.required, Validators.email]),
       })
 
-
+      x:any = localStorage.getItem("loginid")
   async ngOnInit() {
-    this.sharedservice.getPatientid(localStorage.getItem("loginid")?.toString())
-    await this.patientService.GetPatientById(localStorage.getItem('patientid'))
-
+    
+    if(this.x!=null){
+      await this.sharedservice.GetPatientById(this.x)
+      }else{
+        this.sharedservice.PatientById.patientid=null
+      }
 
     this.UpdateProfile.patchValue({
-      patientid: this.patientService.PatientById.patientid,
-      firstname: this.patientService.PatientById.firstname,
-      lastname: this.patientService.PatientById.lastname,
-      username: this.patientService.PatientById.username,
-      email: this.patientService.PatientById.email,
-      imagename: this.patientService.PatientById.imagename,
-
+      patientid: this.sharedservice.PatientById.patientid,
+      firstname: this.sharedservice.PatientById.firstname,
+      lastname: this.sharedservice.PatientById.lastname,
+      username: this.sharedservice.PatientById.username,
+      email: this.sharedservice.PatientById.email,
+      imagename: this.sharedservice.PatientById.imagename,
+  
     })
+   
   }
 
 
@@ -46,7 +50,8 @@ export class Profile2Component {
 
 
 
-
+  
+  
   UploadImage(Input: any) {
 
     if (Input.files[0] != 0) {
@@ -61,7 +66,7 @@ export class Profile2Component {
 
   UpdatePatient() {
     this.patientService.UpdatePatient(this.UpdateProfile.value)
-    this.patientService.GetPatientById(this.sharedservice.patientid)
+    this.sharedservice.GetPatientById(this.sharedservice.PatientById.patientid)
 
   }
 
@@ -70,12 +75,12 @@ export class Profile2Component {
   ReturnOldValue() {
 
     this.UpdateProfile.patchValue({
-      patientid: this.patientService.PatientById.patientid,
-      firstname: this.patientService.PatientById.firstname,
-      lastname: this.patientService.PatientById.lastname,
-      username: this.patientService.PatientById.username,
-      email: this.patientService.PatientById.email,
-      imagename: this.patientService.PatientById.imagename,
+      patientid: this.sharedservice.PatientById.patientid,
+      firstname: this.sharedservice.PatientById.firstname,
+      lastname: this.sharedservice.PatientById.lastname,
+      username: this.sharedservice.PatientById.username,
+      email: this.sharedservice.PatientById.email,
+      imagename: this.sharedservice.PatientById.imagename,
       password:""
 
     })

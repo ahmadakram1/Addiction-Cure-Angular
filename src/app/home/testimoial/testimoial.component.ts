@@ -13,10 +13,6 @@ export class TestimoialComponent {
   constructor(private spinner: NgxSpinnerService, public patientService: PatientService, public sharedservice: SharedService) {
 
   }
-  async ngOnInit() {
-    this.sharedservice.getPatientid(localStorage.getItem("loginid")?.toString())
-    await this.patientService.GetPatientById(localStorage.getItem('patientid'))
-  }
   Testemonials = new FormGroup
     ({
         messageuser: new FormControl("", [Validators.required]),

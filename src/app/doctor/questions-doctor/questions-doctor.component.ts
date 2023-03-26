@@ -30,10 +30,6 @@ export class QuestionsDoctorComponent {
     this.doctorservice.GetAllQuastionss()
     this.sharedservice.GetCategory()
 
-
-    
-  this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
-  await this.adminservice.GetDoctorById(this.sharedservice.doctodid)
   }
 
   

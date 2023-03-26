@@ -6,13 +6,14 @@ import { ToastrService } from 'ngx-toastr';
 import jwt_decode from 'jwt-decode';
 import { PatientService } from './patient.service';
 import { AdminService } from './admin.service';
+import { DoctorsService } from './doctors.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
 
-  constructor(private patientService:PatientService,private route:Router,private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService) { }
+  constructor(private patientService:PatientService,private route:Router,private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService , public doctorservice:DoctorsService) { }
 
 
 
@@ -351,7 +352,7 @@ async GetAllTestemonial(){
   }
 
 CreateTestimonialAC(Testimonial: any) {
-  Testimonial.patientid=this.patientid
+  Testimonial.patientid=this.PatientById.patientid
   Testimonial.status="unPublish"
   this.spinner.show()
   this.http.post("https://localhost:44373/api/Testimonials/Create", Testimonial).subscribe(
@@ -490,22 +491,18 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     if (data.Role == 3)
     {
       this.GetPatientById(data.loginid)
-      this.getPatientid(loginid)
       this.route.navigate([""])
     }
     else if (data.Role == 2)
     {
-      this.getDoctodid(localStorage.getItem("loginid")?.toString())
-      this.GetDoctorById(this.doctodid)
+     this.GetDoctorByLogInId(data.loginid)
       this.route.navigate(["Doctor/Patient"])
     }
     else
     {
-      this.getDoctodid(localStorage.getItem("loginid")?.toString())
-      this.GetDoctorById(this.doctodid)
+      this.GetDoctorByLogInId(data.loginid)
+      this.doctorservice.GetAllQuastionss();
       this.route.navigate(["Admin/Main"])
-     
-
     }
     },
     error:(err)=>{
@@ -515,26 +512,6 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     }
   }
 )}
-
-patientid:any
-getPatientid(loginid?:string){
-  return new Promise<void>((resolve, reject) => {
-  this.http.get("https://localhost:44373/API/Login/patientid/"+loginid).subscribe(
-    {
-      next:(res:any)=>{
-        this.patientid = res.patientid
-           this.patientService.GetPatientById(this.patientid)  
-           console.log(this.patientid)
-           resolve()    
-          
-      },
-      error:(err)=>{console.log(err)
-      this.toastr.error("Error")
-      }
-    }
-  )})
-}
-
 
 PatientById: any
   async GetPatientById(x?: string) {
@@ -562,52 +539,55 @@ PatientById: any
   }
 
 
-doctodid:number = 0 
-getDoctodid(loginid?:string){
-  this.http.get("https://localhost:44373/API/login/doctorid/"+loginid).subscribe(
-    {
-      next:(res:any)=>{
-        this.doctodid = res.doctodid       
-      },
-      error:(err)=>{console.log(err)
-      this.toastr.error("Error")
-
-      }
-    }
-  )
-}
-
-
-
-
-
-DoctorById: any
-async GetDoctorById(doctorid: any) {
- return new Promise<void>((resolve, reject) => {
- this.spinner.show()
- this.http.get("https://localhost:44373/api/Doctor/getbyid/" + doctorid).subscribe(
-   {
-     next: (res) => {     
-       this.DoctorById = res
-       console.log(this.DoctorById);
+// DoctorById: any
+// async GetDoctorById(doctorid: any) {
+//  return new Promise<void>((resolve, reject) => {
+//  this.spinner.show()
+//  this.http.get("https://localhost:44373/api/Doctor/getbyid/" + doctorid).subscribe(
+//    {
+//      next: (res) => {     
+//        this.DoctorById = res
+//        console.log(this.DoctorById);
        
-       this.spinner.hide()          
-       this.toastr.success()
-      resolve()
-     },
-     error: (err) => {
-       console.log(err)
-       this.spinner.hide()
-       this.toastr.error()
-        reject()
-     }
-   }
- )
- })
- 
-}
+//        this.spinner.hide()          
+//        this.toastr.success()
+//       resolve()
+//      },
+//      error: (err) => {
+//        console.log(err)
+//        this.spinner.hide()
+//        this.toastr.error()
+//         reject()
+//      }
+//    }
+//  )
+//  })
+// }
 
+DoctorByLoginId: any
+  async GetDoctorByLogInId(Loginid: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.spinner.show()
+      this.http.get("https://localhost:44373/API/Doctor/getbyLoginID/" + Loginid).subscribe(
+        {
+          next: (res) => {
 
+            this.DoctorByLoginId = res
+            this.spinner.hide()
+            this.toastr.success()
+            resolve()
+          },
+          error: (err) => {
+            console.log(err)
+            this.spinner.hide()
+            this.toastr.error()
+            reject()
+          }
+        }
+      )
+    })
+
+  }
 createRequest(request:any){
   return new Promise<void>((resolve, reject) => {
 

@@ -41,7 +41,7 @@ export class AllPatientComponent {
     this.sharedservice.GetCategory()
   }
   async GetById(patientid: number) {
-    await this.patientService.GetPatientById(patientid)
+    await this.patientService.GetPatientBypateinId(patientid)
     this.dialog.open(this.Details)
   }
 
@@ -58,8 +58,8 @@ export class AllPatientComponent {
 
   async OpenUpdateDialog(patientid:number)
   {
-    await this.patientService.GetPatientById(patientid)
-    this.UpdatePatientForm.patchValue(this.patientService.PatientById)
+    await this.patientService.GetPatientBypateinId(patientid)
+    this.UpdatePatientForm.patchValue(this.patientService.PatientBypateinId)
     this.dialog.open(this.Update)
   }
   

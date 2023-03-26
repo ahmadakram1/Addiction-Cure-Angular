@@ -26,23 +26,21 @@ export class ProfileComponent {
 
 
   })
-
+  x:any = localStorage.getItem("loginid")
    async ngOnInit() {
-
-
-  //   this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
-  //  await this.adminService.GetDoctorById(this.sharedservice.doctodid)
-
-   await this.adminService.GetDoctorById(this.sharedservice.doctodid)
-
+    if(this.x!=null){
+      await this.sharedservice.GetDoctorByLogInId(this.x)
+      }else{
+        this.sharedservice.DoctorByLoginId.doctodid=null
+      }
 
    this.UpdateProfile.patchValue({
-    doctodid : this.adminService.DoctorById.doctodid,
-    firstname : this.adminService.DoctorById.firstname,
-    lastname:this.adminService.DoctorById.lastname,
-    username: this.adminService.DoctorById.username,
-    email:this.adminService.DoctorById.email,
-    image:this.adminService.DoctorById.imagename
+    doctodid : this.sharedservice.DoctorByLoginId.doctodid,
+    firstname : this.sharedservice.DoctorByLoginId.firstname,
+    lastname:this.sharedservice.DoctorByLoginId.lastname,
+    username: this.sharedservice.DoctorByLoginId.username,
+    email:this.sharedservice.DoctorByLoginId.email,
+    image:this.sharedservice.DoctorByLoginId.imagename
   })
     
   }
@@ -51,7 +49,6 @@ export class ProfileComponent {
   
   async UpdateAdmin(){
     this.adminService.UpdateAdminDoctor(this.UpdateProfile.value)
-   await this.adminService.GetDoctorById(this.sharedservice.doctodid)
   }
 
 
@@ -72,12 +69,12 @@ export class ProfileComponent {
   ReturnOldValue(){
     
    this.UpdateProfile.patchValue({
-    doctodid : this.adminService.DoctorById.doctodid,
-    firstname : this.adminService.DoctorById.firstname,
-    lastname:this.adminService.DoctorById.lastname,
-    username: this.adminService.DoctorById.username,
-    email:this.adminService.DoctorById.email,
-    image:this.adminService.DoctorById.imagename,
+    doctodid : this.sharedservice.DoctorByLoginId.doctodid,
+    firstname : this.sharedservice.DoctorByLoginId.firstname,
+    lastname:this.sharedservice.DoctorByLoginId.lastname,
+    username: this.sharedservice.DoctorByLoginId.username,
+    email:this.sharedservice.DoctorByLoginId.email,
+    image:this.sharedservice.DoctorByLoginId.imagename,
 
     password : ""
     

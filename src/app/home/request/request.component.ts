@@ -12,8 +12,8 @@ import { SharedService } from 'src/app/shared.service';
 export class RequestComponent {
   constructor(public adminService:AdminService ,public patientService :PatientService , public sharedService : SharedService){}
 async ngOnInit(){
-this.sharedService.getPatientid(localStorage.getItem("loginid")?.toString()) 
-let level:String = this.patientService.PatientById.level1
+  
+let level:String = this.sharedService.PatientById.level1
 await this.adminService.GetAllDoctorsBylevel(level.toString())
 }
 
@@ -24,10 +24,9 @@ SearchDoctor(){
 }
 
 async SelectDoctor(doctorid:number){
-this.sharedService.getPatientid(localStorage.getItem("loginid")?.toString())
 let req:any ={
   Doctorid:doctorid,
-  Patientid:this.sharedService.patientid,
+  Patientid:this.sharedService.PatientById.patientid,
   status:0
 }
 await this.sharedService.createRequest(req)

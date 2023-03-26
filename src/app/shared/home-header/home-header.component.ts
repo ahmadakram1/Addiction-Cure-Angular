@@ -15,12 +15,15 @@ export class HomeHeaderComponent {
 
 
   }
-  pa: any
+  x:any = localStorage.getItem("loginid")
   ngOnInit() {
-    this.pa = localStorage.getItem('patientid')
+    if(this.x!=null){
+      this.shardService.GetPatientById(this.x)
+      }else{
+        this.shardService.PatientById=null
+      }
   }
   logout() {
     localStorage.clear();
-    window.location.reload()
   }
 }

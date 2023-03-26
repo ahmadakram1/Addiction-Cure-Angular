@@ -13,21 +13,14 @@ import { SharedService } from 'src/app/shared.service';
 export class PatientComponent {
 constructor(public patientService:PatientService ,public adminservice:AdminService, public doctorService:DoctorsService , public sharedService : SharedService,private route:Router){}
  
-id = 21
+
 async ngOnInit(){
-  this.doctorService.getpatientbydoctorid(this.id)
-  console.log(this.doctorService.patientbydoctorid);
+  this.doctorService.getpatientbydoctorid(this.sharedService.DoctorByLoginId.doctodid)
   this.patientService.GetAllPatient()
-  
-
-  
-  this.sharedService.getDoctodid(localStorage.getItem("loginid")?.toString())
-  await this.adminservice.GetDoctorById(this.sharedService.doctodid)
-
 }
 GetById(id:number)
 {
-  this.patientService.PatientById(id)
+  this.patientService.GetPatientBypateinId(id)
 }
 
 

@@ -67,6 +67,8 @@ async CreateQuastion(Quastion: any) {
      console.log(error);
      this.spinner.hide();
      this.toastr.error("Error")
+    
+     
      reject()
     }
   })

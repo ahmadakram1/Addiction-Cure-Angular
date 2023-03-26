@@ -20,16 +20,10 @@
                     <a routerLink="/Doctors" class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Find Doctor</a>
 
 
-                    <a routerLink="/Auth/LandR" *ngIf="this.sharedService.patientid==null" (click)="Wtostar()"
+                    <a routerLink="/Auth/LandR" *ngIf="this.sharedService.PatientById==null" (click)="Wtostar()"
                         class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
                         Select Category and Take Test</a>
-                    <a routerLink="/CategoryHome" *ngIf="this.sharedService.patientid!=null && this.patientService.PatientById.level1==null"
-                        class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
-                        Select Category and Take Test</a>
-                    <a routerLink="/Profile2" *ngIf="this.sharedService.patientid!=null && this.patientService.PatientById.level1!=null"
-                        class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
-                        See your result
-                    </a>  
+                  
                               
               
                 </div>

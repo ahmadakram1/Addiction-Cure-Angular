@@ -28,26 +28,28 @@ export class Profile3Component {
     level1 : new FormControl("")
 
   })
-
+  x:any = localStorage.getItem("loginid")
    async ngOnInit() {
 
-
-    this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
-   await this.adminService.GetDoctorById(this.sharedservice.doctodid)
+    if(this.x!=null){
+      await this.sharedservice.GetDoctorByLogInId(this.x)
+      }else{
+        this.sharedservice.DoctorByLoginId.doctodid=null
+      }
 
 
 
    this.UpdateProfile.patchValue({
-    doctodid : this.adminService.DoctorById.doctodid,
-    firstname : this.adminService.DoctorById.firstname,
-    lastname:this.adminService.DoctorById.lastname,
-    username: this.adminService.DoctorById.username,
-    email:this.adminService.DoctorById.email,
-    categoryid : this.adminService.DoctorById.categoryid,
-    loginid : this.adminService.DoctorById.loginid,
-    roleid :this.adminService.DoctorById.roleid,
-    image:this.adminService.DoctorById.imagename,
-    level1:this.adminService.DoctorById.level1,
+    doctodid : this.sharedservice.DoctorByLoginId.doctodid,
+    firstname : this.sharedservice.DoctorByLoginId.firstname,
+    lastname:this.sharedservice.DoctorByLoginId.lastname,
+    username: this.sharedservice.DoctorByLoginId.username,
+    email:this.sharedservice.DoctorByLoginId.email,
+    categoryid : this.sharedservice.DoctorByLoginId.categoryid,
+    loginid : this.sharedservice.DoctorByLoginId.loginid,
+    roleid :this.sharedservice.DoctorByLoginId.roleid,
+    image:this.sharedservice.DoctorByLoginId.imagename,
+    level1:this.sharedservice.DoctorByLoginId.level1,
   })
     
   }
@@ -56,7 +58,6 @@ export class Profile3Component {
   
  UpdateAdmin(){
     this.adminService.UpdateDoctor(this.UpdateProfile.value)
-    this.adminService.GetDoctorById(this.sharedservice.doctodid)
   }
 
 
@@ -76,16 +77,16 @@ export class Profile3Component {
   ReturnOldValue(){
     
    this.UpdateProfile.patchValue({
-    doctodid : this.adminService.DoctorById.doctodid,
-    firstname : this.adminService.DoctorById.firstname,
-    lastname:this.adminService.DoctorById.lastname,
-    username: this.adminService.DoctorById.username,
-    email:this.adminService.DoctorById.email,
-    categoryid : this.adminService.DoctorById.categoryid,
-    loginid : this.adminService.DoctorById.loginid,
-    roleid :this.adminService.DoctorById.roleid,
-    image:this.adminService.DoctorById.imagename,
-    level1:this.adminService.DoctorById.level1,
+    doctodid : this.sharedservice.DoctorByLoginId.doctodid,
+    firstname : this.sharedservice.DoctorByLoginId.firstname,
+    lastname:this.sharedservice.DoctorByLoginId.lastname,
+    username: this.sharedservice.DoctorByLoginId.username,
+    email:this.sharedservice.DoctorByLoginId.email,
+    categoryid : this.sharedservice.DoctorByLoginId.categoryid,
+    loginid : this.sharedservice.DoctorByLoginId.loginid,
+    roleid :this.sharedservice.DoctorByLoginId.roleid,
+    image:this.sharedservice.DoctorByLoginId.imagename,
+    level1:this.sharedservice.DoctorByLoginId.level1,
     password : ""
     
   })

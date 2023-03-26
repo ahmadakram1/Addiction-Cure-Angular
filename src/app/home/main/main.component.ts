@@ -24,8 +24,14 @@ export class MainComponent {
  async ngOnInit() {
   this.sharedService.GetAboutusByid(66)
   await this.sharedService.GetAllTestemonial()
-  console.log(this.sharedService.Testemonial);
-  console.log(this.x);
+
+if(this.x!=null){
+this.sharedService.GetPatientById(this.x)
+}else{
+  this.sharedService.PatientById.patientid=null
+}
+  console.log(this.sharedService.PatientById.patientid);
+  
   }
  
 

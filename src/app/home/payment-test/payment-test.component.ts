@@ -20,10 +20,8 @@ export class PaymentTestComponent {
   }
   )
   async ngOnInit() {
-    this.sharedService.getPatientid(localStorage.getItem("loginid")?.toString())
-    await this.patientService.GetPatientById(localStorage.getItem('patientid'))
-    let x:number = parseInt(this.patientService.PatientById.level1)*5
-    this.Amount = parseInt(this.patientService.PatientById.level1)*30
+    let x:number = parseInt(this.sharedService.PatientById.level1)*5
+    this.Amount = parseInt(this.sharedService.PatientById.level1)*30
    }
     
    payment(){
@@ -34,8 +32,8 @@ export class PaymentTestComponent {
     const month = parseInt(MonthString);
     let PaymentReq={
       Amount:this.Amount,
-      name:this.patientService.PatientById.firstname +" "+ this.patientService.PatientById.lastname,
-      email: this.patientService.PatientById.email,
+      name:this.sharedService.PatientById.firstname +" "+ this.sharedService.PatientById.lastname,
+      email: this.sharedService.PatientById.email,
       Currency : 'usd',
       cvc:this.paymentform.value.cvcCard?.toString(),
       cardNumber:this.paymentform.value.cardnumber?.toString(),
@@ -46,7 +44,7 @@ export class PaymentTestComponent {
     this.patientService.CreatePayment(PaymentReq)
     let createpay={
       Amount:this.Amount,
-      patientid:this.patientService.PatientById.patientid,
+      patientid:this.sharedService.PatientById.patientid,
       paydate: new Date(),
     }
   }

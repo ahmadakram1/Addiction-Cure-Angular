@@ -18,8 +18,6 @@ async ngOnInit(){
   this.adminService.GetAllDoctors()
   this.patientService.GetAllPatient()
   this.adminService.GetAllPayment()
-//   this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
-await this.adminService.GetDoctorById(this.sharedservice.doctodid)
 
 
 

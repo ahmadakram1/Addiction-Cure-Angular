@@ -12,11 +12,5 @@ constructor(public adminService:AdminService,public sharedservice:SharedService)
 
 }
 
-async ngOnInit(){
 
-  
-  this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
-  await this.adminService.GetDoctorById(this.sharedservice.doctodid)
-
-}
 }

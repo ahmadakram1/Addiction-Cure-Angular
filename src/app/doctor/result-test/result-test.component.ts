@@ -35,8 +35,6 @@ export class ResultTestComponent {
     this.doctorservice.GetAllResult()
 
     
-  this.sharedservice.getDoctodid(localStorage.getItem("loginid")?.toString())
-  await this.adminservice.GetDoctorById(this.sharedservice.doctodid)
   }
 
 

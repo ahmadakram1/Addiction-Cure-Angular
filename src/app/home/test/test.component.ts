@@ -30,7 +30,7 @@ one = "yes"
     this.currentQuestionIndex++;
     let test ={
       status:this.selectedAnswer,
-      patientid:parseInt(this.patientService.PatientById.patientid),
+      patientid:this.sharedService.PatientById.patientid,
       quastionid:id,
       testdate: new Date()
     }
@@ -40,15 +40,14 @@ one = "yes"
 
 
 PatinetLevel(){
-  this.patientService.UpdateLevel(this.patientService.PatientById.patientid,this.score.toString())
+  this.patientService.UpdateLevel(this.sharedService.PatientById.patientid,this.score.toString())
 
 }
 
 x = localStorage.getItem("loginid")?.toString()
   
   async ngOnInit() {
-   await this.sharedService.getPatientid(this.x)
-   await this.patientService.GetQuastionByCategoryId(this.patientService.PatientById.categoryid)
+   await this.patientService.GetQuastionByCategoryId(this.sharedService.PatientById.categoryid)
   }
 
 
