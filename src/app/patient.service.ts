@@ -134,6 +134,7 @@ UploadImage(imageFile : any)
 
   async UpdatePatient(Patient: any) {
     Patient.imagename=this.imageName
+    Patient.roleid=3;
     return new Promise<void>((resolve, reject) => {
       this.spinner.show()
       this.http.put("https://localhost:44373/api/Patient/updatePatient", Patient).subscribe(

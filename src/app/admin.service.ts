@@ -81,6 +81,7 @@ GetDocByName(name :string){
   async createdoctor(Doctor: any) {
 
     Doctor.imagename=this.sharedservice.imageName;
+   Doctor.Roleid = 2
     return new Promise<void>((resolve, reject) => {
 
     this.spinner.show()
@@ -105,7 +106,9 @@ GetDocByName(name :string){
  
 
   async UpdateDoctor(Doctor: any) {
+    Doctor.roleid=2
     Doctor.imagename=this.sharedservice.imageName;
+    
     return new Promise<void>((resolve, reject) => {
 
       this.spinner.show();

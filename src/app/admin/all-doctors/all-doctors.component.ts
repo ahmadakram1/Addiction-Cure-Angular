@@ -49,7 +49,7 @@ export class AllDoctorsComponent {
     Username: new FormControl("", [Validators.required]),
     Password: new FormControl("", [Validators.required]),
     Email: new FormControl("", [Validators.required]),
-    Roleid: new FormControl("", [Validators.required]),
+    // Roleid: new FormControl("", [Validators.required]),
     CATEGORYID: new FormControl("", [Validators.required]),
 
 
@@ -66,7 +66,7 @@ export class AllDoctorsComponent {
     username: new FormControl("", [Validators.required]),
     password: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.required]),
-    roleid: new FormControl("", [Validators.required]),
+    // roleid: new FormControl("", [Validators.required]),
     categoryID: new FormControl("", [Validators.required]),
 
 
