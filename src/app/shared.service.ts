@@ -496,6 +496,7 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     else if (data.Role == 2)
     {
      this.GetDoctorByLogInId(data.loginid)
+     this.doctorservice.getResultByDocid(this.DoctorByLoginId.doctodid)
       this.route.navigate(["Doctor/Patient"])
     }
     else

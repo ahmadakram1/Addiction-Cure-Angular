@@ -32,9 +32,9 @@ export class ResultTestComponent {
 
 
   async ngOnInit(){
-    this.doctorservice.GetAllResult()
-
-    
+    if(this.doctorservice.ResultByDocid==null){
+  await  this.doctorservice.getResultByDocid(this.sharedservice.DoctorByLoginId.doctodid)
+    }
   }
 
 
@@ -49,7 +49,7 @@ export class ResultTestComponent {
 
   async Update(){
     await this.doctorservice.UpdateResultTest(this.UpdateResultTestForm.value)
-    this.doctorservice.GetAllResult()
+    this.doctorservice.getResultByDocid(this.sharedservice.DoctorByLoginId.doctodid)
 
   }
 }
