@@ -489,6 +489,7 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     this.spinner.hide()
     if (data.Role == 3)
     {
+      this.GetPatientById(data.loginid)
       this.getPatientid(loginid)
       this.route.navigate([""])
     }
@@ -533,6 +534,32 @@ getPatientid(loginid?:string){
     }
   )})
 }
+
+
+PatientById: any
+  async GetPatientById(x?: string) {
+    return new Promise<void>((resolve, reject) => {
+      this.spinner.show()
+      this.http.get("https://localhost:44373/api/Patient/loginid/" + x).subscribe(
+        {
+          next: (res:any) => {
+            this.PatientById = res
+            this.spinner.hide()
+            this.toastr.success("Success")
+           
+            
+            resolve()
+          },
+
+          error: (err) => {
+            console.log(err + "dd")
+            this.spinner.hide()
+            this.toastr.error("Error")
+          }
+        }
+      )
+    })
+  }
 
 
 doctodid:number = 0 

@@ -16,6 +16,7 @@ export class AboutUsComponent {
   }
   ngOnInit() {
     this.sharedservice.GetAllAboutUs();
+  
   }
   OpenUpdatePage() {
     this.route.navigate(["Admin/AboutUsMange"])

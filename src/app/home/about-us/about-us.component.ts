@@ -11,6 +11,6 @@ export class AboutUsComponent {
 
   async ngOnInit() {
    await this.shaerdService.GetAboutusByid(66)
-    console.log(this.shaerdService.AboutById.image)
+   console.log(this.shaerdService.PatientById);
   }
 }
