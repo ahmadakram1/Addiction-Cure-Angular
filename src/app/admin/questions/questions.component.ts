@@ -28,7 +28,12 @@ export class QuestionsComponent {
     await this.doctorservice.GetAllQuastionss()
     }
     console.log(this.doctorservice.questionss);
+
+    this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
+
    }
+
+   
 
   CreateQuestionsForm = new FormGroup({
 

@@ -20,6 +20,8 @@ export class ContactUsComponent {
 
 ngOnInit(){
   this.adminservice.getallContactUs();
+  this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
+
 }
 selectedItem = 0;
 OpenDeleteDialog(contacID : number){

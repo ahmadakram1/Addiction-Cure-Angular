@@ -16,6 +16,8 @@ export class HomeComponent {
   }
   ngOnInit() {
     this.sharedservice.GetAllHome();
+    this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
+
   }
   OpenUpdatePage() {
     this.route.navigate(["Admin/HomeManagment"])

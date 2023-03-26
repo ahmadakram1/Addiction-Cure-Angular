@@ -37,6 +37,8 @@ export class AllPatientComponent {
   ngOnInit() {
     this.patientService.GetAllPatient()
     this.sharedservice.GetCategory()
+    this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
+
   }
   async GetById(patientid: number) {
     await this.patientService.GetPatientBypateinId(patientid)

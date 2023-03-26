@@ -25,6 +25,7 @@ export class AboutUsMangeComponent {
 
  async ngOnInit(){
   await this.sharedservice.GetAboutusByid(66)  
+  this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
   this.UpdateAboutUsForm.patchValue(this.sharedservice.AboutById)
   }
   async UpdateAboutUs() {

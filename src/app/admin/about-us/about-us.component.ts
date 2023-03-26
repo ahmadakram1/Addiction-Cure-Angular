@@ -16,6 +16,7 @@ export class AboutUsComponent {
   }
   ngOnInit() {
     this.sharedservice.GetAllAboutUs();
+    this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
   
   }
   OpenUpdatePage() {
