@@ -32,6 +32,6 @@ export class QuizesComponent {
     }
 
     Submit(){
-    this.patientService.Afterquiz(this.sharedService.Resultid,this.strScore)
+    this.patientService.Afterquiz(this.sharedService.Resultid,this.score)
     }
 }
