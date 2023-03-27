@@ -213,7 +213,9 @@ UploadAboutUsImage(ImageFile: any) {
 }
 
   async UpdateAboutUs(AboutUs: any) {
-    AboutUs.image = this.AboutUsImage
+    if (this.AboutUsImage!="") {
+      AboutUs.image = this.AboutUsImage
+    }
     return new Promise<void>((resolve, reject) => {
       this.spinner.show()
       this.http.put("https://localhost:44373/api/AboutUs/updateAboutUs", AboutUs).subscribe(
@@ -349,7 +351,11 @@ async CreateCategoryAC(Category: any) {
   }
 
 async UpdateCategory(Category: any) {
-   Category.image = this.CategoryImage
+  if (this.CategoryImage!="") {
+    Category.image = this.CategoryImage
+  }
+  
+   
   return new Promise<void>((resolve, reject) => {
 
     this.spinner.show();

@@ -11,7 +11,7 @@
 
 
 <!-- Search Start -->
-<div class="container-fluid pt-5" >
+<div class="container-fluid pt-5">
     <div class="container">
         <div class="text-center mx-auto mb-5" style="max-width: 500px;">
             <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5">Find A Category</h2>
@@ -33,17 +33,26 @@
     <div class="cards">
         <div class="card" *ngFor="let item of sharedService.Category">
             <div class="card__image-holder">
-                <img class="card__image" src="../../../assets/images/{{this.item.image}}" alt="img" />
+                <img class="card__image" src="../../../assets/images/{{this.item.image}}" width="300" height="250" alt="img" />
             </div>
             <div class="card-title">
                 <h2>
-                    {{this.item.categoryname}}
-                    <small>{{this.item.abouttext}}</small>
-                </h2>
+                    {{this.item.categoryname}}</h2>
+                    <br>
+                    <span class="collapsable float-left"> {{ (this.item.abouttext.length>firstCount) ?
+                        (this.item.abouttext | slice:0:counter)+'..':(this.item.abouttext) }}
+                        <span class="redTxt" *ngIf="(this.item.abouttext.length>100)"
+                            (click)="toggleSkil(this.item.abouttext)">
+                            <div class="button-wrapper" style="text-align: center;">
+                                <button type="button" class="btn btn-primary me-2">{{showTxt}}</button>
+                            </div>
+                        </span>
+                    </span>
+
+                    <small></small>
+                
             </div>
-            <div class="button-wrapper" style="text-align: center;">
-                <button type="button" class="btn btn-primary me-2" (click)="openDetalisDialog(item.catgeryid)">More</button>
-            </div>
+
             <br>
         </div>
     </div>
@@ -60,12 +69,3 @@
 <!-- Footer Start -->
 <app-home-footer></app-home-footer>
 <!-- Footer End -->
-
-<ng-component #details>
-    <div mat-dialog-content>abouttext :{{this.sharedService.Category.abouttext}}</div>
-
-
-    <div mat-dialog-actions>
-        <input type="button" mat-dialog-close="" value="Close" class="btn btn-dark">
-    </div>
-</ng-component>

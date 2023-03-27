@@ -36,6 +36,9 @@ border-radius: 58px;;
     color: #000000;
     height: 50px; 
   }
+  td{
+    width: 2%;
+  }
   input.test {
     border-radius: 50%;
 background-color: #000000 !important

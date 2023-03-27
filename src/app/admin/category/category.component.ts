@@ -34,7 +34,7 @@ export class CategoryComponent {
 
   UpdateCategoryForm = new FormGroup({
 
-    // image : new FormControl("",[Validators.required]),
+    image : new FormControl(""),
     categoryid: new FormControl(""),
     categoryname: new FormControl("", [Validators.required]),
     abouttext: new FormControl("", [Validators.required]),

@@ -30,7 +30,7 @@ export class AboutUsMangeComponent {
   }
   async UpdateAboutUs() {
     await this.sharedservice.UpdateAboutUs(this.UpdateAboutUsForm.value);
-    this.route.navigate(["Admin/ContactUs"])
+    this.route.navigate(["Admin/AboutUs"])
   }
   UploadImage(Input:any){
     let UploadedImage =  Input.files[0];
