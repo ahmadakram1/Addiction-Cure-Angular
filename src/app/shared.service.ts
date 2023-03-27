@@ -7,13 +7,13 @@ import jwt_decode from 'jwt-decode';
 import { PatientService } from './patient.service';
 import { AdminService } from './admin.service';
 import { DoctorsService } from './doctors.service';
-
+import Swal from 'sweetalert2'
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
 
-  constructor(private patientService:PatientService,private route:Router,private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService , public doctorservice:DoctorsService) { }
+  constructor(private patientService:PatientService,private route:Router,private http:HttpClient,private spinner:NgxSpinnerService , public doctorservice:DoctorsService) { }
 
 
 
@@ -34,6 +34,9 @@ this.Resultid=resultid
 }
 
 
+  
+
+
 Home:any={}
 async GetAllHome()
 {
@@ -48,7 +51,13 @@ async GetAllHome()
         },
         error:(err)=>{console.log(err)
         this.spinner.hide()
-        this.toastr.error("Error")
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       reject()}
     }
   )
@@ -64,12 +73,24 @@ async UpdateHome(Home: any) {
       {
         next: () => {
           this.spinner.hide();
-          this.toastr.success("Updated Successfully")
+           Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Updated successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
           resolve()
         },
         error: (error) => {
           this.spinner.hide();
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           reject()
         }
       }
@@ -95,11 +116,16 @@ createhome(Home: any) {
     {
       next: () => {
         this.spinner.hide();
-        this.toastr.success("Added Successfully")
       },
       error: (error) => {
         this.spinner.hide();
-        this.toastr.error("Error")
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     }
   )
@@ -135,7 +161,13 @@ async GetAllAboutUs()
         },
         error:(err)=>{console.log(err)
         this.spinner.hide()
-        this.toastr.error("Error")
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       reject()}
     }
   )
@@ -155,7 +187,13 @@ async GetAboutusByid(aboutid:any){
     },
       error:(err)=>{console.log(err)
       this.spinner.hide()
-      this.toastr.error("Error")
+       Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       reject()
       }
     }
@@ -182,12 +220,24 @@ UploadAboutUsImage(ImageFile: any) {
         {
           next: () => {
             this.spinner.hide();
-            this.toastr.success("Added Successfully")
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Updated successfully',
+              showConfirmButton: false,
+              timer: 1500
+            })
             resolve()
           },
           error: (error) => {
             this.spinner.hide();
-            this.toastr.error("Error")
+             Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
             reject()
           }
         }
@@ -204,12 +254,24 @@ async DeleteAbout(About_id: number) {
 
       next: () => {
         this.spinner.hide()
-        this.toastr.success("Deleted Successfully")
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Deleted successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
         resolve()
       },
       error: () => {
         this.spinner.hide()
-        this.toastr.error("Error")
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         reject()
 
       }
@@ -230,7 +292,13 @@ GetCategory(){
       },
       error:(err)=>{console.log(err)
       this.spinner.hide()
-      this.toastr.error("Error")}
+       Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })}
     }
   )
 }
@@ -244,12 +312,24 @@ async CreateCategoryAC(Category: any) {
     {
       next: () => {
         this.spinner.hide();
-        this.toastr.success("Added Successfully")
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Added successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
         resolve()
       },
       error: (error) => {
         this.spinner.hide();
-        this.toastr.error("Error")
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         reject()
       }
     }
@@ -276,13 +356,25 @@ async UpdateCategory(Category: any) {
     this.http.put("https://localhost:44373/api/Category/Update", Category).subscribe({
       next: () => {
         this.spinner.hide();
-        this.toastr.success("Updated Successfully");
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Updated successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
         resolve();
 
       },
       error: () => {
         this.spinner.hide();
-        this.toastr.error("Error")
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         reject();
       }
 
@@ -298,12 +390,24 @@ async DeleteCategory(Category_id: number) {
 
       next: () => {
         this.spinner.hide()
-        this.toastr.success("Deleted Successfully")
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Deleted successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
         resolve()
       },
       error: () => {
         this.spinner.hide()
-        this.toastr.error("Error")
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         reject()
 
       }
@@ -322,12 +426,17 @@ async GetCategoryById(catid:any){
     {
       next:(res)=>{this.CatById=res
       this.spinner.hide()
-      this.toastr.success("Success")
       resolve()
     },
       error:(err)=>{console.log(err)
       this.spinner.hide()
-      this.toastr.error("Error")
+       Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       reject()
       }
     }
@@ -343,14 +452,19 @@ async GetAllTestemonial(){
           next: (res) => {
             this.Testemonial = res
             this.spinner.hide()
-            
             resolve()
           },
 
           error: (err) => {
             console.log(err)
             this.spinner.hide()
-            this.toastr.error("Error")
+             Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           }
         }
       )
@@ -365,11 +479,23 @@ CreateTestimonialAC(Testimonial: any) {
     {
       next: () => {
         this.spinner.hide();
-        this.toastr.success("Added Successfully")
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Added successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
       },
       error: (error) => {
         this.spinner.hide();
-        this.toastr.error("Error")
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     }
   )
@@ -384,10 +510,16 @@ GetTestimonialByPatienId(TestimonialId:any){
     {
       next:(res)=>{this.Testimonialbyid=res
       this.spinner.hide()
-      this.toastr.success("Success")},
+      },
       error:(err)=>{console.log(err)
       this.spinner.hide()
-      this.toastr.error("Error")
+       Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     }
   )
@@ -399,10 +531,22 @@ publish(TestimonialId:any){
   this.http.get("https://localhost:44373/API/Testimonials/publish/"+TestimonialId).subscribe(
     {
       next:()=>{
-      this.toastr.success("Published")},
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Published successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })},
       error:(err)=>{console.log(err)
       this.spinner.hide()
-      this.toastr.error("Error")
+       Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     }
   )
@@ -415,10 +559,22 @@ unpublish(TestimonialId:any){
   this.http.get("https://localhost:44373/API/Testimonials/unpublish/"+TestimonialId).subscribe(
     {
       next:()=>{
-      this.toastr.success("unPublished")},
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Hide successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })},
       error:(err)=>{console.log(err)
       this.spinner.hide()
-      this.toastr.error("Error")
+       Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     }
   )
@@ -445,14 +601,19 @@ async RegisterPatient(Register:any){
     {
       next:()=>{
         this.spinner.hide()
-        this.toastr.success("Success")
         resolve();
      },
      error:(err)=>{
       console.log(err);
       
       this.spinner.hide()
-      this.toastr.error("Error")
+       Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
      }
     }
   )
@@ -495,7 +656,7 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     this.spinner.hide()
     if (data.Role == 3)
     {
-      this.GetPatientById(data.loginid)
+      this.GetPatientById(data.loginid);
       this.route.navigate([""])
     }
     else if (data.Role == 2)
@@ -514,7 +675,13 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     error:(err)=>{
       this.spinner.hide()
       console.log(err);      
-      this.toastr.error("Invalid username or password")
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Something went wrong!',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
 )}
@@ -528,7 +695,6 @@ PatientById: any
           next: (res:any) => {
             this.PatientById = res
             this.spinner.hide()
-            this.toastr.success("Success")
            
             
             resolve()
@@ -537,7 +703,13 @@ PatientById: any
           error: (err) => {
             console.log(err + "dd")
             this.spinner.hide()
-            this.toastr.error("Error")
+             Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           }
         }
       )
@@ -545,30 +717,7 @@ PatientById: any
   }
 
 
-// DoctorById: any
-// async GetDoctorById(doctorid: any) {
-//  return new Promise<void>((resolve, reject) => {
-//  this.spinner.show()
-//  this.http.get("https://localhost:44373/api/Doctor/getbyid/" + doctorid).subscribe(
-//    {
-//      next: (res) => {     
-//        this.DoctorById = res
-//        console.log(this.DoctorById);
-       
-//        this.spinner.hide()          
-//        this.toastr.success()
-//       resolve()
-//      },
-//      error: (err) => {
-//        console.log(err)
-//        this.spinner.hide()
-//        this.toastr.error()
-//         reject()
-//      }
-//    }
-//  )
-//  })
-// }
+
 
 DoctorByLoginId: any
   async GetDoctorByLogInId(Loginid: any) {
@@ -580,13 +729,19 @@ DoctorByLoginId: any
 
             this.DoctorByLoginId = res
             this.spinner.hide()
-            this.toastr.success()
+
             resolve()
           },
           error: (err) => {
             console.log(err)
             this.spinner.hide()
-            this.toastr.error()
+            Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: 'Something went wrong!',
+              showConfirmButton: false,
+              timer: 1500
+            })
             reject()
           }
         }
@@ -602,14 +757,26 @@ createRequest(request:any){
       {
         next:()=>{
           this.spinner.hide()
-          this.toastr.success("Success")
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Added successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
           resolve();
        },
        error:(err)=>{
         console.log(err);
         
         this.spinner.hide()
-        this.toastr.error("Error")
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
        }
       }
     )
@@ -629,7 +796,13 @@ async Getrequst(doctorid: any) {
       error: (err) => {
         console.log(err)
         this.spinner.hide()
-        this.toastr.error()
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
          reject()
       }
     }
@@ -648,7 +821,13 @@ async Getrequst(doctorid: any) {
         },
         error: (error) => {
           this.spinner.hide();
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           reject()
         }
       }
@@ -668,7 +847,13 @@ async accepted(req:any) {
         },
         error: (error) => {
           this.spinner.hide();
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           reject()
         }
       }

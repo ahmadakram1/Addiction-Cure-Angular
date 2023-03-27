@@ -4,13 +4,14 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from './admin.service';
 import { SharedService } from './shared.service';
+import Swal from 'sweetalert2'
 
 @Injectable({
   providedIn: 'root'
 })
 export class PatientService {
 
-  constructor(private http: HttpClient, private spinner: NgxSpinnerService, private toastr: ToastrService) {
+  constructor(private http: HttpClient, private spinner: NgxSpinnerService) {
 
   }
 
@@ -29,7 +30,13 @@ export class PatientService {
         error: (err) => {
           console.log(err)
           this.spinner.hide()
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         }
       }
     )
@@ -67,11 +74,23 @@ export class PatientService {
       {
         next: () => {
           this.spinner.hide();
-          this.toastr.success("Added Successfully")
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Added successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
         },
         error: (error) => {
           this.spinner.hide();
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         }
       }
     )
@@ -87,14 +106,19 @@ export class PatientService {
           next: (res) => {
             this.PatientBypateinId = res
             this.spinner.hide()
-            this.toastr.success("Success")
             resolve()
           },
 
           error: (err) => {
             console.log(err)
             this.spinner.hide()
-            this.toastr.error("Error")
+             Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           }
         }
       )
@@ -107,12 +131,24 @@ export class PatientService {
         {
           next: () => {
             this.spinner.hide()
-            this.toastr.success("Deleted Successfully")
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Deleted successfully',
+              showConfirmButton: false,
+              timer: 1500
+            })
             resolve()
           },
           error: () => {
             this.spinner.hide()
-            this.toastr.error("Error")
+             Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
             reject()
           }
         }
@@ -141,13 +177,25 @@ UploadImage(imageFile : any)
         {
           next: () => {
             this.spinner.hide()
-            this.toastr.success("Updated Successfully")
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Updated successfully',
+              showConfirmButton: false,
+              timer: 1500
+            })
             resolve()
           },
           error: (err) => {
             console.log(err);
             this.spinner.hide()
-            this.toastr.error("Error")
+             Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           }
         }
       )
@@ -168,7 +216,13 @@ UploadImage(imageFile : any)
           error: (err) => {
             console.log(err)
             this.spinner.hide()
-            this.toastr.error("Error")
+             Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           }
         }
       )
@@ -192,7 +246,13 @@ UploadImage(imageFile : any)
           error: (err) => {
             console.log(err)
             this.spinner.hide()
-            this.toastr.error("Error")
+             Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           }
         }
       )
@@ -226,13 +286,25 @@ UploadImage(imageFile : any)
 
         next: () => {
           this.spinner.hide();
-          this.toastr.success("Added Successfully")
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Added successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
           console.log("aa");
 
         },
         error: (error) => {
           this.spinner.hide();
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           console.log(error);
 
         }
