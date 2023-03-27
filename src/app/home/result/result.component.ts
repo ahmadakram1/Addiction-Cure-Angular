@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PatientService } from 'src/app/patient.service';
 import { SharedService } from 'src/app/shared.service';
 
@@ -8,7 +9,7 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent {
-constructor(public patientService:PatientService , public sharedService:SharedService){}
+constructor(public patientService:PatientService , public sharedService:SharedService,private route:Router){}
 
 async ngOnInit(){
  await this.patientService.getResultByPatid(this.sharedService.PatientById.patientid)
@@ -16,5 +17,6 @@ async ngOnInit(){
 
 numberOfTest(numberoftest:number ,Resulttestid:number){
 this.sharedService.SetTestNumber(numberoftest ,Resulttestid)
+this.route.navigate(["/Quiz"]);
 }
 }

@@ -9,6 +9,7 @@ import { MainComponent } from './main/main.component';
 import { OutPutDoctorComponent } from './out-put-doctor/out-put-doctor.component';
 import { PaymentTestComponent } from './payment-test/payment-test.component';
 import { Profile2Component } from './profile2/profile2.component';
+import { QuizesComponent } from './quizes/quizes.component';
 import { RequestComponent } from './request/request.component';
 import { ResultComponent } from './result/result.component';
 import { TestComponent } from './test/test.component';
@@ -66,6 +67,10 @@ const routes: Routes = [
   {
     path: "AllCategory",
     component: AllCategoryComponent
+  },
+  {
+    path: "Quiz",
+    component: QuizesComponent
   }
 
 ];
