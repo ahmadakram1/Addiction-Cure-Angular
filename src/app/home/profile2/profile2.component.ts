@@ -67,6 +67,7 @@ export class Profile2Component {
   async UpdatePatient() {
    await this.patientService.UpdatePatient(this.UpdateProfile.value)
     this.sharedservice.GetPatientById(this.sharedservice.PatientById.patientid)
+    window.location.reload()
 
   }
 
