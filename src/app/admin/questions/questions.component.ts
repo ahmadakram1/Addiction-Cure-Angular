@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DoctorsService } from 'src/app/doctors.service';
@@ -9,7 +9,7 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css']
 }) 
-export class QuestionsComponent {
+export class QuestionsComponent implements OnInit{
 
 
 

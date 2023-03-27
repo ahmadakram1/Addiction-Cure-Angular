@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminService } from 'src/app/admin.service';
@@ -10,7 +10,7 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './result-test.component.html',
   styleUrls: ['./result-test.component.css']
 })
-export class ResultTestComponent {
+export class ResultTestComponent implements OnInit{
 
   @ViewChild("UpdateForm") update:any;
 

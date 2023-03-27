@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/admin.service';
 import { DoctorsService } from 'src/app/doctors.service';
@@ -13,10 +13,13 @@ import { SharedService } from 'src/app/shared.service';
 export class PatientComponent {
 constructor(public patientService:PatientService ,public adminservice:AdminService, public doctorService:DoctorsService , public sharedService : SharedService,private route:Router){}
  
-
+x= localStorage.getItem("loginid")
 async ngOnInit(){
+  if(this.sharedService.DoctorByLoginId==null){
+  await  this.sharedService.GetDoctorByLogInId(localStorage.getItem("loginid"))
   this.doctorService.getpatientbydoctorid(this.sharedService.DoctorByLoginId.doctodid)
-  this.patientService.GetAllPatient()
+  }else{
+ this.doctorService.getpatientbydoctorid(this.sharedService.DoctorByLoginId.doctodid)}
 }
 GetById(id:number)
 {

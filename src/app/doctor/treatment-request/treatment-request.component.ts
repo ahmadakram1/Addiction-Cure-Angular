@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/admin.service';
 import { SharedService } from 'src/app/shared.service';
 
@@ -7,7 +7,7 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './treatment-request.component.html',
   styleUrls: ['./treatment-request.component.css']
 })
-export class TreatmentRequestComponent {
+export class TreatmentRequestComponent implements OnInit{
 constructor(public sharedService : SharedService,public adminservice:AdminService){}
 
 

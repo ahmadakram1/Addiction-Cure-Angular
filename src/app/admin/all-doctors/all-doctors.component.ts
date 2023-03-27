@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AdminService } from 'src/app/admin.service';
 import { MatDialog, } from '@angular/material/dialog';
@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './all-doctors.component.html',
   styleUrls: ['./all-doctors.component.css']
 })
-export class AllDoctorsComponent {
+export class AllDoctorsComponent  implements OnInit{
 
 
   @ViewChild("CreateForm") Create: any;

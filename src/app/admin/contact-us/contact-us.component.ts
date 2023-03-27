@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminService } from 'src/app/admin.service';
 import { SharedService } from 'src/app/shared.service';
@@ -8,7 +8,7 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.css']
 })
-export class ContactUsComponent {
+export class ContactUsComponent implements OnInit{
 
   @ViewChild("Deleteform") Delete :any;
 

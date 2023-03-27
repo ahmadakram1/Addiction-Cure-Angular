@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './about-us-mange.component.html',
   styleUrls: ['./about-us-mange.component.css']
 })
-export class AboutUsMangeComponent {
+export class AboutUsMangeComponent  implements OnInit{
 
   constructor(public sharedservice: SharedService, public dialog: MatDialog,public route:Router) {
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './home-manamgent.component.html',
   styleUrls: ['./home-manamgent.component.css']
 })
-export class HomeManamgentComponent {
+export class HomeManamgentComponent implements OnInit {
 
 
 
