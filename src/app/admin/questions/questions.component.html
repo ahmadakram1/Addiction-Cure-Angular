@@ -20,7 +20,7 @@
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <br>
                     <h1 style="text-align: center;"><b style="font-size: larger;">Questions Page</b></h1>
-                    <td><input type="button" value="Create" class="btn btn-dark" (click)="OpenCreateDialog()"></td>
+                    <td><input type="button" value="Create Questions " class="btn btn-dark" style="background-color: #007383;" (click)="OpenCreateDialog()"></td>
                     <br>
                     <div class="card mb-4">
                         <table class="table table-striped">
@@ -54,13 +54,13 @@
 </div>
 <ng-template #CreateForm>
 
-    <div mat-dialog-content>
+    <div mat-dialog-content style="width: 700px;">
         <form [formGroup]="CreateQuestionsForm" class="example-form">            
 
             <div>
-                <mat-form-field class="example-full-width">
-                    <mat-label>Question</mat-label>
-                    <input type="text" matInput formControlName="quastion">
+                <mat-form-field class="example-full-width" style="width: 650px;" >
+                    <mat-label style="width: 650px;" >Question</mat-label>
+                    <input type="text" matInput formControlName="quastion" style="width: 650px;" >
                     <mat-error *ngIf="CreateQuestionsForm.controls['quastion'].hasError('required')">
                         Question is <strong>required</strong>
                     </mat-error>
@@ -82,7 +82,7 @@
 
             <div mat-dialog-actions >
                 <input type="button" [disabled]="CreateQuestionsForm.invalid" value="Create" (click)="CreateQ()" class="btn btn-dark" mat-dialog-close>
-                <input type="button" mat-dialog-close  value="Cancel" class="btn btn-dark"> 
+                <input type="button" mat-dialog-close  value="Cancel" class="btn btn-danger" style="margin-left: 3%;"> 
             </div>
         </form>
     </div>
@@ -95,9 +95,9 @@
 
 
 
-    <div matDialogContent>
+    <div matDialogContent> 
         <h2 mat-dialog-content><b>Would you like to delete this Question ?</b></h2>
-        <div mat-dialog-actions>
+        <div mat-dialog-actions >
             <input mat-dialog-close value="Yes" type="button" class="btn btn-danger" (click)="DeleteQ()">
             <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
         </div>
