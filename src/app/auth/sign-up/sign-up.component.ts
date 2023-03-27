@@ -79,5 +79,4 @@ export class SignUpComponent {
       this.shaerdService.UploadImage(formData)
     }
   }
-  GetData() { console.log(this.RegisterForm.value); }
 }
