@@ -74,8 +74,8 @@ export class AllDoctorsComponent {
 
 
 
-  ngOnInit() {
-    this.adminService.GetAllDoctors()
+  async ngOnInit() {
+   await this.adminService.GetAllDoctors()
     this.sharedservice.GetCategory()
     this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
 

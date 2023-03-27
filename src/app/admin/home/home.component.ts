@@ -14,8 +14,8 @@ export class HomeComponent {
   constructor(public sharedservice: SharedService, public dialog: MatDialog,public route:Router) {
 
   }
-  ngOnInit() {
-    this.sharedservice.GetAllHome();
+ async ngOnInit() {
+  await  this.sharedservice.GetAllHome();
     this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
 
   }

@@ -64,8 +64,8 @@ export class Profile2Component {
   }
 
 
-  UpdatePatient() {
-    this.patientService.UpdatePatient(this.UpdateProfile.value)
+  async UpdatePatient() {
+   await this.patientService.UpdatePatient(this.UpdateProfile.value)
     this.sharedservice.GetPatientById(this.sharedservice.PatientById.patientid)
 
   }

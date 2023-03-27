@@ -19,14 +19,14 @@ async ngOnInit(){
 
   
 
-  this.adminService.GetAllDoctors()
-  this.patientService.GetAllPatient()
-  this.adminService.GetAllPayment()
-  this.doctorservice.GetAllQuastionss()
-  this.sharedservice.GetCategory()
-  this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
-  this.sharedservice.GetAllTestemonial()
-
+  await this.adminService.GetAllDoctors()
+  await this.doctorservice.GetAllQuastionss()
+  await this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
+  await this.sharedservice.GetAllTestemonial()
+   this.patientService.GetAllPatient()
+   this.adminService.GetAllPayment()
+   this.sharedservice.GetCategory()
+  
 
     
 var myChart = new Chart("myChart", {
