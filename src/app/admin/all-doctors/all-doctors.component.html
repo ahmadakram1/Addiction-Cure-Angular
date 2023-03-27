@@ -233,7 +233,7 @@
                     </div> -->
                     <div>
                         <mat-form-field appearance="fill">
-                            <mat-label>category</mat-label>
+                            <mat-label>category : {{this.adminService.DoctorBydocId.categoryname}}</mat-label>
                             <mat-select formControlName="categoryID">
                                 <mat-option *ngFor="let item of sharedservice.Category" [value]="item.categoryid">
                                     {{item.categoryname}}

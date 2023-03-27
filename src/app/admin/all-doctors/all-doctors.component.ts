@@ -41,7 +41,7 @@ export class AllDoctorsComponent {
 
 
   CreateDoctorForm = new FormGroup({
-
+    
     Firstname: new FormControl("", [Validators.required]),
     Lastname: new FormControl("", [Validators.required]),
     // Imagename: new FormControl("", [Validators.required]),
@@ -57,11 +57,10 @@ export class AllDoctorsComponent {
 
 
   UpdateDoctorForm = new FormGroup({
-
+    imagename: new FormControl(""),
     doctodid: new FormControl(''),
     firstname: new FormControl("", [Validators.required]),
     lastname: new FormControl("", [Validators.required]),
-    Imagename: new FormControl(""),
     level1: new FormControl("", [Validators.required]),
     username: new FormControl("", [Validators.required]),
     password: new FormControl("", [Validators.required]),
