@@ -49,11 +49,6 @@ PatinetLevel(){
 
 }
 
-x = localStorage.getItem("loginid")?.toString()
-  
- 
-
-
 
 OpenDialog()
 {

@@ -19,12 +19,18 @@ export class SharedService {
 
 id?:number
 cat?:number
-
+TestNumber?:number
+Resultid?:number
 retrive(id:number,cat:number){
 this.id=id
 this.cat=cat
 console.log("hi there",this.id,this.cat);
 
+}
+
+SetTestNumber(testNumber:number,resultid:number){
+this.TestNumber=testNumber
+this.Resultid=resultid
 }
 
 

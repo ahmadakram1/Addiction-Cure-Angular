@@ -155,7 +155,6 @@ UploadImage(imageFile : any)
   }
 
   QuastionsByCategoryId: any
- 
   async GetQuastionByCategoryId(quastionID: any) {
     return new Promise<void>((resolve, reject) => {
       this.spinner.show()
@@ -164,7 +163,6 @@ UploadImage(imageFile : any)
           next: (res:any) => {
             this.QuastionsByCategoryId = res
             this.spinner.hide()
-            this.toastr.success("Success")
             resolve()
           },
           error: (err) => {
@@ -176,6 +174,33 @@ UploadImage(imageFile : any)
       )
     })
   }
+
+
+  QuastionsByPatId: any
+  QuastionsByTestNumber:any
+  async GetQuastionsByPatId(patientid: any , Testnumber:any) {
+    return new Promise<void>((resolve, reject) => {
+      this.spinner.show()
+      this.http.get("https://localhost:44373/API/Test/getByPatID/" + patientid).subscribe(
+        {
+          next: (res:any) => {
+            this.QuastionsByPatId = res
+            this.QuastionsByTestNumber=res.filter((x:any)=>x.testnumber==Testnumber)
+            this.spinner.hide()
+            resolve()
+          },
+          error: (err) => {
+            console.log(err)
+            this.spinner.hide()
+            this.toastr.error("Error")
+          }
+        }
+      )
+    })
+  }
+
+
+
 
   PaymentTest: any
   async CreatePayment(Pay: any) {
@@ -221,6 +246,22 @@ UploadImage(imageFile : any)
       error: (err) => { console.log(err) },
     })
   }
+
+  UpdateStatus(id:number,Status:number) {
+    this.http.get("https://localhost:44373/api/Test/updateStatus/"+id+"/"+Status).subscribe({
+      next: () => { },
+      error: (err) => { console.log(err) },
+    })
+  }
+
+  Afterquiz(id:any,result:string) {
+    this.http.get("https://localhost:44373/api/ResultTest/afterquiz/"+id+"/"+result).subscribe({
+      next: () => { },
+      error: (err) => { console.log(err) },
+    })
+  }
+
+
 
 
 }

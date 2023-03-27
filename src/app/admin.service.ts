@@ -20,7 +20,7 @@ export class AdminService {
     this.http.get("https://localhost:44373/API/Doctor/getalldoctor").subscribe(
       {
         next: (res:any) => {
-          this.Doctors = res
+          this.Doctors = res.filter((x:any)=>x.doctodid!=21)
           this.spinner.hide()
           resolve()
         },

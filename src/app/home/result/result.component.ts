@@ -14,4 +14,7 @@ async ngOnInit(){
  await this.patientService.getResultByPatid(this.sharedService.PatientById.patientid)
 }
 
+numberOfTest(numberoftest:number ,Resulttestid:number){
+this.sharedService.SetTestNumber(numberoftest ,Resulttestid)
+}
 }
