@@ -42,8 +42,8 @@
                                     <td>
                                         <input type="button" value="Update" class="btn btn-success"
                                         (click)="OpenUpdateDialog(item.patientid)"  >
-                                        <input type="button" value="Delete" class="btn btn-danger"
-                                            (click)="OpenDeleteDialog(item.patientid)" style="margin-left: 2%;">
+                                        <!-- <input type="button" value="Delete" class="btn btn-danger"
+                                            (click)="OpenDeleteDialog(item.patientid)" style="margin-left: 2%;"> -->
                                         <input type="button" value="Details" class="btn btn-primary"
                                              (click)="GetById(item.patientid)" style="margin-left: 2%;">
                                     </td>
@@ -166,14 +166,14 @@
     </div>
 
 </ng-template>
-
+<!-- 
 <ng-template #DeleteForm>
     <h2 mat-dialog-content>Would you like to delete this item?</h2>
     <div mat-dialog-actions>
         <input mat-dialog-close value="Yes" type="button" class="btn btn-success" (click)="DeletePatientbyID()">
         <input mat-dialog-close value="No" type="button" class="btn btn-error">
     </div>
-</ng-template>
+</ng-template> -->
 
 
 
