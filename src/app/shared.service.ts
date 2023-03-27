@@ -587,7 +587,9 @@ unpublish(TestimonialId:any){
 }
 
 async RegisterPatient(Register:any){
-  Register.imagename=this.imageName
+  // Register.imagename=this.imageName
+  Register.imagename="th (2).png"
+
   Register.roleid=2
   Register.doctorid=null
   Register.level1=null
