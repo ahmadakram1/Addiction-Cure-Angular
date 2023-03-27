@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminService } from 'src/app/admin.service';
@@ -11,7 +11,7 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './questions-doctor.component.html',
   styleUrls: ['./questions-doctor.component.css']
 })
-export class QuestionsDoctorComponent {
+export class QuestionsDoctorComponent implements OnInit{
 
   @ViewChild("CreateForm") Create: any;
 
@@ -31,8 +31,15 @@ export class QuestionsDoctorComponent {
 
 
   async ngOnInit() {
+    if(this.sharedservice.DoctorByLoginId==null){
     await this.doctorservice.GetAllQuastionss()
     this.sharedservice.GetCategory()
+    this.doctorservice.getpatientbydoctorid(this.sharedservice.DoctorByLoginId.doctodid)
+    }else{
+        await this.doctorservice.GetAllQuastionss()
+        this.sharedservice.GetCategory()
+    }
+    
 
   }
 

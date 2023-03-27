@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
 import { DoctorsService } from 'src/app/doctors.service';
@@ -13,7 +13,7 @@ Chart.register(...registerables);
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css']
 })
-export class ReportComponent {
+export class ReportComponent implements OnInit{
 
   data: any;
   constructor(public adminService: AdminService, private sharedservice: SharedService,) {

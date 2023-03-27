@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './home-footer.component.html',
   styleUrls: ['./home-footer.component.css']
 })
-export class HomeFooterComponent {
+export class HomeFooterComponent implements OnInit{
   constructor(public shardService:SharedService){}
 
   ngOnInit(){

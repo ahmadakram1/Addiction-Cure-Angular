@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
 import { SharedService } from 'src/app/shared.service';
@@ -8,7 +8,7 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './profile3.component.html',
   styleUrls: ['./profile3.component.css']
 })
-export class Profile3Component {
+export class Profile3Component implements OnInit{
   constructor(public sharedservice: SharedService, public adminService: AdminService) { 
 
       

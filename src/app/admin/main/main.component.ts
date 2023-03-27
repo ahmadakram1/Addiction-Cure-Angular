@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/admin.service';
 import { PatientService } from 'src/app/patient.service';
 import { SharedService } from 'src/app/shared.service';
@@ -12,7 +12,7 @@ Chart.register(...registerables);
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent {
+export class MainComponent  implements OnInit{
 constructor(public doctorservice :DoctorsService,public adminService : AdminService , public patientService :PatientService ,public sharedservice:SharedService) {}
 
 async ngOnInit(){

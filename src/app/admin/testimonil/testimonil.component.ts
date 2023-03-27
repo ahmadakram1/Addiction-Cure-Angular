@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './testimonil.component.html',
   styleUrls: ['./testimonil.component.css']
 })
-export class TestimonilComponent {
+export class TestimonilComponent implements OnInit{
 
  
  

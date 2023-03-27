@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './sent-new-test.component.html',
   styleUrls: ['./sent-new-test.component.css']
 })
-export class SentNewTestComponent {
+export class SentNewTestComponent implements OnInit{
 
   constructor(public patientService:PatientService,private dialog:MatDialog ,public adminservice:AdminService, public doctorService:DoctorsService , public sharedService : SharedService,private route:Router){}
   @ViewChild("NewTest") sentnewtest:any;

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { PatientService } from 'src/app/patient.service';
@@ -11,7 +11,7 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./all-patient.component.css']
 })
 
-export class AllPatientComponent {
+export class AllPatientComponent implements OnInit {
   data: any;
 
   constructor(public patientService: PatientService, public dialog: MatDialog, public sharedservice: SharedService, private http: HttpClient) {
