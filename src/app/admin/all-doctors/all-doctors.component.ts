@@ -61,7 +61,7 @@ export class AllDoctorsComponent {
     doctodid: new FormControl(''),
     firstname: new FormControl("", [Validators.required]),
     lastname: new FormControl("", [Validators.required]),
-    // Imagename: new FormControl("", [Validators.required]),
+    Imagename: new FormControl(""),
     level1: new FormControl("", [Validators.required]),
     username: new FormControl("", [Validators.required]),
     password: new FormControl("", [Validators.required]),

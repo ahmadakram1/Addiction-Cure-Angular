@@ -66,7 +66,10 @@ async GetAllHome()
 
 
 async UpdateHome(Home: any) {
-  Home.image1 = this.HomeImage
+  if (this.HomeImage!="") {
+    Home.image1 = this.HomeImage
+  }
+  
   return new Promise<void>((resolve, reject) => {
     this.spinner.show()
     this.http.put("https://localhost:44373/API/home/updateHome", Home).subscribe(

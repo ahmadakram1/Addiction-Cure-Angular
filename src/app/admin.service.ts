@@ -133,7 +133,10 @@ GetDocByName(name :string){
 
   async UpdateDoctor(Doctor: any) {
     Doctor.roleid=2
-    Doctor.imagename=this.sharedservice.imageName;
+    if(this.sharedservice.imageName!=""){
+      Doctor.imagename=this.sharedservice.imageName;
+    }
+    
     
     return new Promise<void>((resolve, reject) => {
 

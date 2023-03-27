@@ -169,7 +169,9 @@ UploadImage(imageFile : any)
 }
 
   async UpdatePatient(Patient: any) {
-    Patient.imagename=this.imageName
+    if (this.imageName!="") {
+      Patient.imagename=this.imageName
+    }
     Patient.roleid=3;
     return new Promise<void>((resolve, reject) => {
       this.spinner.show()
