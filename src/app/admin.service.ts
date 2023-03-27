@@ -3,15 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
 import { SharedService } from './shared.service';
-// GGGGGGG
-//JDJDJDJJD
+import Swal from 'sweetalert2'
 @Injectable({
   providedIn: 'root'
 })
 
 export class AdminService {
 
-  constructor(private http: HttpClient, private spinner: NgxSpinnerService, private toastr: ToastrService , public sharedservice : SharedService) { }
+  constructor(private http: HttpClient, private spinner: NgxSpinnerService, public sharedservice : SharedService) { }
 
   Doctors: any = []
   GetAllDoctors() {
@@ -27,7 +26,13 @@ export class AdminService {
         error: (err) => {
           console.log(err)
           this.spinner.hide()
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         }
       }
     )})
@@ -49,7 +54,13 @@ export class AdminService {
         error: (err) => {
           console.log(err)
           this.spinner.hide()
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         }
       }
     )})
@@ -64,15 +75,18 @@ GetDocByName(name :string){
   next:(result)=>{
 
     this.Doctors=result
-    this.spinner.hide(); 
-    this.toastr.success(" search done")
-
-
+    this.spinner.hide();
   },
   error : (error)=>{
     console.log(error);
     this.spinner.hide(); 
-    this.toastr.error("error")
+     Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
 
   }
   })
@@ -89,12 +103,24 @@ GetDocByName(name :string){
       {
         next: () => {
           this.spinner.hide();
-          this.toastr.success("Added Successfully");
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Added successfully',
+            showConfirmButton: false,
+            timer: 1500
+          });
           resolve();
         },
         error: (error) => {
           this.spinner.hide();
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
          reject();
         }
       }
@@ -115,13 +141,25 @@ GetDocByName(name :string){
       this.http.put("https://localhost:44373/API/Doctor/updatedoctor", Doctor).subscribe({
         next: () => {
           this.spinner.hide();
-          this.toastr.success("Updated Successfully");
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Updated successfully',
+            showConfirmButton: false,
+            timer: 1500
+          });
           resolve();
 
         },
         error: () => {
           this.spinner.hide();
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           reject();
         }
 
@@ -142,13 +180,25 @@ GetDocByName(name :string){
       this.http.put("https://localhost:44373/API/Doctor/updatedoctor", Doctor).subscribe({
         next: () => {
           this.spinner.hide();
-          this.toastr.success("Updated Successfully");
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Updated successfully',
+            showConfirmButton: false,
+            timer: 1500
+          });
           resolve();
 
         },
         error: () => {
           this.spinner.hide();
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           reject();
         }
 
@@ -165,12 +215,24 @@ GetDocByName(name :string){
 
         next: () => {
           this.spinner.hide()
-          this.toastr.success("Deleted Successfully")
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Deleted successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
           resolve()
         },
         error: () => {
           this.spinner.hide()
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           reject()
 
         }
@@ -192,16 +254,19 @@ GetDocByName(name :string){
       {
         next: (res) => {          
           this.DoctorBydocId = res
-         
-          
           this.spinner.hide()          
-          this.toastr.success()
          resolve()
         },
         error: (err) => {
           console.log(err)
           this.spinner.hide()
-          this.toastr.error()
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Something went wrong!',
+            showConfirmButton: false,
+            timer: 1500
+          })
            reject()
         }
       }
@@ -224,7 +289,13 @@ GetDocByName(name :string){
         error: (err) => {
           console.log(err)
           this.spinner.hide()
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         }
       }
     )
@@ -239,11 +310,23 @@ GetDocByName(name :string){
       {
         next: () => {
           this.spinner.hide();
-          this.toastr.success("Sent Successfully")
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Added successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
         },
         error: (error) => {
           this.spinner.hide();
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         }
       }
     )
@@ -257,12 +340,24 @@ GetDocByName(name :string){
       this.http.delete("https://localhost:44373/api/ContactUs/deleteContactUs/" + Contact_id).subscribe({
         next: () => {
           this.spinner.hide()
-          this.toastr.success("Deleted Successfully")
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Deleted successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
           resolve();
         },
         error: () => {
           this.spinner.hide()
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
           reject();
         }
       }
@@ -284,7 +379,13 @@ GetDocByName(name :string){
         error: (Error) => {
           console.log(Error);
           this.spinner.hide();
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
 
         }
 
@@ -303,11 +404,23 @@ GetDocByName(name :string){
       {
         next: () => {
           this.spinner.hide();
-          this.toastr.success("Added Successfully")
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Added successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
         },
         error: (error) => {
           this.spinner.hide();
-          this.toastr.error("Error")
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         }
       }
     )
@@ -323,12 +436,17 @@ GetDocByName(name :string){
       {
           next:(res)=>{this.reports=res
           this.spinner.hide()
-          this.toastr.success("Success")
           this.total = this.reports.reduce((sum:any,obj:any)=>sum+obj.amount,0)
         },
           error:(err)=>{console.log(err)
           this.spinner.hide()
-          this.toastr.error("Error")}
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })}
       }
     )
   }
@@ -344,17 +462,18 @@ getReport(){
     next:(res)=>{      
       this.reports=res
       this.spinner.hide()
-      this.toastr.success("Success")
       this.total = this.reports.reduce((sum:any,obj:any)=>sum+obj.amount,0)
     },
     error:(err)=>{console.log(err)
       this.spinner.hide()
-      this.toastr.error("Error")}
+       Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })}
   })
 }
-
-
-
-
 
 }

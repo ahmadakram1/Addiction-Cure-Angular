@@ -5,6 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { SharedService } from 'src/app/shared.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,6 +25,8 @@ export class LoginComponent {
       
     }
   
+
+    
     A?: boolean
     ShowAError() {
       this.A = true;
