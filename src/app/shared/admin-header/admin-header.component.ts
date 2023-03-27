@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-header',
@@ -8,17 +9,18 @@ import { Router } from '@angular/router';
 })
 export class AdminHeaderComponent {
 
-constructor(private route : Router){
+constructor(private route : Router,private toster:ToastrService){
 
 }
 
 
   
-Logout()
-{
-
-  localStorage.removeItem("loginid")
+logout() {
   localStorage.clear();
-  this.route.navigate(['/']);
+  this.route.navigate(['/Auth/SignIn']);
+}
+Wtostar(){
+  this.toster.toastrConfig.positionClass = 'toast-bottom-center';
+  this.toster.info("See You Soon Admin")
 }
 }
