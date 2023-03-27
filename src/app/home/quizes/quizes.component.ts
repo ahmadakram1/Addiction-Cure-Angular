@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { DoctorsService } from 'src/app/doctors.service';
 import { PatientService } from 'src/app/patient.service';
 import { SharedService } from 'src/app/shared.service';
@@ -9,7 +10,7 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./quizes.component.css']
 })
 export class QuizesComponent {
-  constructor(public sharedService:SharedService,public patientService:PatientService,public doctorService:DoctorsService){}
+  constructor(public sharedService:SharedService,public patientService:PatientService,public doctorService:DoctorsService,private route:Router){}
   async ngOnInit() {
     await this.patientService.GetQuastionsByPatId(this.sharedService.PatientById.patientid,this.sharedService.TestNumber)
     console.log(this.patientService.QuastionsByTestNumber); 
@@ -33,5 +34,6 @@ export class QuizesComponent {
 
     Submit(){
     this.patientService.Afterquiz(this.sharedService.Resultid,this.score)
+    this.route.navigate(["/"])
     }
 }
