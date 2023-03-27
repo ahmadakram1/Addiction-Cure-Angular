@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {  HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
-
+import Swal from 'sweetalert2'
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +11,7 @@ export class DoctorsService {
     throw new Error('Method not implemented.');
   }
 
-  constructor(private http:HttpClient,private spinner:NgxSpinnerService,private toastr:ToastrService) { }
+  constructor(private http:HttpClient,private spinner:NgxSpinnerService) { }
 
 Quastions:any=[]
 GetAllQuastions(id:number)
@@ -24,7 +24,13 @@ GetAllQuastions(id:number)
      },
       error:(err)=>{console.log(err)
       this.spinner.hide()
-      this.toastr.error("Error")}
+       Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })}
     }
   )
 }
@@ -39,12 +45,24 @@ async CreateQuastion(Quastion: any) {
     {
       next: () => {
         this.spinner.hide();
-        this.toastr.success("Added Successfully")
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Added successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
         resolve()
       },
       error: (error) => {
         this.spinner.hide();
-        this.toastr.error("Error")
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         reject()
       }
     }
@@ -61,13 +79,18 @@ async CreateQuastion(Quastion: any) {
     next:(result)=>{
      this.questionss=result;
      this.spinner.hide()
-     this.toastr.success("Successfull")
      resolve()
     },
     error:(error)=>{
      console.log(error);
      this.spinner.hide();
-     this.toastr.error("Error")
+      Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
     
      
      reject()
@@ -82,14 +105,26 @@ async CreateQuastion(Quastion: any) {
     this.http.delete("https://localhost:44373/api/Quastion/delete/"+id).subscribe({
     next:()=>{
       this.spinner.hide(),
-      this.toastr.success("Deleted Successfully")
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Deleted successfully',
+        showConfirmButton: false,
+        timer: 1500
+      })
       resolve()
 
     },
     error:(error)=>{
       console.log(error);
       this.spinner.hide();
-      this.toastr.error("Error")
+       Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       reject()
     }
   })
@@ -108,7 +143,13 @@ GetAllResult()
         },
         error:(err)=>{console.log(err)
         this.spinner.hide()
-        this.toastr.error("Error")}
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })}
     }
   )
 }
@@ -122,12 +163,24 @@ async CreateResult(result: any) {
    {
      next: () => {
        this.spinner.hide();
-       this.toastr.success("Added Successfully")
+       Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Added successfully',
+        showConfirmButton: false,
+        timer: 1500
+      })
        resolve()
      },
      error: (error) => {
        this.spinner.hide();
-       this.toastr.error("Error")
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
        reject()
      }
    }
@@ -196,12 +249,24 @@ async UpdateResultTest(ResultTest:any){
     this.http.put("https://localhost:44373/API/ResultTest",ResultTest).subscribe({
       next:()=>{
         this.spinner.hide()
-        this.toastr.success("Updated")
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Updated successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
         resolve()
       },
       error:(err)=>{
         this.spinner.hide()
-        this.toastr.error("Error")
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
         console.log("jjjjjjjjjjjjjj",err);
         
          reject()
@@ -222,10 +287,16 @@ Search(DateFome:any,Dateto:any)
     {
         next:(res)=>{this.AllResult=res
         this.spinner.hide()
-        this.toastr.success("Success")},
+      },
         error:(err)=>{console.log(err)
         this.spinner.hide()
-        this.toastr.error("Error")}
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })}
     }
   )
 }
@@ -242,7 +313,13 @@ GetAllTest()
         },
         error:(err)=>{console.log(err)
         this.spinner.hide()
-        this.toastr.error("Error")}
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })}
     }
   )
 }
@@ -263,7 +340,13 @@ async getpatientbydoctorid(DoctorId:number)
     },
     error: (error) => {
       this.spinner.hide();
-      this.toastr.error("Error")
+       Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
     }
   }
   )
@@ -274,10 +357,22 @@ async SendEmail(EmailBody: any) {
  this.http.post("https://localhost:44373/API/DoctorEmail/DoctorEmail", EmailBody).subscribe(
    {
      next: () => {
-       this.toastr.success("Email Sent")
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: ' Sent successfully',
+        showConfirmButton: false,
+        timer: 1500
+      })
      },
      error: (error) => {
-       this.toastr.error("Error")
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
      }
    }
  )
