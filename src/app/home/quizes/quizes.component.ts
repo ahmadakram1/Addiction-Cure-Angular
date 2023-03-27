@@ -12,7 +12,7 @@ export class QuizesComponent {
   constructor(public sharedService:SharedService,public patientService:PatientService,public doctorService:DoctorsService){}
   async ngOnInit() {
     await this.patientService.GetQuastionsByPatId(this.sharedService.PatientById.patientid,this.sharedService.TestNumber)
-   
+    console.log(this.patientService.QuastionsByTestNumber); 
    }
   zero = "no"
   one = "yes"
@@ -20,17 +20,18 @@ export class QuizesComponent {
     currentQuestionIndex = 0;
     selectedAnswer = 0;
     score:any=0;
-  
+    strScore:any
     next(id:number) {
       if (this.selectedAnswer === 0) {
         this.score++;
       }
       this.currentQuestionIndex++;
+      this.strScore=this.score.toString()
       this.patientService.UpdateStatus(id,this.selectedAnswer)
       this.selectedAnswer = 0;  
     }
 
     Submit(){
-    this.patientService.Afterquiz(this.sharedService.Resultid,this.score.toString())
+    this.patientService.Afterquiz(this.sharedService.Resultid,this.strScore)
     }
 }

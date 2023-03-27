@@ -185,7 +185,7 @@ UploadImage(imageFile : any)
         {
           next: (res:any) => {
             this.QuastionsByPatId = res
-            this.QuastionsByTestNumber=res.filter((x:any)=>x.testnumber==Testnumber)
+            this.QuastionsByTestNumber=res.filter((x:any)=>x.testNumber==Testnumber)
             this.spinner.hide()
             resolve()
           },
