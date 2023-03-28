@@ -824,6 +824,34 @@ async Getrequst(doctorid: any) {
   })
  }
 
+
+requestBypat: any=[]
+async GetrequstBypatid(patientid: any) {
+  return new Promise<void>((resolve, reject) => {
+  this.spinner.show()
+  this.http.get("https://localhost:44373/api/Req/doctor/" + patientid).subscribe(
+    {
+      next: (res:any) => {     
+        this.request = res
+       resolve()
+      },
+      error: (err) => {
+        console.log(err)
+        this.spinner.hide()
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+         reject()
+      }
+    }
+  )
+  })
+ }
+
  async Updatereq(req:any) {
   return new Promise<void>((resolve, reject) => {
     this.spinner.show()
