@@ -288,13 +288,6 @@ UploadImage(imageFile : any)
 
         next: () => {
           this.spinner.hide();
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Added successfully',
-            showConfirmButton: false,
-            timer: 1500
-          })
           console.log("aa");
 
         },

@@ -14,7 +14,7 @@
 <div class="container-fluid pt-5">
     <div class="container">
         <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-            <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5">Categories</h2>
+            <h1 class="d-inline-block text-primary text-uppercase border-bottom border-5">Categories</h1>
         </div>
         <!-- <div class="mx-auto" style="width: 100%; max-width: 600px; margin-top: -2%;">
             <div class="input-group">
@@ -31,26 +31,33 @@
 <div class="container" style="margin-top: -3%;">
 
     <div class="cards">
-        <div class="card" *ngFor="let item of sharedService.Category">
-            <div class="card__image-holder">
-                <img class="card__image" src="../../../assets/images/{{this.item.image}}" width="300" height="250" alt="img" />
-            </div>
-            <div class="card-title">
-                <h2>
-                    {{this.item.categoryname}}</h2>
-                    <div class="card-title">
-                        <h2>
-                            <small>{{item.abouttext}}</small>
-                        </h2>
-                    </div>
-                    <div class="button-wrapper" style="text-align: center;">
-                        <button type="button" class="btn btn-primary me-2">More</button>
-                    </div>
-            </div>
 
-            <br>
+        <div class="card" *ngFor="let item of sharedService.Category">
+          <div class="card__image-holder">
+            <img class="card__image" src="../../../assets/images/{{this.item.image}}" width="300" height="250" alt="wave" />
+          </div>
+          <div class="card-title">
+            <a (click)="showmore()" class="toggle-info btn">
+              <span class="left"></span>
+              <span class="right"></span>
+            </a>
+            <h2>
+                {{this.item.categoryname}}
+            </h2>
+          </div>
+          <div class="card-flap flap1">
+            <div class="card-description">
+                {{item.abouttext}}
+            </div>
+            <div class="card-flap flap2">
+              <div class="card-actions">
+                <a class="btn">Read more</a>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      
+      </div>
 
     <!--end catgery  -->
 
@@ -64,3 +71,10 @@
 <!-- Footer Start -->
 <app-home-footer></app-home-footer>
 <!-- Footer End -->
+
+
+
+  
+  
+  
+  
