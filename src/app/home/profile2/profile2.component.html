@@ -22,40 +22,41 @@
               <div class="d-flex align-items-start align-items-sm-center gap-4">
                 <div *ngIf="this.sharedservice.PatientById.imagename!=null">
 
-                  <img
-                  src="../../../assets/images/{{this.sharedservice.PatientById.imagename}}"
-                  alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
+                  <img src="../../../assets/images/{{this.sharedservice.PatientById.imagename}}" alt="user-avatar"
+                    class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
 
 
                 </div>
                 <div *ngIf="this.sharedservice.PatientById.imagename==null">
 
-                  <img
-                  src="../../../assets/images/th (2).png"
-                  alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
+                  <img src="../../../assets/images/th (2).png" alt="user-avatar" class="d-block rounded" height="100"
+                    width="100" id="uploadedAvatar" />
 
 
                 </div>
-               
+
                 <div class="button-wrapper">
                   <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                     <span class="d-none d-sm-block">Edit Picture</span>
                     <i class="bx bx-upload d-block d-sm-none"></i>
-                    <input formControlName="imagename" type="file" id="upload" class="account-file-input" hidden accept="image/*" #File required (change)="UploadImage(File)" />
+                    <input formControlName="imagename" type="file" id="upload" class="account-file-input" hidden
+                      accept="image/*" #File required (change)="UploadImage(File)" />
                   </label>
                 </div>
               </div>
               <div class="button-wrapper" style="text-align: right;">
 
                 <div *ngIf="this.sharedservice.requestBypat!=null">
-                <div *ngIf="this.sharedservice.requestBypat.status==0">
-                  <button type="button" disabled="true" class="btn btn-primary me-2" routerLink="/request">Please wait doctor response</button>
+                  <div *ngIf="this.sharedservice.requestBypat.status==0">
+                    <button type="button" disabled="true" class="btn btn-primary me-2" routerLink="/request">Please wait
+                      doctor response</button>
+                  </div>
                 </div>
-              </div>     
-              <div *ngIf="this.sharedservice.requestBypat==null">
-                <button type="button" class="btn btn-primary me-2" routerLink="/request">Doctors Request</button>
-              </div> 
-                <button type="button" class="btn btn-primary me-2" routerLink="/result">Treatment Periods and Result</button>
+                <div *ngIf="this.sharedservice.requestBypat==null">
+                  <button type="button" class="btn btn-primary me-2" routerLink="/request">Doctors Request</button>
+                </div>
+                <button type="button" class="btn btn-primary me-2" routerLink="/result">Treatment Periods and
+                  Result</button>
               </div>
             </div>
 
@@ -66,12 +67,11 @@
                   <div class="mb-3 col-md-6">
                     <label for="firstName" class="form-label">First Name</label>
                     <input formControlName="firstname" class="form-control" type="text" autofocus
-                      placeholder="First Name"  />
+                      placeholder="First Name" />
                   </div>
                   <div class="mb-3 col-md-6">
                     <label for="lastName" class="form-label">Last Name</label>
-                    <input formControlName="lastname" class="form-control" type="text" placeholder="Last Name"
-                       />
+                    <input formControlName="lastname" class="form-control" type="text" placeholder="Last Name" />
                   </div>
                   <div class="mb-3 col-md-6">
                     <label for="UserName" class="form-label">User Name</label>
@@ -88,7 +88,7 @@
                   </div>
                   <div class="mb-3 col-md-6">
                     <label for="email" class="form-label">Password</label>
-                    <input formControlName="password" class="form-control" type="password"  placeholder="Password"
+                    <input formControlName="password" class="form-control" type="password" placeholder="Password"
                       (click)="ShowCErrorMessage()" />
                     <small *ngIf="UpdateProfile.controls['password'].hasError('required') && C == true">
                       Password is <strong>required</strong>
@@ -100,10 +100,10 @@
 
 
                 </div>
-                <div  class="mt-2">
-                  <button type="submit" class="btn btn-primary me-2"  [disabled]="UpdateProfile.invalid" 
+                <div class="mt-2">
+                  <button type="submit" class="btn btn-primary me-2" [disabled]="UpdateProfile.invalid"
                     (click)="UpdatePatient()">Save changes</button>
-                  <button  class="btn btn-outline-secondary" (click)="ReturnOldValue()">Cancel</button>
+                  <button class="btn btn-outline-secondary" (click)="ReturnOldValue()">Cancel</button>
                 </div>
               </form>
             </div>
