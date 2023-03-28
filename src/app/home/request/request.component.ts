@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AdminService } from 'src/app/admin.service';
 import { PatientService } from 'src/app/patient.service';
 import { SharedService } from 'src/app/shared.service';
@@ -10,7 +11,7 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./request.component.css']
 })
 export class RequestComponent {
-  constructor(public adminService:AdminService ,public patientService :PatientService , public sharedService : SharedService){}
+  constructor(public adminService:AdminService ,public patientService :PatientService , public sharedService : SharedService,private route :Router){}
 async ngOnInit(){
   
 let level:number = parseInt(this.sharedService.PatientById.level1)
@@ -31,5 +32,8 @@ let req:any ={
   status:0
 }
 await this.sharedService.createRequest(req)
+
+
+this.route.navigate(["/"])
 }
 }
