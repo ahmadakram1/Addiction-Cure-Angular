@@ -23,7 +23,7 @@ import { DataTablesModule } from 'angular-datatables';
     HttpClientModule,
     DataTablesModule
   ],
-  providers: [
+  providers: [ // HERE WE PUT CLASS TO BE INJECTED IN OTHER INJECTABLE CLASSES
   ],
   bootstrap: [AppComponent]
 })
