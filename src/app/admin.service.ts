@@ -41,13 +41,13 @@ export class AdminService {
 
 
   DoctorsLevel: any = []
-  GetAllDoctorsBylevel(level:string) {
+  GetAllDoctorsBylevel(level:number,catid:number) {
     return new Promise<void>((resolve, reject) => {
     this.spinner.show()
     this.http.get("https://localhost:44373/API/Doctor/getalldoctor").subscribe(
       {
         next: (res:any) => {
-          this.DoctorsLevel = res.filter((d:any) => d.level1 == level)
+          this.DoctorsLevel = res.filter((d:any) => parseInt(d.level1)>= level && d.categoryid==catid)
           this.spinner.hide()
           resolve()
         },

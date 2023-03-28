@@ -536,7 +536,7 @@ GetTestimonialByPatienId(TestimonialId:any){
 
 
 publish(TestimonialId:any){
- 
+  return new Promise<void>((resolve, reject) => {
   this.http.get("https://localhost:44373/API/Testimonials/publish/"+TestimonialId).subscribe(
     {
       next:()=>{
@@ -546,7 +546,9 @@ publish(TestimonialId:any){
           title: 'Published successfully',
           showConfirmButton: false,
           timer: 1500
-        })},
+        })
+      resolve()
+      },
       error:(err)=>{console.log(err)
       this.spinner.hide()
        Swal.fire({
@@ -558,13 +560,13 @@ publish(TestimonialId:any){
         })
       }
     }
-  )
+  )})
 }
 
 
 
 unpublish(TestimonialId:any){
- 
+  return new Promise<void>((resolve, reject) => {
   this.http.get("https://localhost:44373/API/Testimonials/unpublish/"+TestimonialId).subscribe(
     {
       next:()=>{
@@ -574,7 +576,8 @@ unpublish(TestimonialId:any){
           title: 'Hide successfully',
           showConfirmButton: false,
           timer: 1500
-        })},
+        })
+      resolve()},
       error:(err)=>{console.log(err)
       this.spinner.hide()
        Swal.fire({
@@ -586,7 +589,7 @@ unpublish(TestimonialId:any){
         })
       }
     }
-  )
+  )})
 }
 
 async RegisterPatient(Register:any){
@@ -771,7 +774,7 @@ createRequest(request:any){
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Added successfully',
+            title: 'Your request sent successfully , please wait till doctor accept your request',
             showConfirmButton: false,
             timer: 1500
           })

@@ -31,13 +31,15 @@ getdata()
 }
 
 async publish(id : number){
+await  this.sharedService.publish(id)
   this.sharedService.GetAllTestemonial()
-  await this.sharedService.publish(id)
+ 
 }
 
 
 async unpublish(id : number){
+ await this.sharedService.unpublish(id)
   this.sharedService.GetAllTestemonial()
-  await this.sharedService.unpublish(id)
+ 
 }
 }
