@@ -13,8 +13,9 @@ export class RequestComponent {
   constructor(public adminService:AdminService ,public patientService :PatientService , public sharedService : SharedService){}
 async ngOnInit(){
   
-let level:String = this.sharedService.PatientById.level1
-await this.adminService.GetAllDoctorsBylevel(level.toString())
+let level:number = parseInt(this.sharedService.PatientById.level1)
+let cat:number=this.sharedService.PatientById.categoryid
+await this.adminService.GetAllDoctorsBylevel(level,cat)
 }
 
 name:any = new FormControl('');
