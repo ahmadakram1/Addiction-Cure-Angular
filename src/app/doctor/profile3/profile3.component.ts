@@ -22,6 +22,7 @@ export class Profile3Component implements OnInit{
     username: new FormControl("", [Validators.required]),
     password: new FormControl("", [Validators.required,Validators.minLength(6)]),
     email: new FormControl("", [Validators.required,Validators.email]),
+    CurrentPassword : new FormControl(""),
     categoryid : new FormControl(''),
     loginid : new FormControl(''),
     roleid : new FormControl(''),
@@ -50,14 +51,31 @@ export class Profile3Component implements OnInit{
     roleid :this.sharedservice.DoctorByLoginId.roleid,
     image:this.sharedservice.DoctorByLoginId.imagename,
     level1:this.sharedservice.DoctorByLoginId.level1,
+    password: this.sharedservice.DoctorByLoginId.password
+
   })
     
   }
 
   
   
- UpdateAdmin(){
-    this.adminService.UpdateDoctor(this.UpdateProfile.value)
+Current=true;
+CheckPassword()
+{
+ if ( this.UpdateProfile.controls["CurrentPassword"].value == this.sharedservice.DoctorByLoginId.password) 
+ {
+  this.Current=false;
+ }
+}
+  
+
+
+
+
+ async UpdateAdmin(){
+   await this.adminService.UpdateDoctor(this.UpdateProfile.value)
+    this.sharedservice.GetDoctorByLogInId(this.x)
+
   }
 
 

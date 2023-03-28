@@ -46,7 +46,7 @@
 
                 </div>
               </div>
-            </div>
+            </div> 
             <hr class="my-0" />
             <div class="card-body">
               <form id="formAccountSettings" [formGroup]="UpdateProfile">
@@ -55,12 +55,12 @@
                   <div class="mb-3 col-md-6">
                     <label for="firstName" class="form-label">First Name</label>
                     <input class="form-control" formControlName="firstname" type="text" id="firstName" autofocus
-                      placeholder="First Name" readonly />
+                      placeholder="First Name"  />
                   </div>
                   <div class="mb-3 col-md-6">
                     <label for="lastName" class="form-label">Last Name</label>
                     <input class="form-control" formControlName="lastname" type="text" id="lastName"
-                      placeholder="Last Name" readonly />
+                      placeholder="Last Name"  />
                   </div>
 
                   <div class="mb-3 col-md-6">
@@ -77,8 +77,14 @@
                       placeholder="Email@example.com" readonly />
                   </div>
                   <div class="mb-3 col-md-6">
+                    <label for="password" class="form-label" > Current Password</label>
+                    <input class="form-control"  type="password" id="password" name="password" formControlName="CurrentPassword" (change)="CheckPassword()"
+                      placeholder="Password"  />
+                     
+                  </div>
+                  <div class="mb-3 col-md-6">
                     <label for="password" class="form-label">Password</label>
-                    <input class="form-control" formControlName="password" type="password" id="password" name="password"
+                    <input class="form-control" formControlName="password" type="password" id="password" name="password" [readOnly]="Current"
                       placeholder="Password" (click)="ShowCErrorMessage()" />
                     <small *ngIf="UpdateProfile.controls['password'].hasError('required') && C == true">
                       Password is <strong>required</strong>

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit{
   constructor(public sharedservice: SharedService, public adminService: AdminService) {
-
+ 
 
   }
 
