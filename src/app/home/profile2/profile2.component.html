@@ -46,8 +46,15 @@
                 </div>
               </div>
               <div class="button-wrapper" style="text-align: right;">
-                <button type="button" class="btn btn-primary me-2" routerLink="/request">See Your Test</button>
-                <button type="button" class="btn btn-primary me-2" routerLink="/result">Treatment Periods</button>
+                
+                <div *ngif="this.sharedservice.PatientById.doctodid!='null'">
+                  <button type="button" disabled="true" class="btn btn-primary me-2" routerLink="/request">Doctors Request</button>
+                </div>
+                <div *ngif="this.sharedservice.PatientById.doctodid=='null'">
+                  <button type="button" class="btn btn-primary me-2" routerLink="/request">Doctors Request</button>
+                </div>
+                
+                <button type="button" class="btn btn-primary me-2" routerLink="/result">Treatment Periods and Result</button>
               </div>
             </div>
 
