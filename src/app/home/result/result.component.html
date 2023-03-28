@@ -41,7 +41,11 @@
                                     <td>{{item.perioddate}}</td>
                                     <td>{{item.resulttest}}</td>
                                     <td>{{item.numberoftest}}</td>
-                                    <td>
+                                    
+                                    <td *ngIf="item.description!=null">
+                                        <input type="button" (click)="numberOfTest(item.numberoftest ,item.resulttestid)" value="Take Tast" class="btn btn-success">
+                                    </td>
+                                    <td *ngIf="item.description==null">
                                         <input type="button" (click)="numberOfTest(item.numberoftest ,item.resulttestid)" value="Take Tast" class="btn btn-success">
                                     </td>
                                 </tr>
