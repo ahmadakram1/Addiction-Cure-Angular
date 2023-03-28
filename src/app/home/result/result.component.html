@@ -42,11 +42,14 @@
                                     <td>{{item.resulttest}}</td>
                                     <td>{{item.numberoftest}}</td>
                                     
-                                    <td *ngIf="item.description!=null">
+                                    <td *ngIf="item.description=='null'">
                                         <input type="button" (click)="numberOfTest(item.numberoftest ,item.resulttestid)" value="Take Tast" class="btn btn-success">
                                     </td>
-                                    <td *ngIf="item.description==null">
-                                        <input type="button" (click)="numberOfTest(item.numberoftest ,item.resulttestid)" value="Take Tast" class="btn btn-success">
+                                    <td *ngIf="item.description=='Pending'">
+                                        <input type="button" disabled="true" (click)="numberOfTest(item.numberoftest ,item.resulttestid)" value="On hold" class="btn btn-success">
+                                    </td>
+                                    <td *ngIf="item.description!='Pending'||item.description=='null'">
+                                        <input type="button"  disabled="true" (click)="numberOfTest(item.numberoftest ,item.resulttestid)" value="Completed" class="btn btn-success">
                                     </td>
                                 </tr>
                             </tbody>

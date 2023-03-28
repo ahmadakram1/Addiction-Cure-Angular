@@ -328,11 +328,12 @@ UploadImage(imageFile : any)
     })
   }
 
-  Afterquiz(id:any,result:string) {
+  Afterquiz(id:any,result:number) {
     this.http.get("https://localhost:44373/api/ResultTest/afterquiz/"+id+"/"+result).subscribe({
       next: () => { },
       error: (err) => { console.log(err) },
     })
+    debugger
   }
 
 

@@ -23,16 +23,19 @@ export class QuizesComponent {
     score:any=0;
     strScore:any
     next(id:number) {
-      if (this.selectedAnswer === 0) {
+      if (this.selectedAnswer == 0) {
         this.score++;
       }
       this.currentQuestionIndex++;
       this.strScore=this.score.toString()
       this.patientService.UpdateStatus(id,this.selectedAnswer)
       this.selectedAnswer = 0;  
+      console.log(this.score);
+      
     }
 
     Submit(){
+     console.log(this.score);
     this.patientService.Afterquiz(this.sharedService.Resultid,this.score)
     this.route.navigate(["/"])
     }
