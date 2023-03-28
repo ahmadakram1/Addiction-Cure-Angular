@@ -20,12 +20,19 @@
         <!-- Content -->
         <div class="container-xxl flex-grow-1 container-p-y">
           <div class="text-center mx-auto mb-5">
-            <h1 class="d-inline-block text-dark border-bottom border-5" style="font-family: serif; font-size: x-large;">Specialization : {{this.sharedservice.DoctorByLoginId.categoryname}}</h1>
+            
         
           <div class="card mb-4">
             <h2 class="card-header">Profile Details</h2>
             <!-- Account -->
             <div class="card-body">
+              <div class="container">
+                <h1 class="title">
+                  <span class="title-word title-word-1">Specialization : </span>
+                  <span class="title-word title-word-2">{{this.sharedservice.DoctorByLoginId.categoryname}}</span>
+                </h1>
+              </div>
+              <!-- <h1 style="font-size: x-large; margin-top: -2%; text-align: center;">Specialization : {{this.sharedservice.DoctorByLoginId.categoryname}}</h1> -->
               <div class="d-flex align-items-start align-items-sm-center gap-4">
                 <img style="border-radius: 58px; "
                   src="../../../assets/images/{{this.sharedservice.DoctorByLoginId.imagename}}" alt="user-avatar"
