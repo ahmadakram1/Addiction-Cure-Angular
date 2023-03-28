@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -17,8 +18,21 @@ export class QuestionsComponent implements OnInit{
   @ViewChild("CreateForm") Create:any;
   @ViewChild("DeleteForm") delete:any;
 
+  data:any;
 
-  constructor(public doctorservice : DoctorsService,private dialog :MatDialog,public sharedservice:SharedService){
+  constructor(public doctorservice : DoctorsService,private dialog :MatDialog,public sharedservice:SharedService,private http: HttpClient){
+//get request from web api
+this.http.get('https://therichpost.com/testjsonapi/users/').subscribe(data => { this.data = data;
+   
+setTimeout(()=>{   
+  $('#datatableexample').DataTable( {
+    pagingType: 'full_numbers',
+    pageLength: 5,
+    processing: true,
+    lengthMenu : [5, 10, 25]
+} );
+}, 1);
+      }, error => console.error(error));
 
   }
 

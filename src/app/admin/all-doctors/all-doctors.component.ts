@@ -26,7 +26,7 @@ export class AllDoctorsComponent  implements OnInit{
   constructor(public adminService: AdminService, public dialog: MatDialog, public sharedservice: SharedService,private http: HttpClient) {
      //get request from web api
   this.http.get('https://therichpost.com/testjsonapi/users/').subscribe(data => { this.data = data;
-
+   
   setTimeout(()=>{   
     $('#datatableexample').DataTable( {
       pagingType: 'full_numbers',

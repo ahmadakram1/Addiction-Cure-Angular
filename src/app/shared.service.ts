@@ -850,6 +850,42 @@ async Getrequst(doctorid: any) {
 }
 
 
+async DeleteReq(id: number) {
+
+  return new Promise<void>((resolve, reject) => {
+    this.spinner.show
+    this.http.delete("https://localhost:44373/api/Req/"+id).subscribe({
+
+      next: () => {
+        this.spinner.hide()
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Deleted successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        resolve()
+      },
+      error: () => {
+        this.spinner.hide()
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        reject()
+
+      }
+
+    }
+    )
+  })
+}
+
+
 async accepted(req:any) {
   return new Promise<void>((resolve, reject) => {
     this.spinner.show()
