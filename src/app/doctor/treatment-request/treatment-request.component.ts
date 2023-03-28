@@ -32,11 +32,7 @@ await this.sharedService.accepted(accept)
 }
 
 reject(reqid:number){
-  let req:any={
-    "Reqid":reqid,
-    "Status":2
-  }
-  this.sharedService.Updatereq(req)
+  
   this.sharedService.Getrequst(this.sharedService.DoctorByLoginId.doctodid)
   }
 
