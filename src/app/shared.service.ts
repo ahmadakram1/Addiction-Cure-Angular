@@ -184,6 +184,7 @@ async GetAboutusByid(aboutid:any){
   this.http.get("https://localhost:44373/api/AboutUs/getAboutUsById/"+aboutid).subscribe(
     {
       next:(res)=>{this.AboutById=res
+      localStorage.setItem('AboutById',JSON.stringify(res))
       this.spinner.hide()
       
       resolve()
