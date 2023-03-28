@@ -88,8 +88,14 @@
                       readonly />
                   </div>
                   <div class="mb-3 col-md-6">
+                    <label for="password" class="form-label" > Current Password</label>
+                    <input class="form-control"  type="password" id="password" name="password" formControlName="CurrentPassword" (change)="CheckPassword()"
+                      placeholder="Password"  />
+                     
+                  </div>
+                  <div class="mb-3 col-md-6">
                     <label for="email" class="form-label">Password</label>
-                    <input formControlName="password" class="form-control" type="password" placeholder="Password"
+                    <input formControlName="password" class="form-control" type="password" placeholder="Password"  [readOnly]="Current"
                       (click)="ShowCErrorMessage()" />
                     <small *ngIf="UpdateProfile.controls['password'].hasError('required') && C == true">
                       Password is <strong>required</strong>

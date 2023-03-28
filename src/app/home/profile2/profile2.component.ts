@@ -9,7 +9,7 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./profile2.component.css']
 })
 export class Profile2Component {
-
+ 
   constructor(public patientService: PatientService, public sharedservice: SharedService) { }
 
   UpdateProfile = new FormGroup
@@ -22,6 +22,8 @@ export class Profile2Component {
         username: new FormControl("", [Validators.required]),
         password: new FormControl("", [Validators.required, Validators.minLength(6)]),
         email: new FormControl("", [Validators.required, Validators.email]),
+        CurrentPassword : new FormControl(""),
+
       })
 
       x:any = localStorage.getItem("loginid")
@@ -42,11 +44,23 @@ console.log(this.sharedservice.requestBypat);
       username: this.sharedservice.PatientById.username,
       email: this.sharedservice.PatientById.email,
       imagename: this.sharedservice.PatientById.imagename,
+      password: this.sharedservice.PatientById.password
+
   
     })
    
   }
 
+  
+  Current=true;
+  CheckPassword()
+  {
+   if ( this.UpdateProfile.controls["CurrentPassword"].value == this.sharedservice.PatientById.password) 
+   {
+    this.Current=false;
+   }
+  }
+    
 
 
 
@@ -84,7 +98,7 @@ console.log(this.sharedservice.requestBypat);
       username: this.sharedservice.PatientById.username,
       email: this.sharedservice.PatientById.email,
       imagename: this.sharedservice.PatientById.imagename,
-      password:""
+      password: this.sharedservice.PatientById.password
 
     })
   }
