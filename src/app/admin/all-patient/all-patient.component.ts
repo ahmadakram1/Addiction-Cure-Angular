@@ -38,6 +38,7 @@ export class AllPatientComponent implements OnInit {
   UpdatePatientForm = new FormGroup
     (
       {
+        imagename:new FormControl(""),
         patientid: new FormControl(''),
         firstname: new FormControl("", [Validators.required]),
         lastname: new FormControl("", [Validators.required]),

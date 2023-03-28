@@ -289,11 +289,14 @@ async DeleteAbout(About_id: number) {
 
 Category:any=[]
 GetCategory(){
+  return new Promise<void>((resolve, reject) => {
+
   this.spinner.show()
   this.http.get("https://localhost:44373/api/Category/GetCategory").subscribe(
     {
       next:(res)=>{this.Category=res
       this.spinner.hide()
+      resolve()
       },
       error:(err)=>{console.log(err)
       this.spinner.hide()
@@ -303,9 +306,10 @@ GetCategory(){
           title: 'Something went wrong!',
           showConfirmButton: false,
           timer: 1500
-        })}
+        })
+        reject()}
     }
-  )
+  )})
 }
 
 

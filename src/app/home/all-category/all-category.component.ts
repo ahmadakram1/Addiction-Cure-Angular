@@ -15,8 +15,8 @@ export class AllCategoryComponent {
   
   info = this.sharedService.Category.abouttext
   
-  ngOnInit() {
-    this.sharedService.GetCategory();
+  async ngOnInit() {
+   await this.sharedService.GetCategory();
     this.last_index = (this.info.substring(0, 100)).lastIndexOf(' ');
    if(this.last_index > 100)
      this.last_index = 100;
