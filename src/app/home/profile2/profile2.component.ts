@@ -32,8 +32,8 @@ export class Profile2Component {
       }else{
         this.sharedservice.PatientById.patientid=null
       }
-
-    await  this.sharedservice.GetrequstBypatid(this.sharedservice.PatientById.patientid)
+      this.sharedservice.GetrequstBypatid(this.sharedservice.PatientById.patientid)
+console.log(this.sharedservice.requestBypat);
 
     this.UpdateProfile.patchValue({
       patientid: this.sharedservice.PatientById.patientid,

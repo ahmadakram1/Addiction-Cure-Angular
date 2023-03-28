@@ -31,8 +31,8 @@ await this.sharedService.accepted(accept)
 
 }
 
-reject(reqid:number){
-  
+async reject(reqid:number){
+ await this.sharedService.DeleteReq(reqid)
   this.sharedService.Getrequst(this.sharedService.DoctorByLoginId.doctodid)
   }
 

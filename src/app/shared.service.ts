@@ -825,14 +825,14 @@ async Getrequst(doctorid: any) {
  }
 
 
-requestBypat: any=[]
+requestBypat:any
 async GetrequstBypatid(patientid: any) {
   return new Promise<void>((resolve, reject) => {
   this.spinner.show()
-  this.http.get("https://localhost:44373/api/Req/doctor/" + patientid).subscribe(
+  this.http.get("https://localhost:44373/api/Req/patient/" + patientid).subscribe(
     {
       next: (res:any) => {     
-        this.request = res
+        this.requestBypat = res
        resolve()
       },
       error: (err) => {
