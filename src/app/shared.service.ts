@@ -598,9 +598,7 @@ unpublish(TestimonialId:any){
 }
 
 async RegisterPatient(Register:any){
-  // Register.imagename=this.imageName
   Register.imagename="th (2).png"
-
   Register.roleid=2
   Register.doctorid=null
   Register.level1=null
@@ -618,9 +616,22 @@ async RegisterPatient(Register:any){
   this.spinner.show()
   this.http.post("https://localhost:44373/API/login/register",Register,Options).subscribe(
     {
-      next:()=>{
+      next:(res)=>{
+        if(res==true){
         this.spinner.hide()
         resolve();
+      }
+      else
+      {
+        this.spinner.hide()
+        Swal.fire({
+           position: 'center',
+           icon: 'error',
+           title: 'Your Email or Username is ALredy Uesd !!',
+           showConfirmButton: false,
+           timer: 1500
+         })
+        }
      },
      error:(err)=>{
       console.log(err);

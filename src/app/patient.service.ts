@@ -269,10 +269,21 @@ UploadImage(imageFile : any)
     return new Promise<void>((resolve, reject) => {
       this.http.post("https://localhost:44373/API/invoicepayment/pay/", Pay).subscribe({
         next: (res: any) => {
+          if(res == "true"){
           this.PaymentTest = res
-          resolve()
-        },
-        error: (err) => {
+          resolve()}
+          else{
+            this.spinner.hide()
+            Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: 'The card number is not a valid credit card number!',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+        },        
+        error: (err) => {          
           console.log(err);
           reject()
         }
