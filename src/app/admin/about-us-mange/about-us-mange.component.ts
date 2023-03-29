@@ -28,7 +28,7 @@ export class AboutUsMangeComponent {
     var a:any= localStorage.getItem('AboutById')
     a=JSON.parse(a)
     this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
-    console.log(a)
+
     this.UpdateAboutUsForm.patchValue(a)
     
     
@@ -43,7 +43,7 @@ export class AboutUsMangeComponent {
     var a:any= localStorage.getItem('AboutById')
     a=JSON.parse(a)
     this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
-    console.log(a)
+
     this.UpdateAboutUsForm.patchValue(a)
     // this.UpdateAboutUsForm.controls['paragraph1'].setValue(a.paragraph1)
   }

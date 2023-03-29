@@ -25,10 +25,7 @@ ngOnInit(){
   this.sharedService.GetDoctorByLogInId(localStorage.getItem("loginid"))
 
 }
-getdata()
-{
-  console.log(this.selected)
-}
+
 
 async publish(id : number){
 await  this.sharedService.publish(id)

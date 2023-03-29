@@ -41,7 +41,7 @@ setTimeout(()=>{
     if(this.doctorservice.questionss.quastionid==null){
     await this.doctorservice.GetAllQuastionss()
     }
-    console.log(this.doctorservice.questionss);
+   
 
     this.sharedservice.GetDoctorByLogInId(localStorage.getItem("loginid"))
 

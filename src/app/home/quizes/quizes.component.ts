@@ -13,7 +13,7 @@ export class QuizesComponent {
   constructor(public sharedService:SharedService,public patientService:PatientService,public doctorService:DoctorsService,private route:Router){}
   async ngOnInit() {
     await this.patientService.GetQuastionsByPatId(this.sharedService.PatientById.patientid,this.sharedService.TestNumber)
-    console.log(this.patientService.QuastionsByTestNumber); 
+
    }
   zero = "no"
   one = "yes"
@@ -30,12 +30,11 @@ export class QuizesComponent {
       this.strScore=this.score.toString()
       this.patientService.UpdateStatus(id,this.selectedAnswer)
       this.selectedAnswer = 0;  
-      console.log(this.score);
+
       
     }
 
     Submit(){
-     console.log(this.score);
     this.patientService.Afterquiz(this.sharedService.Resultid,this.score)
     this.route.navigate(["/"])
     }

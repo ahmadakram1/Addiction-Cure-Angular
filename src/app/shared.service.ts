@@ -24,7 +24,7 @@ Resultid?:number
 retrive(id:number,cat:number){
 this.id=id
 this.cat=cat
-console.log("hi there",this.id,this.cat);
+
 
 }
 
@@ -49,7 +49,7 @@ async GetAllHome()
         this.spinner.hide()
         resolve()
         },
-        error:(err)=>{console.log(err)
+        error:(err)=>{
         this.spinner.hide()
         Swal.fire({
           position: 'center',
@@ -144,7 +144,7 @@ getHomeById(id:number){
       this.spinner.hide()
     },
     error:(err)=>{
-      console.log(err);
+
       this.spinner.hide()      
     }
   })
@@ -162,7 +162,7 @@ async GetAllAboutUs()
         this.spinner.hide()
         resolve()
         },
-        error:(err)=>{console.log(err)
+        error:(err)=>{
         this.spinner.hide()
          Swal.fire({
           position: 'center',
@@ -189,7 +189,7 @@ async GetAboutusByid(aboutid:any){
       
       resolve()
     },
-      error:(err)=>{console.log(err)
+      error:(err)=>{
       this.spinner.hide()
        Swal.fire({
           position: 'center',
@@ -299,7 +299,7 @@ GetCategory(){
       this.spinner.hide()
       resolve()
       },
-      error:(err)=>{console.log(err)
+      error:(err)=>{
       this.spinner.hide()
        Swal.fire({
           position: 'center',
@@ -442,7 +442,7 @@ async GetCategoryById(catid:any){
       this.spinner.hide()
       resolve()
     },
-      error:(err)=>{console.log(err)
+      error:(err)=>{
       this.spinner.hide()
        Swal.fire({
           position: 'center',
@@ -470,7 +470,7 @@ async GetAllTestemonial(){
           },
 
           error: (err) => {
-            console.log(err)
+     
             this.spinner.hide()
              Swal.fire({
           position: 'center',
@@ -525,7 +525,7 @@ GetTestimonialByPatienId(TestimonialId:any){
       next:(res)=>{this.Testimonialbyid=res
       this.spinner.hide()
       },
-      error:(err)=>{console.log(err)
+      error:(err)=>{
       this.spinner.hide()
        Swal.fire({
           position: 'center',
@@ -554,7 +554,7 @@ publish(TestimonialId:any){
         })
       resolve()
       },
-      error:(err)=>{console.log(err)
+      error:(err)=>{
       this.spinner.hide()
        Swal.fire({
           position: 'center',
@@ -583,7 +583,7 @@ unpublish(TestimonialId:any){
           timer: 1500
         })
       resolve()},
-      error:(err)=>{console.log(err)
+      error:(err)=>{
       this.spinner.hide()
        Swal.fire({
           position: 'center',
@@ -602,7 +602,7 @@ async RegisterPatient(Register:any){
   Register.roleid=2
   Register.doctorid=null
   Register.level1=null
-  console.log(Register);
+
   const header = {
     'Content-Type' : 'application/json',
     'Accept' : 'application/json'
@@ -634,8 +634,7 @@ async RegisterPatient(Register:any){
         }
      },
      error:(err)=>{
-      console.log(err);
-      
+
       this.spinner.hide()
        Swal.fire({
           position: 'center',
@@ -675,9 +674,9 @@ this.spinner.show()
 this.http.post("https://localhost:44373/API/Login/login", user , Options).subscribe(
 {
   next:(res:any)=>{
-  console.log(res); // token
+
   let data : any = jwt_decode(res)
-  console.log(data);
+
     localStorage.setItem('token' , res)
     localStorage.setItem('user' ,JSON.stringify(data))
     localStorage.setItem("loginid",data.loginid)
@@ -705,7 +704,7 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     },  
     error:(err)=>{
       this.spinner.hide()
-      console.log(err);      
+  
       Swal.fire({
         position: 'center',
         icon: 'error',
@@ -732,7 +731,7 @@ PatientById: any
           },
 
           error: (err) => {
-            console.log(err + "dd")
+
             this.spinner.hide()
              Swal.fire({
           position: 'center',
@@ -764,7 +763,7 @@ DoctorByLoginId: any
             resolve()
           },
           error: (err) => {
-            console.log(err)
+
             this.spinner.hide()
             Swal.fire({
               position: 'center',
@@ -798,7 +797,7 @@ createRequest(request:any){
           resolve();
        },
        error:(err)=>{
-        console.log(err);
+
         
         this.spinner.hide()
          Swal.fire({
@@ -825,7 +824,7 @@ async Getrequst(doctorid: any) {
        resolve()
       },
       error: (err) => {
-        console.log(err)
+
         this.spinner.hide()
         Swal.fire({
           position: 'center',
@@ -853,7 +852,7 @@ async GetrequstBypatid(patientid: any) {
        resolve()
       },
       error: (err) => {
-        console.log(err)
+
         this.spinner.hide()
         Swal.fire({
           position: 'center',

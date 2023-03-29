@@ -35,7 +35,7 @@ export class Profile2Component {
         this.sharedservice.PatientById.patientid=null
       }
       this.sharedservice.GetrequstBypatid(this.sharedservice.PatientById.patientid)
-console.log(this.sharedservice.requestBypat);
+
 
     this.UpdateProfile.patchValue({
       patientid: this.sharedservice.PatientById.patientid,

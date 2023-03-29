@@ -57,7 +57,7 @@ export class QuestionsDoctorComponent implements OnInit{
 
 
   AddQuestiontoTest(QuestionID: number) {
-    console.log("xxxxxxxxxxxxxxx", this.TestNumber.value);
+
     
     let test = {
       status: 0,

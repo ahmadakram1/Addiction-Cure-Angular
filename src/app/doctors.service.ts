@@ -22,7 +22,7 @@ GetAllQuastions(id:number)
       next:(res)=>{this.Quastions=res
       this.spinner.hide()
      },
-      error:(err)=>{console.log(err)
+      error:(err)=>{
       this.spinner.hide()
        Swal.fire({
           position: 'center',
@@ -82,7 +82,6 @@ async CreateQuastion(Quastion: any) {
      resolve()
     },
     error:(error)=>{
-     console.log(error);
      this.spinner.hide();
       Swal.fire({
           position: 'center',
@@ -116,7 +115,7 @@ async CreateQuastion(Quastion: any) {
 
     },
     error:(error)=>{
-      console.log(error);
+
       this.spinner.hide();
        Swal.fire({
           position: 'center',
@@ -141,7 +140,7 @@ GetAllResult()
         next:(res)=>{this.AllResult=res
         this.spinner.hide()
         },
-        error:(err)=>{console.log(err)
+        error:(err)=>{
         this.spinner.hide()
          Swal.fire({
           position: 'center',
@@ -202,7 +201,7 @@ async getResultTestById(id:number){
       resolve()
     },
     error:(err)=>{
-      console.log(err);
+
       this.spinner.hide()
       reject()      
     }
@@ -223,7 +222,7 @@ async getResultByDocid(id:number){
       resolve()
     },
     error:(err)=>{
-      console.log(err);
+
       this.spinner.hide()
       reject()      
     }
@@ -267,7 +266,6 @@ async UpdateResultTest(ResultTest:any){
           showConfirmButton: false,
           timer: 1500
         })
-        console.log("jjjjjjjjjjjjjj",err);
         
          reject()
       }
@@ -288,7 +286,7 @@ Search(DateFome:any,Dateto:any)
         next:(res)=>{this.AllResult=res
         this.spinner.hide()
       },
-        error:(err)=>{console.log(err)
+        error:(err)=>{
         this.spinner.hide()
          Swal.fire({
           position: 'center',
@@ -311,7 +309,7 @@ GetAllTest()
         next:(res)=>{this.Test=res
         this.spinner.hide()
         },
-        error:(err)=>{console.log(err)
+        error:(err)=>{
         this.spinner.hide()
          Swal.fire({
           position: 'center',

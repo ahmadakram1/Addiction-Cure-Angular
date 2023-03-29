@@ -28,7 +28,7 @@ export class PatientService {
 
         },
         error: (err) => {
-          console.log(err)
+
           this.spinner.hide()
            Swal.fire({
           position: 'center',
@@ -55,7 +55,7 @@ export class PatientService {
         resolve()
       },
       error:(err)=>{
-        console.log(err);
+
         this.spinner.hide()
         reject()      
       }
@@ -110,7 +110,7 @@ export class PatientService {
           },
 
           error: (err) => {
-            console.log(err)
+
             this.spinner.hide()
              Swal.fire({
           position: 'center',
@@ -189,7 +189,7 @@ UploadImage(imageFile : any)
             resolve()
           },
           error: (err) => {
-            console.log(err);
+
             this.spinner.hide()
              Swal.fire({
           position: 'center',
@@ -216,7 +216,7 @@ UploadImage(imageFile : any)
             resolve()
           },
           error: (err) => {
-            console.log(err)
+
             this.spinner.hide()
              Swal.fire({
           position: 'center',
@@ -246,7 +246,6 @@ UploadImage(imageFile : any)
             resolve()
           },
           error: (err) => {
-            console.log(err)
             this.spinner.hide()
              Swal.fire({
           position: 'center',
@@ -265,12 +264,12 @@ UploadImage(imageFile : any)
 
 
   PaymentTest: any
-  async CreatePayment(Pay: any) {
+  async CreateInvoce(Pay: any) {
     return new Promise<void>((resolve, reject) => {
       this.http.post("https://localhost:44373/API/invoicepayment/pay/", Pay).subscribe({
-        next: (res: any) => {
-          if(res == "true"){
-          this.PaymentTest = res
+        next: (res) => {
+          if(res == true){
+          this.PaymentTest = res 
           resolve()}
           else{
             this.spinner.hide()
@@ -281,10 +280,11 @@ UploadImage(imageFile : any)
               showConfirmButton: false,
               timer: 1500
             })
-          }
+
+            resolve()}
         },        
         error: (err) => {          
-          console.log(err);
+
           reject()
         }
       })
@@ -299,7 +299,7 @@ UploadImage(imageFile : any)
 
         next: () => {
           this.spinner.hide();
-          console.log("aa");
+
 
         },
         error: (error) => {
@@ -311,7 +311,33 @@ UploadImage(imageFile : any)
           showConfirmButton: false,
           timer: 1500
         })
-          console.log(error);
+
+
+        }
+      }
+    )
+
+  }
+
+
+ Createpayment(pay: any) {
+    this.spinner.show()
+    this.http.post("https://localhost:44373/api/Payment", pay).subscribe(
+      {
+
+        next: () => {
+          this.spinner.hide();
+
+        },
+        error: (error) => {
+          this.spinner.hide();
+           Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
 
         }
       }
@@ -321,21 +347,21 @@ UploadImage(imageFile : any)
   UpdateLevel(id:number,level:string) {
     this.http.get("https://localhost:44373/api/Patient/level/"+id+"/"+level).subscribe({
       next: () => { },
-      error: (err) => { console.log(err) },
+      error: (err) => {  },
     })
   }
 
   UpdateStatus(id:number,Status:number) {
     this.http.get("https://localhost:44373/api/Test/updateStatus/"+id+"/"+Status).subscribe({
       next: () => { },
-      error: (err) => { console.log(err) },
+      error: (err) => { },
     })
   }
 
   Afterquiz(id:any,result:number) {
     this.http.get("https://localhost:44373/api/ResultTest/afterquiz/"+id+"/"+result).subscribe({
       next: () => { },
-      error: (err) => { console.log(err) },
+      error: (err) => {  },
     })
     debugger
   }

@@ -13,7 +13,7 @@ constructor(public sharedService : SharedService,public adminservice:AdminServic
 
 async ngOnInit(){
 await  this.sharedService.Getrequst(this.sharedService.DoctorByLoginId.doctodid)
-console.log(this.sharedService.request);
+
 }
 
 async accept(reqid:number,patid:number,doctodid:number){

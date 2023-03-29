@@ -110,7 +110,7 @@
 
                 <h3>Amount : {{this.Amount}}</h3>
             </form>
-            <button class="button" [disabled]="paymentform.invalid" type="submit" routerLink="/request" (click)="payment()">Submit Payment</button>
+            <button class="button" [disabled]="paymentform.invalid" type="submit" mat-dialog-close="{{this.r}}" (click)="payment()">Submit Payment</button>
         </div>
     </div>
 </div>

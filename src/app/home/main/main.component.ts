@@ -30,7 +30,7 @@ await this.sharedService.GetPatientById(this.x)
 }else{
   this.sharedService.PatientById.patientid=null
 }
-  console.log(this.sharedService.PatientById);
+
   
   }
  

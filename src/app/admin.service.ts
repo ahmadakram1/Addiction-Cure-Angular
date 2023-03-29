@@ -24,7 +24,6 @@ export class AdminService {
             resolve()
           },
           error: (err) => {
-            console.log(err)
             this.spinner.hide()
             Swal.fire({
               position: 'center',
@@ -53,7 +52,7 @@ export class AdminService {
             resolve()
           },
           error: (err) => {
-            console.log(err)
+
             this.spinner.hide()
             Swal.fire({
               position: 'center',
@@ -80,7 +79,6 @@ export class AdminService {
         this.spinner.hide();
       },
       error: (error) => {
-        console.log(error);
         this.spinner.hide();
         Swal.fire({
           position: 'center',
@@ -278,7 +276,7 @@ export class AdminService {
             resolve()
           },
           error: (err) => {
-            console.log(err)
+
             this.spinner.hide()
             Swal.fire({
               position: 'center',
@@ -307,7 +305,7 @@ export class AdminService {
           this.spinner.hide()
         },
         error: (err) => {
-          console.log(err)
+
           this.spinner.hide()
           Swal.fire({
             position: 'center',
@@ -397,7 +395,7 @@ export class AdminService {
           this.spinner.hide()
         },
         error: (Error) => {
-          console.log(Error);
+
           this.spinner.hide();
           Swal.fire({
             position: 'center',
@@ -459,7 +457,7 @@ export class AdminService {
           this.total = this.reports.reduce((sum: any, obj: any) => sum + obj.amount, 0)
         },
         error: (err) => {
-          console.log(err)
+
           this.spinner.hide()
           Swal.fire({
             position: 'center',
@@ -478,7 +476,6 @@ export class AdminService {
   reports: any = []
   getReport() {
 
-    console.log(this.total);
 
     this.http.get("https://localhost:44373/api/payment/Report").subscribe({
       next: (res) => {
@@ -487,7 +484,6 @@ export class AdminService {
         this.total = this.reports.reduce((sum: any, obj: any) => sum + obj.amount, 0)
       },
       error: (err) => {
-        console.log(err)
         this.spinner.hide()
         Swal.fire({
           position: 'center',

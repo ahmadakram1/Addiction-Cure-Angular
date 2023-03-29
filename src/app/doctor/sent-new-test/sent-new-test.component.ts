@@ -25,16 +25,11 @@ export class SentNewTestComponent implements OnInit{
   this.doctorService.getpatientbydoctorid(this.sharedService.DoctorByLoginId.doctodid)
   this.patientService.GetAllPatient()
 }
-// async GetById(id:number)
-// {
-//   await this.patientService.GetPatientBypateinId(id)
-//   console.log(this.patientService.PatientBypateinId);
-// }
 
 async sentnewtestDialog(id:any){
    this.dialog.open(this.sentnewtest)
    await this.patientService.GetPatientBypateinId(id)
-  await console.log(this.patientService.PatientBypateinId);
+
  }
 
  close(){
@@ -51,7 +46,7 @@ async sentnewtestDialog(id:any){
     DateTest:this.SendEmailForm.controls["DateTest"].value
   }
 
-  console.log(EmailBody);
+
   
   this.doctorService.SendEmail(EmailBody)
 }
