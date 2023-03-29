@@ -28,9 +28,9 @@
                     <a routerLink="/Test" *ngIf="this.sharedService.PatientById.patientid!=null &&this.sharedService.PatientById.level1==null" 
                     class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
                     Take Test</a>
-                     <a routerLink="/request" *ngIf="this.sharedService.PatientById.doctodid==null &&this.sharedService.PatientById.level1!=null" 
+                     <a  *ngIf="this.sharedService.PatientById.doctodid==null &&this.sharedService.PatientById.level1!=null" 
                     class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
-                     Select your doctor</a>
+                    Please wait doctor response </a>
                      <a routerLink="/result" *ngIf="this.sharedService.PatientById.doctodid!=null &&this.sharedService.PatientById.level1!=null" 
                      class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
                       see your result</a>

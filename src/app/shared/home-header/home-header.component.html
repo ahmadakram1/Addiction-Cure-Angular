@@ -19,6 +19,16 @@
                     <a routerLink="/Auth/SignIn" class="nav-item nav-link">Login</a>
                 </div>
 
+                <div class="navbar-nav ms-auto py-0" *ngIf="shardService.PatientById==null" >
+
+                    <a routerLink="" class="nav-item nav-link">Home</a>
+                    <a routerLink="/AboutUs" class="nav-item nav-link">AboutUs</a>
+                    <a routerLink="/Doctors" class="nav-item nav-link">Doctors</a>
+                    <a routerLink="/AllCategory" class="nav-item nav-link">Category</a>
+                    <a routerLink="/ContactUs" class="nav-item nav-link">Contact</a>
+                    <a routerLink="/Auth/SignIn" class="nav-item nav-link">Dashboard</a>
+                </div>
+
                 <div class="navbar-nav ms-auto py-0" *ngIf="shardService.PatientById!=undefined">
 
                     <a routerLink="" class="nav-item nav-link">Home</a>
