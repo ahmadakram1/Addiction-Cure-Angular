@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 import { HomeRoutingModule } from './home-routing.module';
@@ -44,6 +45,7 @@ import { QuizesComponent } from './quizes/quizes.component';
     CommonModule,
     HomeRoutingModule,
     SharedModule,
+    CarouselModule
   ]
 })
 export class HomeModule { }
