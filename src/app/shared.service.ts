@@ -697,11 +697,12 @@ this.http.post("https://localhost:44373/API/Login/login", user , Options).subscr
     }
     else
     {
+      localStorage.setItem('Role',data.Role)
       this.GetDoctorByLogInId(data.loginid)
       this.doctorservice.GetAllQuastionss();
       this.route.navigate(["Admin/Main"])
     }
-    },
+    },  
     error:(err)=>{
       this.spinner.hide()
       console.log(err);      

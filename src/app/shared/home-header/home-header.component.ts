@@ -17,7 +17,12 @@ export class HomeHeaderComponent implements OnInit{
 
   }
   x:any = localStorage.getItem("loginid")
+  Role:any = localStorage.getItem("Role")
+
   ngOnInit() {
+
+
+    
     if(this.x!=null){
       this.shardService.GetPatientById(this.x)
       }else{
