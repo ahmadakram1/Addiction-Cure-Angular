@@ -23,6 +23,7 @@ import { DoctorSideBarComponent } from './doctor-side-bar/doctor-side-bar.compon
 import { MatSliderModule } from '@angular/material/slider';
 import {MatStepperModule} from '@angular/material/stepper';
 import {CdkStepperModule} from '@angular/cdk/stepper';
+//import {bootstrap} from '../../../node_modules/bootstrap';
 @NgModule({
   declarations: [
     HomeHeaderComponent,

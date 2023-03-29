@@ -17,14 +17,14 @@ export class DoctorCardComponent {
  
 
 
-  SendCardData(img?: string, fname?: string,lname?: string, specialty?: string, Description?: string) {
+  SendCardData(img?: string, fname?: string,lname?: string, specialty?: string, categoryname?: string) {
 
     const CardData = {
       img: img,
       fname: fname,
       lname: lname,
       specialty: specialty,
-      Description: Description
+      Description: categoryname
     }
 
     this.sendvalue.emit(CardData)
