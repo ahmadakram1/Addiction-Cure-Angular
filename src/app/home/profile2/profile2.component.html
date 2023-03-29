@@ -53,9 +53,9 @@
                       doctor response</button>
                   </div>
                 </div>
-                <div *ngIf="this.sharedservice.requestBypat==null">
-                  <button type="button" class="btn btn-primary me-2" routerLink="/request">Doctors Request</button>
-                </div>
+             
+                <button *ngIf="this.sharedservice.requestBypat==null"  type="button" class="btn btn-primary me-2" routerLink="/request">Doctors Request</button>
+              
                 <button type="button" class="btn btn-primary me-2" routerLink="/result">Treatment Periods and
                   Result</button>
               </div>

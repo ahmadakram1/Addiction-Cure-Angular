@@ -34,57 +34,58 @@ export class PaymentTestComponent {
    }
     
    r=false
-   payment(){
-    
-    const yearString = this.paymentform.value.dateCard?.slice(0, 4) ?? '';
-    const year = parseInt(yearString);
-    const MonthString = this.paymentform.value.dateCard?.slice(5) ?? '';
-    const month = parseInt(MonthString);
-    let PaymentReq={
-      Amount:this.Amount,
-      name:this.sharedService.PatientById.firstname +" "+ this.sharedService.PatientById.lastname,
-      email: this.Email,
-      Currency : 'usd',
-      cvc:this.paymentform.value.cvcCard?.toString(),
-      cardNumber:this.paymentform.value.cardnumber?.toString(),
-      ExpMonth: month,
-      ExpYear:year
-    }
-    
-    this.patientService.CreateInvoce(PaymentReq)
-    if(this.patientService.PaymentTest!=null){
-
-      this.rout.navigate(["/requset"])
-      let date = new Date()
-    let createpay={
-      Amount:this.Amount,
-      patientid:this.sharedService.PatientById.patientid,
-      paydate: date,
-    }
- }
- else{
-  Swal.fire({
-    position: 'center',
-    icon: 'error',
-    title: 'The card number is not a valid credit card number!',
-    showConfirmButton: false,
-    timer: 1500
-  })
- }
-    
-  }
-
-
-  A?: boolean
-  ShowAError() {
-    this.A = true;
-  }
-  B?: boolean
-  ShowBError() {
-    this.B = true;
-  }
-  C?: boolean
-  ShowCError() {
-    this.C = true;
-  }
+   payment() {
+ 
+     const yearString = this.paymentform.value.dateCard?.slice(0, 4) ?? '';
+     const year = parseInt(yearString);
+     const MonthString = this.paymentform.value.dateCard?.slice(5) ?? '';
+     const month = parseInt(MonthString);
+     let PaymentReq = {
+       Amount: this.Amount,
+       name: this.sharedService.PatientById.firstname + " " + this.sharedService.PatientById.lastname,
+       email: this.Email,
+       Currency: 'usd',
+       cvc: this.paymentform.value.cvcCard?.toString(),
+       cardNumber: this.paymentform.value.cardnumber?.toString(),
+       ExpMonth: month,
+       ExpYear: year
+     }
+ 
+     this.patientService.CreateInvoce(PaymentReq)
+     if (this.patientService.PaymentTest != null) {
+       this.rout.navigate(["/request"])
+       this.dialog.closeAll()
+       let date = new Date()
+       let createpay = {
+         Amount: this.Amount,
+         patientid: this.sharedService.PatientById.patientid,
+         paydate: new Date(),
+       }
+       this.patientService.Createpayment(createpay)
+     }
+     else {
+       Swal.fire({
+         position: 'center',
+         icon: 'error',
+         title: 'The card number is not a valid credit card number!',
+         showConfirmButton: false,
+         timer: 1500
+       })
+     }
+ 
+   }
+ 
+ 
+   A?: boolean
+   ShowAError() {
+     this.A = true;
+   }
+   B?: boolean
+   ShowBError() {
+     this.B = true;
+   }
+   C?: boolean
+   ShowCError() {
+     this.C = true;
+   }
 }
