@@ -21,7 +21,7 @@
   <br>
 
   <div class="text-center mx-auto mb-5">
-    <h1 class="d-inline-block text-primary text-uppercase border-bottom border-5">Make Your Test Now</h1>
+    <h1 class="d-inline-block text-primary text-uppercase border-bottom border-5">Take Your Test Now</h1>
   </div>
 
   <div class="container">
@@ -30,27 +30,22 @@
     <div *ngIf="currentQuestionIndex < patientService.QuastionsByCategoryId.length">
       <div class="question">{{ patientService.QuastionsByCategoryId[currentQuestionIndex].quastion }} ?</div>
       <br>
-      <div class="as" style="margin-left: 2%;">
+      <div class="as" style="margin-left: 2%; margin-top: 10px;">
         <label>
           <input type="radio" name="answer" [value]=1 [(ngModel)]="selectedAnswer">
-          Yes
+          <span style="font-size: 25px;">Yes</span>
         </label>
         <label>
           <input type="radio" name="answer" [value]=0 [(ngModel)]="selectedAnswer" style="margin-top: 2%;">
-          No
+          <span style="font-size: 25px;">No</span>
         </label>
       </div>
       <br>
-      <div style="text-align: center;">
-        <div>
-          <button class="btn btn-success"
-            (click)="next(patientService.QuastionsByCategoryId[currentQuestionIndex].quastionid )">
-            Next Quastions</button>
-        </div>
-        <br>
-        <div>
+      <div  style="text-align: center;">
+        
+          <button class="btn btn-success"  (click)="next(patientService.QuastionsByCategoryId[currentQuestionIndex].quastionid )">  Next Quastions</button>
           <button class="btn btn-primary" routerLink="">Cancel Test</button>
-        </div>
+        
       </div>
     </div>
     <div *ngIf="currentQuestionIndex == patientService.QuastionsByCategoryId.length" style="text-align: center;">

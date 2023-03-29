@@ -1,6 +1,6 @@
 .container {
-	height: 55%;
-	width: 55%;
+	height: 60%;
+    width: 58%;
 	background: #f7f6f6;
 	border-radius: 11px;
 	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
@@ -70,4 +70,15 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+
+input[type=radio] {
+    border: 5px;
+    width: 80px;
+    height: 2em;
+}
+
+button{
+	margin-right: 10px;
 }
