@@ -1,3 +1,12 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
+    <p class="d-inline-block text-primary text-uppercase border-bottom border-5"
+        style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+
+</ngx-spinner>
+
+
+
+
 <div class="wrapper">
 
 <div class="layout-wrapper layout-content-navbar">
@@ -31,7 +40,7 @@
                                     <td>{{item.status}}</td> -->
                                     <td>
                                         <a type="button" class="btn btn-primary" (click)="accept(item.reqid,item.patientid,item.doctorid)">Accept Request</a>
-                                        <a type="button" class="btn btn-danger" style="margin-left: 2%;" (click)="reject(item.reqid)">Rejected Request</a>
+                                        <a type="button" class="btn btn-danger" style="margin-left: 2%;" (click)="reject(item.reqid)">Reject Request</a>
                                     </td>
                                   
                                 </tr>
