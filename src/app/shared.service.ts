@@ -629,7 +629,7 @@ async RegisterPatient(Register:any){
            icon: 'error',
            title: 'Your Email or Username is ALredy Uesd !!',
            showConfirmButton: false,
-           timer: 1500
+           timer: 2500
          })
         }
      },
