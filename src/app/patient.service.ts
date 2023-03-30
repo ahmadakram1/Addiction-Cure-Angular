@@ -304,7 +304,7 @@ UploadImage(imageFile : any)
            Swal.fire({
           position: 'center',
           icon: 'error',
-          title: 'Something went wrong!',
+          title: 'You should write test number above!',
           showConfirmButton: false,
           timer: 1500
         })

@@ -821,6 +821,7 @@ async Getrequst(doctorid: any) {
     {
       next: (res:any) => {     
         this.request = res.filter((d:any) => d.status == 0)
+        this.spinner.hide()
        resolve()
       },
       error: (err) => {
@@ -849,6 +850,7 @@ async GetrequstBypatid(patientid: any) {
     {
       next: (res:any) => {     
         this.requestBypat = res
+        this.spinner.hide()
        resolve()
       },
       error: (err) => {

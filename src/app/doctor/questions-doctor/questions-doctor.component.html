@@ -25,16 +25,16 @@
 
                         <div class="col-6">
                             <h1 style="text-align: center;"><b style="font-size: larger;">Questions Page</b></h1>
-                            <td><input type="button" value="Create" class="btn btn-dark" (click)="OpenCreateDialog()">
+                            <td><input type="button" style="margin-right: 5px;" value="Create" class="btn btn-dark" (click)="OpenCreateDialog()">
                                 <td><input type="button" value="Done" class="btn btn-dark"  (click)="Done()">
                             </td>
                         </div>
 
                         <div class="input-group mt-4 ">
                             <div class="input-group-prepend">
-                              <button class="btn btn-outline-secondary" type="button">Test number</button>
+                              <button class="btn btn-outline-secondary" disabled  type="button"><b>Test number</b></button>
                             </div>
-                            <input type="number" [formControl]="TestNumber"  width="70px" >
+                            <input type="number" autofocus [formControl]="TestNumber"  width="70px" >
                           </div>
 
                     </div>
@@ -46,14 +46,14 @@
                             <thead>
                                 <tr>
                                     <th>Question</th>
-                                    <th>Category</th>
+                                    <!-- <th>Category</th> -->
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of doctorservice.questionss">
                                     <td>{{item.quastion}}</td>
-                                    <td>{{item.categoryname}}</td>
+                                    <!-- <td>{{item.categoryname}}</td> -->
 
                                     <td>
                                         <input type="button" value="Add" class="btn btn-info"
@@ -104,7 +104,7 @@
             </div>
 
             <div mat-dialog-actions>
-                <input type="button" [disabled]="CreateQuestionsForm.invalid" value="Create" (click)="CreateQ()"
+                <input style="margin-right: 5px;" type="button" [disabled]="CreateQuestionsForm.invalid" value="Create" (click)="CreateQ()"
                     class="btn btn-dark" mat-dialog-close>
                 <input type="button" mat-dialog-close value="Cancel" class="btn btn-dark">
             </div>

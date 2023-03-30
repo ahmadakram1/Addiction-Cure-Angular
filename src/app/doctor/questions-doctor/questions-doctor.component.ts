@@ -71,6 +71,7 @@ export class QuestionsDoctorComponent implements OnInit{
 
 
   Done(){
+
    let result = {
     resulttest:"null",
     perioddate:"null",
@@ -81,6 +82,7 @@ export class QuestionsDoctorComponent implements OnInit{
     }
 
     this.doctorservice.CreateResult(result)
+    
   }
 
 }
