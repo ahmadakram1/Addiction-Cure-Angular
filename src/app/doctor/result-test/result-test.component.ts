@@ -10,44 +10,48 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './result-test.component.html',
   styleUrls: ['./result-test.component.css']
 })
-export class ResultTestComponent implements OnInit{
+export class ResultTestComponent implements OnInit {
 
-  @ViewChild("UpdateForm") update:any;
+  @ViewChild("UpdateForm") update: any;
 
 
-  UpdateResultTestForm= new FormGroup({
+  UpdateResultTestForm = new FormGroup({
 
-    resulttestid:new FormControl(""),
-    description:new FormControl(""),
-    perioddate:new FormControl(""),
-    numberoftest:new FormControl(""),
-    datetest:new FormControl(""),
-    patientid:new FormControl(""),
-    resulttest:new FormControl(""),
+    resulttestid: new FormControl(""),
+    description: new FormControl(""),
+    perioddate: new FormControl(""),
+    numberoftest: new FormControl(""),
+    datetest: new FormControl(""),
+    patientid: new FormControl(""),
+    resulttest: new FormControl(""),
 
   })
-  constructor(public doctorservice:DoctorsService,private dialog:MatDialog,public adminservice:AdminService,public sharedservice:SharedService){
+  constructor(public doctorservice: DoctorsService, private dialog: MatDialog, public adminservice: AdminService, public sharedservice: SharedService) {
 
   }
 
-
-  async ngOnInit(){
-    if(this.doctorservice.ResultByDocid==null){
-  await  this.doctorservice.getResultByDocid(this.sharedservice.DoctorByLoginId.doctodid)
+  x: any = localStorage.getItem("loginid")
+  async ngOnInit() {
+    if (this.doctorservice.ResultByDocid == null && this.x != null) {
+      await this.sharedservice.GetDoctorByLogInId(this.x)
+      await this.doctorservice.getResultByDocid(this.sharedservice.DoctorByLoginId.doctodid)
+    }
+    else {
+      this.sharedservice.DoctorByLoginId.doctodid = null
     }
   }
 
 
 
-  async openUpdateDialog(id:number){
-   await this.doctorservice.getResultTestById(id)
+  async openUpdateDialog(id: number) {
+    await this.doctorservice.getResultTestById(id)
     this.UpdateResultTestForm.patchValue(this.doctorservice.ResultTestById)
     this.dialog.open(this.update)
 
   }
 
 
-  async Update(){
+  async Update() {
     await this.doctorservice.UpdateResultTest(this.UpdateResultTestForm.value)
     this.doctorservice.getResultByDocid(this.sharedservice.DoctorByLoginId.doctodid)
 
