@@ -37,7 +37,7 @@ export class TestComponent {
   score: any = 0;
 
   next(id: number) {
-    if (this.selectedAnswer === 0) {
+    if (this.selectedAnswer === 1) {
       this.score++;
     }
     this.currentQuestionIndex++;
@@ -57,9 +57,9 @@ export class TestComponent {
     if (this.score != 0) {
       this.patientService.UpdateLevel(this.sharedService.PatientById.patientid, this.score.toString())
     }
-    else {
-      this.route.navigate([""])
-    }
+    // else {
+    //   this.route.navigate([""])
+    // }
   }
 
 

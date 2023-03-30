@@ -18,22 +18,22 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>UserName</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
+                                    <th>Request number</th>
+                                    <!-- <th>Name</th>
+                                    <th>Email</th> -->
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of this.sharedService.request">
-                                    <td>{{item.patientid}}</td>
-                                    <td>{{item.doctorid}}</td>
-                                    <td>{{item.status}}</td>
+                                <tr *ngFor="let item of this.sharedService.request let x = index " >
+                                    <td>{{x+1}}</td>
+                                    <!-- <td>{{item.doctorid}}</td>
+                                    <td>{{item.status}}</td> -->
                                     <td>
                                         <a type="button" class="btn btn-primary" (click)="accept(item.reqid,item.patientid,item.doctorid)">Accept Request</a>
                                         <a type="button" class="btn btn-danger" style="margin-left: 2%;" (click)="reject(item.reqid)">Rejected Request</a>
                                     </td>
-
+                                  
                                 </tr>
                             </tbody>
                         </table>
