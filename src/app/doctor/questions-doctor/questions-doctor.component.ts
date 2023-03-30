@@ -29,20 +29,19 @@ export class QuestionsDoctorComponent implements OnInit{
   constructor(private dialog: MatDialog, public adminservice: AdminService, public doctorservice: DoctorsService, public sharedservice: SharedService, public patienservice: PatientService) {
   }
 
-
+  x:any = localStorage.getItem("loginid")
   async ngOnInit() {
-    if(this.sharedservice.DoctorByLoginId==null){
+    if(this.sharedservice.DoctorByLoginId==null&&this.x!=null){
     await this.doctorservice.GetAllQuastionss()
+    await this.sharedservice.GetDoctorByLogInId(this.x)
     this.sharedservice.GetCategory()
     this.doctorservice.getpatientbydoctorid(this.sharedservice.DoctorByLoginId.doctodid)
     }else{
         await this.doctorservice.GetAllQuastionss()
         this.sharedservice.GetCategory()
+        this.sharedservice.DoctorByLoginId.doctodid=null
     }
-    
-
   }
-
 
 
   OpenCreateDialog() {
