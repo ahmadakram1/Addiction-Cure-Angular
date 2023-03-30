@@ -23,7 +23,7 @@ export class QuizesComponent {
     score:any=0;
     strScore:any
     next(id:number) {
-      if (this.selectedAnswer == 0) {
+      if (this.selectedAnswer == 1) {
         this.score++;
       }
       this.currentQuestionIndex++;

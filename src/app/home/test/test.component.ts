@@ -14,7 +14,7 @@ import { PaymentTestComponent } from '../payment-test/payment-test.component';
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
-
+  
 export class TestComponent {
   constructor(public sharedService: SharedService, public patientService: PatientService, public doctorService: DoctorsService, private route: Router, public dialog: MatDialog) { }
 

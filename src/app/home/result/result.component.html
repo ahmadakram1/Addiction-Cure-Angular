@@ -48,7 +48,7 @@
                                     <td *ngIf="item.description=='Pending'">
                                         <input type="button" disabled="true" (click)="numberOfTest(item.numberoftest ,item.resulttestid)" value="On hold" class="btn btn-success">
                                     </td>
-                                    <td *ngIf="item.description!='Pending'||item.description=='null'">
+                                    <td *ngIf="item.description!='Pending' && item.description!='null'">
                                         <input type="button"  disabled="true" (click)="numberOfTest(item.numberoftest ,item.resulttestid)" value="Completed" class="btn btn-success">
                                     </td>
                                 </tr>
