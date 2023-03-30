@@ -11,29 +11,33 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./request.component.css']
 })
 export class RequestComponent {
-  constructor(public adminService:AdminService ,public patientService :PatientService , public sharedService : SharedService,private route :Router){}
-async ngOnInit(){
-  
-let level:number = parseInt(this.sharedService.PatientById.level1)
-let cat:number=this.sharedService.PatientById.categoryid
-await this.adminService.GetAllDoctorsBylevel(level,cat)
-}
+  constructor(public adminService: AdminService, public patientService: PatientService, public sharedService: SharedService, private route: Router) { }
+  async ngOnInit() {
 
-name:any = new FormControl('');
+    let level: number = parseInt(this.sharedService.PatientById.level1)
+    let cat: number = this.sharedService.PatientById.categoryid
+    await this.adminService.GetAllDoctorsBylevel(level, cat)
+  }
 
-SearchDoctor(){
-  this.adminService.GetDocByName(this.name.value) 
-}
+  name: any = new FormControl('');
 
-async SelectDoctor(doctorid:number){
-let req:any ={
-  Doctorid:doctorid,
-  Patientid:this.sharedService.PatientById.patientid,
-  status:0
-}
-await this.sharedService.createRequest(req)
+  SearchDoctor() {
+    this.adminService.GetDocByName(this.name.value)
+  }
+
+  async SelectDoctor(doctorid: number) {
+
+    let req: any =
+    {
+      Doctorid: doctorid,
+      Patientid: this.sharedService.PatientById.patientid,
+      status: 0
+    }
+
+    await this.sharedService.createRequest(req)
 
 
-this.route.navigate(["/"])
-}
+    this.route.navigate(["/"])
+
+  }
 }
