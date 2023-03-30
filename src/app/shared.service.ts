@@ -602,7 +602,7 @@ async RegisterPatient(Register:any){
   Register.roleid=2
   Register.doctorid=null
   Register.level1=null
-
+  
   const header = {
     'Content-Type' : 'application/json',
     'Accept' : 'application/json'

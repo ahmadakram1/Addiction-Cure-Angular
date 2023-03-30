@@ -26,6 +26,26 @@ export class SignUpComponent {
 
   })
 
+  async Register() {
+    
+    let data2:any={
+      firstname:this.RegisterForm.value.firstname,
+      lastname:this.RegisterForm.value.lastname,
+      username:this.RegisterForm.value.username,
+      email:this.RegisterForm.value.email,
+      password:this.RegisterForm.value.password,
+      categoryid:parseInt(this.RegisterForm.value.categoryid?.slice(0,3)??''),
+    }
+    console.log(data2);
+    
+    let data = this.RegisterForm.value
+   const categoryId = parseInt(this.RegisterForm.value.categoryid?.slice(0,3)??'');
+      
+    
+    await this.shaerdService.RegisterPatient(data2)
+    this.toastr.success("Success Sign Up")
+    this.route.navigate(["/Auth/SignIn"])
+}
   ngOnInit() {
     this.shaerdService.GetCategory()
   }
@@ -41,7 +61,6 @@ export class SignUpComponent {
   ShowCError() {
     this.C = true;
   }
-
   D?: boolean
   ShowDError() {
     this.D = true;
@@ -58,17 +77,9 @@ export class SignUpComponent {
   F?: boolean
   ShowFError() {
     this.F = true;
-  }
+  } 
 
-  async Register() {
   
-      let data = this.RegisterForm.value
-      await this.shaerdService.RegisterPatient(data)
-      this.toastr.success("Success Sign Up")
-      this.route.navigate(["/Auth/SignIn"])
-   
-    
-  }
 
   UploadImage(input: any) // <input>
   {

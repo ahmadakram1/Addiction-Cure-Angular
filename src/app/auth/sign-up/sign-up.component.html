@@ -42,8 +42,6 @@
           Invalid <strong>Email</strong>
         </small>
 
-
-
         <input class="form__input" type="password" placeholder="Password" formControlName="password"
           (click)="ShowHError()">
         <small class="text-danger" *ngIf="RegisterForm.controls['password'].hasError('required') && H ==true ">
@@ -55,11 +53,11 @@
         </small>
 
         <label style="font-size: medium;">Please Select Your Addiction:</label>
-        <mat-form-field appearance="fill" style="width: 220px;">
-          <mat-select formControlName="categoryid">
-            <mat-option *ngFor="let item of shaerdService.Category" [value]="item.categoryid">{{item.categoryname}} </mat-option>
-          </mat-select>
-        </mat-form-field>
+        
+          <select  class="form__input"  formControlName="categoryid" type="number">
+            <option *ngFor="let item of shaerdService.Category" [value]="item.categoryid">{{item.categoryname}} </option>
+          </select>
+        
 
 
         <button class="form__button button submit" [disabled]="RegisterForm.invalid" (click)="Register()">SIGN
