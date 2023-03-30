@@ -93,8 +93,8 @@
                 <mat-form-field class="example-full-width">
                     <mat-label>Category</mat-label>
                     <mat-select formControlName="categoryid">
-                        <mat-option *ngFor="let item of sharedservice.Category" [value]="item.categoryid">
-                            {{item.categoryname}}
+                        <mat-option [value]="this.sharedservice.DoctorByLoginId.categoryid">
+                            {{this.sharedservice.DoctorByLoginId.categoryname}}
                         </mat-option>
                     </mat-select>
                     <mat-error *ngIf="CreateQuestionsForm.controls['categoryid'].hasError('required')">

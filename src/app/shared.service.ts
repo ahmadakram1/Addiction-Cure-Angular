@@ -792,7 +792,7 @@ createRequest(request:any){
             icon: 'success',
             title: 'Your request sent successfully , please wait till doctor accept your request',
             showConfirmButton: false,
-            timer: 1500
+            timer: 3000
           })
           resolve();
        },
