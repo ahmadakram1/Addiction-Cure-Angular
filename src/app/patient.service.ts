@@ -293,17 +293,14 @@ UploadImage(imageFile : any)
 
 
   CreateTest(Test: any) {
-    this.spinner.show()
     this.http.post("https://localhost:44373/api/Test", Test).subscribe(
       {
 
         next: () => {
-          this.spinner.hide();
 
 
         },
         error: (error) => {
-          this.spinner.hide();
            Swal.fire({
           position: 'center',
           icon: 'error',

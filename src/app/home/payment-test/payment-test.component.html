@@ -95,22 +95,35 @@
                             <input formControlName="cardnumber" class="full-width" id="card-num" (click)="ShowAError()"
                                 type="number" placeholder="1234 1234 123456" required>
                         </label>
+                        <!-- <small class="text-danger"
+                            *ngIf="paymentform.controls['cardnumber'].hasError('required') && A ==true ">
+                            Card Number is<strong>Required</strong>
+                        </small> -->
                         <label>Expiry
                             <input formControlName="dateCard" class="full-width" type="month" id="month-year"
                                 (click)="ShowBError()" name="month-year" placeholder="MM/YYYY" required>
                         </label>
+                        <!-- <small  class="text-danger"
+                            *ngIf="paymentform.controls['dateCard'].hasError('required') && B ==true ">
+                            Expiry date is<strong>Required</strong>
+                        </small> -->
                         <div class="expire-ccv">
                             <label>CCV
                                 <input formControlName="cvcCard" type="number" (click)="ShowCError()" placeholder="123"
                                     required style="width: 30%;">
                             </label>
+                            <!-- <small  class="text-danger"
+                                *ngIf="paymentform.controls['cvcCard'].hasError('required') && C ==true ">
+                                CVV Number is<strong>Required</strong>
+                            </small> -->
                         </div>
                     </div>
                 </div>
 
                 <h3>Amount : {{this.Amount}}</h3>
             </form>
-            <button class="button" [disabled]="paymentform.invalid" type="submit" (click)="payment()">Submit Payment</button>
+            <input class="button" [disabled]="paymentform.invalid" type="submit" value="Submit Payment"
+                (click)="payment()">
         </div>
     </div>
 </div>

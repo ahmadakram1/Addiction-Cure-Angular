@@ -22,24 +22,30 @@
 
                     <a routerLink="/Auth/SignIn" *ngIf="this.sharedService.PatientById==null" (click)="Wtostar()"
                         class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
-                         Take Test</a>
-                        <span *ngIf="this.sharedService.PatientById!=null">
+                        Take Test
+                    </a>
 
-                    <a routerLink="/Test" *ngIf="this.sharedService.PatientById.patientid!=null &&this.sharedService.PatientById.level1==null" 
-                    class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
-                    Take Test</a>
 
-                     <a  *ngIf="this.sharedService.PatientById.doctodid==null &&this.sharedService.PatientById.level1!=null"  && this.sharedService.PatientById.level1!="0"
-                    class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
-                    Please wait doctor response </a>
-                    
-                     <a routerLink="/result" *ngIf="this.sharedService.PatientById.doctodid!=null &&this.sharedService.PatientById.level1!=null" 
-                     class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
-                      see your result</a>
+                    <span *ngIf="this.sharedService.PatientById!=null">
+
+                        <a routerLink="/Test"
+                            *ngIf="this.sharedService.PatientById.patientid!=null &&this.sharedService.PatientById.level1==null"
+                            class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
+                            Take Test</a>
+
+                        <a *ngIf="this.sharedService.PatientById.doctodid==null &&this.sharedService.PatientById.level1!=null"
+                            && this.sharedService.PatientById.level1!="0"
+                            class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
+                            Please wait doctor response </a>
+
+                        <a routerLink="/result"
+                            *ngIf="this.sharedService.PatientById.doctodid!=null &&this.sharedService.PatientById.level1!=null"
+                            class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
+                            see your result</a>
                     </span>
-                  
-                              
-              
+
+
+
                 </div>
             </div>
         </div>

@@ -190,3 +190,7 @@ input:focus {
 button:hover {
 	background-color: #2a94f4;
 }
+
+strong{
+	color: red;
+}
