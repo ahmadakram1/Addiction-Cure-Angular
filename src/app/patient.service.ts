@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 })
 export class PatientService {
 
-  constructor(private http: HttpClient, private spinner: NgxSpinnerService) {
+  constructor(private http: HttpClient, private spinner: NgxSpinnerService,private tost:ToastrService) {
 
   }
 
@@ -297,7 +297,7 @@ UploadImage(imageFile : any)
       {
 
         next: () => {
-
+        this.tost.success("Question Added Successfully")
 
         },
         error: (error) => {
