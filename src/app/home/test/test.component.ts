@@ -27,7 +27,7 @@ export class TestComponent {
     await this.patientService.GetQuastionByCategoryId(this.sharedService.PatientById.categoryid)
     let x: number = parseInt(this.sharedService.PatientById.level1) * 5;
     this.Amount = parseInt(this.sharedService.PatientById.level1) * 30 + 50;
-    this.Email = this.sharedService.PatientById.email;
+  
   }
   zero = "no"
   one = "yes"
@@ -57,9 +57,7 @@ export class TestComponent {
     if (this.score != 0) {
       this.patientService.UpdateLevel(this.sharedService.PatientById.patientid, this.score.toString())
     }
-    // else {
-    //   this.route.navigate([""])
-    // }
+   
   }
 
 
@@ -80,77 +78,4 @@ export class TestComponent {
   }
 
 
-
-
-  //ng templet
-
-  Email: string = ""
-  paymentform = new FormGroup(
-    {
-      cardnumber: new FormControl('', [Validators.required]),
-      dateCard: new FormControl('', [Validators.required]),
-      cvcCard: new FormControl('', [Validators.required])
-    }
-  )
-
-
-
-  r = false
-  payment() {
-
-    const yearString = this.paymentform.value.dateCard?.slice(0, 4) ?? '';
-    const year = parseInt(yearString);
-    const MonthString = this.paymentform.value.dateCard?.slice(5) ?? '';
-    const month = parseInt(MonthString);
-    let PaymentReq = {
-      Amount: this.Amount,
-      name: this.sharedService.PatientById.firstname + " " + this.sharedService.PatientById.lastname,
-      email: this.Email,
-      Currency: 'usd',
-      cvc: this.paymentform.value.cvcCard?.toString(),
-      cardNumber: this.paymentform.value.cardnumber?.toString(),
-      ExpMonth: month,
-      ExpYear: year
-    }
-
-    this.patientService.CreateInvoce(PaymentReq)
-    if (this.patientService.PaymentTest != null) {
-      this.route.navigate(["/request"])
-      this.dialog.closeAll()
-      let date = new Date()
-      let createpay = {
-        Amount: this.Amount,
-        patientid: this.sharedService.PatientById.patientid,
-        paydate: date,
-      }
-      this.patientService.Createpayment(createpay)
-    }
-    else {
-      Swal.fire({
-        position: 'center',
-        icon: 'error',
-        title: 'The card number is not a valid credit card number!',
-        showConfirmButton: false,
-        timer: 1500
-      })
-    }
-
-  }
-
-
-  A?: boolean
-  ShowAError() {
-    this.A = true;
-  }
-  B?: boolean
-  ShowBError() {
-    this.B = true;
-  }
-  C?: boolean
-  ShowCError() {
-    this.C = true;
-  }
 }
-
-
-

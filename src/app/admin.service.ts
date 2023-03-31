@@ -412,6 +412,38 @@ export class AdminService {
   }
 
 
+  PaymentsbyPatid:any
+  GetPaymentsbyPatid(id:number) {
+    return new Promise<void>((resolve, reject) => {
+    this.spinner.show()
+    this.http.get("https://localhost:44373/api/payment/payment/"+id).subscribe(
+      {
+
+        next: (Result:any) => {
+          this.PaymentsbyPatid = Result;
+          this.spinner.hide()
+          console.log(this.PaymentsbyPatid);
+          
+          resolve()
+        },
+        error: (Error) => {
+
+          this.spinner.hide();
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Something went wrong!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+
+        }
+
+      }
+    )})
+  }
+
+
 
 
 

@@ -58,8 +58,8 @@
                   </div>
                 </div>
              
-                <button *ngIf="this.sharedservice.requestBypat==null"  type="button" class="btn btn-primary me-2" routerLink="/request">Doctors Request</button>
-              
+                <button *ngIf="this.sharedservice.requestBypat==null &&this.adminService.PaymentsbyPatid!=null"  type="button" class="btn btn-primary me-2" routerLink="/request">Doctors Request</button>
+                <button *ngIf="this.adminService.PaymentsbyPatid==null" (click)="OpenDialog()"  type="button" class="btn btn-primary me-2">Pay</button>
                 <button type="button" class="btn btn-primary me-2" routerLink="/result">Treatment Periods and
                   Result</button>
               </div>

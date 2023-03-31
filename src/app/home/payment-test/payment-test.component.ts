@@ -34,7 +34,7 @@ export class PaymentTestComponent {
    }
     
    r=false
-   payment() {
+  async payment() {
  
      const yearString = this.paymentform.value.dateCard?.slice(0, 4) ?? '';
      const year = parseInt(yearString);
@@ -51,10 +51,10 @@ export class PaymentTestComponent {
        ExpYear: year
      }
  
-     this.patientService.CreateInvoce(PaymentReq)
+    await this.patientService.CreateInvoce(PaymentReq)
      if (this.patientService.PaymentTest != null) {
+      this.dialog.closeAll()
        this.rout.navigate(["/request"])
-       this.dialog.closeAll()
        let date = new Date()
        let createpay = {
          Amount: this.Amount,

@@ -14,9 +14,10 @@ export class RequestComponent {
   constructor(public adminService: AdminService, public patientService: PatientService, public sharedService: SharedService, private route: Router) { }
   async ngOnInit() {
 
+    await this.adminService.GetPaymentsbyPatid(this.sharedService.PatientById.patientid)
     let level: number = parseInt(this.sharedService.PatientById.level1)
     let cat: number = this.sharedService.PatientById.categoryid
-    await this.adminService.GetAllDoctorsBylevel(level, cat)
+   await this.adminService.GetAllDoctorsBylevel(level, cat)
   }
 
   name: any = new FormControl('');

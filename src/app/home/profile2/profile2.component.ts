@@ -1,8 +1,10 @@
+import { Dialog } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PatientService } from 'src/app/patient.service';
 import { SharedService } from 'src/app/shared.service';
-
+import { PaymentTestComponent } from '../payment-test/payment-test.component';
+import { AdminService } from 'src/app/admin.service';
 @Component({
   selector: 'app-profile2',
   templateUrl: './profile2.component.html',
@@ -10,7 +12,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class Profile2Component {
  
-  constructor(public patientService: PatientService, public sharedservice: SharedService) { }
+  constructor(public patientService: PatientService, public sharedservice: SharedService , private dialog:Dialog ,public adminService:AdminService) { }
 
   UpdateProfile = new FormGroup
     (
@@ -35,6 +37,7 @@ export class Profile2Component {
         this.sharedservice.PatientById.patientid=null
       }
       this.sharedservice.GetrequstBypatid(this.sharedservice.PatientById.patientid)
+      this.adminService.GetPaymentsbyPatid(this.sharedservice.PatientById.patientid)
 
 
     this.UpdateProfile.patchValue({
@@ -103,6 +106,9 @@ export class Profile2Component {
     })
   }
 
+  OpenDialog() {
+      this.dialog.open(PaymentTestComponent)
+  }
 
 
   B?: boolean;
@@ -114,6 +120,5 @@ export class Profile2Component {
   ShowCErrorMessage() {
     this.C = true;
   }
-
 
 }
