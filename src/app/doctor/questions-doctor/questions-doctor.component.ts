@@ -16,15 +16,10 @@ export class QuestionsDoctorComponent implements OnInit{
   @ViewChild("CreateForm") Create: any;
 
   TestNumber = new FormControl("")
-
-
-
   CreateQuestionsForm = new FormGroup({
 
     quastion: new FormControl("", Validators.required),
     categoryid: new FormControl("", Validators.required)
-
-
   })
   constructor(private dialog: MatDialog, public adminservice: AdminService, public doctorservice: DoctorsService, public sharedservice: SharedService, public patienservice: PatientService) {
   }
@@ -42,8 +37,6 @@ export class QuestionsDoctorComponent implements OnInit{
         this.sharedservice.DoctorByLoginId.doctodid=null
     }
   }
-
-
   OpenCreateDialog() {
     this.dialog.open(this.Create)
   }
@@ -52,8 +45,6 @@ export class QuestionsDoctorComponent implements OnInit{
     await this.doctorservice.CreateQuastion(this.CreateQuestionsForm.value)
     this.doctorservice.GetAllQuastionss();
   }
-
-
 
   AddQuestiontoTest(QuestionID: number) {
 
