@@ -19,6 +19,7 @@ import { CategoryHomeComponent } from './category-home/category-home.component';
 import { ResultComponent } from './result/result.component';
 import { AllCategoryComponent } from './all-category/all-category.component';
 import { QuizesComponent } from './quizes/quizes.component';
+import { AnswersComponent } from './answers/answers.component';
 
 
 
@@ -39,6 +40,7 @@ import { QuizesComponent } from './quizes/quizes.component';
     ResultComponent,
     AllCategoryComponent,
     QuizesComponent,
+    AnswersComponent,
 
   ],
   imports: [

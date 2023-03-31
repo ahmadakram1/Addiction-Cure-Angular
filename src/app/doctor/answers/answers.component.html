@@ -1,0 +1,21 @@
+<app-doctor-side-bar></app-doctor-side-bar>
+<app-doctor-header></app-doctor-header>
+<div class="card mb-4">
+    <table class="table table-striped table-bordered table-sm row-border hover"
+        id="datatableexample">
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Answer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of this.doctorService.answers">
+                <td>{{item.quastion}}</td>
+                <td *ngIf="item.status==0">No</td>
+                <td *ngIf="item.status==1">Yes</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-doctor-footer></app-doctor-footer>

@@ -297,7 +297,6 @@ UploadImage(imageFile : any)
       {
 
         next: () => {
-        this.tost.success("Question Added Successfully")
 
         },
         error: (error) => {

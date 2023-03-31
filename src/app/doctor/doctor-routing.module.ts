@@ -6,6 +6,7 @@ import { QuestionsDoctorComponent } from './questions-doctor/questions-doctor.co
 import { ResultTestComponent } from './result-test/result-test.component';
 import { SentNewTestComponent } from './sent-new-test/sent-new-test.component';
 import { TreatmentRequestComponent } from './treatment-request/treatment-request.component';
+import { AnswersComponent } from './answers/answers.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,10 @@ const routes: Routes = [
     path: "SentNewTest",
     component: SentNewTestComponent
   },
+  {
+    path: "answer",
+    component: AnswersComponent
+  }
 
 
 

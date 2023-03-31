@@ -99,6 +99,14 @@ async CreateQuastion(Quastion: any) {
  }
 
 
+ TestNumber?:number
+ id?:number
+
+ answer(id:number , testNumber:number){
+  this.TestNumber=testNumber
+  this.id=id;
+ }
+
  async DeleteQuestion(id:number){
   return new Promise<void>((resolve,reject)=>{
     this.http.delete("https://localhost:44373/api/Quastion/delete/"+id).subscribe({
@@ -322,7 +330,30 @@ GetAllTest()
   )
 }
 
-
+answers:any=[]
+async Getanswers(id:number , testnumber:number)
+{
+  return new Promise<void>((resolve, reject) =>  {
+  this.spinner.show()
+  this.http.get("https://localhost:44373/API/Test/Getanswer/"+id+"/"+testnumber).subscribe(
+    {
+        next:(res)=>{
+        this.answers=res
+        this.spinner.hide()
+        resolve()
+        },
+        error:(err)=>{
+        this.spinner.hide()
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })}
+    }
+  )})
+}
 
 patientbydoctorid:any=[]
 async getpatientbydoctorid(DoctorId:number)

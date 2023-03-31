@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AdminService } from 'src/app/admin.service';
 import { DoctorsService } from 'src/app/doctors.service';
 import { SharedService } from 'src/app/shared.service';
@@ -26,7 +27,7 @@ export class ResultTestComponent implements OnInit {
     resulttest: new FormControl(""),
 
   })
-  constructor(public doctorservice: DoctorsService, private dialog: MatDialog, public adminservice: AdminService, public sharedservice: SharedService) {
+  constructor(public doctorservice: DoctorsService, private dialog: MatDialog, public adminservice: AdminService, public sharedservice: SharedService , private route:Router) {
 
   }
 
@@ -53,5 +54,11 @@ export class ResultTestComponent implements OnInit {
     await this.doctorservice.UpdateResultTest(this.UpdateResultTestForm.value)
     this.doctorservice.getResultByDocid(this.sharedservice.DoctorByLoginId.doctodid)
 
+  }
+
+
+  result(numberoftest:number,patientid:number){
+this.doctorservice.answer(patientid,numberoftest)
+this.route.navigate(["Doctor/answer"])
   }
 }

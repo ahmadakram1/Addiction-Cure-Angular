@@ -14,6 +14,7 @@ import { RequestComponent } from './request/request.component';
 import { ResultComponent } from './result/result.component';
 import { TestComponent } from './test/test.component';
 import { TestimoialComponent } from './testimoial/testimoial.component';
+import { AnswersComponent } from './answers/answers.component';
 
 const routes: Routes = [
   {
@@ -71,6 +72,10 @@ const routes: Routes = [
   {
     path: "Quiz",
     component: QuizesComponent
+  },
+  {
+    path: "answer",
+    component: AnswersComponent
   }
 
 ];

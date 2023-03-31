@@ -9,6 +9,7 @@ import { TreatmentRequestComponent } from './treatment-request/treatment-request
 import { QuestionsDoctorComponent } from './questions-doctor/questions-doctor.component';
 import { ResultTestComponent } from './result-test/result-test.component';
 import { SentNewTestComponent } from './sent-new-test/sent-new-test.component';
+import { AnswersComponent } from './answers/answers.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SentNewTestComponent } from './sent-new-test/sent-new-test.component';
     QuestionsDoctorComponent,
     ResultTestComponent,
     SentNewTestComponent,
+    AnswersComponent,
   ],
   imports: [
     CommonModule,
