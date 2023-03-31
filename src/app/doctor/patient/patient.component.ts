@@ -13,10 +13,10 @@ import { SharedService } from 'src/app/shared.service';
 export class PatientComponent {
 constructor(public patientService:PatientService ,public adminservice:AdminService, public doctorService:DoctorsService , public sharedService : SharedService,private route:Router){}
  
-x= localStorage.getItem("loginid")
+x= localStorage.getItem("loginid")?.toString()
 async ngOnInit(){
   if(this.sharedService.DoctorByLoginId==null){
-  await  this.sharedService.GetDoctorByLogInId(localStorage.getItem("loginid"))
+  await  this.sharedService.GetDoctorByLogInId(this.x)
   this.doctorService.getpatientbydoctorid(this.sharedService.DoctorByLoginId.doctodid)
   }else{
  this.doctorService.getpatientbydoctorid(this.sharedService.DoctorByLoginId.doctodid)}

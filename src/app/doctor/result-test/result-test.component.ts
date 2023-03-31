@@ -30,15 +30,13 @@ export class ResultTestComponent implements OnInit {
 
   }
 
-  x: any = localStorage.getItem("loginid")
+  x: any = localStorage.getItem("loginid")?.toString()
   async ngOnInit() {
     if (this.doctorservice.ResultByDocid == null && this.x != null) {
       await this.sharedservice.GetDoctorByLogInId(this.x)
       await this.doctorservice.getResultByDocid(this.sharedservice.DoctorByLoginId.doctodid)
     }
-    else {
-      this.sharedservice.DoctorByLoginId.doctodid = null
-    }
+   
   }
 
 
