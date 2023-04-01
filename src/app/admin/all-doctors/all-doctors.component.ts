@@ -84,7 +84,9 @@ export class AllDoctorsComponent  implements OnInit{
   async openDetalisDialog(Doctor_id: number) {
 
     await this.adminService.GetDoctorBydocId(Doctor_id);
-    this.dialog.open(this.Details);
+    this.dialog.open(this.Details,{
+      width: '400px',
+    });
   }
 
   OpenCreateDialog() {
