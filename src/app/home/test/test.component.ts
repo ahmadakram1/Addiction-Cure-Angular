@@ -8,6 +8,7 @@ import { PatientService } from 'src/app/patient.service';
 import { SharedService } from 'src/app/shared.service';
 import Swal from 'sweetalert2';
 import { PaymentTestComponent } from '../payment-test/payment-test.component';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-test',
@@ -16,7 +17,7 @@ import { PaymentTestComponent } from '../payment-test/payment-test.component';
 })
   
 export class TestComponent {
-  constructor(public sharedService: SharedService, public patientService: PatientService, public doctorService: DoctorsService, private route: Router, public dialog: MatDialog) { }
+  constructor(public sharedService: SharedService, public patientService: PatientService, public doctorService: DoctorsService, private route: Router, public dialog: MatDialog,public adminService:AdminService) { }
 
   @ViewChild("paymentTest") paymentx: any
 
@@ -27,7 +28,7 @@ export class TestComponent {
     await this.patientService.GetQuastionByCategoryId(this.sharedService.PatientById.categoryid)
     let x: number = parseInt(this.sharedService.PatientById.level1) * 5;
     this.Amount = parseInt(this.sharedService.PatientById.level1) * 30 + 50;
-  
+    this.patientService.getResultByPatid(this.sharedService.PatientById.patientid)
   }
   zero = "no"
   one = "yes"
@@ -53,9 +54,13 @@ export class TestComponent {
   }
 
 
-  PatinetLevel() {
+ async PatinetLevel() {
     if (this.score != 0) {
       this.patientService.UpdateLevel(this.sharedService.PatientById.patientid, this.score.toString())
+      console.log(this.patientService.ResultByPatid);
+      
+      if(this.patientService.ResultByPatid.length==0){
+      
       let result = {
         Resulttest:this.score.toString(),
         Description:null,
@@ -64,7 +69,9 @@ export class TestComponent {
         Datetest:new Date(),
         Patientid:this.sharedService.PatientById.patientid
       }
-      this.doctorService.CreateResult(result)
+     await this.doctorService.CreateResult(result)
+      this.patientService.getResultByPatid(this.sharedService.PatientById.patientid) 
+    }
     }
    
   }
