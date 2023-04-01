@@ -13,7 +13,7 @@ Chart.register(...registerables);
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css']
 })
-export class ReportComponent implements OnInit{
+export class ReportComponent implements OnInit {
 
   data: any;
   constructor(public adminService: AdminService, private sharedservice: SharedService,) {
@@ -42,10 +42,10 @@ export class ReportComponent implements OnInit{
 
       dom: 'Bfrtip',
       buttons: [
-    { extend: 'copy', className: 'btn-custom' },
-    { extend: 'excel', className: 'btn-custom' },
-    { extend: 'pdf', className: 'btn-custom' },
-    { extend: 'print', className: 'btn-custom'}
+        { extend: 'copy', className: 'btn-custom' },
+        { extend: 'excel', className: 'btn-custom' },
+        { extend: 'pdf', className: 'btn-custom' },
+        { extend: 'print', className: 'btn-custom' }
       ]
     };
 
