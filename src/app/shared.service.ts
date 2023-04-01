@@ -540,6 +540,48 @@ GetTestimonialByPatienId(TestimonialId:any){
 }
 
 
+
+async DeleteTestemoiall(id: number) {
+
+  return new Promise<void>((resolve, reject) => {
+    this.spinner.show
+    this.http.delete("https://localhost:44373/api/Testimonials/Delete/"+id).subscribe({
+
+      next: () => {
+        this.spinner.hide()
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Deleted successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        resolve()
+      },
+      error: () => {
+        this.spinner.hide()
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Something went wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        reject()
+
+      }
+
+    }
+    )
+  })
+}
+
+
+
+
+
+
+
 publish(TestimonialId:any){
   return new Promise<void>((resolve, reject) => {
   this.http.get("https://localhost:44373/API/Testimonials/publish/"+TestimonialId).subscribe(

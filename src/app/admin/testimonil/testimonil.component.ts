@@ -1,4 +1,6 @@
+import { Dialog } from '@angular/cdk/dialog';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -15,7 +17,7 @@ export class TestimonilComponent implements OnInit{
 @ViewChild("DeleteForm") Delete:any;
 @ViewChild("DetailsForm") Details:any;
 
-constructor(public sharedService:SharedService){}
+constructor(public sharedService:SharedService ,public dialog:MatDialog){}
 selected :any
 
 
@@ -39,4 +41,20 @@ async unpublish(id : number){
   this.sharedService.GetAllTestemonial()
  
 }
+
+selectedTestemonial = 0;
+OpenDeleteDialog(Testemonial_id: number) {
+  this.selectedTestemonial = Testemonial_id
+  this.dialog.open(this.Delete)
+}
+
+async DeleteTestemoiall() {
+  await this.sharedService.DeleteTestemoiall(this.selectedTestemonial);
+  this.sharedService.GetAllTestemonial()
+
+}
+
+
+
+
 }

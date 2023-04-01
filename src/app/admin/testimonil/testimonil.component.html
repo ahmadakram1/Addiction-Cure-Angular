@@ -39,7 +39,7 @@
                                     </td>
                                     <td *ngIf="item.status=='Publish'">
                                         <button class="btn btn-primary" (click)="unpublish(item.tesemonialid)">unpublish</button> 
-                                        <input type="button" value="Delete" class="btn btn-danger" style="margin-left: 2%;" > 
+                                        <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.tesemonialid)" style="margin-left: 2%;" > 
                                     </td>
                                 </tr>
                             </tbody>
@@ -75,6 +75,14 @@
 
 <ng-template #DeleteForm>
 
+
+    <div mat-dialog-content>
+        <h2 mat-dialog-content><b>Would you like to delete this Testemoial ?</b></h2>
+        <div mat-dialog-actions>
+            <input mat-dialog-close value="Yes" type="button" class="btn btn-danger" (click)="DeleteTestemoiall()">
+            <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
+        </div>
+    </div>
 
 </ng-template>
 

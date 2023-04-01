@@ -43,19 +43,15 @@
                             <thead>
                                 <tr>
                                     <th>Patient Name</th>
-                                    <th>Doctor Name</th>
                                     <th>Amount of Period</th>
-                                    <th>Number of Test</th>
                                     <th>Date of Test</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of adminService.reports  " >
                                     <td>{{item.patientfname+" "+item.patientlname}}</td>
-                                    <td>{{item.doctorfname+" "+item.doctorlname}}</td>
                                     <td>{{item.amount}}</td>
-                                    <td>{{item.numberoftest}}</td>
-                                    <td>{{item.datetest}}</td>
+                                    <td>{{item.paydate}}</td>
                                 </tr>
                                 
                             </tbody>
