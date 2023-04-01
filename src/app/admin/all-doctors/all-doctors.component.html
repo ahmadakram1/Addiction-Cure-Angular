@@ -61,10 +61,13 @@
 
 
 <ng-template #CreateForm>
-    <div mat-dialog-content style="background-color: darkgray; text-align: center;" >
-        <form [formGroup]="CreateDoctorForm" class="example-form">
+    <form [formGroup]="CreateDoctorForm" class="example-form">
+        <h2 mat-dialog-title align="center" >Create <a style="position: absolute; left: 95%;" mat-dialog-close=""  ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+          </svg></a></h2>
+    <div mat-dialog-content align="center" style="margin-left: 30px;" >
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <div>
                         <mat-form-field class="example-full-width">
                             <mat-label>First Name</mat-label>
@@ -102,7 +105,7 @@
                         </mat-form-field>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <div>
                         <mat-form-field class="example-full-width">
                             <mat-label>Email</mat-label>
@@ -121,15 +124,7 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <!-- <div>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Role </mat-label>
-                            <input type="number" matInput formControlName="Roleid">
-                            <mat-error *ngIf="CreateDoctorForm.controls['Roleid'].hasError('required')">
-                                Role id is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div> -->
+             
                     <div>
                         <mat-form-field appearance="fill">
                             <mat-label>category</mat-label>
@@ -140,21 +135,19 @@
                             </mat-select>
                         </mat-form-field>
                     </div>
-                </div>
-                <div mat-dialog-actions style="margin-top: -1%; margin-left: 20%;">
-                    <!-- <input type="file" #file (change)="UploadImage(file)"> -->
                     <div>
                         <input type="file" class="form-control" id="customFile" style="width: 73%;" #File required
                             (change)="UploadImage(File)" />
                     </div>
+                </div>
+                <div mat-dialog-actions align="center">
                     <input type="button" [disabled]="CreateDoctorForm.invalid" value="Create" class="btn btn-dark"
                         (click)="CreateDoctor()" mat-dialog-close>
-                    <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-danger"
-                        style="margin-left: 2%;">
                 </div>
             </div>
+        </div>
         </form>
-    </div>
+    
 </ng-template>
 
 

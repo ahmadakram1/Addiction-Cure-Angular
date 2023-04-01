@@ -42,7 +42,10 @@ export class ReportComponent implements OnInit{
 
       dom: 'Bfrtip',
       buttons: [
-        'copy', 'csv', 'excel', 'print'
+    { extend: 'copy', className: 'btn-custom' },
+    { extend: 'excel', className: 'btn-custom' },
+    { extend: 'pdf', className: 'btn-custom' },
+    { extend: 'print', className: 'btn-custom'}
       ]
     };
 
