@@ -44,13 +44,16 @@ export class PaymentTestComponent {
        Amount: this.Amount,
        name: this.sharedService.PatientById.firstname + " " + this.sharedService.PatientById.lastname,
        email: this.Email,
+       level:this.sharedService.PatientById.level1,
+       CategoryName:this.sharedService.PatientById.categoryname,
        Currency: 'usd',
        cvc: this.paymentform.value.cvcCard?.toString(),
        cardNumber: this.paymentform.value.cardnumber?.toString(),
        ExpMonth: month,
        ExpYear: year
      }
- 
+    console.log(PaymentReq);
+    
     await this.patientService.CreateInvoce(PaymentReq)
      if (this.patientService.PaymentTest != null) {
       this.dialog.closeAll()

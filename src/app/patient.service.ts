@@ -270,6 +270,8 @@ UploadImage(imageFile : any)
         next: (res) => {
           if(res == true){
           this.PaymentTest = res 
+          console.log(res);
+          
           resolve()}
           else{
             this.spinner.hide()
