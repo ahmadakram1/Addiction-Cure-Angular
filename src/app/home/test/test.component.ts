@@ -56,6 +56,15 @@ export class TestComponent {
   PatinetLevel() {
     if (this.score != 0) {
       this.patientService.UpdateLevel(this.sharedService.PatientById.patientid, this.score.toString())
+      let result = {
+        Resulttest:this.score.toString(),
+        Description:null,
+        Perioddate:null,
+        Numberoftest:1,
+        Datetest:new Date(),
+        Patientid:this.sharedService.PatientById.patientid
+      }
+      this.doctorService.CreateResult(result)
     }
    
   }
