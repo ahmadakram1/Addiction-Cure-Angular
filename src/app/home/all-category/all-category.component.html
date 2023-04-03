@@ -34,7 +34,7 @@
 
         <div class="card" *ngFor="let item of sharedService.Category">
           <div class="card__image-holder">
-            <img class="card__image" src="../../../assets/images/{{this.item.image}}" width="300" height="250" alt="wave" />
+            <img class="card__image" src="../../../assets/images/{{this.item.image}}" width="298" height="250" alt="wave" />
           </div>
           <div class="card-title">
             <a (click)="showmore()" class="toggle-info btn">
@@ -48,11 +48,6 @@
           <div class="card-flap flap1">
             <div class="card-description">
                 {{item.abouttext}}
-            </div>
-            <div class="card-flap flap2">
-              <div class="card-actions">
-                <a class="btn">Read more</a>
-              </div>
             </div>
           </div>
         </div>
