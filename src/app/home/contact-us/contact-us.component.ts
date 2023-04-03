@@ -26,7 +26,7 @@ export class ContactUsComponent {
   })
 
   ngOnInit() {
-  
+    this.shardService.getHomeById(2)
   }
 
   SendContact() {
