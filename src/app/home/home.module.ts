@@ -10,7 +10,6 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { SharedModule } from '../shared/shared.module';
 import { TestimoialComponent } from './testimoial/testimoial.component';
 import { DoctorsComponent } from './doctors/doctors.component';
-import { OutPutDoctorComponent } from './out-put-doctor/out-put-doctor.component';
 import { Profile2Component } from './profile2/profile2.component';
 import { TestComponent } from './test/test.component';
 import { PaymentTestComponent } from './payment-test/payment-test.component';
@@ -31,7 +30,6 @@ import { AnswersComponent } from './answers/answers.component';
     AboutUsComponent,
     TestimoialComponent,
     DoctorsComponent,
-    OutPutDoctorComponent,
     Profile2Component,
     TestComponent,
     PaymentTestComponent,

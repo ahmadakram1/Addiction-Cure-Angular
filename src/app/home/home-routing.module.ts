@@ -6,7 +6,6 @@ import { CategoryHomeComponent } from './category-home/category-home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { MainComponent } from './main/main.component';
-import { OutPutDoctorComponent } from './out-put-doctor/out-put-doctor.component';
 import { PaymentTestComponent } from './payment-test/payment-test.component';
 import { Profile2Component } from './profile2/profile2.component';
 import { QuizesComponent } from './quizes/quizes.component';
@@ -36,10 +35,6 @@ const routes: Routes = [
   {
     path: "Doctors",
     component: DoctorsComponent
-  },
-  {
-    path: "OutPutDoctor",
-    component: OutPutDoctorComponent
   },
   {
     path: "Profile2",

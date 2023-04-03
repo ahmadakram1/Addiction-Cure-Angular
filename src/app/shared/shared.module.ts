@@ -7,7 +7,6 @@ import { AdminFooterComponent} from './admin-footer/admin-footer.component';
 import { AdminSideBarComponent} from './admin-side-bar/admin-side-bar.component';
 import { RouterModule} from '@angular/router';
 import { NgxSpinnerModule} from "ngx-spinner";
-import { DoctorCardComponent} from './doctor-card/doctor-card.component';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
@@ -31,7 +30,6 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
     AdminHeaderComponent,
     AdminFooterComponent,
     AdminSideBarComponent,
-    DoctorCardComponent,
     DoctorFooterComponent,
     DoctorHeaderComponent,
     DoctorSideBarComponent,
@@ -54,7 +52,6 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
     DoctorHeaderComponent,
     DoctorSideBarComponent,
     NgxSpinnerModule,
-    DoctorCardComponent,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,

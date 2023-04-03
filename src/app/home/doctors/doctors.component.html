@@ -34,16 +34,33 @@
 
 
 <!-- Search Result Start -->
-<div class="container-fluid py-5">
-    <div class="container">
-        <div class="row g-5">
-            <!--doctor card -->
-            <!-- <app-doctor-card [img]="item.img"  [name]="item.name" [specialty]="item.specialty" [Description]="item.Description"  *ngFor="let item of items"  class="col-lg-6 team-item"></app-doctor-card> -->
-            <app-doctor-card *ngFor="let item of adminService.Doctors" [img]="item.imagename"  [fname]="item.firstname" [lname]="item.lastname"  [specialty]="item.level1" [Description]="item.patientacs" class="col-lg-6 team-item"></app-doctor-card> 
-            <!--end doctor card -->
+
+    <!-- Team Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s"  *ngFor="let item of adminService.Doctors">
+                    <div class="team-item">
+                        <div class="position-relative rounded-top" style="z-index: 1;">
+                            <img class="img-fluid rounded-top w-100" src="{{this.item.imagename}}" alt="image">
+                            <div class="position-absolute top-100 start-50 translate-middle bg-light rounded p-2 d-flex">
+                                <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-text position-relative bg-light text-center rounded-bottom p-4 pt-5">
+                            <h4 class="mb-2">Dr. {{this.item.firstname}} {{this.item.lastname}}</h4>
+                            <p class="text-primary mb-0">Level, level1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>  
+    <!-- Team End -->
+    
 <!-- Search Result End -->
 
 <!-- Doctors End -->
@@ -52,3 +69,6 @@
 <!-- Footer Start -->
 <app-home-footer></app-home-footer>
 <!-- Footer End -->
+
+
+   
